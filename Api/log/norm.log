@@ -1,0 +1,10 @@
+2017-05-09 23:36:31 - Database error: 42S22 (Line 245) in Tasks::all(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'project_id' in 'where clause'
+2017-05-09 23:37:06 - Database error: 42S22 (Line 245) in Tasks::all(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'project_id' in 'where clause'
+2017-05-10 01:05:34 - Database error: 42S22 (Line 245) in Tasks::all(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'project_id' in 'where clause'
+2017-05-10 17:39:19 - Database error: 42S22 (Line 245) in Tasks::all(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'project_id' in 'where clause'
+2017-05-10 17:40:16 - Database error: 42S22 (Line 245) in Tasks::all(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'project_id' in 'where clause'
+2017-05-15 23:55:46 - Database error: 42S02 (Line 149) in ::count(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'todo_list.project_task' doesn't exist
+2017-05-16 00:05:13 - Database error: 42S02 (Line 149) in ::count(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'todo_list.project_task' doesn't exist
+2017-05-16 00:10:56 - Database error: 42S02 (Line 149) in ::count(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'todo_list.project_task' doesn't exist
+2017-05-16 00:10:59 - Database error: 42S02 (Line 149) in ::count(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'todo_list.project_task' doesn't exist
+2017-05-16 00:40:50 - Database error: 42S02 (Line 148) in ::count(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'todo_list.project_task' doesn't exist

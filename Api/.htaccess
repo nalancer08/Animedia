@@ -1,0 +1,39 @@
+# Remove www. at the beginning of URLs
+<IfModule mod_rewrite.c>
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# Use UTF-8 encoding for anything served text/plain or text/html
+AddDefaultCharset utf-8
+
+# Force UTF-8 for a number of file formats
+AddCharset utf-8 .css .js .xml .json .rss .atom
+
+# Disable folder browsing
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
+
+# Rewrite rules for routing
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /appbuilders/apis/du/
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule .* index.php [L,QSA]
+</IfModule>
+
+# Enable PHP error logging
+php_flag  log_errors on
+php_value error_log  php_error.log
+# php_value error_reporting 8
+
+# Prevent access to PHP error log
+<Files php_error.log>
+ Order allow,deny
+ Deny from all
+ Satisfy All
+</Files>

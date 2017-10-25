@@ -1,0 +1,97 @@
+{
+	"serviceUrl":"http://localhost/appbuilders/apis/du",
+	"flags":{
+		"version": true,
+		"token": true
+	},
+	"endpoints": {
+		"status": {
+			"method": "get",
+			"endpoint": "/status",
+			"parameters": []
+		},
+		"token": {
+			"method": "post",
+			"endpoint": "/token",
+			"parameters": [
+				"app_id"
+			]
+		},
+		"login": {
+			"method": "post",
+			"endpoint": "/login",
+			"parameters": [
+				"user",
+				"pass"
+			]
+		},
+		"task/new": {
+			"method": "post",
+			"endpoint": "/task/new",
+			"parameters": [
+				"user_id",
+				"bearer",
+				"parent_id",
+				"content",
+				"priority",
+				"shared",
+				"end"
+			]
+		},
+		"tasks": {
+			"method": "post",
+			"endpoint": "/tasks/",
+			"parameters": [
+				"user_id",
+				"bearer"
+			]
+		},
+		"project/new": {
+			"method": "post",
+			"endpoint": "/project/new",
+			"parameters": [
+				"user_id",
+				"bearer",
+				"name",
+				"description",
+				"image_id"
+			]
+		},
+		"projects": {
+			"method": "post",
+			"endpoint": "/projects",
+			"parameters": [
+				"user_id",
+				"bearer"
+			]
+		},
+
+
+		"project": {
+			"method": "get",
+			"endpoint": "/project/{project_id}",
+			"parameters": []
+		},
+		"project_post": {
+			"method": "post",
+			"endpoint": "/project/{project_id}",
+			"parameters": [
+				"name",
+				"description"
+			]
+		},
+		"task": {
+			"method": "get",
+			"endpoint": "/task/{task_id}",
+			"parameters": []
+		},
+		"task_post": {
+			"method": "post",
+			"endpoint": "/task/{task_id}",
+			"parameters": [
+				"parent_task_id",
+				"text"
+			]
+		}
+	}
+}

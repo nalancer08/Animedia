@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Apio - API console</title>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/magnific-popup.css">
+		<style>
+			.well > *:last-child {
+				margin-bottom: 0;
+			}
+			.alert-default {
+				background: #F5F5F5;
+				border: 1px solid #CCCCCC;
+			}
+			.presets-menu li a .method {
+				color: #888;
+				font-size: 80%;
+				margin-right: 5px;
+				text-align: right;
+				text-transform: uppercase;
+				width: 30px;
+				display: inline-block;
+				*display: inline;
+				*zoom: 1;
+			}
+			.response .alert {
+				margin-bottom: 10px;
+			}
+			.response .body {
+				min-height: 200px;
+			}
+			.response .headers {
+				min-height: 100px;
+			}
+			.response pre {
+				white-space: pre-wrap;
+			}
+			.mfp-white {
+				position: relative;
+				background: #FFF;
+				padding: 20px;
+				width: auto;
+				max-width: 500px;
+				margin: 20px auto;
+			}
+			.mfp-container h2 {
+				margin: 0 0 15px;
+			}
+			.navbar .navbar-brand {
+				background: url('images/logo-sm.png') center center no-repeat;
+				width: 100px;
+				text-indent: 200%;
+				white-space: nowrap;
+				overflow: hidden;
+				display: block;
+			}
+			.navbar-default {
+				background: #FFF;
+				border-bottom: none;
+				border-radius: 0;
+				padding-bottom: 2px;
+				/* box-shadow */
+				-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+				box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Apio</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#dialog-about" data-popup="inline">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="alert alert-danger alert-ie hide"><strong>Your browser may not support this app</strong>, please use a modern, standards compliant browser (<a target="_blank" href="http://www.mozilla.org/firefox/new/" class="alert-link">Firefox</a>, <a target="_blank" href="http://www.google.com/chrome" class="alert-link">Chrome</a> or <a target="_blank" href="http://www.opera.com/download" class="alert-link">Opera</a> recommended)</div>
+			<form id="console" action="" method="post">
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<select name="method" id="method" class="form-control">
+								<option value="get">GET</option>
+								<option value="post">POST</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-10">
+						<div class="form-group endpoint">
+							<div class="input-group">
+								<input type="text" name="endpoint" id="endpoint" class="form-control" placeholder="Endpoint (ex. /status)">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-down"></i></button>
+									<ul class="dropdown-menu dropdown-menu-right presets-menu" role="menu">
+										<!--  -->
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="request">
+							<div class="form-group parameter parameter-version">
+								<div class="row">
+									<div class="col-md-5">
+										<input type="text" class="form-control" readonly="readonly" value="Version">
+									</div>
+									<div class="col-md-7">
+										<input type="text" name="version" id="version" class="form-control" value="1.0">
+									</div>
+								</div>
+							</div>
+							<div class="form-group parameter parameter-token">
+								<div class="row">
+									<div class="col-md-5">
+										<input type="text" class="form-control" readonly="readonly" value="Token">
+									</div>
+									<div class="col-md-7">
+										<input type="text" name="token" id="token" class="form-control" placeholder="Value">
+									</div>
+								</div>
+							</div>
+							<div class="parameters">
+								<!--  -->
+							</div>
+							<div class="form-group text-right">
+								<a href="#" class="btn btn-primary btn-add"><i class="fa fa-plus"></i> Add parameter</a>
+								<button class="btn btn-success" type="submit"><i class="fa fa-flash"></i> <span>Execute request</span></button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="response">
+							<div class="alert alert-default">--</div>
+							<pre class="body">--</pre>
+							<pre class="headers">--</pre>
+						</div>
+					</div>
+				</div>
+			</form>
+			<script type="text/template" id="tpl-parameter">
+				<div class="form-group parameter">
+					<div class="row">
+						<div class="col-md-5">
+							<input type="text" name="name[]" id="name[]" class="form-control" placeholder="Name">
+						</div>
+						<div class="col-md-7">
+							<div class="input-group">
+								<input type="text" name="value[]" id="value[]" class="form-control" placeholder="Value">
+								<span class="input-group-btn">
+									<a href="#" class="btn btn-primary btn-remove btn-block"><i class="fa fa-times"></i></a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</script>
+			<div id="dialog-about" class="mfp-hide mfp-white">
+				<h2><img src="images/logo-lg.png" alt="Apio"></h2>
+				<p>
+					<span>A simple console for API testing.</span><br>
+					<span>And it's good for you, with just 12 kcal per 100 g (3.5 oz)</span>
+				</p>
+				<p>
+					<small>Version 1.0</small><br>
+					<small>Copyright &copy; 2016 The WebChimp.</small><br>
+					<small>All rights reserved.</small>
+				</p>
+				<p>Licensed under the MIT License</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.0.6/jquery.browser.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript">
+			var templates = {};
+			var app = {
+				flags: null,
+				apiUrl: 'http://localhost/apio/api/',
+				apiCall: function(options) {
+					var obj = this,
+						opts = $.extend(true, {
+							endpoint: '/status',
+							method: 'get',
+							data: {},
+							apiUrl: obj.apiUrl,
+							apiToken: 'XXXXX',
+							apiVersion: '1.0',
+							success: $.noop,
+							error: $.noop
+						}, options)
+						flags = $.extend(true, {
+							version: true,
+							token: ''
+						}, app.flags),
+					$.ajax({
+						url: opts.apiUrl + (flags.version ? '/' + opts.apiVersion : '') + opts.endpoint + (flags.token && opts.apiToken ? '/?token=' + opts.apiToken : ''),
+						type: opts.method,
+						data: opts.data,
+						success: function(response, status, xhr) {
+							opts.success.call(obj, response, status, xhr);
+						},
+						error: function(xhr, status, error) {
+							opts.error.call(obj, xhr, status, error);
+						}
+					});
+				}
+			};
+			jQuery(document).ready(function($) {
+				templates = {
+					parameter: _.template( $('#tpl-parameter').html() )
+				};
+				var presetsMenu = $('.presets-menu'),
+					presets = [];
+				presetsMenu.append('<li><a href="#">No presets</a></li>');
+				$.getJSON('api.json', function(json){
+					app.apiUrl = json.serviceUrl.replace(/\/+$/, '');
+					app.flags = json.flags;
+					presets = json.endpoints;
+					if (presets) {
+						presetsMenu.empty();
+						_.each(presets, function(preset) {
+							var li = $('<li><a href="#"><span class="method">'+ preset.method + '</span> ' + preset.endpoint +'</a></li>');
+							presetsMenu.append(li);
+							li.data('preset', preset);
+						});
+					}
+					// Hide fields that are not required
+					if (! app.flags.version ) {
+						$('.parameter-version').hide();
+					}
+					if (! app.flags.token ) {
+						$('.parameter-token').hide();
+					}
+				});
+				$('[data-popup=inline]').magnificPopup({ type: 'inline' });
+				$('#console').on('submit', function() {
+					var token = $('#token').val(),
+						version = $('#version').val(),
+						endpoint = $('#endpoint').val(),
+						method = $('#method').val(),
+						alert = $('.response .alert'),
+						body = $('.response .body'),
+						headers = $('.response .headers'),
+						parameters = $('.parameter'),
+						button = $('button[type=submit]');
+					//
+					alert.attr('class', 'alert alert-default');
+					alert.text('--');
+					headers.text('--');
+					body.text('--');
+					button.prop({ disabled: true }).find('span').text('Executing request...');
+					//
+					var fields = {};
+					parameters.each(function() {
+						var el = $(this),
+							name = el.find('input[name^=name]').val(),
+							value = el.find('input[name^=value]').val();
+						fields[ name ] = value;
+					});
+					//
+					app.apiCall({
+						apiToken: token,
+						apiVersion: version,
+						endpoint: endpoint,
+						method: method,
+						data: fields,
+						success: function(response, status, xhr) {
+							button.prop({ disabled: false }).find('span').text('Execute request');
+							alert.attr('class', 'alert alert-success');
+							alert.text(xhr.status + ': ' + xhr.statusText);
+							headers.text( method.toUpperCase() + ' ' + app.apiUrl + endpoint + '\n' + xhr.getAllResponseHeaders() );
+							if ( xhr.getResponseHeader('content-type') == 'application/json' ) {
+								body.text( JSON.stringify($.parseJSON(xhr.responseText), null, 2) );
+							} else {
+								body.text( xhr.responseText );
+							}
+						},
+						error: function(xhr, status, error) {
+							button.prop({ disabled: false }).find('span').text('Execute request');
+							var alert = $('.response .alert');
+							alert.attr('class', 'alert alert-danger');
+							alert.text(xhr.status + ': ' + xhr.statusText);
+						}
+					});
+					return false;
+				});
+				$('.btn-add').on('click', function(e) {
+					e.preventDefault();
+					var markup = templates.parameter();
+					markup = $(markup);
+					markup.hide();
+					$('.parameters').append( markup );
+					markup.fadeIn();
+				});
+				$('.endpoint').on('click', 'li a', function(e) {
+					e.preventDefault();
+					var el = $(this),
+						li = el.closest('li'),
+						preset = li.data('preset'),
+						parameters = $('.parameters');
+					if (! preset ) {
+						return;
+					}
+					$('#endpoint').val( preset.endpoint );
+					$('#method').val( preset.method );
+					parameters.empty();
+					_.each(preset.parameters, function(parameter) {
+						var markup = templates.parameter();
+						markup = $(markup);
+						parameters.append(markup);
+						markup.find('input[name^=name]').val(parameter);
+					});
+				});
+				$('.request').on('click', '.btn-remove', function(e) {
+					e.preventDefault();
+					var el = $(this);
+					el.closest('.parameter').fadeOut( el.detach );
+				});
+				if ( $.browser.msie ) {
+					$('.alert-ie').removeClass('hide');
+				}
+			});
+		</script>
+	</body>
+</html>
