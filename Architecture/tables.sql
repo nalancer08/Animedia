@@ -76,21 +76,52 @@ CREATE TABLE IF NOT EXISTS anime (
 	year INT(20) NOT NULL,
 	created DATETIME NOT NULL,
 	modified DATETIME NOT NULL,
-	PRIMARY KEY pk_id (id)
+	PRIMARY KEY pk_id (id),
+	UNIQUE uk_anime_name (name),
+	KEY idx_name (name)
+) DEFAULT CHARACTER SET = UTF8;
+
+-- This table handle meta information for users
+CREATE TABLE IF NOT EXISTS anime_meta (
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	anime_id BIGINT NOT NULL,
+	name VARCHAR(200) NOT NULL,
+	value TEXT NOT NULL,
+	PRIMARY KEY pk_id (id),
+	UNIQUE uk_anime_name (anime_id, name),
+	KEY idx_anime_name (anime_id, name),
+	KEY idx_name (name)
 ) DEFAULT CHARACTER SET = UTF8;
 
 -- Type: 1 - chapter, 2 - ova, 3 - movie, 4 - special
--- Audio: 1 - jp/sub, 2 - latino
+-- Audio: 1 - jp/spa, 2 - latino
 CREATE TABLE IF NOT EXISTS media (
 	id BIGINT NOT NULL AUTO_INCREMENT,
+	anime_id BIGINT NOT NULL,
 	number INT(100) NOT NULL,
 	name VARCHAR(255) NOT NULL,
 	description VARCHAR(255) NOT NULL,
-	type INT(2) NOT NULL,
-	audio INT(2) NOT NULL,
+	type VARCHAR(50) NOT NULL,
+	audio VARCHAR(50) NOT NULL,
 	created DATETIME NOT NULL,
 	modified DATETIME NOT NULL,
-	PRIMARY KEY pk_id (id)
+	PRIMARY KEY pk_id (id),
+	UNIQUE uk_media_number (anime_id, number, type, audio),
+	KEY idx_anime (anime_id),
+	KEY idx_type (type),
+	KEY idx_audio (audio)
+) DEFAULT CHARACTER SET = UTF8;
+
+-- This table handle meta information for users
+CREATE TABLE IF NOT EXISTS media_meta (
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	media_id BIGINT NOT NULL,
+	name VARCHAR(200) NOT NULL,
+	value TEXT NOT NULL,
+	PRIMARY KEY pk_id (id),
+	UNIQUE uk_media_name (media_id, name),
+	KEY idx_media_name (media_id, name),
+	KEY idx_name (name)
 ) DEFAULT CHARACTER SET = UTF8;
 
 CREATE TABLE IF NOT EXISTS genre (
