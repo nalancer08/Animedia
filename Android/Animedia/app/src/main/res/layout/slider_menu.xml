@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.appbuilders.animedia.Controls.RoundedImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/user_defualt"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/userPicture" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/userName"
+        android:textColor="@color/black"
+        android:textAlignment="gravity"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:text=""
+        android:layout_below="@+id/userPicture"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="18dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textColor="@color/black"
+        android:text="Animes"
+        android:background="@drawable/border_top_bottom"
+        android:textAlignment="gravity"
+        android:textSize="30dp"
+        android:id="@+id/menu_animes"
+        android:paddingLeft="15dp"
+        android:gravity="left|center"
+        android:layout_below="@+id/userName"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textColor="@color/black"
+        android:text="Configuraciones"
+        android:background="@drawable/border_top_bottom"
+        android:textAlignment="gravity"
+        android:textSize="30dp"
+        android:id="@+id/menu_config"
+        android:paddingLeft="15dp"
+        android:gravity="left|center"
+        android:layout_below="@+id/menu_animes"
+        android:layout_alignParentStart="true" />
+
+    <com.facebook.login.widget.LoginButton
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:textAlignment="center"
+        android:id="@+id/loginFb"
+        android:layout_marginBottom="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

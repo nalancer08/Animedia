@@ -2,18 +2,17 @@ package com.appbuilders.animedia.Views;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.widget.AbsoluteLayout;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.appbuilders.animedia.Adapter.LastAnimeAdapter;
 import com.appbuilders.animedia.BuildConfig;
-import com.appbuilders.animedia.Controller.MenuController;
+import com.appbuilders.animedia.Controller.DailyMotionPlayer;
 import com.appbuilders.animedia.Controls.CutListView;
 import com.appbuilders.animedia.Core.Anime;
 import com.appbuilders.animedia.Implement.LastAnimesListImp;
@@ -58,7 +57,6 @@ public class HomeViewFixed extends SurfaceActivityView {
         super(context, fullScreen);
     }
 
-
     @Override
     public void onCreateView() {
 
@@ -94,6 +92,13 @@ public class HomeViewFixed extends SurfaceActivityView {
                 setOnScrollSelectedItem(position);
             }
         }));
+
+        this.list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                gotoAnimePlayer(i-2);
+            }
+        });
 
         listPanel.setView(this.list);
         this.addView(this.list);
@@ -174,7 +179,9 @@ public class HomeViewFixed extends SurfaceActivityView {
     private void setImageFromUrl(String url, ImageView view) {
 
         SfScreen screen = SfScreen.getInstance(this.context);
-        Picasso.with(this.context).load(url).resize(screen.getScreenAxis(SfScreen.ScreenWidth), screen.getScreenAxis(SfScreen.ScreenHeight)).into(view);
+        Picasso.with(this.context).load(url).
+                placeholder(R.drawable.placeholder).
+                resize(screen.getScreenAxis(SfScreen.ScreenWidth), screen.getScreenAxis(SfScreen.ScreenHeight)).into(view);
     }
 
     public View getViewByPosition(int pos, ListView listView) {
@@ -189,6 +196,36 @@ public class HomeViewFixed extends SurfaceActivityView {
         } else {
             final int childIndex = pos - firstListItemPosition;
             return listView.getChildAt(childIndex);
+        }
+    }
+
+    protected void gotoAnimePlayer(int position) {
+
+        Intent intent;
+
+        try {
+
+            JSONObject anime = this.animes.getJSONObject(position);
+                JSONObject media = anime.getJSONObject("media");
+                    String mediaUrl = media.getString("url");
+
+            // Checking if it's media DailyMotion
+            if (mediaUrl.contains("http://www.dailymotion.com/embed/video/")) {
+
+                String dailyId = mediaUrl.replace("http://www.dailymotion.com/embed/video/", "");
+                media.put("dailyId", dailyId);
+
+                // Re-adding media into the anime
+                anime.put("media", media);
+
+                intent = new Intent(this.context, DailyMotionPlayer.class);
+                intent.putExtra("anime", anime.toString());
+                this.activity.startActivity(intent);
+            }
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 

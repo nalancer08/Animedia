@@ -36,15 +36,14 @@ dependencies {
 
     compile 'com.mxn.soul:flowingdrawer-core:2.0.0'
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.afollestad:easyvideoplayer:0.3.0'
+    compile 'com.brouding:android-simple-dialog:0.3.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.dailymotion.dailymotion-sdk-android:sdk:0.1.12'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
 
     // Extra
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.afollestad:easyvideoplayer:0.3.0'
-    compile 'com.dailymotion.dailymotion-sdk-android:sdk:0.1.12'
-    compile 'com.brouding:android-simple-dialog:0.3.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.twotoasters.jazzylistview:library:1.2.1'
-    compile 'com.twotoasters.jazzylistview:library-recyclerview:1.2.1'
     testCompile 'junit:junit:4.12'
 }

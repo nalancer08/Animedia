@@ -9,7 +9,7 @@
     android:clipToPadding="false"
     app:edPosition="1"
     app:edMenuSize="260dp"
-    app:edMenuBackground="@color/whiteTrans">
+    app:edMenuBackground="@color/whiteTrans2">
 
     <!--content-->
     <AbsoluteLayout
@@ -25,13 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/id_container_menu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-        </RelativeLayout>
+        <include layout="@layout/slider_menu"/>
 
     </com.mxn.soul.flowingdrawer_core.FlowingMenuLayout>
 

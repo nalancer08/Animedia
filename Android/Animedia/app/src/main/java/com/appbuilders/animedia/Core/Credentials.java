@@ -26,6 +26,9 @@ public class Credentials {
     private String key = "8f6952dfc83073f80afbc048857d52d533a57970";
     private String url = "";
 
+    protected int user_id = 0;
+    protected String user_bearer = "";
+
     private String currentVersion = "";
 
     public static Credentials getInstance(Context context) {
@@ -87,7 +90,7 @@ public class Credentials {
 
     public String getUserId() {
 
-        String prefString = this.getPreference("user");
+        String prefString = this.getPreference("userLogin");
 
         if (!prefString.equals("")) {
 
@@ -142,6 +145,11 @@ public class Credentials {
             }
         }
         return "";
+    }
+
+    public void setUserLogin(JSONObject object ) {
+
+        this.savePreference("userLogin", object.toString());
     }
 
     private JSONObject getDataof(String preference) {
