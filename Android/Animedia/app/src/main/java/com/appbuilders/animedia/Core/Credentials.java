@@ -90,15 +90,35 @@ public class Credentials {
 
     public String getUserId() {
 
-        String prefString = this.getPreference("userLogin");
+        String dataString = this.getPreference("userLogin");
 
-        if (!prefString.equals("")) {
+        if (!dataString.equals("")) {
 
             try {
 
-                JSONObject object = JsonFileManager.stringToJSON(prefString);
-                JSONObject user = object.getJSONObject("user");
-                String id = user.getString("id");
+                JSONObject data = JsonFileManager.stringToJSON(dataString);
+                    JSONObject user = data.getJSONObject("user");
+                        String id = user.getString("id");
+                return id;
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return "";
+    }
+
+    public String getUserFbid() {
+
+        String dataString = this.getPreference("userLogin");
+
+        if (!dataString.equals("")) {
+
+            try {
+
+                JSONObject data = JsonFileManager.stringToJSON(dataString);
+                JSONObject user = data.getJSONObject("user");
+                String id = user.getString("fbid");
                 return id;
 
             } catch (JSONException e) {
@@ -110,16 +130,16 @@ public class Credentials {
 
     public String getNicename() {
 
-        String prefString = this.getPreference("user");
+        String dataString = this.getPreference("userLogin");
 
-        if (!prefString.equals("")) {
+        if (!dataString.equals("")) {
 
             try {
 
-                JSONObject object = JsonFileManager.stringToJSON(prefString);
-                JSONObject user = object.getJSONObject("user");
-                String id = user.getString("nicename");
-                return id;
+                JSONObject data = JsonFileManager.stringToJSON(dataString);
+                    JSONObject user = data.getJSONObject("user");
+                        String nicename = user.getString("nicename");
+                return nicename;
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -130,14 +150,14 @@ public class Credentials {
 
     public String getBearer() {
 
-        String prefString = this.getPreference("user");
+        String dataString = this.getPreference("userLogin");
 
-        if (!prefString.equals("")) {
+        if (!dataString.equals("")) {
 
             try {
 
-                JSONObject object = JsonFileManager.stringToJSON(prefString);
-                String bearer = object.getString("bearer");
+                JSONObject object = JsonFileManager.stringToJSON(dataString);
+                    String bearer = object.getString("bearer");
                 return bearer;
 
             } catch (JSONException e) {
@@ -150,6 +170,11 @@ public class Credentials {
     public void setUserLogin(JSONObject object ) {
 
         this.savePreference("userLogin", object.toString());
+    }
+
+    public boolean existsPreviousLogin() {
+
+        return this.existsPreference("userLogin");
     }
 
     private JSONObject getDataof(String preference) {

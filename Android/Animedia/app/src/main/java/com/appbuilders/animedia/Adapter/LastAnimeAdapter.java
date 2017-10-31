@@ -24,7 +24,7 @@ import com.appbuilders.surface.SfScreen;
  * Revision 1 - 26/10/17
  */
 
-public class LastAnimeAdapter extends  ArrayAdapter<Anime> {
+public class LastAnimeAdapter extends ArrayAdapter<Anime> {
 
     public JSONArray data;
     public Context context;
@@ -38,6 +38,7 @@ public class LastAnimeAdapter extends  ArrayAdapter<Anime> {
         this.animes = animes;
         this.addedViews = new ArrayList<>();
     }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

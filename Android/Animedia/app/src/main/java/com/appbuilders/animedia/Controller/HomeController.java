@@ -148,7 +148,7 @@ public class HomeController extends AppCompatActivity {
      **/
     protected void login(final JSONObject json) {
 
-        Credentials credentials = Credentials.getInstance(this);
+        final Credentials credentials = Credentials.getInstance(this);
 
         String id = "";
         String email = "";
@@ -196,6 +196,10 @@ public class HomeController extends AppCompatActivity {
                 try {
 
                     if (res.getString("result").equals("success") && res.getInt("code") == 200) {
+
+                        Log.d("DXGO", "USER RESULT ::: " + res.getJSONObject("data").toString());
+                        // Saving userLogin
+                        credentials.setUserLogin(res.getJSONObject("data"));
 
                         // Filling views fields
                         parseLogin(finalImageUrl, finalName);
@@ -285,7 +289,11 @@ public class HomeController extends AppCompatActivity {
         this.menu_animes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Animes", Toast.LENGTH_SHORT).show();
+
+                String animes = getIntent().getStringExtra("latestAnimes");
+                Intent intent = new Intent(HomeController.this, AnimesController.class);
+                intent.putExtra("animes", animes);
+                startActivity(intent);
             }
         });
 

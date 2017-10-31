@@ -11,14 +11,13 @@
 
     <color name="black">#000</color>
     <color name="blackTrans">#80000000</color>
-
     <color name="trans">#00FFFFFF</color>
-
 
     <color name="yellowItemSelected">#EDB200</color>
     <color name="itemMenuBackground">#515E65</color>
 
 
+    <color name="animesBackground">#3D3F41</color>
 
     <!--
 

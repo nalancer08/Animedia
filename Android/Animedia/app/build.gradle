@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.appbuilders.animedia"
         minSdkVersion 19
@@ -24,7 +24,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion '25.3.0'
+                }
+            }
+        }
+    }
 }
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -34,6 +45,7 @@ dependencies {
     // Libraries
     compile project(':surface-release')
 
+    // Extra
     compile 'com.mxn.soul:flowingdrawer-core:2.0.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.afollestad:easyvideoplayer:0.3.0'
@@ -41,9 +53,8 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.dailymotion.dailymotion-sdk-android:sdk:0.1.12'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
-
-    // Extra
-    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
     testCompile 'junit:junit:4.12'
 }

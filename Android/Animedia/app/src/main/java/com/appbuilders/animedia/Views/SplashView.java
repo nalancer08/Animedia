@@ -103,7 +103,7 @@ public class SplashView extends SurfaceActivityView {
 
     private void askForLatestAnimes(Credentials credentials) {
 
-        ReSTClient rest = new ReSTClient(credentials.getUrl() + "/animes/latest");
+        ReSTClient rest = new ReSTClient(credentials.getUrl() + "/animes/latest/medias");
         ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_POST, "");
         request.addParameter("token", credentials.getToken());
         rest.execute(request, new ReSTCallback() {
