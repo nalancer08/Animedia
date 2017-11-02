@@ -12,7 +12,8 @@ public class MainActivity extends AppCompatActivity implements EasyVideoCallback
 
     //private static final String TEST_URL = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
     //private static final String TEST_URL = "http://www.dailymotion.com/embed/video/x1ade3x";
-    private static final String TEST_URL = "//www.dailymotion.com/embed/video/k4mTupurPBY66DpeM8d?autoPlay=1";
+    //private static final String TEST_URL = "//www.dailymotion.com/embed/video/k4mTupurPBY66DpeM8d?autoPlay=1";
+    private static final String TEST_URL = "http://s3.animeyt.tv/mega.php?v=ZDB3VUFlTjhZRS9xT2dJc1Z6Z3JLQjd3ZUhrdld2WFpuenc5S09oRWF0SUlteko5L2NaQVBzTFIzbWplZlJreA==";
 
     private EasyVideoPlayer player;
 

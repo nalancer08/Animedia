@@ -6,4 +6,5 @@
     android:layout_height="match_parent"
     tools:context="com.appbuilders.animedia.Controller.AnimesController">
 
+
 </android.support.constraint.ConstraintLayout>

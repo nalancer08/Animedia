@@ -9,17 +9,13 @@ import android.view.View;
 import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appbuilders.animedia.Adapter.AlphabetAdapter;
 import com.appbuilders.animedia.Adapter.AnimeAdapter;
-import com.appbuilders.animedia.Adapter.LastAnimeAdapter;
 import com.appbuilders.animedia.Controls.SpacesItemDecoration;
 import com.appbuilders.animedia.Core.Credentials;
 import com.appbuilders.animedia.Implement.AlphabetListImp;
-import com.appbuilders.animedia.Implement.LastAnimesListImp;
-import com.appbuilders.animedia.Libraries.JsonBuilder;
 import com.appbuilders.animedia.Libraries.JsonFileManager;
 import com.appbuilders.animedia.Libraries.Rester.ReSTCallback;
 import com.appbuilders.animedia.Libraries.Rester.ReSTClient;
@@ -29,10 +25,15 @@ import com.appbuilders.animedia.Listener.OnScrollListViewMiddle;
 import com.appbuilders.animedia.R;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by Erick Sanchez - App Builders CTO
@@ -47,16 +48,23 @@ public class AnimesView extends SurfaceActivityView {
         SfPanel latestPanel;
         SfPanel AZPanel;
         SfPanel genresPanel;
+        SfPanel searchPanel;
     SfPanel contentPanel;
     SfPanel slideLettersPanel;
+    SfPanel adPanel;
 
     RecyclerView masonry;
-
     ListView alphabetList;
+    AdView mAdView;
 
     String[] alphabet = this.context.getResources().getStringArray(R.array.alphabet);
     View prevView;
     AnimeAdapter adapter;
+    ArrayList<SfPanel> tabsPanelArray;
+    int currentTab = 0;
+
+    // Variables to save previous request
+
 
     public AnimesView(Context context) {
         super(context);
@@ -83,11 +91,13 @@ public class AnimesView extends SurfaceActivityView {
         this.tabsMenuPanel = new SfPanel();
         this.contentPanel = new SfPanel();
         this.slideLettersPanel = new SfPanel();
-        this.screen.append(tabsMenuPanel).append(contentPanel).append(slideLettersPanel);
+        this.adPanel = new SfPanel();
+        this.screen.append(tabsMenuPanel).append(contentPanel).append(slideLettersPanel).append(this.adPanel);
 
         // Setting views
         this.createTabs();
         this.createMasonryLayout();
+        this.createAd();
 
         // Screen update
         this.screen.update(this.context);
@@ -95,14 +105,26 @@ public class AnimesView extends SurfaceActivityView {
 
     private void createTabs() {
 
+        this.tabsPanelArray = new ArrayList<>();
+
         this.latestPanel = new SfPanel();
         Button latestView = new Button(this.context);
-        latestView.setText("Latest");
+        latestView.setText("Ulltimos");
         latestView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         latestView.setBackgroundResource(R.color.yellowItemSelected);
         latestView.setTextColor(Color.WHITE);
-        latestPanel.setView(latestView).setSize(-33.33333f, -100);
+        latestPanel.setView(latestView).setSize(-25, -100);
         this.addView(latestView);
+        this.tabsPanelArray.add(this.latestPanel);
+        latestView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (currentTab != 0) {
+                    setCurrentTab(0);
+                }
+            }
+        });
 
         this.AZPanel = new SfPanel();
         Button AZView = new Button(this.context);
@@ -110,41 +132,87 @@ public class AnimesView extends SurfaceActivityView {
         AZView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         AZView.setBackgroundResource(R.color.blackTrans);
         AZView.setTextColor(Color.WHITE);
-        AZPanel.setView(AZView).setSize(-33.33333f, -100);
+        AZPanel.setView(AZView).setSize(-25, -100);
         this.addView(AZView);
+        this.tabsPanelArray.add(this.AZPanel);
         AZView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                askForAscAnimes();
+
+                if (currentTab != 1) {
+                    setCurrentTab(1);
+                    askForAscAnimes();
+                }
             }
         });
 
         this.genresPanel = new SfPanel();
         Button genresView = new Button(this.context);
-        genresView.setText("Genres");
+        genresView.setText("Generos");
         genresView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         genresView.setBackgroundResource(R.color.blackTrans);
         genresView.setTextColor(Color.WHITE);
-        genresPanel.setView(genresView).setSize(-33.33333f, -100);
+        genresPanel.setView(genresView).setSize(-25, -100);
+        this.tabsPanelArray.add(this.genresPanel);
         this.addView(genresView);
+        genresView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        this.tabsMenuPanel.append(latestPanel).append(AZPanel).append(genresPanel);
+                if (currentTab != 2) {
+                    setCurrentTab(2);
+                }
+            }
+        });
+
+
+        this.searchPanel = new SfPanel();
+        Button searchView = new Button(this.context);
+        searchView.setText("Buscar");
+        searchView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        searchView.setBackgroundResource(R.color.blackTrans);
+        searchView.setTextColor(Color.WHITE);
+        this.searchPanel.setView(searchView).setSize(-25, -100);
+        this.addView(searchView);
+        this.tabsPanelArray.add(this.searchPanel);
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (currentTab != 3) {
+                    setCurrentTab(3);
+                }
+            }
+        });
+
+        this.tabsMenuPanel.append(latestPanel).append(AZPanel).append(genresPanel).append(searchPanel);
         this.tabsMenuPanel.setSize(-100, -8);
     }
 
     private void createMasonryLayout() {
-
-        String animesString = this.activity.getIntent().getStringExtra("animes");
-        JSONArray animes = JsonBuilder.stringToJsonArray(animesString);
 
         this.masonry = new RecyclerView(this.context);
         this.masonry.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         this.masonry.setAdapter(null);
         this.masonry.addItemDecoration(new SpacesItemDecoration(16));
 
-        this.contentPanel.setView(this.masonry).setSize(-100, -92);
+        this.contentPanel.setView(this.masonry).setSize(-100, -82);
         this.slideLettersPanel.setSize(0, 0);
         this.addView(this.masonry);
+    }
+
+    private void createAd() {
+
+        this.mAdView = new AdView(this.context);
+        this.mAdView.setAdUnitId("ca-app-pub-8714411824921031/8988263733");
+        // Add logic for banner sizes
+        this.mAdView.setAdSize(AdSize.BANNER);
+        this.adPanel.setView(this.mAdView).setSize(-100, -10);
+        this.addView(this.mAdView);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
     }
 
     protected void askForLatestAnimes() {
@@ -202,8 +270,8 @@ public class AnimesView extends SurfaceActivityView {
     protected void askForAscAnimes() {
 
         //this.masonry.setAdapter(null);
-        this.contentPanel.setSize(-90, -92);
-        this.slideLettersPanel.setSize(-10, -92);
+        this.contentPanel.setSize(-90, -82);
+        this.slideLettersPanel.setSize(-10, -82);
 
         this.alphabetList = new ListView(this.context);
         alphabetList.setBackgroundResource(R.color.blackTrans);
@@ -301,6 +369,20 @@ public class AnimesView extends SurfaceActivityView {
             final int childIndex = pos - firstListItemPosition;
             return listView.getChildAt(childIndex);
         }
+    }
+
+    // Methods for tabs
+    protected void setCurrentTab(int position) {
+
+        for(int i = 0; i < this.tabsPanelArray.size(); i++) {
+
+            SfPanel tabPanel = this.tabsPanelArray.get(i);
+            tabPanel.getView().setBackgroundResource(R.color.blackTrans);
+            if (i == position) {
+                tabPanel.getView().setBackgroundResource(R.color.yellowItemSelected);
+            }
+        }
+        this.currentTab = position;
     }
 
 }
