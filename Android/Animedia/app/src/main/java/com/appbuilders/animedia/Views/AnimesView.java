@@ -16,6 +16,7 @@ import com.appbuilders.animedia.Adapter.AnimeAdapter;
 import com.appbuilders.animedia.Controls.SpacesItemDecoration;
 import com.appbuilders.animedia.Core.Credentials;
 import com.appbuilders.animedia.Implement.AlphabetListImp;
+import com.appbuilders.animedia.Libraries.JsonBuilder;
 import com.appbuilders.animedia.Libraries.JsonFileManager;
 import com.appbuilders.animedia.Libraries.Rester.ReSTCallback;
 import com.appbuilders.animedia.Libraries.Rester.ReSTClient;
@@ -53,6 +54,8 @@ public class AnimesView extends SurfaceActivityView {
     SfPanel slideLettersPanel;
     SfPanel adPanel;
 
+    SfPanel genresContentPanel;
+
     RecyclerView masonry;
     ListView alphabetList;
     AdView mAdView;
@@ -62,9 +65,6 @@ public class AnimesView extends SurfaceActivityView {
     AnimeAdapter adapter;
     ArrayList<SfPanel> tabsPanelArray;
     int currentTab = 0;
-
-    // Variables to save previous request
-
 
     public AnimesView(Context context) {
         super(context);
@@ -84,9 +84,6 @@ public class AnimesView extends SurfaceActivityView {
         // Setting background
         this.screenCanvas.setBackgroundResource(R.color.animesBackground);
 
-        // Ask for latest animes
-        this.askForLatestAnimes();
-
         // Setting panels
         this.tabsMenuPanel = new SfPanel();
         this.contentPanel = new SfPanel();
@@ -94,10 +91,18 @@ public class AnimesView extends SurfaceActivityView {
         this.adPanel = new SfPanel();
         this.screen.append(tabsMenuPanel).append(contentPanel).append(slideLettersPanel).append(this.adPanel);
 
+        // Setting sub panels
+        this.genresContentPanel = new SfPanel();
+        this.contentPanel.append(this.genresContentPanel);
+        this.makeItScrollable(this.genresContentPanel, "genresContentScroll");
+
         // Setting views
         this.createTabs();
         this.createMasonryLayout();
         this.createAd();
+
+        // Ask for latest animes
+        this.askForLatestAnimes();
 
         // Screen update
         this.screen.update(this.context);
@@ -121,7 +126,11 @@ public class AnimesView extends SurfaceActivityView {
             public void onClick(View view) {
 
                 if (currentTab != 0) {
+
+                    setLettersSide(false);
                     setCurrentTab(0);
+                    askForLatestAnimes();
+                    screen.update(context);
                 }
             }
         });
@@ -140,6 +149,8 @@ public class AnimesView extends SurfaceActivityView {
             public void onClick(View view) {
 
                 if (currentTab != 1) {
+
+                    setLettersSide(true);
                     setCurrentTab(1);
                     askForAscAnimes();
                 }
@@ -160,7 +171,10 @@ public class AnimesView extends SurfaceActivityView {
             public void onClick(View view) {
 
                 if (currentTab != 2) {
+
+                    setLettersSide(false);
                     setCurrentTab(2);
+                    getGenres();
                 }
             }
         });
@@ -219,75 +233,83 @@ public class AnimesView extends SurfaceActivityView {
 
         this.credentials = Credentials.getInstance(this.context);
 
-        if (credentials.existsPreviousLogin()) {
+        if (!credentials.existsPreference("latestAnimes")) {
+            if (credentials.existsPreviousLogin()) {
 
-            ReSTClient rest = new ReSTClient(credentials.getUrl() + "/animes/latest");
-            ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_POST, "");
-            request.addParameter("token", credentials.getToken());
-            request.addField("user_id", credentials.getUserId());
-            request.addField("bearer", credentials.getBearer());
-            rest.execute(request, new ReSTCallback() {
+                ReSTClient rest = new ReSTClient(credentials.getUrl() + "/animes/latest");
+                ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_POST, "");
+                request.addParameter("token", credentials.getToken());
+                request.addField("user_id", credentials.getUserId());
+                request.addField("bearer", credentials.getBearer());
+                rest.execute(request, new ReSTCallback() {
 
-                @Override
-                public void onSuccess(ReSTResponse response) {
+                    @Override
+                    public void onSuccess(ReSTResponse response) {
 
-                    Log.d("AB_DEV", "RESPUESTA = " + response.body);
+                        JSONObject res = JsonFileManager.stringToJSON(response.body);
+                        try {
 
-                    JSONObject res = JsonFileManager.stringToJSON(response.body);
+                            if (res.getString("result").equals("success") && res.getInt("code") == 200) {
 
-                    try {
+                                final JSONArray array = res.getJSONArray("data");
+                                fillGrid(array);
+                                credentials.savePreference("latestAnimes", array.toString());
 
-                        if (res.getString("result").equals("success") && res.getInt("code") == 200) {
+                            } else {
+                                //showErrorAlert("Error", "Problemas de conexión");
+                            }
 
-                            JSONArray animes = res.getJSONArray("data");
-                            adapter = new AnimeAdapter(context, animes);
-                            masonry.setAdapter(adapter);
-
-                        } else {
-                            //showErrorAlert("Error", "Problemas de conexión");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
                     }
-                }
 
-                @Override
-                public void onError(ReSTResponse response) {
+                    @Override
+                    public void onError(ReSTResponse response) {
 
-                    String errorMessage;
-                    if (response.statusCode == 404) {
-                        errorMessage = "HUMAN used SEARCH\nBut, it failed!";
-                    } else {
-                        errorMessage = "Error " + Integer.toString(response.statusCode);
+                        String errorMessage;
+                        if (response.statusCode == 404) {
+                            errorMessage = "HUMAN used SEARCH\nBut, it failed!";
+                        } else {
+                            errorMessage = "Error " + Integer.toString(response.statusCode);
+                        }
+                        Toast.makeText(context, "Try again!!", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Try again!!", Toast.LENGTH_SHORT).show();
-                }
-            });
+                });
+            }
+        } else {
+            this.fillGrid(JsonBuilder.stringToJsonArray(credentials.getPreference("latestAnimes")));
         }
     }
 
     protected void askForAscAnimes() {
 
-        //this.masonry.setAdapter(null);
-        this.contentPanel.setSize(-90, -82);
-        this.slideLettersPanel.setSize(-10, -82);
+        if (this.alphabetList == null) {
 
-        this.alphabetList = new ListView(this.context);
-        alphabetList.setBackgroundResource(R.color.blackTrans);
-        alphabetList.setAdapter(null);
-        alphabetList.setAdapter(new AlphabetAdapter(this.context, this.alphabet));
-        alphabetList.setOnScrollListener(new AlphabetListImp(new OnScrollListViewMiddle() {
-            @Override
-            public void onMiddle(int position) {
-                //Log.d("AB_DEV", "Position :::: " + position + " ::::::: " + alphabet[position]);
-            }
+            this.setLettersSide(true);
+            this.alphabetList = new ListView(this.context);
+            alphabetList.setBackgroundResource(R.color.blackTrans);
+            alphabetList.setAdapter(null);
+            alphabetList.setAdapter(new AlphabetAdapter(this.context, this.alphabet));
+            alphabetList.setOnScrollListener(new AlphabetListImp(new OnScrollListViewMiddle() {
+                @Override
+                public void onMiddle(int position) {
+                    //Log.d("AB_DEV", "Position :::: " + position + " ::::::: " + alphabet[position]);
+                }
 
-            @Override
-            public void onScrollMove(int position) {
-                setOnScrollSelectedItem(position);
-            }
-        }));
+                @Override
+                public void onScrollMove(int position) {
+                    setOnScrollSelectedItem(position);
+                }
+            }));
+            this.slideLettersPanel.setView(alphabetList);
+            this.addView(alphabetList);
+            this.screen.update(this.context);
+
+        } else {
+
+            screen.update(context);
+        }
 
         // Asking to the server the animes
         if (credentials != null && credentials.existsPreviousLogin()) {
@@ -329,17 +351,42 @@ public class AnimesView extends SurfaceActivityView {
                 }
             });
         }
+    }
 
-        this.slideLettersPanel.setView(alphabetList);
-        this.addView(alphabetList);
+    protected void getGenres() {
+
+        this.genresContentPanel.setSize(-100, -100);
+        this.adapter.clear();
+
+        for (int i = 0; i < 200; i++) {
+
+            SfPanel cachito = new SfPanel();
+            View vii = new View(this.context);
+
+            Integer c1 = i + (int)(Math.random() * ((255 - i) + i));
+            Integer c2 = i + (int)(Math.random() * ((254 - i) + i));
+            Integer c3 = i + (int)(Math.random() * ((253 - i) + i));
+
+            vii.setBackgroundColor(Color.rgb(c1, c2, c3));
+
+            this.genresContentPanel.append(cachito);
+            cachito.setSize(-33.33333f, -10).setView(vii).
+                    setMargin(i*5, 0, 20, 0).setKey("i-" + i);
+            this.addToScroll("genresContentScroll", vii);
+        }
 
         this.screen.update(this.context);
     }
 
-    protected void fillGrid(final JSONArray animes) {
+    protected void fillGrid(JSONArray animes) {
 
-        this.masonry.setAdapter(null);
-        this.masonry.setAdapter(new AnimeAdapter(context, animes));
+        if (this.adapter == null) {
+            this.adapter = new AnimeAdapter(context, animes);
+            masonry.setAdapter(this.adapter);
+        } else {
+            this.adapter.clear();
+            this.adapter.addNews(animes);
+        }
     }
 
     private void setOnScrollSelectedItem(int position) {
@@ -385,4 +432,22 @@ public class AnimesView extends SurfaceActivityView {
         this.currentTab = position;
     }
 
+    protected void setLettersSide(boolean set) {
+
+        if (set) {
+
+            this.contentPanel.setSize(-90, -82);
+            this.slideLettersPanel.setSize(-10, -82);
+
+        } else {
+
+            this.contentPanel.setSize(-100, -82);
+            this.slideLettersPanel.setSize(0, 0);
+        }
+    }
+
+    protected void removeGenresPanel() {
+
+        this.genresContentPanel.setSize(0, 0);
+    }
 }

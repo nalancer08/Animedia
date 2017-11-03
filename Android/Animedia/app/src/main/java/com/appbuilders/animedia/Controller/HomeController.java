@@ -137,8 +137,8 @@ public class HomeController extends AppCompatActivity {
      **/
     protected void removePreviousSession() {
 
-        Credentials.getInstance(getApplicationContext()).deletePreference("userLoginFB");
-        Credentials.getInstance(getApplicationContext()).deletePreference("userLogin");
+        Credentials.getInstance(getApplicationContext()).removePreference("userLoginFB");
+        Credentials.getInstance(getApplicationContext()).removePreference("userLogin");
         this.userPicture.setImageResource(R.drawable.user_defualt);
         this.userName.setText("");
     }
