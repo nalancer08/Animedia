@@ -181,7 +181,7 @@ public class HomeViewFixed extends SurfaceActivityView {
         SfScreen screen = SfScreen.getInstance(this.context);
         Picasso.with(this.context).load(url).
                 placeholder(R.drawable.placeholder).
-                resize(screen.getScreenAxis(SfScreen.ScreenWidth), screen.getScreenAxis(SfScreen.ScreenHeight)).into(view);
+                resize(screen.getScreenAxis(SfScreen.ScreenWidth), screen.getScreenAxis(SfScreen.ScreenHeight) + 80).into(view);
     }
 
     public View getViewByPosition(int pos, ListView listView) {

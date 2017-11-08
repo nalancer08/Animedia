@@ -93,7 +93,7 @@ public class AscAnimesView extends SurfaceActivityView {
         this.masonry.setAdapter(null);
         this.masonry.addItemDecoration(new SpacesItemDecoration(16));
 
-        this.contentPanel.setView(this.masonry).setSize(-90, -100);
+        this.contentPanel.setView(this.masonry).setSize(-90, -82);
         this.addView(this.masonry);
     }
 
@@ -213,5 +213,4 @@ public class AscAnimesView extends SurfaceActivityView {
             this.adapter.addNews(animes);
         }
     }
-
 }

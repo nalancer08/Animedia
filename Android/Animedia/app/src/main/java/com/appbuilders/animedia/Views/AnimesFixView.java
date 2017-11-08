@@ -2,13 +2,17 @@ package com.appbuilders.animedia.Views;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.View;
 import android.widget.AbsoluteLayout;
 import android.widget.Button;
 
 import com.appbuilders.animedia.Core.Credentials;
 import com.appbuilders.animedia.Fragment.AscAnimes;
+import com.appbuilders.animedia.Fragment.GenresAnimes;
 import com.appbuilders.animedia.Fragment.LatestAnimes;
+import com.appbuilders.animedia.Fragment.SearchAnimes;
+import com.appbuilders.animedia.Libraries.TouchSwipe;
 import com.appbuilders.animedia.R;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
@@ -58,6 +62,9 @@ public class AnimesFixView extends SurfaceActivityView {
         // Setting background
         this.screenCanvas.setBackgroundResource(R.color.animesBackground);
 
+        // Setting swipe event
+        //this.onSwipe(this.activity.getWindow());
+
         // Setting panels
         this.tabsMenuPanel = new SfPanel();
         this.contentPanel = new SfPanel();
@@ -84,7 +91,7 @@ public class AnimesFixView extends SurfaceActivityView {
 
         this.latestPanel = new SfPanel();
         Button latestView = new Button(this.context);
-        latestView.setText("Ulltimos");
+        latestView.setText("Ultimos");
         latestView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         latestView.setBackgroundResource(R.color.yellowItemSelected);
         latestView.setTextColor(Color.WHITE);
@@ -140,6 +147,7 @@ public class AnimesFixView extends SurfaceActivityView {
                 if (currentTab != 2) {
 
                     setCurrentTab(2);
+                    askForGenresAnimes();
                 }
             }
         });
@@ -159,7 +167,9 @@ public class AnimesFixView extends SurfaceActivityView {
             public void onClick(View view) {
 
                 if (currentTab != 3) {
+
                     setCurrentTab(3);
+                    askForSearchAnimes();
                 }
             }
         });
@@ -196,14 +206,55 @@ public class AnimesFixView extends SurfaceActivityView {
 
     protected void askForLatestAnimes() {
 
+        this.removeView(this.contentPanel);
         this.contentPanel.setFragment(new LatestAnimes());
         this.addFragment(this.contentPanel);
+        this.screen.update(this.context);
     }
 
     protected void askForAscAnimes() {
 
+        this.removeView(this.contentPanel);
         this.contentPanel.setFragment(new AscAnimes(this.context));
         this.addFragment(this.contentPanel);
         this.screen.update(this.context);
+    }
+
+    protected void askForGenresAnimes() {
+
+        this.removeView(this.contentPanel);
+        this.contentPanel.setFragment(new GenresAnimes(this.context));
+        this.addFragment(this.contentPanel);
+        this.screen.update(this.context);
+    }
+
+    protected void askForSearchAnimes() {
+
+        this.removeView(this.contentPanel);
+        this.contentPanel.setFragment(new SearchAnimes(this.context));
+        this.addFragment(this.contentPanel);
+        this.screen.update(this.context);
+    }
+
+    private void onSwipe(View view) {
+
+        view.setOnTouchListener(new TouchSwipe(this.context) {
+
+            public void onSwipeTop() {
+                //Toast.makeText(Play.this, "top", Toast.LENGTH_SHORT).show();
+            }
+
+            public void onSwipeRight() {
+                Log.d("DXGO", "PA LA DERECHA MIJO");
+            }
+
+            public void onSwipeLeft() {
+
+            }
+
+            public void onSwipeBottom() {
+            }
+
+        });
     }
 }

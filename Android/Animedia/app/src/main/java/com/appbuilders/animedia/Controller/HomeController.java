@@ -55,12 +55,12 @@ public class HomeController extends AppCompatActivity {
         // Calling super
         super.onCreate(savedInstanceState);
 
+        // Remove action bar
+        ((AppCompatActivity)this).getSupportActionBar().hide();
+
         // Initialize Facebook SDK and callbacks
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
-
-        // Remove action bar
-        ((AppCompatActivity)this).getSupportActionBar().hide();
 
         // Setting native and Surface layouts
         setContentView(R.layout.activity_home_controller);

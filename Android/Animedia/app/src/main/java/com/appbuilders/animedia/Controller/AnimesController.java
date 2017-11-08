@@ -18,4 +18,10 @@ public class AnimesController extends AppCompatActivity {
         //setContentView(R.layout.activity_animes_controller);
         AnimesFixView view = new AnimesFixView(this);
     }
+
+    @Override
+    public void onBackPressed() {
+
+        finish();
+    }
 }

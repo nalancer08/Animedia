@@ -1,11 +1,14 @@
 package com.appbuilders.animedia.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.appbuilders.animedia.Controller.SingleAnimeController;
 import com.appbuilders.animedia.Core.Anime;
 import com.appbuilders.animedia.Core.AnimeView;
 import com.appbuilders.animedia.R;
@@ -45,12 +48,23 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
 
         try {
 
-            JSONObject anime = this.animes.getJSONObject(position);
+            final JSONObject anime = this.animes.getJSONObject(position);
             String cover = anime.getString("cover");
             String name = anime.getString("name");
 
             Picasso.with(this.context).load(cover).placeholder(R.drawable.placeholder).into(holder.getCover());
             holder.getName().setText(name);
+
+            // Setting the click
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Intent intent = new Intent(context, SingleAnimeController.class);
+                    intent.putExtra("anime", anime.toString());
+                    context.startActivity(intent);
+                }
+            });
 
         } catch (JSONException e) {
             e.printStackTrace();

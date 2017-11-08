@@ -1,5 +1,7 @@
 package com.appbuilders.animedia.Core;
 
+import com.appbuilders.animedia.Libraries.JsonBuilder;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

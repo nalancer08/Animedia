@@ -1,1 +1,1 @@
-include ':app', ':surface-release'
+include ':app', ':SurfaceEngine'
