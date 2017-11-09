@@ -41,8 +41,11 @@ public class Chapter {
             this.setId(object.getInt("id"));
             this.setNumber(object.getInt("number"));
             this.setName(object.getString("name"));
-            this.setDescription(object.getString("description"));
             this.setAudio(object.getString("audio"));
+
+            if (object.has("description")) {
+                this.setDescription(object.getString("description"));
+            }
 
             if (object.has("url")) {
                 this.setUrl(object.getString("url"));

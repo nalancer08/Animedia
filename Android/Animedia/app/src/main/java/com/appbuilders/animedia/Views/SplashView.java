@@ -111,7 +111,7 @@ public class SplashView extends SurfaceActivityView {
             @Override
             public void onSuccess(ReSTResponse response) {
 
-                Log.d("AB_DEV", "RESPUESTA = " + response.body);
+                Log.d("DXGO", "RESPUESTA = " + response.body);
 
                 JSONObject res = JsonFileManager.stringToJSON(response.body);
 

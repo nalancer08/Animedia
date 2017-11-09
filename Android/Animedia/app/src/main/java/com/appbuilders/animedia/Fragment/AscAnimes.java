@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 
 import com.appbuilders.animedia.R;
+import com.appbuilders.animedia.Views.AnimesFixView;
 import com.appbuilders.animedia.Views.AscAnimesView;
 import com.appbuilders.animedia.Views.LatestAnimesView;
 
@@ -20,17 +21,18 @@ import com.appbuilders.animedia.Views.LatestAnimesView;
 
 public class AscAnimes extends Fragment {
 
+    AnimesFixView surface;
     Context context;
-
 
     public AscAnimes() {
         // Required empty public constructor
     }
 
     @SuppressLint("ValidFragment")
-    public AscAnimes(Context context) {
+    public AscAnimes(AnimesFixView surface) {
 
-        this.context = context;
+        this.surface = surface;
+        this.context = surface.getContext();
     }
 
     @Override
@@ -40,6 +42,7 @@ public class AscAnimes extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_dynamic_animes, container, false);
         AbsoluteLayout baseLayout = (AbsoluteLayout) view.findViewById(R.id.contentPanel);
         new AscAnimesView(this.context != null ? this.context : getContext(), baseLayout);
+        //this.surface.onSwipe(view);
         return view;
     }
 }

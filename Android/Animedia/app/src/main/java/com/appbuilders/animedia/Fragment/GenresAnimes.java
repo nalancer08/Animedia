@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 
 import com.appbuilders.animedia.R;
+import com.appbuilders.animedia.Views.AnimesFixView;
 import com.appbuilders.animedia.Views.AscAnimesView;
 import com.appbuilders.animedia.Views.GenresAnimesView;
 
@@ -19,16 +20,18 @@ import com.appbuilders.animedia.Views.GenresAnimesView;
  */
 public class GenresAnimes extends Fragment {
 
-    private Context context;
+    AnimesFixView surface;
+    Context context;
 
     public GenresAnimes() {
         // Required empty public constructor
     }
 
     @SuppressLint("ValidFragment")
-    public GenresAnimes(Context context) {
+    public GenresAnimes(AnimesFixView surface) {
 
-        this.context = context;
+        this.surface = surface;
+        this.context = surface.getContext();
     }
 
     @Override
@@ -37,6 +40,7 @@ public class GenresAnimes extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_dynamic_animes, container, false);
         AbsoluteLayout baseLayout = (AbsoluteLayout) view.findViewById(R.id.contentPanel);
         new GenresAnimesView(this.context != null ? this.context : getContext(), baseLayout);
+        //this.surface.onSwipe(view);
         return view;
     }
 }

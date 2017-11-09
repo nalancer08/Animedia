@@ -207,7 +207,7 @@ public class AnimesFixView extends SurfaceActivityView {
     protected void askForLatestAnimes() {
 
         this.removeView(this.contentPanel);
-        this.contentPanel.setFragment(new LatestAnimes());
+        this.contentPanel.setFragment(new LatestAnimes(this));
         this.addFragment(this.contentPanel);
         this.screen.update(this.context);
     }
@@ -215,7 +215,7 @@ public class AnimesFixView extends SurfaceActivityView {
     protected void askForAscAnimes() {
 
         this.removeView(this.contentPanel);
-        this.contentPanel.setFragment(new AscAnimes(this.context));
+        this.contentPanel.setFragment(new AscAnimes(this));
         this.addFragment(this.contentPanel);
         this.screen.update(this.context);
     }
@@ -223,7 +223,7 @@ public class AnimesFixView extends SurfaceActivityView {
     protected void askForGenresAnimes() {
 
         this.removeView(this.contentPanel);
-        this.contentPanel.setFragment(new GenresAnimes(this.context));
+        this.contentPanel.setFragment(new GenresAnimes(this));
         this.addFragment(this.contentPanel);
         this.screen.update(this.context);
     }
@@ -231,12 +231,12 @@ public class AnimesFixView extends SurfaceActivityView {
     protected void askForSearchAnimes() {
 
         this.removeView(this.contentPanel);
-        this.contentPanel.setFragment(new SearchAnimes(this.context));
+        this.contentPanel.setFragment(new SearchAnimes(this));
         this.addFragment(this.contentPanel);
         this.screen.update(this.context);
     }
 
-    private void onSwipe(View view) {
+    public void onSwipe(View view) {
 
         view.setOnTouchListener(new TouchSwipe(this.context) {
 
@@ -245,11 +245,63 @@ public class AnimesFixView extends SurfaceActivityView {
             }
 
             public void onSwipeRight() {
+
+                if (currentTab != 0) {
+
+                    setCurrentTab(currentTab - 1);
+
+                    switch(currentTab) {
+
+                        case 0:
+                            askForLatestAnimes();
+                            break;
+
+                        case 1:
+                            askForAscAnimes();
+                            break;
+
+                        case 2:
+                            askForGenresAnimes();
+                            break;
+
+                        case 4:
+                            askForSearchAnimes();
+                            break;
+                    }
+                }
                 Log.d("DXGO", "PA LA DERECHA MIJO");
             }
 
             public void onSwipeLeft() {
 
+                Log.d("DXGO", "IZQ AQUI ::: " + currentTab);
+
+                if (currentTab < 3) {
+
+                    Log.d("DXGO", "PA LA IZQUIERDA MIJO :: " + currentTab);
+                    setCurrentTab(currentTab + 1);
+                    Log.d("DXGO", "DESPUES :: " + currentTab);
+
+
+                    switch(currentTab) {
+
+                        case 0:
+                            askForLatestAnimes();
+                            break;
+
+                        case 1:
+                            askForAscAnimes();
+                            break;
+
+                        case 2:
+                            askForGenresAnimes();
+                            break;
+
+                        case 4:
+                            askForSearchAnimes();
+                            break;
+                    }
+                }
             }
 
             public void onSwipeBottom() {
