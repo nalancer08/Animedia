@@ -46,7 +46,11 @@ public class AscAnimesView extends SurfaceActivityView {
 
     SfPanel slideLettersPanel;
     ListView alphabetList;
+
     String[] alphabet;
+    JSONArray animes;
+    JSONObject filterAnimes;
+
     View prevView;
 
     public AscAnimesView(Context context) {
@@ -66,6 +70,7 @@ public class AscAnimesView extends SurfaceActivityView {
 
         // Initializing alphabet array
         this.alphabet = this.context.getResources().getStringArray(R.array.alphabet);
+        this.filterAnimes = new JSONObject();
 
         // Initializing panels
         this.contentPanel = new SfPanel();
@@ -107,6 +112,7 @@ public class AscAnimesView extends SurfaceActivityView {
             @Override
             public void onMiddle(int position) {
                 //Log.d("AB_DEV", "Position :::: " + position + " ::::::: " + alphabet[position]);
+                getAnimeForLetter(position);
             }
 
             @Override
@@ -174,7 +180,9 @@ public class AscAnimesView extends SurfaceActivityView {
 
                                 final JSONArray array = res.getJSONArray("data");
                                 fillGrid(array);
+                                animes = array;
                                 credentials.savePreference("ascAnimes", array.toString());
+                                filterAnimes(array);
 
                             } else {
                                 //showErrorAlert("Error", "Problemas de conexión");
@@ -199,7 +207,51 @@ public class AscAnimesView extends SurfaceActivityView {
                 });
             }
         } else {
-            this.fillGrid(JsonBuilder.stringToJsonArray(credentials.getPreference("ascAnimes")));
+            this.animes = JsonBuilder.stringToJsonArray(credentials.getPreference("ascAnimes"));
+            this.fillGrid(this.animes);
+            this.filterAnimes(this.animes);
+        }
+    }
+
+    protected void filterAnimes(JSONArray array) {
+
+        for (int i = 0; i < array.length(); i++) {
+
+            try {
+
+                JSONObject anime = array.getJSONObject(i);
+                String name = anime.getString("name");
+                String firstLetter = name.substring(0, 1);
+
+                if (this.filterAnimes.has(firstLetter)) {
+                    JSONArray temp = this.filterAnimes.getJSONArray(firstLetter);
+                    temp.put(anime);
+                } else {
+                    JSONArray temp = new JSONArray();
+                    temp.put(anime);
+                    this.filterAnimes.put(firstLetter, this.filterAnimes);
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    protected void getAnimeForLetter(int position) {
+
+        if (this.filterAnimes != null ) {
+            if (this.filterAnimes.length() > 0) {
+
+                String character = this.alphabet[position + 1];
+                if (this.filterAnimes.has(character)) {
+                    try {
+                        this.fillGrid(this.filterAnimes.getJSONArray(character));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
     }
 

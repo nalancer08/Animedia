@@ -2,7 +2,10 @@ package com.appbuilders.animedia.Views;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AbsoluteLayout;
@@ -12,6 +15,7 @@ import android.widget.ListView;
 
 import com.appbuilders.animedia.Adapter.LastAnimeAdapter;
 import com.appbuilders.animedia.BuildConfig;
+import com.appbuilders.animedia.Controller.ChromeWebPlayer;
 import com.appbuilders.animedia.Controller.DailyMotionPlayer;
 import com.appbuilders.animedia.Controls.CutListView;
 import com.appbuilders.animedia.Core.Anime;
@@ -23,6 +27,7 @@ import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SfScreen;
 import com.appbuilders.surface.SurfaceActivityView;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,7 +48,9 @@ public class HomeViewFixed extends SurfaceActivityView {
 
     protected ImageView screenView;
     protected ListView list;
-    protected View prevView;
+    protected View prevView = null;
+
+    private boolean firstTime = false;
 
     public HomeViewFixed(Context context) {
         super(context);
@@ -82,14 +89,19 @@ public class HomeViewFixed extends SurfaceActivityView {
         this.list.setOnScrollListener(new LastAnimesListImp(new OnScrollListViewMiddle() {
             @Override
             public void onMiddle(int position) {
-
-                Log.d("AB_DEV", "Position :::: " + position);
                 setDynamicBackground(position);
             }
 
             @Override
             public void onScrollMove(int position) {
+
                 setOnScrollSelectedItem(position);
+                if (!firstTime) {
+                    for (int i = 0; i <= 4; i++) {
+                        setDynamicBackground(position);
+                    }
+                    firstTime = true;
+                }
             }
         }));
 
@@ -110,7 +122,8 @@ public class HomeViewFixed extends SurfaceActivityView {
 
         this.screenView = new ImageView(this.context);
         this.screenView.setAdjustViewBounds(true);
-        this.screenView.setScaleType(ImageView.ScaleType.CENTER);
+        //this.screenView.setScaleType(ImageView.ScaleType.CENTER);
+        this.screenView.setScaleType(ImageView.ScaleType.FIT_XY);
 
         this.addView(this.screenView);
         this.screen.setView(this.screenView);
@@ -118,8 +131,8 @@ public class HomeViewFixed extends SurfaceActivityView {
         this.subScreen.setAlignment(SfPanel.SF_ALIGNMENT_RIGHT);
 
         if (this.animes.length() >= 1) {
-            this.setDynamicBackground(0);
-            this.setOnScrollSelectedItem(0);
+            this.setDynamicBackground(1);
+            this.setOnScrollSelectedItem(1);
         }
     }
 
@@ -145,7 +158,7 @@ public class HomeViewFixed extends SurfaceActivityView {
             String cover = firstAnime.getString("cover");
             if (!cover.equals("")) {
                 // Download the image
-                this.setImageFromUrl(this.parseUrl(cover), this.screenView);
+                this.setImageFromUrl(cover, this.screenView);
             } else {
                 // Random background color
                 this.screenView.setBackgroundColor(this.randomColor());
@@ -176,12 +189,27 @@ public class HomeViewFixed extends SurfaceActivityView {
         return ret;
     }
 
-    private void setImageFromUrl(String url, ImageView view) {
+    private void setImageFromUrl(String url, final ImageView view) {
 
-        SfScreen screen = SfScreen.getInstance(this.context);
-        Picasso.with(this.context).load(url).
-                placeholder(R.drawable.placeholder).
-                resize(screen.getScreenAxis(SfScreen.ScreenWidth), screen.getScreenAxis(SfScreen.ScreenHeight) + 80).into(view);
+        Picasso.with(this.context).load(url).placeholder(R.drawable.placeholder).into(new Target() {
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                view.setImageBitmap(bitmap);
+            }
+
+            @Override
+            public void onBitmapFailed(Drawable errorDrawable) {
+
+            }
+
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                int id = context.getResources().getIdentifier("placeholder", "drawable", context.getPackageName());
+                Bitmap image = BitmapFactory.decodeStream(context.getResources().openRawResource(id));
+                view.setImageBitmap(image);
+            }
+        });
     }
 
     public View getViewByPosition(int pos, ListView listView) {
@@ -206,23 +234,11 @@ public class HomeViewFixed extends SurfaceActivityView {
         try {
 
             JSONObject anime = this.animes.getJSONObject(position);
-                JSONObject media = anime.getJSONObject("media");
-                    String mediaUrl = media.getString("url");
+            JSONObject media = anime.getJSONObject("media");
 
-            // Checking if it's media DailyMotion
-            if (mediaUrl.contains("http://www.dailymotion.com/embed/video/")) {
-
-                String dailyId = mediaUrl.replace("http://www.dailymotion.com/embed/video/", "");
-                media.put("dailyId", dailyId);
-
-                // Re-adding media into the anime
-                anime.put("media", media);
-
-                intent = new Intent(this.context, DailyMotionPlayer.class);
-                intent.putExtra("anime", anime.toString());
-                this.activity.startActivity(intent);
-            }
-
+            intent = new Intent(context, ChromeWebPlayer.class);
+            intent.putExtra("media", media.toString());
+            activity.startActivity(intent);
 
         } catch (JSONException e) {
             e.printStackTrace();

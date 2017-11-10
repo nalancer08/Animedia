@@ -3,10 +3,13 @@ package com.appbuilders.animedia.Views;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
@@ -36,7 +39,9 @@ import com.appbuilders.animedia.Libraries.Rester.ReSTResponse;
 import com.appbuilders.animedia.R;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -83,6 +88,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         // Creating anime object
         String animeString = getIntent().getStringExtra("anime");
         this.anime = new Anime(JsonBuilder.stringToJson(animeString));
+        Log.d("DXGO", "SINGLE VIEW ::: " + animeString);
 
         // Creating typeface
         this.borgenBold =  Typeface.createFromAsset( this.context.getAssets(), "BorgenBold.ttf");
@@ -95,7 +101,7 @@ public class SingleAnimeView extends SurfaceActivityView {
             this.imageHeaderPanel = new SfPanel().setSize(-100, -30);
             this.namePanel = new SfPanel().setSize(-97, -10);
             this.descriptionPanel = new SfPanel().setSize(-97, -14);
-            this.loaderPanel = new SfPanel().setSize(-97,-46);
+            this.loaderPanel = new SfPanel().setSize(-40,-20).setMargin(threeRuleY(250), 0,0,0);
             this.detailsPanel = new SfPanel().setSize(-100,-46);
 
         // Appends
@@ -121,10 +127,24 @@ public class SingleAnimeView extends SurfaceActivityView {
 
         if (anime != null) {
 
-            ImageView imageHeaderView = new ImageView(this.context);
+            final ImageView imageHeaderView = new ImageView(this.context);
             imageHeaderView.setAdjustViewBounds(true);
             imageHeaderView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            Picasso.with(this.context).load(anime.getCover()).placeholder(R.drawable.placeholder).into(imageHeaderView);
+            /*Picasso.with(this.context).load(anime.getCover()).placeholder(R.drawable.placeholder).into(new Target() {
+                @Override
+                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                    imageHeaderView.setImageBitmap(bitmap);
+                }
+
+                @Override
+                public void onBitmapFailed(Drawable errorDrawable) {}
+
+                @Override
+                public void onPrepareLoad(Drawable placeHolderDrawable) {}
+            });*/
+            //Picasso.with(this.context).load(anime.getCover()).placeholder(R.drawable.placeholder).into(imageHeaderView);
+            ImageLoader imageLoader = ImageLoader.getInstance(); // Get singleton instance
+            imageLoader.displayImage(anime.getCover(), imageHeaderView);
 
             this.imageHeaderPanel.setView(imageHeaderView);
             this.contentPanel.append(this.imageHeaderPanel);
@@ -173,7 +193,7 @@ public class SingleAnimeView extends SurfaceActivityView {
     protected void getAnimeDetails() {
 
         PlayGifView gifView = new PlayGifView(this.context);
-        gifView.setImageResource(R.drawable.loader);
+        gifView.setImageResource(R.drawable.circular_loader);
         gifView.setVelocity(2);
 
         this.loaderPanel.setView(gifView);

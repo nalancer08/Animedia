@@ -95,7 +95,7 @@ public class AnimesFixView extends SurfaceActivityView {
         latestView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         latestView.setBackgroundResource(R.color.yellowItemSelected);
         latestView.setTextColor(Color.WHITE);
-        latestPanel.setView(latestView).setSize(-25, -100);
+        latestPanel.setView(latestView).setSize(-33.33333f, -100);
         this.addView(latestView);
         this.tabsPanelArray.add(this.latestPanel);
         latestView.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +110,7 @@ public class AnimesFixView extends SurfaceActivityView {
             }
         });
 
-        this.AZPanel = new SfPanel();
+        /*this.AZPanel = new SfPanel();
         Button AZView = new Button(this.context);
         AZView.setText("A - Z");
         AZView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -129,7 +129,7 @@ public class AnimesFixView extends SurfaceActivityView {
                     askForAscAnimes();
                 }
             }
-        });
+        });*/
 
         this.genresPanel = new SfPanel();
         Button genresView = new Button(this.context);
@@ -137,16 +137,16 @@ public class AnimesFixView extends SurfaceActivityView {
         genresView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         genresView.setBackgroundResource(R.color.blackTrans);
         genresView.setTextColor(Color.WHITE);
-        genresPanel.setView(genresView).setSize(-25, -100);
+        genresPanel.setView(genresView).setSize(-33.33333f, -100);
         this.tabsPanelArray.add(this.genresPanel);
         this.addView(genresView);
         genresView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (currentTab != 2) {
+                if (currentTab != 1) {
 
-                    setCurrentTab(2);
+                    setCurrentTab(1);
                     askForGenresAnimes();
                 }
             }
@@ -159,22 +159,23 @@ public class AnimesFixView extends SurfaceActivityView {
         searchView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         searchView.setBackgroundResource(R.color.blackTrans);
         searchView.setTextColor(Color.WHITE);
-        this.searchPanel.setView(searchView).setSize(-25, -100);
+        this.searchPanel.setView(searchView).setSize(-33.33333f, -100);
         this.addView(searchView);
         this.tabsPanelArray.add(this.searchPanel);
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (currentTab != 3) {
+                if (currentTab != 2) {
 
-                    setCurrentTab(3);
+                    setCurrentTab(2);
                     askForSearchAnimes();
                 }
             }
         });
 
-        this.tabsMenuPanel.append(latestPanel).append(AZPanel).append(genresPanel).append(searchPanel);
+        //this.tabsMenuPanel.append(latestPanel).append(AZPanel).append(genresPanel).append(searchPanel);
+        this.tabsMenuPanel.append(latestPanel).append(genresPanel).append(searchPanel);
         this.tabsMenuPanel.setSize(-100, -8);
     }
 
@@ -234,79 +235,5 @@ public class AnimesFixView extends SurfaceActivityView {
         this.contentPanel.setFragment(new SearchAnimes(this));
         this.addFragment(this.contentPanel);
         this.screen.update(this.context);
-    }
-
-    public void onSwipe(View view) {
-
-        view.setOnTouchListener(new TouchSwipe(this.context) {
-
-            public void onSwipeTop() {
-                //Toast.makeText(Play.this, "top", Toast.LENGTH_SHORT).show();
-            }
-
-            public void onSwipeRight() {
-
-                if (currentTab != 0) {
-
-                    setCurrentTab(currentTab - 1);
-
-                    switch(currentTab) {
-
-                        case 0:
-                            askForLatestAnimes();
-                            break;
-
-                        case 1:
-                            askForAscAnimes();
-                            break;
-
-                        case 2:
-                            askForGenresAnimes();
-                            break;
-
-                        case 4:
-                            askForSearchAnimes();
-                            break;
-                    }
-                }
-                Log.d("DXGO", "PA LA DERECHA MIJO");
-            }
-
-            public void onSwipeLeft() {
-
-                Log.d("DXGO", "IZQ AQUI ::: " + currentTab);
-
-                if (currentTab < 3) {
-
-                    Log.d("DXGO", "PA LA IZQUIERDA MIJO :: " + currentTab);
-                    setCurrentTab(currentTab + 1);
-                    Log.d("DXGO", "DESPUES :: " + currentTab);
-
-
-                    switch(currentTab) {
-
-                        case 0:
-                            askForLatestAnimes();
-                            break;
-
-                        case 1:
-                            askForAscAnimes();
-                            break;
-
-                        case 2:
-                            askForGenresAnimes();
-                            break;
-
-                        case 4:
-                            askForSearchAnimes();
-                            break;
-                    }
-                }
-            }
-
-            public void onSwipeBottom() {
-            }
-
-        });
     }
 }
