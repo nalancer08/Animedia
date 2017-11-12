@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import com.afollestad.easyvideoplayer.EasyVideoCallback;
 import com.afollestad.easyvideoplayer.EasyVideoPlayer;
+import com.appbuilders.animedia.Core.Chapter;
+import com.appbuilders.animedia.Libraries.JsonBuilder;
 import com.appbuilders.animedia.R;
 
 public class MainActivity extends AppCompatActivity implements EasyVideoCallback {
@@ -13,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements EasyVideoCallback
     //private static final String TEST_URL = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
     //private static final String TEST_URL = "http://www.dailymotion.com/embed/video/x1ade3x";
     //private static final String TEST_URL = "//www.dailymotion.com/embed/video/k4mTupurPBY66DpeM8d?autoPlay=1";
-    private static final String TEST_URL = "http://s3.animeyt.tv/mega.php?v=ZDB3VUFlTjhZRS9xT2dJc1Z6Z3JLQjd3ZUhrdld2WFpuenc5S09oRWF0SUlteko5L2NaQVBzTFIzbWplZlJreA==";
+    //private static final String TEST_URL = "http://s3.animeyt.tv/mega.php?v=ZDB3VUFlTjhZRS9xT2dJc1Z6Z3JLQjd3ZUhrdld2WFpuenc5S09oRWF0SUlteko5L2NaQVBzTFIzbWplZlJreA==";
 
     private EasyVideoPlayer player;
 
@@ -23,6 +25,12 @@ public class MainActivity extends AppCompatActivity implements EasyVideoCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Getting chapter intent data
+        String chapterString = getIntent().getStringExtra("media");
+
+        // Setting chapter
+        Chapter chapter = new Chapter(JsonBuilder.stringToJson(chapterString));
+
         // Grabs a reference to the player view
         player = (EasyVideoPlayer) findViewById(R.id.player);
 
@@ -31,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements EasyVideoCallback
 
         // Sets the source to the HTTP URL held in the TEST_URL variable.
         // To play files, you can use Uri.fromFile(new File("..."))
-        player.setSource(Uri.parse(TEST_URL));
+        player.setSource(Uri.parse(chapter.getUrl()));
 
         player.setAutoPlay(true);
 

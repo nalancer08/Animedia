@@ -1,12 +1,15 @@
 package com.appbuilders.animedia.Views;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.AbsoluteLayout;
 import android.widget.AdapterView;
@@ -90,12 +93,14 @@ public class HomeViewFixed extends SurfaceActivityView {
             @Override
             public void onMiddle(int position) {
                 setDynamicBackground(position);
+
             }
 
             @Override
             public void onScrollMove(int position) {
 
                 setOnScrollSelectedItem(position);
+                //setDynamicBackground(position);
                 if (!firstTime) {
                     for (int i = 0; i <= 4; i++) {
                         setDynamicBackground(position);
@@ -146,7 +151,7 @@ public class HomeViewFixed extends SurfaceActivityView {
 
         View view = getViewByPosition(position, this.list);
         view.setBackgroundColor(Color.rgb(237, 178, 0));
-        view.setPadding(0, 0, 200, 0);
+        view.setPadding(0, 0, threeRuleX(150), 0);
         this.prevView = view;
     }
 
@@ -251,5 +256,15 @@ public class HomeViewFixed extends SurfaceActivityView {
         Integer c2 = 3 + (int)(Math.random() * ((254 - 3) + 3));
         Integer c3 = 5 + (int)(Math.random() * ((253 - 5) + 5));
         return Color.rgb(c1, c2, c3);
+    }
+
+    protected int threeRuleX(int value) {
+
+        Display display = ((Activity)this.context).getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+
+        return (width * value) / 1000;
     }
 }

@@ -110,7 +110,7 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
 
 
             } else {
-                Picasso.with(this.context).load(cover).placeholder(R.drawable.placeholder).into(holder.getCover());
+                Picasso.with(this.context).load(cover).placeholder(R.drawable.placeholder).resize(512, 780).into(holder.getCover());
             }
 
             holder.getName().setText(name);
