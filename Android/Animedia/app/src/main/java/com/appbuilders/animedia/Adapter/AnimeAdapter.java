@@ -62,56 +62,34 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
             String name = anime.getString("name");
             final ImageView animeImage = holder.getCover();
 
-            if (SfScreen.getInstance(this.context).getScreenAxis(SfScreen.ScreenHeight) >= 2220) {
+            DisplayImageOptions options = new DisplayImageOptions.Builder()
+                    .showImageOnLoading(R.drawable.placeholder)
+                    .resetViewBeforeLoading(false)
+                    .cacheInMemory(true)
+                    .cacheOnDisk(true).build();
+            ImageLoader imageLoader = ImageLoader.getInstance();
+            //ImageSize targetSize = new ImageSize(1000, 1600); // result Bitmap will be fit to this size
+            imageLoader.loadImage(cover, options, new SimpleImageLoadingListener() {
 
-                /*Picasso.with(this.context).load(cover).placeholder(R.drawable.placeholder).resize(1000, 1500).into(new Target() {
-                    @Override
-                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                        holder.getCover().setImageBitmap(bitmap);
-                    }
+                @Override
+                public void onLoadingStarted(String imageUri, View view) {
 
-                    @Override
-                    public void onBitmapFailed(Drawable errorDrawable) {
-                    }
+                    int id = context.getResources().getIdentifier("placeholder", "drawable", context.getPackageName());
+                    Bitmap image = BitmapFactory.decodeStream(context.getResources().openRawResource(id));
+                    holder.getCover().setImageBitmap(image);
+                }
 
-                    @Override
-                    public void onPrepareLoad(Drawable placeHolderDrawable) {
-                        int id = context.getResources().getIdentifier("placeholder", "drawable", context.getPackageName());
-                        Bitmap image = BitmapFactory.decodeStream(context.getResources().openRawResource(id));
-                        holder.getCover().setImageBitmap(image);
-                    }
-                });*/
+                @Override
+                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
 
-
-                DisplayImageOptions options = new DisplayImageOptions.Builder()
-                        .showImageOnLoading(R.drawable.placeholder)
-                        .resetViewBeforeLoading(false)
-                        .cacheInMemory(true)
-                        .cacheOnDisk(true).build();
-                ImageLoader imageLoader = ImageLoader.getInstance();
-                //ImageSize targetSize = new ImageSize(1000, 1600); // result Bitmap will be fit to this size
-                imageLoader.loadImage(cover, options, new SimpleImageLoadingListener() {
-
-                    @Override
-                    public void onLoadingStarted(String imageUri, View view) {
-
-                        int id = context.getResources().getIdentifier("placeholder", "drawable", context.getPackageName());
-                        Bitmap image = BitmapFactory.decodeStream(context.getResources().openRawResource(id));
-                        holder.getCover().setImageBitmap(image);
-                    }
-
-                    @Override
-                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                        //animeImage.setImageBitmap(loadedImage);
+                    //animeImage.setImageBitmap(loadedImage);
+                    if (SfScreen.getInstance(context).getScreenAxis(SfScreen.ScreenHeight) >= 2220) {
                         animeImage.setImageBitmap(Bitmap.createScaledBitmap(loadedImage, 1000, 1500, false));
-
+                    } else {
+                        animeImage.setImageBitmap(Bitmap.createScaledBitmap(loadedImage, 512, 780, false));
                     }
-                });
-
-
-            } else {
-                Picasso.with(this.context).load(cover).placeholder(R.drawable.placeholder).resize(512, 780).into(holder.getCover());
-            }
+                }
+            });
 
             holder.getName().setText(name);
 

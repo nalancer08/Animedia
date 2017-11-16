@@ -39,6 +39,8 @@ import com.appbuilders.animedia.Libraries.Rester.ReSTResponse;
 import com.appbuilders.animedia.R;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
+import com.flaviofaria.kenburnsview.KenBurnsView;
+import com.flaviofaria.kenburnsview.TransitionGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -127,9 +129,14 @@ public class SingleAnimeView extends SurfaceActivityView {
 
         if (anime != null) {
 
-            final ImageView imageHeaderView = new ImageView(this.context);
+            /*final ImageView imageHeaderView = new ImageView(this.context);
+            imageHeaderView.setAdjustViewBounds(true);
+            imageHeaderView.setScaleType(ImageView.ScaleType.CENTER_CROP);*/
+
+            KenBurnsView imageHeaderView = new KenBurnsView(this.context);
             imageHeaderView.setAdjustViewBounds(true);
             imageHeaderView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
             /*Picasso.with(this.context).load(anime.getCover()).placeholder(R.drawable.placeholder).into(new Target() {
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
