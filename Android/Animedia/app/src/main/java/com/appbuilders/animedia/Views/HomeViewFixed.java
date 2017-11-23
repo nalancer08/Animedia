@@ -29,6 +29,9 @@ import com.appbuilders.animedia.R;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SfScreen;
 import com.appbuilders.surface.SurfaceActivityView;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -100,13 +103,7 @@ public class HomeViewFixed extends SurfaceActivityView {
             public void onScrollMove(int position) {
 
                 setOnScrollSelectedItem(position);
-                //setDynamicBackground(position);
-                if (!firstTime) {
-                    for (int i = 0; i <= 4; i++) {
-                        setDynamicBackground(position);
-                    }
-                    firstTime = true;
-                }
+                setDynamicBackground(position);
             }
         }));
 
@@ -136,8 +133,8 @@ public class HomeViewFixed extends SurfaceActivityView {
         this.subScreen.setAlignment(SfPanel.SF_ALIGNMENT_RIGHT);
 
         if (this.animes.length() >= 1) {
-            this.setDynamicBackground(1);
-            this.setOnScrollSelectedItem(1);
+            this.setDynamicBackground(0);
+            this.setOnScrollSelectedItem(0);
         }
     }
 
@@ -194,9 +191,40 @@ public class HomeViewFixed extends SurfaceActivityView {
         return ret;
     }
 
-    private void setImageFromUrl(String url, final ImageView view) {
+    private void setImageFromUrl(String url, final ImageView image) {
 
-        Picasso.with(this.context).load(url).placeholder(R.drawable.placeholder).into(new Target() {
+        DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.placeholder)
+                .resetViewBeforeLoading(false)
+                .cacheInMemory(true)
+                .cacheOnDisk(true).build();
+        ImageLoader imageLoader = ImageLoader.getInstance();
+        //ImageSize targetSize = new ImageSize(1000, 1600); // result Bitmap will be fit to this size
+        imageLoader.loadImage(url, options, new SimpleImageLoadingListener() {
+
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+                int id = context.getResources().getIdentifier("placeholder", "drawable", context.getPackageName());
+                Bitmap imageB = BitmapFactory.decodeStream(context.getResources().openRawResource(id));
+                image.setImageBitmap(imageB);
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+
+                image.setImageBitmap(loadedImage);
+
+                //animeImage.setImageBitmap(loadedImage);
+                /*if (SfScreen.getInstance(context).getScreenAxis(SfScreen.ScreenHeight) >= 2220) {
+                    animeImage.setImageBitmap(Bitmap.createScaledBitmap(loadedImage, 1000, 1500, false));
+                } else {
+                    animeImage.setImageBitmap(Bitmap.createScaledBitmap(loadedImage, 512, 780, false));
+                }*/
+            }
+        });
+
+        /*Picasso.with(this.context).load(url).placeholder(R.drawable.placeholder).into(new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                 view.setImageBitmap(bitmap);
@@ -214,7 +242,7 @@ public class HomeViewFixed extends SurfaceActivityView {
                 Bitmap image = BitmapFactory.decodeStream(context.getResources().openRawResource(id));
                 view.setImageBitmap(image);
             }
-        });
+        });*/
     }
 
     public View getViewByPosition(int pos, ListView listView) {
@@ -242,6 +270,7 @@ public class HomeViewFixed extends SurfaceActivityView {
             JSONObject media = anime.getJSONObject("media");
 
             intent = new Intent(context, ChromeWebPlayer.class);
+            intent.putExtra("anime", anime.toString());
             intent.putExtra("media", media.toString());
             activity.startActivity(intent);
 

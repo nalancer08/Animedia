@@ -33,13 +33,13 @@
         android:text="Animes"
         android:background="@drawable/border_top_bottom"
         android:textAlignment="gravity"
-        android:textSize="30dp"
+        android:textSize="28sp"
         android:id="@+id/menu_animes"
         android:paddingLeft="15dp"
         android:gravity="left|center"
         android:layout_below="@+id/userName"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="15dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -48,20 +48,48 @@
         android:text="Configuraciones"
         android:background="@drawable/border_top_bottom"
         android:textAlignment="gravity"
-        android:textSize="30dp"
+        android:textSize="26sp"
         android:id="@+id/menu_config"
         android:paddingLeft="15dp"
         android:gravity="left|center"
         android:layout_below="@+id/menu_animes"
         android:layout_alignParentStart="true" />
 
+    <com.appbuilders.animedia.Controls.AutoResizeTextView
+        android:id="@+id/menu_privacity"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/menu_config"
+        android:background="@drawable/border_top_bottom"
+        android:gravity="left|center"
+        android:paddingLeft="15dp"
+        android:text="Aviso de privacidad"
+        android:textAlignment="gravity"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/menu_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/menu_privacity"
+        android:background="@drawable/border_top_bottom"
+        android:gravity="left|center"
+        android:paddingLeft="15dp"
+        android:text="Acerca de nosotros"
+        android:textAlignment="gravity"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
     <com.facebook.login.widget.LoginButton
+        android:id="@+id/loginFb"
         android:layout_width="200dp"
         android:layout_height="0dp"
-        android:textAlignment="center"
-        android:id="@+id/loginFb"
-        android:layout_marginBottom="49dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:textAlignment="center" />
 
 </RelativeLayout>

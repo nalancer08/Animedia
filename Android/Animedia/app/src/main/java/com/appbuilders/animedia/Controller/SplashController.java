@@ -9,11 +9,16 @@ import android.util.Log;
 import com.appbuilders.animedia.Core.Credentials;
 import com.appbuilders.animedia.R;
 import com.appbuilders.animedia.Views.SplashView;
+import com.appbuilders.credentials.Configurations;
+import com.appbuilders.credentials.CredentialsOptions;
+import com.facebook.crypto.exception.CryptoInitializationException;
+import com.facebook.crypto.exception.KeyChainException;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,44 +30,22 @@ public class SplashController extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         this.removeCache();
+
+        CredentialsOptions options = new CredentialsOptions("https://appbuilders/apis/animedia", "http://192.168.1.69/appbuilders/apis/animedia", "8f6952dfc83073f80afbc048857d52d533a57970", true);
+        com.appbuilders.credentials.Credentials credentials = com.appbuilders.credentials.Credentials.getInstance(this).Builder(options).build();
+        Configurations config = Configurations.getInstance(this);
+        if (!config.exists("firstTime")) {
+            credentials.saveDevice();
+            config.add("firstTime", "");
+        }
+
         new SplashView(this, true);
-        //Log.d("DXGO", "Me la pela :: " + FirebaseInstanceId.getInstance().getToken());
-        //Log.d("DXGOP", "Me la pela :: " + Build.class.getFields().toString());
-        Log.d("DXGOP", "UNIQUE ID :: " +  Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID));
-
-        Log.d("DXGOP", "UNIQUE ID :: " +  Build.VERSION.BASE_OS);
-
-        String s = "Debug-infos:";
-        s += "\n OS Version: " + System.getProperty("os.version") + "(" + android.os.Build.VERSION.INCREMENTAL + ")";
-        s += "\n OS API Level: " + android.os.Build.VERSION.SDK_INT;
-        s += "\n Device: " + android.os.Build.DEVICE;
-        s += "\n Model (and Product): " + android.os.Build.MODEL + " ("+ android.os.Build.PRODUCT + ")";
-
-        Log.d("DXGOP", "INFO :::: " + s);
-
-
-        JSONObject build = new JSONObject();
-
-        Field[] fields = Build.class.getFields();
-        Map<String, String> map = new HashMap<String, String>();
-        for(Field f : fields)
-            try {
-            build.put(f.getName(), f.get(f.getName()));
-            Log.d("DXGOP", "NAME ::: " + f.getName() + " ____ :::: " + f.get(f.getName()));
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        //map.put(f.getName(),(String) f.get(entity));
-        Log.d("DXGOP", "BUILD :::: " + build.toString());
     }
 
     protected void removeCache() {
 
         Credentials credentials = Credentials.getInstance(this);
         credentials.removePreference("latestAnimes");
-        credentials.removePreference("ascAnimes");
-        credentials.removePreference("genresAnimes");
+        //credentials.removePreference("genresAnimes");
     }
 }

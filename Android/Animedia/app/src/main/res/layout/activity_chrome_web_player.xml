@@ -10,6 +10,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"></WebView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:id="@+id/media_details"
+        android:visibility="invisible"
+        android:background="@color/blackTrans">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/animeCover" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="35dp"
+            android:layout_alignTop="@+id/animeCover"
+            android:layout_marginStart="26dp"
+            android:layout_toEndOf="@+id/animeCover"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:id="@+id/animeTitle" />
+
+        <TextView
+            android:layout_width="430dp"
+            android:layout_height="50dp"
+            android:layout_alignStart="@+id/animeTitle"
+            android:layout_below="@+id/animeTitle"
+            android:layout_marginTop="14dp"
+            android:id="@+id/mediaTitle"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
     <com.appbuilders.animedia.Controls.PlayGifView
         android:id="@+id/loader"
         android:layout_width="200dp"

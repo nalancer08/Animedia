@@ -1,22 +1,29 @@
 package com.appbuilders.animedia.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.appbuilders.animedia.Controller.ChromeWebPlayer;
 import com.appbuilders.animedia.Controls.AutoResizeTextView;
 import com.appbuilders.animedia.Core.Anime;
 import com.appbuilders.animedia.Core.Chapter;
+import com.appbuilders.animedia.Libraries.JsonBuilder;
 import com.appbuilders.animedia.R;
 import com.appbuilders.surface.SfScreen;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -29,19 +36,32 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
 
     public JSONArray data;
     public Context context;
-    public ArrayList<Chapter> chapters;
+    public ArrayList<Chapter> chaptersArray;
+    public JSONArray chapters;
     public ArrayList<View> addedViews;
+    public JSONObject anime;
 
-    public ChapterAdapter(Context context, ArrayList<Chapter> chapters ) {
+    public ChapterAdapter(Context context, ArrayList<Chapter> chapters) {
 
         super(context, R.layout.chapter_adapter, chapters);
         this.context = context;
-        this.chapters = chapters;
+        this.chaptersArray = chapters;
         this.addedViews = new ArrayList<>();
     }
 
+    public ChapterAdapter(Context context, JSONArray chapters, String animeString) {
+
+        super(context, R.layout.chapter_adapter, Chapter.getChaptersFromJson(chapters));
+        this.context = context;
+        this.chapters = chapters;
+        this.chaptersArray = Chapter.getChaptersFromJson(chapters);
+        this.addedViews = new ArrayList<>();
+        this.anime = JsonBuilder.stringToJson(animeString);
+    }
+
+    @SuppressLint("SetTextI18n")
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         Chapter chapter = getItem(position);
 
@@ -60,6 +80,27 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
             holder.getText().setText(chapter.getName());
             holder.getChapternumber().setText("" + chapter.getNumber());
 
+            if (this.anime != null) {
+
+                holder.getPlayButton().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        try {
+
+                            Intent intent = new Intent(context, ChromeWebPlayer.class);
+                            intent.putExtra("media", chapters.getJSONObject(position).toString());
+                            intent.putExtra("anime", anime.toString());
+                            context.startActivity(intent);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+            }
+
         } else {
 
             holder = (ViewHolder) convertView.getTag();
@@ -73,6 +114,7 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
         private View row;
         private AutoResizeTextView text = null;
         private AutoResizeTextView chapterNumber = null;
+        private ImageView playButton = null;
 
         public ViewHolder(View row) {
             this.row = row;
@@ -94,6 +136,14 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
                 this.chapterNumber = row.findViewById(R.id.chapterNumber);
             }
             return this.chapterNumber;
+        }
+
+        public ImageView getPlayButton() {
+
+            if (this.playButton == null) {
+                this.playButton = row.findViewById(R.id.playButton);
+            }
+            return this.playButton;
         }
 
         protected int threeRuleY(int value) {

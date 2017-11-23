@@ -2,6 +2,7 @@ package com.appbuilders.animedia.Controller;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,6 +51,8 @@ public class HomeController extends AppCompatActivity {
     TextView userName;
     TextView menu_animes;
     TextView menu_config;
+    TextView menu_privacity;
+    TextView menu_about_us;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -194,8 +197,7 @@ public class HomeController extends AppCompatActivity {
             @Override
             public void onSuccess(ReSTResponse response) {
 
-                Log.d("AB_DEV", "RESPUESTA = " + response.body);
-
+                Log.d("DXGOP", "RESPUESTA = " + response.body);
                 JSONObject res = JsonFileManager.stringToJSON(response.body);
 
                 try {
@@ -259,6 +261,7 @@ public class HomeController extends AppCompatActivity {
 
     protected void initializeMenuViews() {
 
+        final Credentials credentials = Credentials.getInstance(this);
         Typeface specify =  Typeface.createFromAsset( this.getAssets(), "Specify.ttf");
 
         // User picture
@@ -295,10 +298,16 @@ public class HomeController extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String animes = getIntent().getStringExtra("latestAnimes");
-                Intent intent = new Intent(HomeController.this, AnimesController.class);
-                intent.putExtra("animes", animes);
-                startActivity(intent);
+                if (credentials.existsPreviousLogin()) {
+
+                    String animes = getIntent().getStringExtra("latestAnimes");
+                    Intent intent = new Intent(HomeController.this, AnimesController.class);
+                    intent.putExtra("animes", animes);
+                    startActivity(intent);
+
+                } else {
+                    Snackbar.make(view, "Debes iniciar sesión para poder ver el contenido", Snackbar.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -308,7 +317,37 @@ public class HomeController extends AppCompatActivity {
         this.menu_config.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Config", Toast.LENGTH_SHORT).show();
+
+                if (credentials.existsPreviousLogin()) {
+
+                    Intent intent = new Intent(HomeController.this, ConfigurationsController.class);
+                    startActivity(intent);
+
+                } else {
+                    Snackbar.make(view, "Debes iniciar sesión para poder ver el contenido", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        this.menu_privacity = (TextView) findViewById(R.id.menu_privacity);
+        this.menu_privacity.setTypeface(specify);
+        this.menu_privacity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(HomeController.this, PrivacityController.class);
+                startActivity(intent);
+            }
+        });
+
+        this.menu_about_us = (TextView) findViewById(R.id.menu_about_us);
+        this.menu_about_us.setTypeface(specify);
+        this.menu_about_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(HomeController.this, AboutUsController.class);
+                startActivity(intent);
             }
         });
     }

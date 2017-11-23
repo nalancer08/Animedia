@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity implements EasyVideoCallback
         setContentView(R.layout.activity_main);
 
         // Getting chapter intent data
-        String chapterString = getIntent().getStringExtra("media");
+        //String chapterString = getIntent().getStringExtra("media");
 
         // Setting chapter
-        Chapter chapter = new Chapter(JsonBuilder.stringToJson(chapterString));
+        //Chapter chapter = new Chapter(JsonBuilder.stringToJson(chapterString));
 
         // Grabs a reference to the player view
         player = (EasyVideoPlayer) findViewById(R.id.player);
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements EasyVideoCallback
 
         // Sets the source to the HTTP URL held in the TEST_URL variable.
         // To play files, you can use Uri.fromFile(new File("..."))
-        player.setSource(Uri.parse(chapter.getUrl()));
+        player.setSource(Uri.parse("http://download1953.mediafire.com/c73qr9d1yehg/tjj70ag24sl7n52/2793_5"));
 
         player.setAutoPlay(true);
 

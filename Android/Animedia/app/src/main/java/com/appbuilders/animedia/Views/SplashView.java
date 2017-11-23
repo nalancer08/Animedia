@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.appbuilders.animedia.BuildConfig;
 import com.appbuilders.animedia.Controller.HomeController;
+import com.appbuilders.animedia.Controller.MainActivity;
 import com.appbuilders.animedia.Core.Credentials;
 import com.appbuilders.animedia.Libraries.JsonFileManager;
 import com.appbuilders.animedia.Libraries.Rester.ReSTCallback;

@@ -44,6 +44,7 @@ public class GenresAnimesView extends SurfaceActivityView {
     private Credentials credentials;
     private SfPanel contentPanel;
         private SfPanel subContentPanel;
+            private SfPanel searchButtonPanel;
         private SfPanel masonryPanel;
 
     private ArrayList<String> selectedAnimes;
@@ -70,12 +71,13 @@ public class GenresAnimesView extends SurfaceActivityView {
 
         // Initializing views
         this.contentPanel = new SfPanel().setSize(-100, -82);
-        this.subContentPanel = new SfPanel().setSize(-100, -100);
+        this.subContentPanel = new SfPanel().setSize(-100, -90);
+        this.searchButtonPanel = new SfPanel().setSize(-95, -8).setMargin(threeRuleY(30), 0,0,0);
         this.makeItScrollable(this.subContentPanel, "content");
 
         // Appends
         this.subScreen.append(this.contentPanel);
-        this.contentPanel.append(this.subContentPanel);
+        this.contentPanel.append(this.subContentPanel).append(searchButtonPanel);
 
         // Ask for genres
         this.askForGenres();
@@ -202,10 +204,12 @@ public class GenresAnimesView extends SurfaceActivityView {
                 }
             });
 
-            SfPanel searchPanel = new SfPanel().setSize(-95, -8);
-            searchPanel.setView(search).setMargin(threeRuleY(40), 0,0,0);
-            this.subContentPanel.append(searchPanel);
-            this.addToScroll("content", search);
+            //SfPanel searchPanel = new SfPanel().setSize(-95, -8);
+            //searchPanel.setView(search).setMargin(threeRuleY(40), 0,0,0);
+            //this.subContentPanel.append(searchPanel);
+            //this.addToScroll("content", search);
+            this.searchButtonPanel.setView(search);
+            this.addView(search);
         }
         this.screen.update(this.context);
     }
@@ -272,6 +276,7 @@ public class GenresAnimesView extends SurfaceActivityView {
 
         // Hiding genres
         this.subContentPanel.setSize(0, 0);
+        this.searchButtonPanel.setSize(0,0);
         this.screen.update(this.context);
 
         // Creating masonry layout

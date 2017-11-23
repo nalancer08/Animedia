@@ -16,9 +16,10 @@
         android:id="@+id/chapterName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/chapterNumber"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/chapterNumber"
-        android:layout_toStartOf="@+id/imageView"
+        android:layout_toStartOf="@+id/downloadButton"
         android:gravity="left|center"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -28,13 +29,21 @@
         android:textSize="18dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/downloadButton"
         android:layout_width="27dp"
         android:layout_height="27dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="15dp"
+        android:layout_toStartOf="@+id/playButton"
+        android:src="@drawable/download" />
+
+    <ImageView
+        android:id="@+id/playButton"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginRight="10dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="6dp"
-        android:layout_marginTop="5dp"
         android:src="@drawable/play_whi" />
 
 </RelativeLayout>

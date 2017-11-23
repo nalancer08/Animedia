@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Animedia.iml" filepath="$PROJECT_DIR$/Animedia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Credentials/Credentials.iml" filepath="$PROJECT_DIR$/Credentials/Credentials.iml" />
       <module fileurl="file://$PROJECT_DIR$/SurfaceEngine/SurfaceEngine.iml" filepath="$PROJECT_DIR$/SurfaceEngine/SurfaceEngine.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

@@ -1,1 +1,1 @@
-include ':app', ':SurfaceEngine'
+include ':app', ':SurfaceEngine', ':Credentials'

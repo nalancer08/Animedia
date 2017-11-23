@@ -21,6 +21,9 @@
 
     <color name="animesBackground">#3D3F41</color>
 
+    <color name="fb">#3b5998</color>
+    <color name="gmail">#ea4335</color>
+
     <!--
         100% — FF
         95% — F2

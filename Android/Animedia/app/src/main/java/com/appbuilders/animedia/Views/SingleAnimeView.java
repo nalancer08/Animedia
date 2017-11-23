@@ -3,13 +3,12 @@ package com.appbuilders.animedia.Views;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
@@ -25,6 +24,7 @@ import android.widget.Toast;
 
 import com.appbuilders.animedia.Adapter.ChapterAdapter;
 import com.appbuilders.animedia.Controller.ChromeWebPlayer;
+import com.appbuilders.animedia.Controller.MainActivity;
 import com.appbuilders.animedia.Controls.AutoResizeTextView;
 import com.appbuilders.animedia.Controls.PlayGifView;
 import com.appbuilders.animedia.Core.Anime;
@@ -39,17 +39,32 @@ import com.appbuilders.animedia.Libraries.Rester.ReSTResponse;
 import com.appbuilders.animedia.R;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
+import com.downloader.Error;
+import com.downloader.OnCancelListener;
+import com.downloader.OnDownloadListener;
+import com.downloader.OnPauseListener;
+import com.downloader.OnProgressListener;
+import com.downloader.OnStartOrResumeListener;
+import com.downloader.PRDownloader;
+import com.downloader.PRDownloaderConfig;
+import com.downloader.Progress;
 import com.flaviofaria.kenburnsview.KenBurnsView;
-import com.flaviofaria.kenburnsview.TransitionGenerator;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+import com.thin.downloadmanager.DefaultRetryPolicy;
+import com.thin.downloadmanager.DownloadRequest;
+import com.thin.downloadmanager.DownloadStatusListener;
+import com.thin.downloadmanager.DownloadStatusListenerV1;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Erick Sanchez - App Builders CTO
@@ -62,15 +77,21 @@ public class SingleAnimeView extends SurfaceActivityView {
     private SfPanel contentPanel;
         private SfPanel imageHeaderPanel;
             private SfPanel followAnimePanel;
+            private SfPanel lenguagePanel;
         private SfPanel namePanel;
         private SfPanel descriptionPanel;
         private SfPanel loaderPanel;
         private SfPanel detailsPanel;
             private SfPanel genresPanel;
+            private SfPanel typesPanel;
             private SfPanel chaptersPanel;
 
     protected Anime anime;
+    protected String animeString;
     protected Typeface borgenBold;
+
+    protected ListView chaptersView;
+    protected List<String> audios;
 
     public SingleAnimeView(Context context) {
         super(context);
@@ -88,9 +109,9 @@ public class SingleAnimeView extends SurfaceActivityView {
     public void onCreateView() {
 
         // Creating anime object
-        String animeString = getIntent().getStringExtra("anime");
+        this.animeString = getIntent().getStringExtra("anime");
         this.anime = new Anime(JsonBuilder.stringToJson(animeString));
-        Log.d("DXGO", "SINGLE VIEW ::: " + animeString);
+        //Log.d("DXGO", "SINGLE VIEW ::: " + animeString);
 
         // Creating typeface
         this.borgenBold =  Typeface.createFromAsset( this.context.getAssets(), "BorgenBold.ttf");
@@ -108,6 +129,9 @@ public class SingleAnimeView extends SurfaceActivityView {
 
         // Appends
         this.screen.append(this.contentPanel);
+
+        // Initialize arrays
+        this.audios = new ArrayList<>();
 
         // Create image header
         this.createImageHeader();
@@ -165,7 +189,7 @@ public class SingleAnimeView extends SurfaceActivityView {
             this.followAnimePanel = new SfPanel().setSize(-25, -20).setView(followAnimeButton);
             this.followAnimePanel.setPosition(SfPanel.SF_POSITION_ABSOLUTE).setOrigin(SfPanel.SF_UNSET, threeRuleX(25), threeRuleY(25), SfPanel.SF_UNSET);
             this.imageHeaderPanel.append(this.followAnimePanel);
-            this.addView(followAnimeButton);
+            //this.addView(followAnimeButton);
         }
     }
 
@@ -199,9 +223,12 @@ public class SingleAnimeView extends SurfaceActivityView {
 
     protected void getAnimeDetails() {
 
-        PlayGifView gifView = new PlayGifView(this.context);
+        /*PlayGifView gifView = new PlayGifView(this.context);
         gifView.setImageResource(R.drawable.circular_loader);
-        gifView.setVelocity(2);
+        gifView.setVelocity(2);*/
+        AVLoadingIndicatorView gifView = new AVLoadingIndicatorView(this.context);
+        gifView.setIndicator("BallSpinFadeLoaderIndicator");
+        gifView.show();
 
         this.loaderPanel.setView(gifView);
         this.contentPanel.append(this.loaderPanel);
@@ -271,9 +298,17 @@ public class SingleAnimeView extends SurfaceActivityView {
 
             JSONArray genres = data.getJSONArray("genres");
             final JSONArray chapters = data.getJSONArray("chapters");
+            JSONArray audios = data.getJSONArray("audios");
+
+            // Parsing audios
+            for (int k = 0; k < audios.length(); k++) {
+                JSONObject audio = audios.getJSONObject(k);
+                this.audios.add(audio.getString("audio"));
+            }
+            this.createLanguageSelect();
 
             // Creating genres panel
-            this.genresPanel = new SfPanel().setSize(-100, -20);
+            /*this.genresPanel = new SfPanel().setSize(-100, -20);
             this.detailsPanel.append(genresPanel);
             for (int i = 0; i < genres.length(); i++) {
 
@@ -290,7 +325,12 @@ public class SingleAnimeView extends SurfaceActivityView {
                 genrePanel.setMargin(threeRuleY(30), 0,0,0);
                 this.genresPanel.append(genrePanel);
                 this.addView(genreView);
-            }
+            }*/
+
+            // Creating type panel
+            this.typesPanel = new SfPanel().setSize(-100, -20);
+            this.detailsPanel.append(this.typesPanel);
+            this.createTypes();
 
             // Creating chapters panel
             if (chapters.length() > 0) {
@@ -298,25 +338,119 @@ public class SingleAnimeView extends SurfaceActivityView {
                 this.chaptersPanel = new SfPanel().setSize(-100, -80);
                 this.detailsPanel.append(this.chaptersPanel);
 
-                ArrayList<Chapter> chaptersArray = Chapter.getChaptersFromJson(chapters);
-                ListView chaptersView = new ListView(this.context);
-                chaptersView.setAdapter(null);
-                chaptersView.setAdapter(new ChapterAdapter(this.context, chaptersArray));
-                chaptersView.setDivider(new ColorDrawable(0x00FFFFFF));
-                chaptersView.setDividerHeight(threeRuleY(50));
-                chaptersView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                final ArrayList<Chapter> chaptersArray = Chapter.getChaptersFromJson(chapters);
+                this.chaptersView = new ListView(this.context);
+                this.chaptersView.setAdapter(null);
+                this.chaptersView.setAdapter(new ChapterAdapter(this.context, chapters, animeString));
+                this.chaptersView.setDivider(new ColorDrawable(0x00FFFFFF));
+                this.chaptersView.setDividerHeight(threeRuleY(50));
+                this.chaptersView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        try {
 
-                            //Log.d("DXGO", "PICADO ::: " + chapters.getJSONObject(i).toString());
-                            Intent intent = new Intent(context, ChromeWebPlayer.class);
-                            intent.putExtra("media", chapters.getJSONObject(i).toString());
-                            activity.startActivity(intent);
+                        /*Log.d("DXGOP", "URL a scannear :: " + chaptersArray.get(i).getUrl());
+                        com.appbuilders.credentials.Rester.ReSTClient rest = new com.appbuilders.credentials.Rester.ReSTClient(chaptersArray.get(i).getUrl());
+                        com.appbuilders.credentials.Rester.ReSTRequest request = new com.appbuilders.credentials.Rester.ReSTRequest(com.appbuilders.credentials.Rester.ReSTRequest.REST_REQUEST_METHOD_POST, "");
+                        rest.execute(request, new com.appbuilders.credentials.Rester.ReSTCallback() {
+                            @Override
+                            public void onSuccess(com.appbuilders.credentials.Rester.ReSTResponse response) {
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                                String resp = response.body;
+                                Log.d("DXGOP", "URL PASO 1 :: " + resp);
+                                List<String> extractedUrls = extractUrls(resp);
+
+                                for (String url : extractedUrls) {
+                                   Log.d("DXGOP", "PASO 2 ::: " + url);
+                                }
+
+                            }
+
+                            @Override
+                            public void onError(com.appbuilders.credentials.Rester.ReSTResponse reSTResponse) {
+
+                            }
+                        });*/
+
+
+
+
+                        //Log.d("DXGOP", "BAJANDO CAPITULO ::: " );
+                //        Uri downloadUri = Uri.parse("http://s3.animeflv.com/efire.php?v=cGNJV2w0L0xGdWI0TnBOcmZtY0JpdFBKWWV5eHFZRTNCU3VlYytRa3k1cz0=");
+                //        Uri destinationUri = Uri.parse(context.getExternalCacheDir().toString() + "/erick1234.mp4");
+
+                        // Setting timeout globally for the download network requests:
+                        /*PRDownloaderConfig config = PRDownloaderConfig.newBuilder()
+                                .build();
+                        PRDownloader.initialize(context, config);
+
+                        int downloadId = PRDownloader.download(chaptersArray.get(i).getUrl(), context.getExternalCacheDir().toString(), "eri_1234.mp4")
+                                .build()
+                                .setOnStartOrResumeListener(new OnStartOrResumeListener() {
+                                    @Override
+                                    public void onStartOrResume() {
+
+                                    }
+                                })
+                                .setOnPauseListener(new OnPauseListener() {
+                                    @Override
+                                    public void onPause() {
+
+                                    }
+                                })
+                                .setOnCancelListener(new OnCancelListener() {
+                                    @Override
+                                    public void onCancel() {
+
+                                    }
+                                })
+                                .setOnProgressListener(new OnProgressListener() {
+                                    @Override
+                                    public void onProgress(Progress progress) {
+                                        Log.d("DXGOP", "progress ::: " + progress);
+
+                                    }
+                                })
+                                .start(new OnDownloadListener() {
+                                    @Override
+                                    public void onDownloadComplete() {
+                                        Log.d("DXGOP", "ACABO");
+                                    }
+
+                                    @Override
+                                    public void onError(Error error) {
+                                        Log.d("DXGOP", "FALLO ::: " + error);
+                                    }
+                                });*/
+
+
+
+
+                        /*DownloadRequest downloadRequest = new DownloadRequest(downloadUri)
+                                .setRetryPolicy(new DefaultRetryPolicy())
+                                .setDestinationURI(destinationUri).setPriority(DownloadRequest.Priority.HIGH)
+                                .setStatusListener(new DownloadStatusListenerV1() {
+                                    @Override
+                                    public void onDownloadComplete(DownloadRequest downloadRequest) {
+
+                                    }
+
+                                    @Override
+                                    public void onDownloadFailed(DownloadRequest downloadRequest, int i, String s) {
+                                        Log.d("DXGOP", "FALLO ::: " + s);
+                                    }
+
+                                    @Override
+                                    public void onProgress(DownloadRequest downloadRequest, long l, long l1, int i) {
+                                        Log.d("DXGOP", "UNO :: " + l + " DOS ::: " + l1 + " TRES ::: " + i);
+                                    }
+                                });*/
+
+
+                        //Intent intent = new Intent(context, ChromeWebPlayer.class);
+                        //intent.putExtra("media", chapters.getJSONObject(i).toString());
+                        //intent.putExtra("anime", animeString);
+                        //activity.startActivity(intent);
+
                     }
                 });
 
@@ -330,6 +464,254 @@ public class SingleAnimeView extends SurfaceActivityView {
 
         // Update
         this.screen.update(this.context);
+    }
+
+    protected void createTypes() {
+
+
+        SfPanel seriePanel = new SfPanel().setSize(-31.5f, -60).setMargin(0, threeRuleX(20), 0, 0);
+        SfPanel ovasPanel = new SfPanel().setSize(-31.5f, -60).setMargin(0, threeRuleX(20), 0, 0);
+        SfPanel moviePanel = new SfPanel().setSize(-31.5f, -60);
+        this.typesPanel.append(seriePanel).append(ovasPanel).append(moviePanel);
+
+        AutoResizeTextView serieView = new AutoResizeTextView(this.context);
+        serieView.setText("Serie");
+        serieView.setTextColor(Color.WHITE);
+        serieView.setBackgroundResource(R.drawable.borders_solid_yellow);
+        serieView.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        serieView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+
+        AutoResizeTextView ovasView = new AutoResizeTextView(this.context);
+        ovasView.setText("Ovas");
+        ovasView.setTextColor(Color.WHITE);
+        ovasView.setBackgroundResource(R.drawable.borders);
+        ovasView.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        ovasView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+
+        AutoResizeTextView movieView = new AutoResizeTextView(this.context);
+        movieView.setText("Peliculas");
+        movieView.setTextColor(Color.WHITE);
+        movieView.setBackgroundResource(R.drawable.borders);
+        movieView.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        movieView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+
+        seriePanel.setView(serieView);
+        ovasPanel.setView(ovasView);
+        moviePanel.setView(movieView);
+
+        this.addView(serieView);
+        this.addView(ovasView);
+        this.addView(movieView);
+
+    }
+
+    protected void createLanguageSelect() {
+
+        // Fixing audios
+        if (this.audios.size() < 2) {
+            this.audios.add("");
+        }
+
+        MaterialSpinner lenguageView = new MaterialSpinner(this.context);
+        lenguageView.setItems(this.audios);
+        lenguageView.setBackgroundResource(R.drawable.borders_solid_yellow);
+        lenguageView.setTextColor(Color.BLACK);
+        lenguageView.setArrowColor((!this.audios.get(this.audios.size() - 1).equals("")) ? Color.BLACK : Color.argb(1,237, 178, 0));
+
+        lenguageView.setClickable((!this.audios.get(this.audios.size() - 1).equals("")) ? true : false);
+        lenguageView.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+
+            @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+                if (!item.equals("")) {
+                    askForNewMedias("chapter", item);
+                    Snackbar snack = Snackbar.make(view, "Cambiando a idioma: " + item, Snackbar.LENGTH_LONG);
+                    snack.getView().setBackgroundResource(R.color.yellowItemSelected);
+                    TextView text = snack.getView().findViewById(android.support.design.R.id.snackbar_text);
+                    text.setTextColor(Color.BLACK);
+                    snack.show();
+                }
+            }
+        });
+
+        this.lenguagePanel = new SfPanel().setSize(-30, -22).setView(lenguageView);
+        this.lenguagePanel.setPosition(SfPanel.SF_POSITION_ABSOLUTE).setOrigin(SfPanel.SF_UNSET, SfPanel.SF_UNSET, threeRuleY(25), threeRuleX(15));
+        this.imageHeaderPanel.append(this.lenguagePanel);
+        this.addView(lenguageView);
+    }
+
+    protected void askForNewMedias(String type, String audio) {
+
+        this.credentials = Credentials.getInstance(this.context);
+        this.chaptersView.setAdapter(null);
+
+        ReSTClient rest = new ReSTClient(credentials.getUrl() + "/anime/medias");
+        ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_POST, "");
+        request.addParameter("token", credentials.getToken());
+        request.addField("user_id", credentials.getUserId());
+        request.addField("bearer", credentials.getBearer());
+        request.addField("anime_id", String.valueOf(anime.getId()));
+        request.addField("type", type);
+        request.addField("audio", audio);
+        rest.execute(request, new ReSTCallback() {
+
+            @Override
+            public void onSuccess(ReSTResponse response) {
+
+                JSONObject res = JsonFileManager.stringToJSON(response.body);
+                Log.d("DXGO", "ANIME NEW MEDIAS ::: " + res.toString());
+
+                try {
+
+                    if (res.getString("result").equals("success") && res.getInt("code") == 200) {
+
+                        final JSONArray data = res.getJSONArray("data");
+                        updateAnimeDetails(data);
+
+                    } else {
+                        //showErrorAlert("Error", "Problemas de conexión");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(ReSTResponse response) {
+
+                String errorMessage;
+                if (response.statusCode == 404) {
+                    errorMessage = "HUMAN used SEARCH\nBut, it failed!";
+                } else {
+                    errorMessage = "Error " + Integer.toString(response.statusCode);
+                }
+                Toast.makeText(context, "Try again!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    protected void updateAnimeDetails(final JSONArray chapters) {
+
+        // data is equals to chapters or ovas or movies
+        final ArrayList<Chapter> chaptersArray = Chapter.getChaptersFromJson(chapters);
+        this.chaptersView.setAdapter(null);
+        this.chaptersView.setAdapter(new ChapterAdapter(this.context, chapters, animeString));
+        this.chaptersView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                /*Log.d("DXGOP", "URL a scannear :: " + chaptersArray.get(i).getUrl());
+                com.appbuilders.credentials.Rester.ReSTClient rest = new com.appbuilders.credentials.Rester.ReSTClient(chaptersArray.get(i).getUrl());
+                com.appbuilders.credentials.Rester.ReSTRequest request = new com.appbuilders.credentials.Rester.ReSTRequest(com.appbuilders.credentials.Rester.ReSTRequest.REST_REQUEST_METHOD_GET, "");
+                rest.execute(request, new com.appbuilders.credentials.Rester.ReSTCallback() {
+                    @Override
+                    public void onSuccess(com.appbuilders.credentials.Rester.ReSTResponse response) {
+
+                        String resp = response.body;
+                        Log.d("DXGOP", "URL PASO 1 :: " + resp);
+                        List<String> extractedUrls = extractUrls(resp);
+
+                        for (String url : extractedUrls) {
+
+                            Log.d("DXGOP", "PASO 2 ::: " + url);
+                            if (url.contains("mediafire")) {
+
+                                com.appbuilders.credentials.Rester.ReSTClient rest = new com.appbuilders.credentials.Rester.ReSTClient(url);
+                                com.appbuilders.credentials.Rester.ReSTRequest request = new com.appbuilders.credentials.Rester.ReSTRequest(com.appbuilders.credentials.Rester.ReSTRequest.REST_REQUEST_METHOD_GET, "");
+                                rest.execute(request, new com.appbuilders.credentials.Rester.ReSTCallback() {
+                                    @Override
+                                    public void onSuccess(com.appbuilders.credentials.Rester.ReSTResponse response) {
+
+                                        String resp = response.body;
+                                        Log.d("DXGOP", "FIN PASO 1 :: " + resp);
+
+                                        String pag = resp.split("http://download")[1];
+                                        pag = pag.split("\"")[0];
+                                        String url = pag.split("'")[0];
+                                        if (url.equals("")) {
+                                            Log.d("DXGOP", "MORIIIIIII");
+                                        } else {
+                                            //$('#videoLoading').remove();
+                                            url = "http://download" + url;
+                                        }
+                                        Log.d("DXGOP", "FIN PASO 2 :: " + url);
+                                    }
+
+                                    @Override
+                                    public void onError(com.appbuilders.credentials.Rester.ReSTResponse reSTResponse) {
+
+                                    }
+                                });
+
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(com.appbuilders.credentials.Rester.ReSTResponse reSTResponse) {
+
+                    }
+                });*/
+
+
+        //        Log.d("DXGOP", "BAJANDO CAPITULO ::: ");
+        //        Uri downloadUri = Uri.parse(chaptersArray.get(i).getUrl());
+        //        Uri destinationUri = Uri.parse(context.getExternalCacheDir().toString() + "/erick1234.mp4");
+
+                // Setting timeout globally for the download network requests:
+                /*PRDownloaderConfig config = PRDownloaderConfig.newBuilder()
+                        .build();
+                PRDownloader.initialize(context, config);
+
+                int downloadId = PRDownloader.download("http://download1953.mediafire.com/c73qr9d1yehg/tjj70ag24sl7n52/2793_5", context.getExternalCacheDir().toString(), "er.mp4")
+                        .build()
+                        .setOnStartOrResumeListener(new OnStartOrResumeListener() {
+                            @Override
+                            public void onStartOrResume() {
+
+                            }
+                        })
+                        .setOnPauseListener(new OnPauseListener() {
+                            @Override
+                            public void onPause() {
+
+                            }
+                        })
+                        .setOnCancelListener(new OnCancelListener() {
+                            @Override
+                            public void onCancel() {
+
+                            }
+                        })
+                        .setOnProgressListener(new OnProgressListener() {
+                            @Override
+                            public void onProgress(Progress progress) {
+                                Log.d("DXGOP", "progress ::: " + progress);
+
+                            }
+                        })
+                        .start(new OnDownloadListener() {
+                            @Override
+                            public void onDownloadComplete() {
+                                Log.d("DXGOP", "ACABO");
+                            }
+
+                            @Override
+                            public void onError(Error error) {
+                                Log.d("DXGOP", "FALLO ::: " + error);
+                            }
+                        });*/
+
+
+                //Log.d("DXGO", "PICADO ::: " + chapters.getJSONObject(i).toString());
+                    /*Intent intent = new Intent(context, ChromeWebPlayer.class);
+                    intent.putExtra("media", chapters.getJSONObject(i).toString());
+                    intent.putExtra("anime", animeString);
+                    activity.startActivity(intent);*/
+
+            }
+        });
     }
 
     protected int threeRuleY(int value) {
@@ -350,5 +732,20 @@ public class SingleAnimeView extends SurfaceActivityView {
         int width = size.x;
 
         return (width * value) / 1000;
+    }
+
+    public static List<String> extractUrls(String text) {
+        List<String> containedUrls = new ArrayList<String>();
+        String urlRegex = "((http?|ftp|gopher|telnet|file):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
+        Pattern pattern = Pattern.compile(urlRegex, Pattern.CASE_INSENSITIVE);
+        Matcher urlMatcher = pattern.matcher(text);
+
+        while (urlMatcher.find())
+        {
+            containedUrls.add(text.substring(urlMatcher.start(0),
+                    urlMatcher.end(0)));
+        }
+
+        return containedUrls;
     }
 }

@@ -69,11 +69,11 @@ public class SearchAnimesView extends SurfaceActivityView {
 
         // Initializing panels
         this.contentPanel = new SfPanel().setSize(-100, -82);
-        this.searchPanel = new SfPanel().setSize(-100, -8).setMargin(threeRuleY(30), 0,0,threeRuleX(20));
+        this.searchPanel = new SfPanel().setSize(-100, -8).setMargin(threeRuleY(30), 0,0,threeRuleX(0));
         this.masonryPanel = new SfPanel().setSize(-100, -92);
 
         this.searchPanelView = new SfPanel().setSize(-70, -100).setMargin(0,0,0, threeRuleX(10));
-        this.searchPanelButton = new SfPanel().setSize(-25, -100);
+        this.searchPanelButton = new SfPanel().setSize(-28, -100);
 
         // Appends
         this.subScreen.append(this.contentPanel);
