@@ -246,6 +246,8 @@ public class SingleAnimeView extends SurfaceActivityView {
         request.addParameter("token", credentials.getToken());
         request.addField("user_id", credentials.getUserId());
         request.addField("bearer", credentials.getBearer());
+        request.addField("uuid", credentials.getUserUuid());
+        request.addField("bit", credentials.getBit());
         request.addField("anime_id", String.valueOf(anime.getId()));
         rest.execute(request, new ReSTCallback() {
 
@@ -549,6 +551,8 @@ public class SingleAnimeView extends SurfaceActivityView {
         request.addParameter("token", credentials.getToken());
         request.addField("user_id", credentials.getUserId());
         request.addField("bearer", credentials.getBearer());
+        request.addField("uuid", credentials.getUserUuid());
+        request.addField("bit", credentials.getBit());
         request.addField("anime_id", String.valueOf(anime.getId()));
         request.addField("type", type);
         request.addField("audio", audio);

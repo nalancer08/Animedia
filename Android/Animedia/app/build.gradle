@@ -75,6 +75,7 @@ dependencies {
     compile 'com.mindorks.android:prdownloader:0.2.0'
     compile 'com.polyak:icon-switch:1.0.0'
     compile 'com.github.clans:fab:1.6.4'
+    compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
 }
 
 

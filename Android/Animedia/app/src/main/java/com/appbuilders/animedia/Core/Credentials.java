@@ -21,7 +21,7 @@ public class Credentials {
     private Context context;
     private static String packagee = "animedia";
 
-    private boolean debug = false;
+    private boolean debug = true;
     private String token = "e4803d711ba56d1bc9bf97a45e49d9f67b2e3bd8004893728a866f7e6cec1eeb.8f6952dfc83073f80afbc048857d52d533a57970";
     private String key = "8f6952dfc83073f80afbc048857d52d533a57970";
     private String url = "";
@@ -108,6 +108,26 @@ public class Credentials {
         return "";
     }
 
+    public String getUserUuid() {
+
+        String dataString = this.getPreference("userLogin");
+
+        if (!dataString.equals("")) {
+
+            try {
+
+                JSONObject data = JsonFileManager.stringToJSON(dataString);
+                JSONObject user = data.getJSONObject("user");
+                String uuid = user.getString("uuid");
+                return uuid;
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return "";
+    }
+
     public String getUserFbid() {
 
         String dataString = this.getPreference("userLogin");
@@ -157,7 +177,26 @@ public class Credentials {
             try {
 
                 JSONObject object = JsonFileManager.stringToJSON(dataString);
-                    String bearer = object.getString("bearer");
+                String bearer = object.getString("bearer");
+                return bearer;
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return "";
+    }
+
+    public String getBit() {
+
+        String dataString = this.getPreference("userLogin");
+
+        if (!dataString.equals("")) {
+
+            try {
+
+                JSONObject object = JsonFileManager.stringToJSON(dataString);
+                String bearer = object.getString("bit");
                 return bearer;
 
             } catch (JSONException e) {

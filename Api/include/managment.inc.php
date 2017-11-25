@@ -72,34 +72,50 @@
 		* This method allows register a request with response
 		* This method gonna calculate the size from the route, and then register to mesuare the api calls and use
 		**/
-		public function register($request, $response, $agent = 'unknown', $user = 0) {
+		public function register($request, $response, $agent = 'unknown', $user = 0, $uuid = 0) {
 
 			global $app;
-			$dbh = $app->getDatabase();
+			//$dbh = $app->getDatabase();
 
 			$size = mb_strlen($response->getBody(), '8bit'); // It's in bytes
 			$route = $request->route;
 
-			if ( $user <= 0 ) {
+			if ($user <= 0) {
 				$user = isset($site->user->id) ? $site->user->id : 1;
 			}
 
-			try {
-				$sql = "INSERT INTO managment_request(id, user_id, request_ip, route, size, key_slug, created, modified) VALUES(:id, :user_id, :request_ip, :route, :size, :key_slug, :created, :modified)";
-				$stmt = $dbh->prepare($sql);
-				$stmt->bindValue(':id', 0);
-				$stmt->bindValue(':user_id', $user);
-				$stmt->bindValue(':request_ip', '192.169.1.65');
-				$stmt->bindValue(':route', $route);
-				$stmt->bindValue(':size', $size);
-				$stmt->bindValue(':key_slug', $agent);
-				$stmt->bindValue(':created', date('Y-m-d H:i:s'));
-				$stmt->bindValue(':modified', date('Y-m-d H:i:s'));
-				$stmt->execute();
-				$ret = true;
-			} catch (PDOException $e) {
-				echo $e->getMessage();
-			}
+			$params = array();
+			$params['user_uuid'] = ($uuid != 0) ? $uuid : $user;
+			$params['app_uuid'] = $this->getOptionValue('pd_app_uuid');
+			$params['request_ip'] = $this->get_client_ip();
+			$params['request_client'] = $this->get_client_ua();
+			$params['route'] = $route;
+			$params['size'] = $size;
+			$params['key_slug'] = $agent;
+
+			$pd = new PigData(true);
+			$pd->addResponse($params);
+
+			// if ( $user <= 0 ) {
+			// 	$user = isset($site->user->id) ? $site->user->id : 1;
+			// }
+
+			// try {
+			// 	$sql = "INSERT INTO managment_request(id, user_id, request_ip, route, size, key_slug, created, modified) VALUES(:id, :user_id, :request_ip, :route, :size, :key_slug, :created, :modified)";
+			// 	$stmt = $dbh->prepare($sql);
+			// 	$stmt->bindValue(':id', 0);
+			// 	$stmt->bindValue(':user_id', $user);
+			// 	$stmt->bindValue(':request_ip', '192.169.1.65');
+			// 	$stmt->bindValue(':route', $route);
+			// 	$stmt->bindValue(':size', $size);
+			// 	$stmt->bindValue(':key_slug', $agent);
+			// 	$stmt->bindValue(':created', date('Y-m-d H:i:s'));
+			// 	$stmt->bindValue(':modified', date('Y-m-d H:i:s'));
+			// 	$stmt->execute();
+			// 	$ret = true;
+			// } catch (PDOException $e) {
+			// 	echo $e->getMessage();
+			// }
 
 			// print_a($request);
 			// print_a($response);
@@ -108,11 +124,94 @@
 			# Register events into DB
 		}
 
+		/**
+		* This method allow synchronize pig data products and application
+		* This proccess is handle by uuid's
+		**/
+		public function synchronize($uuid) {
+
+			global $app;
+			$this->addOption('pd_app_uuid', $uuid);
+		}
+
 
 		/********************************************************************************************************
-		*											ToolBelt Events 											*
+		*											ToolBelt Options 											*
 		*********************************************************************************************************/
 		
+		public function addOption($field, $value) {
+
+			global $app;
+			$dbh = $app->getDatabase();
+
+			try {
+
+				$sql = "SELECT mo.value FROM managment_options mo WHERE mo.opt = '{$field}'";
+				$stmt = $dbh->prepare($sql);
+				$stmt->execute();
+				$result = $stmt->fetch();
+
+				if (!$result) {
+
+					$sql = "INSERT INTO managment_options(id, opt, value, created, modified) VALUES(:id, :opt, :value, :created, :modified)";
+					$stmt = $dbh->prepare($sql);
+					$stmt->bindValue(':id', 0);
+					$stmt->bindValue(':opt', $field);
+					$stmt->bindValue(':value', $value);
+					$stmt->bindValue(':created', date('Y-m-d H:i:s'));
+					$stmt->bindValue(':modified', date('Y-m-d H:i:s'));
+					$stmt->execute();
+					$ret = true;
+				}
+
+			} catch (PDOException $e) {
+				echo $e->getMessage();
+			}
+		}
+
+		public function getOption($field) {
+
+			global $app;
+			$dbh = $app->getDatabase();
+			$ret = false;
+
+			try {
+
+				$sql = "SELECT mo.* FROM managment_options mo WHERE mo.opt = '{$field}'";
+				$stmt = $dbh->prepare($sql);
+				$stmt->execute();
+				$ret = $stmt->fetch();
+
+			} catch (PDOException $e) {
+				echo $e->getMessage();
+			}
+			return $ret;
+		}
+
+		public function getOptionValue($field) {
+
+			global $app;
+			$dbh = $app->getDatabase();
+			$ret = false;
+
+			try {
+
+				$sql = "SELECT mo.value FROM managment_options mo WHERE mo.opt = '{$field}'";
+				$stmt = $dbh->prepare($sql);
+				$stmt->execute();
+				$ret = $stmt->fetch();
+				$ret = $ret->value;
+
+			} catch (PDOException $e) {
+				echo $e->getMessage();
+			}
+			return $ret;
+		}
+
+		public function updateOption() {}
+
+		public function removeOption() {}
+
 		/******************************************************************************************************
 		*											Load Functions 											  *
 		******************************************************************************************************/
@@ -291,7 +390,7 @@
 		*											Users Functions 		     							  *
 		******************************************************************************************************/
 
-		public function getUsers() {
+		public function getUsers($maxItems, $page) {
 
 			global $app;
 			$dbh = $app->getDatabase();
@@ -300,8 +399,11 @@
 			// Remember, here we dont user ORM, cause only generated problems
 			try {
 
-				$sql = "SELECT id, login, nicename, email, status FROM user;";
+				$sql = "SELECT id, login, slug, fbid, email, nicename, status, type, created, modified FROM user;
+						LIMIT :page, :max";
 				$stmt = $dbh->prepare($sql);
+				$stmt->bindValue(':page', $page); 
+				$stmt->bindValue(':max', $maxItems); 
 				$stmt->execute();
 				$result = $stmt->fetchAll();
 
@@ -376,6 +478,24 @@
 		}
 
 		/******************************************************************************************************
+		*									     	Dynamics ads 											  *
+		******************************************************************************************************/
+		
+		/**
+		* This method allow to get api.json file
+		* from APIO folder, remeber, use apio gonna be a
+		* standard for all the apis
+		**/
+		public function getApi() {
+			
+			global $app;
+			$ret = '';
+
+			$file = file_get_contents('././apio/api.json');
+			return $file;
+		}
+
+		/******************************************************************************************************
 		*										Helper Functions 											  *
 		******************************************************************************************************/
 	
@@ -414,5 +534,37 @@
 
 			return $sql;
 		}
+
+			/**
+	 * Get the client's IP address
+	 * @return string The client's IP address
+	 */
+	protected function get_client_ip() {
+		$ret = "0.0.0.0";
+		if (isset($_SERVER)) {
+			$ret = $_SERVER["REMOTE_ADDR"];
+			if ( isset($_SERVER["HTTP_X_FORWARDED_FOR"]) ) {
+				$ret = $_SERVER["HTTP_X_FORWARDED_FOR"];
+			}
+			if ( isset($_SERVER["HTTP_CLIENT_IP"]) ) {
+				$ret = $_SERVER["HTTP_CLIENT_IP"];
+			}
+		}
+		return $ret;
+	}
+
+	/**
+	 * Get the client's user-agent
+	 * @return string The client's user-agent
+	 */
+	protected function get_client_ua() {
+		$ret = "Unknown";
+		if (isset($_SERVER)) {
+			if ( isset($_SERVER["HTTP_USER_AGENT"]) ) {
+				$ret = $_SERVER["HTTP_USER_AGENT"];
+			}
+		}
+		return $ret;
+	}
 	}
 ?>

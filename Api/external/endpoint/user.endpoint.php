@@ -34,7 +34,7 @@
 			$nicename = $request->post('nicename', '');
 
 			# Validate
-			if ( !$email || (!$password) ) {
+			if ( !$email ) {
 				$ret->message = 'Todos los campos son obligatorios';
 			} else {
 
@@ -50,7 +50,7 @@
 							
 							# Setting other values to the user
 							//$user->organization = $user->getAssignedOrganization();
-							$user->avatar = 'http://localhost/appbuilders/du/images/icons/user.png';
+							//$user->avatar = 'http://localhost/appbuilders/du/images/icons/user.png';
 							unset( $user->created );
 							unset( $user->modified );
 							unset( $user->password );
@@ -62,12 +62,18 @@
 							// $user->avatar = $avatar;
 							$bearer = $app->hashToken($user->id);
 							$bearer = Tokenizr::getToken($bearer);
+
+							$bit = $app->hashToken($user->uuid);
+							$bit = Tokenizr::getToken($bit);
+
 							#
 							$ret->codeResponse(200);
 							$ret->data = array(
 								'user' => $user,
-								'bearer' => $bearer
+								'bearer' => $bearer,
+								'bit' => $bit
 							);
+
 						} else {
 							$ret->message = 'La contraseña introducida no es válida para el usuario';
 						}
@@ -77,7 +83,7 @@
 
 							# Setting other values to the user
 							//$user->organization = $user->getAssignedOrganization();
-							$user->avatar = "https://graph.facebook.com/{$fbid}/picture?width=250&height=250";
+							//$user->avatar = "https://graph.facebook.com/{$fbid}/picture?width=250&height=250";
 
 							unset( $user->created );
 							unset( $user->modified );
@@ -90,11 +96,16 @@
 							// $user->avatar = $avatar;
 							$bearer = $app->hashToken($user->id);
 							$bearer = Tokenizr::getToken($bearer);
+
+							$bit = $app->hashToken($user->uuid);
+							$bit = Tokenizr::getToken($bit);
+
 							#
 							$ret->codeResponse(200);
 							$ret->data = array(
 								'user' => $user,
-								'bearer' => $bearer
+								'bearer' => $bearer,
+								'bit' => $bit
 							);
 						} else {
 							$ret->message = 'La contraseña introducida no es válida para el usuario';
@@ -113,13 +124,37 @@
 						$user->nicename = $nicename;
 						$user->save();
 
+						// PigData implementation
+						if ($user->id) {
+
+							// Synchronize user
+							// Step 1 - Creating token for PigData transactions
+							$pd = new PigData(true);
+							$token = $pd->symphony();
+
+							if ($token) {
+
+								$params = array();
+								$params['fbid'] = $fbid;
+								$params['email'] = $email;
+								$params['nicename'] = $nicename;
+								$pd_user = $pd->createUser($token, $params);
+
+								if ($pd_user) {
+
+									$user->uuid = $pd_user;
+									$user->save();
+								}
+							}
+						}
+
 						# Update metas
 						$permissions = array('create_tasks', 'create_projects', 'close_tasks', 'open_tasks', 'join_to_projects', 'join_to_organization');
 						$user->updateMeta('permissions', $permissions);
 
 						# Setting other values to the user
 						//$user->organization = $user->getAssignedOrganization();
-						$user->avatar = "https://graph.facebook.com/{$fbid}/picture?width=250&height=250";
+						//$user->avatar = "https://graph.facebook.com/{$fbid}/picture?width=250&height=250";
 
 						unset( $user->created );
 						unset( $user->modified );
@@ -131,13 +166,18 @@
 						// $user->hash = md5($user->email);
 						// $user->avatar = $avatar;
 						$bearer = $app->hashToken($user->id);
-						$bearer = Tokenizr::getToken($bearer);
-						#
-						$ret->codeResponse(200);
-						$ret->data = array(
-							'user' => $user,
-							'bearer' => $bearer
-						);
+							$bearer = Tokenizr::getToken($bearer);
+
+							$bit = $app->hashToken($user->uuid);
+							$bit = Tokenizr::getToken($bit);
+
+							#
+							$ret->codeResponse(200);
+							$ret->data = array(
+								'user' => $user,
+								'bearer' => $bearer,
+								'bit' => $bit
+							);
 					
 					} else {
 						$ret->message = 'El usuario especificado no existe';
@@ -147,7 +187,7 @@
 			# Return payload
 			$response->setHeader('Content-Type', 'application/json');
 			$response->setBody( $ret->toJSON() );
-			$managment->register($request, $response, $client['key'], ($user) ? $user->id : '');
+			$managment->register($request, $response, $client['key'], isset($user) ? $user->id : 0, isset($user) ? $user->uuid : 0);
 			return $response->respond();
 		}
 
@@ -166,9 +206,6 @@
 
 			# Initialize payload
 			$ret = new Payload();
-
-			# Get GET variables
-			$organization_id = $request->get('thread', '');
 
 			# Get POST variables
 			$email = $request->post('email');
@@ -189,20 +226,11 @@
 				$user->save();
 
 				# Update metas
-				$permissions = array('create_tasks', 'create_projects', 'close_tasks', 'open_tasks', 'join_to_projects', 'join_to_organization');
+				$permissions = array('watch_anime', 'search_anime', 'login', 'register');
 				$user->updateMeta('permissions', $permissions);
-
-				# Checking organization id
-				if ($organization_id != '') {
-					$organization_id = Tokenizr::checkToken($organization_id) ? Tokenizr::getData($organization_id) : false;
-					if ($organization_id != false) {
-						$user->assingOrganization($organization_id);
-					}
-				}
 
 				$ret->codeResponse(200);
 				$ret->data = $user;
-				$ret->message = "User created succesfully";
 		    
 		    } else { // El usuario ya existe
 

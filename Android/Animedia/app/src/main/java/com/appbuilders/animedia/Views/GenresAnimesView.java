@@ -98,6 +98,8 @@ public class GenresAnimesView extends SurfaceActivityView {
                 request.addParameter("token", credentials.getToken());
                 request.addField("user_id", credentials.getUserId());
                 request.addField("bearer", credentials.getBearer());
+                request.addField("uuid", credentials.getUserUuid());
+                request.addField("bit", credentials.getBit());
                 rest.execute(request, new ReSTCallback() {
 
                     @Override
@@ -225,6 +227,8 @@ public class GenresAnimesView extends SurfaceActivityView {
             request.addParameter("token", credentials.getToken());
             request.addField("user_id", credentials.getUserId());
             request.addField("bearer", credentials.getBearer());
+            request.addField("uuid", credentials.getUserUuid());
+            request.addField("bit", credentials.getBit());
             request.addField("genres", this.selectedAnimes.toString());
             rest.execute(request, new ReSTCallback() {
 

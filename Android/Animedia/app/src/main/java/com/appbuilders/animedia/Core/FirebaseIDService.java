@@ -2,6 +2,8 @@ package com.appbuilders.animedia.Core;
 
 import android.util.Log;
 
+import com.appbuilders.credentials.*;
+import com.appbuilders.credentials.Credentials;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 
@@ -11,7 +13,7 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
  */
 
 public class FirebaseIDService extends FirebaseInstanceIdService {
-    private static final String TAG = "DXGO";
+    private static final String TAG = "DXGOP";
 
     @Override
     public void onTokenRefresh() {
@@ -33,5 +35,8 @@ public class FirebaseIDService extends FirebaseInstanceIdService {
      */
     private void sendRegistrationToServer(String token) {
         // Add custom implementation, as needed.
+        com.appbuilders.credentials.Credentials credentials = Credentials.getInstance(getApplicationContext());
+        credentials.setFirebaseId(token);
+        credentials.synchronize();
     }
 }

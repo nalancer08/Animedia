@@ -1,6 +1,6 @@
 -- Animedia tables by App Builders
 -- Created by Erick Perez, CEO App Builders
--- Version V.1.0
+-- Version V.1.5
 
 -- This file gonna contains tables in MySQL and coments
 -- This tables are a mirror of SQL Tables diagram, the conection can be undertanded easiest in the diagram
@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS user (
 	login VARCHAR(100) NOT NULL,
 	slug VARCHAR(255) NOT NULL,
 	fbid VARCHAR(255) NOT NULL,
+	uuid VARCHAR(255) NOT NULL,
 	password VARCHAR(100) NOT NULL,
 	nicename VARCHAR(100) NOT NULL,
 	email VARCHAR(150) NOT NULL,
@@ -22,7 +23,8 @@ CREATE TABLE IF NOT EXISTS user (
 	PRIMARY KEY pk_id (id),
 	KEY idx_login (login),
 	KEY idx_slug (slug),
-	KEY idx_fbid (fbid)
+	KEY idx_fbid (fbid),
+	KEY idx_uuid (uuid)
 ) DEFAULT CHARACTER SET = UTF8;
 
 -- This table handle meta information for users

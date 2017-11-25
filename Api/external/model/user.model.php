@@ -16,6 +16,7 @@
 		public $login;
 		public $slug;
 		public $fbid;
+		public $uuid;
 		public $email;
 		public $password;
 		public $nicename;
@@ -34,8 +35,8 @@
 			$this->meta_table = 'user_meta';
 
 			$this->table = 'user';
-			$this->table_fields = array('id','slug', 'login', 'fbid', 'email', 'password', 'nicename', 'status', 'type', 'created', 'modified');
-			$this->update_fields = array('slug', 'login', 'fbid', 'email', 'password', 'nicename', 'status', 'type', 'modified');
+			$this->table_fields = array('id','slug', 'login', 'fbid', 'uuid', 'email', 'password', 'nicename', 'status', 'type', 'created', 'modified');
+			$this->update_fields = array('slug', 'login', 'fbid', 'uuid', 'email', 'password', 'nicename', 'status', 'type', 'modified');
 			$this->singular_class_name = 'User';
 			$this->plural_class_name = 'Users';
 
@@ -50,6 +51,7 @@
 				$this->login = '';
 				$this->slug = '';
 				$this->fbid = '';
+				$this->uuid = '';
 				$this->email = '';
 				$this->password = '';
 				$this->nicename = '';
@@ -206,7 +208,7 @@
 		}
 
 		protected static $table = 'user';
-		protected static $table_fields = array('id', 'slug', 'fbid', 'login', 'email', 'password', 'nicename', 'status', 'type', 'created', 'modified');
+		protected static $table_fields = array('id', 'slug', 'fbid', 'uuid', 'login', 'email', 'password', 'nicename', 'status', 'type', 'created', 'modified');
 		protected static $singular_class_name = 'User';
 		protected static $plural_class_name = 'Users';
 

@@ -11,6 +11,7 @@ import com.appbuilders.animedia.R;
 import com.appbuilders.animedia.Views.SplashView;
 import com.appbuilders.credentials.Configurations;
 import com.appbuilders.credentials.CredentialsOptions;
+import com.appbuilders.credentials.Preferences;
 import com.facebook.crypto.exception.CryptoInitializationException;
 import com.facebook.crypto.exception.KeyChainException;
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -31,14 +32,17 @@ public class SplashController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.removeCache();
 
-        CredentialsOptions options = new CredentialsOptions("https://appbuilders/apis/animedia", "http://192.168.1.69/appbuilders/apis/animedia", "8f6952dfc83073f80afbc048857d52d533a57970", true);
-        com.appbuilders.credentials.Credentials credentials = com.appbuilders.credentials.Credentials.getInstance(this).Builder(options).build();
-        Configurations config = Configurations.getInstance(this);
-        if (!config.exists("firstTime")) {
-            credentials.saveDevice();
-            config.add("firstTime", "");
-        }
+        Credentials.getInstance(this).printExistedPreferences();
 
+        CredentialsOptions options = new CredentialsOptions("https://appbuilders/apis/animedia",
+                "http://192.168.1.69/appbuilders/apis/animedia", "8f6952dfc83073f80afbc048857d52d533a57970", true);
+        com.appbuilders.credentials.Credentials credentials = com.appbuilders.credentials.Credentials.getInstance(this).Builder(options).build();
+        credentials.buildPigData();
+
+        String token = FirebaseInstanceId.getInstance().getToken();
+        credentials.needSynchronize((token != null) ? token : "");
+
+        new Preferences(this).printExistedPreferences();
         new SplashView(this, true);
     }
 

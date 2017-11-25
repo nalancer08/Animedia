@@ -11,20 +11,23 @@
 	include $app->baseDir('/external/tokenizr.inc.php');
 	include $app->baseDir('/external/validator.inc.php');
 	include $app->baseDir('/external/authentication.inc.php');
+	include $app->baseDir('/external/pigdata.inc.php');
 
 	# Endpoints
-	include $app->baseDir('/external/endpoint/toolbelt.endpoint.php');
 	include $app->baseDir('/external/endpoint/app.endpoint.php');
+	include $app->baseDir('/external/endpoint/toolbelt.endpoint.php');
 	include $app->baseDir('/external/endpoint/user.endpoint.php');
-	include $app->baseDir('/external/endpoint/task.endpoint.php');
-	include $app->baseDir('/external/endpoint/project.endpoint.php');
+	include $app->baseDir('/external/endpoint/anime.endpoint.php');
+	include $app->baseDir('/external/endpoint/media.endpoint.php');
 
 	# Models
 	include $app->baseDir('/external/model/user.model.php');
 	include $app->baseDir('/external/model/attachment.model.php');
+	include $app->baseDir('/external/model/genre.model.php');
 
-	include $app->baseDir('/external/model/project.model.php');
-	include $app->baseDir('/external/model/task.model.php');
+	include $app->baseDir('/external/model/anime.model.php');
+	include $app->baseDir('/external/model/media.model.php');
+
 	include $app->baseDir('/external/model/organization.model.php');
 
 	# Incluimos las librearías de control
@@ -42,8 +45,8 @@
 	$endpoints = array();
 	$endpoints['app'] = new EndpointApp();
 	$endpoints['user'] = new EndpointUser();
-	$endpoints['task'] = new EndpointTask();
-	$endpoints['project'] = new EndpointProject();
+	$endpoints['anime'] = new EndpointAnime();
+	$endpoints['media'] = new EndpointMedia();
 	$endpoints['toolbelt'] = new EndpointToolBelt();
 
 	if ($app->sandbox) {

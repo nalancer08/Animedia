@@ -103,7 +103,7 @@ public class HomeViewFixed extends SurfaceActivityView {
             public void onScrollMove(int position) {
 
                 setOnScrollSelectedItem(position);
-                setDynamicBackground(position);
+                //setDynamicBackground(position);
             }
         }));
 

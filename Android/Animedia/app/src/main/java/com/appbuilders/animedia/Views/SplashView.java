@@ -1,14 +1,18 @@
 package com.appbuilders.animedia.Views;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.Display;
 import android.widget.Toast;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.appbuilders.animedia.BuildConfig;
 import com.appbuilders.animedia.Controller.HomeController;
 import com.appbuilders.animedia.Controller.MainActivity;
@@ -18,6 +22,8 @@ import com.appbuilders.animedia.Libraries.Rester.ReSTCallback;
 import com.appbuilders.animedia.Libraries.Rester.ReSTClient;
 import com.appbuilders.animedia.Libraries.Rester.ReSTRequest;
 import com.appbuilders.animedia.Libraries.Rester.ReSTResponse;
+import com.appbuilders.animedia.R;
+import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
 import com.brouding.simpledialog.SimpleDialog;
 
@@ -32,6 +38,8 @@ import org.json.JSONObject;
 
 public class SplashView extends SurfaceActivityView {
 
+    private SfPanel progressPanel;
+    private RoundCornerProgressBar progress;
 
     public SplashView(Context context, boolean fullScreen) {
         super(context, fullScreen);
@@ -41,9 +49,25 @@ public class SplashView extends SurfaceActivityView {
     public void onCreateView() {
 
         // Adding background
-        int id = this.context.getResources().getIdentifier("splash", "drawable", this.context.getPackageName());
+        int id = this.context.getResources().getIdentifier("splash_without_logo", "drawable", this.context.getPackageName());
         Bitmap image = BitmapFactory.decodeStream(this.context.getResources().openRawResource(id));
         this.screenCanvas.setBackground(new BitmapDrawable(image));
+
+        this.progress = new RoundCornerProgressBar(this.context, null);
+        this.progress.setMax(10);
+        this.progress.setProgress(0);
+        this.progress.setProgressColor(R.color.yellowItemSelected);
+        this.progress.setSecondaryProgressColor(R.color.gray);
+        this.progress.setProgressBackgroundColor(R.color.yellowItemSelected);
+
+        this.progressPanel = new SfPanel();
+        this.progressPanel.setSize(-70, -3).setView(this.progress);
+        this.progressPanel.setPosition(SfPanel.SF_POSITION_ABSOLUTE).setOrigin(SfPanel.SF_UNSET, SfPanel.SF_UNSET, threeRuleY(0), threeRuleX(15));
+        this.screen.append(this.progressPanel);
+        this.addView(this.progress);
+
+        // Update
+        this.screen.update(this.context);
 
         // Getting status
         this.getStatus();
@@ -54,6 +78,7 @@ public class SplashView extends SurfaceActivityView {
         final Credentials credentials = Credentials.getInstance(this.context, true);
         final JSONObject[] resp = {null};
 
+        progress.setProgress(3);
         ReSTClient rest = new ReSTClient(credentials.getUrl() + "/status");
         ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_GET, "");
         request.addParameter("token", credentials.getToken());
@@ -62,7 +87,7 @@ public class SplashView extends SurfaceActivityView {
             @Override
             public void onSuccess(ReSTResponse response) {
 
-                Log.d("AB_DEV", "RESPUESTA = " + response.body);
+                Log.d("DXGOP", "RESPUESTA STATUS = " + response.body);
 
                 JSONObject res = JsonFileManager.stringToJSON(response.body);
 
@@ -71,31 +96,34 @@ public class SplashView extends SurfaceActivityView {
                     if (res.getString("result").equals("success") && res.getInt("code") == 200) {
 
                         JSONObject data = res.getJSONObject("data");
-                        if (data.getString("version").equals(BuildConfig.VERSION_NAME)) {
-                            resp[0] = data;
-                            askForLatestAnimes(credentials);
+                        if (data.has("pig_data_app_uuid")) {
+
+                            com.appbuilders.credentials.Credentials.getInstance(context).setAppUuid(data.getString("pig_data_app_uuid"));
+                            if (data.getString("version").equals(BuildConfig.VERSION_NAME)) {
+                                resp[0] = data;
+                                progress.setProgress(5);
+                                askForLatestAnimes(credentials);
+                            } else {
+                                showErrorAlert("Error", "Necesitas actualizar tu aplicación para poder seguir viendo anime \n Error: 1xs");
+                            }
+
                         } else {
-                            showErrorAlert("Error", "Necesitas actualizar tu aplicación para poder seguir viendo anime");
+                            showErrorAlert("Error", "Necesitas actualizar tu aplicación para poder seguir viendo anime, si el error persiste contactanos \n Error: 3xs");
                         }
+
                     }  else {
-                        showErrorAlert("Error", "Servidores ocupados");
+                        showErrorAlert("Error", "Servidores ocupados \n Error: 2xs");
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    showErrorAlert("Error", "Servidores ocupados, intentelo ms tarde \n Error: 1xs");
                 }
             }
 
             @Override
             public void onError(ReSTResponse response) {
-
-                String errorMessage;
-                if (response.statusCode == 404) {
-                    errorMessage = "HUMAN used SEARCH\nBut, it failed!";
-                } else {
-                    errorMessage = "Error " + Integer.toString(response.statusCode);
-                }
-                Toast.makeText(context, "Try again!!", Toast.LENGTH_SHORT).show();
+                showErrorAlert("Error", "Servidores ocupados, intentelo ms tarde \n Error: 1xs");
             }
         });
 
@@ -104,6 +132,7 @@ public class SplashView extends SurfaceActivityView {
 
     private void askForLatestAnimes(Credentials credentials) {
 
+        progress.setProgress(7);
         ReSTClient rest = new ReSTClient(credentials.getUrl() + "/animes/latest/medias");
         ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_POST, "");
         request.addParameter("token", credentials.getToken());
@@ -123,6 +152,7 @@ public class SplashView extends SurfaceActivityView {
                         JSONArray data = res.getJSONArray("data");
                         Intent intent = new Intent(context, HomeController.class);
                         intent.putExtra("latestAnimes", data.toString());
+                        progress.setProgress(10);
                         activity.startActivity(intent);
                         activity.finish();
 
@@ -175,5 +205,25 @@ public class SplashView extends SurfaceActivityView {
                 //    }
                 //})
                 .show();    // Must be called at the end
+    }
+
+    protected int threeRuleY(int value) {
+
+        Display display = ((Activity)this.context).getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int heigth = size.y;
+
+        return (heigth * value) / 1794;
+    }
+
+    protected int threeRuleX(int value) {
+
+        Display display = ((Activity)this.context).getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+
+        return (width * value) / 1000;
     }
 }

@@ -25,19 +25,25 @@
 			$request = $app->getRequest();
 			$response = $app->getResponse();
 			$managment = $app->getManagment();
+
+			# Token
+			$client = Authentication::requireToken();
+
 			# Initialize payload
 			$ret = new Payload();
+
 			# Set payload
 			$ret->codeResponse(200);
 			$ret->data = array(
 				'time' => time(),
 				'sandbox' => $app->sandbox,
-				'version' => $app->getGlobal('app_version')
+				'version' => $app->getGlobal('app_version'),
+				'pig_data_app_uuid' => $managment->getOptionValue('pd_app_uuid')
 			);
 			# Return payload
 			$response->setHeader('Content-Type', 'application/json');
 			$response->setBody( $ret->toJSON() );
-			$managment->register($request, $response);
+			$managment->register($request, $response, $client['key'], 0);
 			return $response->respond();
 		}
 
@@ -47,23 +53,27 @@
 			$request = $app->getRequest();
 			$response = $app->getResponse();
 			$managment = $app->getManagment();
+
 			# Initialize payload
 			$ret = new Payload();
 			$ret->result = 'error';
+
 			# Get POST variables
 			$app_id = $request->post('app_id');
+
 			# Generate token
 			$token = Authentication::generateToken($app_id);
 			if ($token) {
+				$ret->codeResponse(200);
 				$ret->result = 'success';
-				$ret->data = $token;
+				$ret->data = $token;				
 			} else {
 				$ret->message = 'La applicación especificada no es válida';
 			}
 			# Return payload
 			$response->setHeader('Content-Type', 'application/json');
 			$response->setBody( $ret->toJSON() );
-			$managment->register($request, $response);
+			$managment->register($request, $response, 'system', 0);
 			return $response->respond();
 		}
 	}

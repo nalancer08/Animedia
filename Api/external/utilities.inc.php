@@ -119,6 +119,39 @@
 		fclose($file);
 	}
 
+	function curl_request($url, $method, $params = array(), $scheme = 'http') {
+
+		global $site;
+		# Create query string
+		$query = http_build_query($params);
+		if ($query && $method == 'get') {
+			$url = "{$url}&{$query}";
+		}
+		# Open connection
+		$ch = curl_init();
+		# Set the url, number of POST vars, POST data, etc
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		if ($method == 'post') {
+			curl_setopt($ch, CURLOPT_POST, count($params));
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
+		}
+		
+		if($scheme == 'https') {
+			
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+			curl_setopt($ch, CURLOPT_CAINFO, $site->baseDir('/cacert.pem'));
+		}
+
+		# Execute request
+		$result = curl_exec($ch);
+		# Close connection
+		curl_close($ch);
+		# Return API response
+		return $result;
+	}
+
 	function generate_password($length) {
 
 		global $app;

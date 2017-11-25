@@ -123,6 +123,16 @@
             app:fab_colorRipple="@color/yellowItemSelected"
             fab:fab_size="mini" />
 
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/appbuilders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ab_mini_s_logo"
+            app:fab_colorNormal="@color/trans"
+            fab:fab_label="Mas de nuestras aplicaciones"
+            app:fab_colorRipple="@color/yellowItemSelected"
+            app:fab_size="normal" />
+
     </com.github.clans.fab.FloatingActionMenu>
 
 </RelativeLayout>

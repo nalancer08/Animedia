@@ -25,12 +25,14 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <receiver android:name=".Core.UninstallIntentReceiver">
+        <receiver android:name=".Core.UninstallIntentReceiver"
+            tools:ignore="InnerclassSeparator">
             <intent-filter android:priority="0">
                 <action android:name="android.intent.action.QUERY_PACKAGE_RESTART" />
 
@@ -38,12 +40,14 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".Core.MyFirebaseMessagingService">
+        <service android:name=".Core.MyFirebaseMessagingService"
+            tools:ignore="ExportedService,InnerclassSeparator">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".Core.FirebaseIDService">
+        <service android:name=".Core.FirebaseIDService"
+            tools:ignore="ExportedService,InnerclassSeparator">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
@@ -51,7 +55,8 @@
 
         <activity
             android:name=".Controller.SplashController"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -60,16 +65,20 @@
         </activity>
         <activity
             android:name=".Controller.HomeController"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenLayout|screenSize"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.DailyMotionPlayer"
             android:configChanges="orientation|keyboardHidden|screenLayout|screenSize"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Controller.MenuController" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Controller.MenuController"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -86,20 +95,26 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controller.AnimesController" />
-        <activity android:name=".Controller.SingleAnimeController" />
+        <activity android:name=".Controller.AnimesController"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Controller.SingleAnimeController"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.ChromeWebPlayer"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.ConfigurationsController"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.AboutUsController"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity android:name=".Controller.PrivacityController"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator">
         </activity>
     </application>
 

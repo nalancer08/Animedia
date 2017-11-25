@@ -1,3 +1,21 @@
 2017-04-27 23:35:29 - Database error: 42S22 (Line 61) in Task::save: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'task_test' in 'field list'. Query: INSERT INTO task (id, parent_task_id, name, task_test, complete, start, end, created, modified)
 						VALUES (:id, :parent_task_id, :name, :task_test, :complete, :start, :end, :created, :modified)
 						ON DUPLICATE KEY UPDATE parent_task_id = :parent_task_id, name = :name, task_test = :task_test, complete = :complete, start = :start, end = :end, modified = NOW()
+2017-10-28 08:21:55 - Database error: 42S22 (Line 298) in Media::updateMeta: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'meta_id' in 'field list'
+2017-10-28 08:24:26 - Database error: 42S22 (Line 298) in Media::updateMeta: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'meta_id' in 'field list'
+2017-10-28 08:26:41 - Database error: 42S22 (Line 298) in Media::updateMeta: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'meta_id' in 'field list'
+2017-11-24 16:57:32 - Database error: 23000 (Line 61) in User::save: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'uuid' cannot be null. Query: INSERT INTO user (id, slug, login, fbid, uuid, email, password, nicename, status, type, created, modified)
+						VALUES (:id, :slug, :login, :fbid, :uuid, :email, :password, :nicename, :status, :type, :created, :modified)
+						ON DUPLICATE KEY UPDATE slug = :slug, login = :login, fbid = :fbid, uuid = :uuid, email = :email, password = :password, nicename = :nicename, status = :status, type = :type, modified = NOW()
+2017-11-24 17:00:08 - Database error: 23000 (Line 61) in User::save: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'uuid' cannot be null. Query: INSERT INTO user (id, slug, login, fbid, uuid, email, password, nicename, status, type, created, modified)
+						VALUES (:id, :slug, :login, :fbid, :uuid, :email, :password, :nicename, :status, :type, :created, :modified)
+						ON DUPLICATE KEY UPDATE slug = :slug, login = :login, fbid = :fbid, uuid = :uuid, email = :email, password = :password, nicename = :nicename, status = :status, type = :type, modified = NOW()
+2017-11-24 17:02:15 - Database error: 23000 (Line 61) in User::save: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'uuid' cannot be null. Query: INSERT INTO user (id, slug, login, fbid, uuid, email, password, nicename, status, type, created, modified)
+						VALUES (:id, :slug, :login, :fbid, :uuid, :email, :password, :nicename, :status, :type, :created, :modified)
+						ON DUPLICATE KEY UPDATE slug = :slug, login = :login, fbid = :fbid, uuid = :uuid, email = :email, password = :password, nicename = :nicename, status = :status, type = :type, modified = NOW()
+2017-11-24 17:04:03 - Database error: 23000 (Line 61) in User::save: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'uuid' cannot be null. Query: INSERT INTO user (id, slug, login, fbid, uuid, email, password, nicename, status, type, created, modified)
+						VALUES (:id, :slug, :login, :fbid, :uuid, :email, :password, :nicename, :status, :type, :created, :modified)
+						ON DUPLICATE KEY UPDATE slug = :slug, login = :login, fbid = :fbid, uuid = :uuid, email = :email, password = :password, nicename = :nicename, status = :status, type = :type, modified = NOW()
+2017-11-24 17:06:50 - Database error: 23000 (Line 61) in User::save: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'uuid' cannot be null. Query: INSERT INTO user (id, slug, login, fbid, uuid, email, password, nicename, status, type, created, modified)
+						VALUES (:id, :slug, :login, :fbid, :uuid, :email, :password, :nicename, :status, :type, :created, :modified)
+						ON DUPLICATE KEY UPDATE slug = :slug, login = :login, fbid = :fbid, uuid = :uuid, email = :email, password = :password, nicename = :nicename, status = :status, type = :type, modified = NOW()

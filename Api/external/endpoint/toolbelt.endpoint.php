@@ -9,6 +9,8 @@
 			# Add endpoint routes
 			$app->addRoute('get', '/toolbelt/status',          'EndpointToolBelt::status');
 
+			$app->addRoute('post', '/toolbelt/synchronize',     'EndpointToolBelt::synchronize');
+
 			$app->addRoute('get', '/toolbelt/routes',          'EndpointToolBelt::routes');
 
 			$app->addRoute('post', '/toolbelt/load/global',          'EndpointToolBelt::globalLoad');
@@ -24,6 +26,8 @@
 
 			$app->addRoute('post', '/toolbelt/users', 						  'EndpointToolBelt::users');
 			$app->addRoute('post', '/toolbelt/users/status', 						  'EndpointToolBelt::users');
+
+			$app->addRoute('post', '/toolbelt/api',								'EndpointToolBelt::getApi');
 
 			# Override default route
 			$app->setDefaultRoute('/toolbelt/status'); # App endpoint route
@@ -51,6 +55,33 @@
 				'dragon_fly_version' =>'Hyper V.1.1',
 				'toolbelt_verision' => '1.1'
 			);
+
+			# Return payload
+			$response->setHeader('Content-Type', 'application/json');
+			$response->setBody( $ret->toJSON() );
+			return $response->respond();
+		}
+
+		static function synchronize() {
+
+			global $app;
+			$request = $app->getRequest();
+			$response = $app->getResponse();
+			$managment = $app->getManagment();
+			$dbh = $app->getDatabase();
+
+			Authentication::requireTokenForToolBeltTransactions();
+
+			# Initialize payload
+			$ret = new Payload();
+			$uuid = $request->post('app_uuid', '');
+
+			if ($uuid != '') {
+
+				# Synchronize api/pig_data/toolbelt
+				$managment->synchronize($uuid);
+				$ret->codeResponse(200);
+			}
 
 			# Return payload
 			$response->setHeader('Content-Type', 'application/json');
@@ -272,12 +303,43 @@
 			# Initialize payload
 			$ret = new Payload();
 
-			# Getting the global charge
-			$result = $managment->getUsers();
-			if ( $result ) {
+			# Getting page
+			$page = $request->post('page', 1);
 
+			$maxItems = 50;
+			$users = $managment->getUsers($maxItems, $page);
+			$count = Users::count();
+			$pages = ($maxItems > $count) ? 1 : ($count / $maxItems);
+
+			$ret->codeResponse(200);
+			$ret->data = $users;
+			$ret->count = $count;
+			$ret->pages = $pages;
+			
+			# Return payload
+			$response->setHeader('Content-Type', 'application/json');
+			$response->setBody( $ret->toJSON() );
+			return $response->respond();
+		}
+
+		static function getApi() {
+
+			global $app;
+			$request = $app->getRequest();
+			$response = $app->getResponse();
+			$managment = $app->getManagment();
+
+			Authentication::requireTokenForToolBeltTransactions();
+
+			# Initialize payload
+			$ret = new Payload();
+
+			# Getting the api file
+			$file = $managment->getApi();
+
+			if ($file) {
 				$ret->codeResponse(200);
-				$ret->data = $result;
+				$ret->data = $file;
 			}
 
 			# Return payload

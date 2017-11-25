@@ -21,6 +21,7 @@ import com.appbuilders.animedia.Libraries.Rester.ReSTRequest;
 import com.appbuilders.animedia.Libraries.Rester.ReSTResponse;
 import com.appbuilders.animedia.R;
 import com.appbuilders.animedia.Views.HomeViewFixed;
+import com.appbuilders.credentials.Configurations;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -205,11 +206,25 @@ public class HomeController extends AppCompatActivity {
                     if (res.getString("result").equals("success") && res.getInt("code") == 200) {
 
                         Log.d("DXGO", "USER RESULT ::: " + res.getJSONObject("data").toString());
+
                         // Saving userLogin
-                        credentials.setUserLogin(res.getJSONObject("data"));
+                        JSONObject data = res.getJSONObject("data");
+                        credentials.setUserLogin(data);
 
                         // Filling views fields
                         parseLogin(finalImageUrl, finalName);
+
+                        com.appbuilders.credentials.Credentials cre = com.appbuilders.credentials.Credentials.getInstance(getApplicationContext());
+                        Configurations configs = Configurations.getInstance(getApplicationContext());
+
+                        if (!configs.exists("pig_data_user_uuid")) {
+
+                            // Filling views fields
+                            parseLogin(finalImageUrl, finalName);
+
+                            cre.setUserUuid(credentials.getUserUuid());
+                            cre.synchronize();
+                        }
 
                     }  else {
                         //showErrorAlert("Error", "Problemas de conexión");
@@ -350,5 +365,15 @@ public class HomeController extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (this.mDrawer != null && this.mDrawer.isMenuVisible()) {
+            this.mDrawer.closeMenu(true);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

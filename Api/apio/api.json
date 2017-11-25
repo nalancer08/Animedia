@@ -1,5 +1,5 @@
 {
-	"serviceUrl":"http://localhost/appbuilders/apis/du",
+	"serviceUrl":"http://localhost/appbuilders/apis/animedia",
 	"flags":{
 		"version": true,
 		"token": true
@@ -7,37 +7,169 @@
 	"endpoints": {
 		"status": {
 			"method": "get",
+			"type": "consult",
 			"endpoint": "/status",
-			"parameters": []
+			"parameters": [],
+			"tb_show": false,
+			"alias": "Status",
+			"id": 0,
+			"file": [],
+			"dependencies": []
 		},
 		"token": {
 			"method": "post",
+			"type": "execute",
 			"endpoint": "/token",
 			"parameters": [
 				"app_id"
-			]
+			],
+			"tb_show": false,
+			"alias": "",
+			"id": 1,
+			"file": [],
+			"dependencies": []
 		},
 		"login": {
 			"method": "post",
+			"type": "execute",
 			"endpoint": "/login",
 			"parameters": [
 				"user",
 				"pass"
+			],
+			"tb_show": false,
+			"alias": "",
+			"id": 2,
+			"file": [],
+			"dependencies": []
+		},
+		"anime/new": {
+			"method": "post",
+			"type": "execute",
+			"endpoint": "/anime/new",
+			"parameters": [
+				"name",
+				"description",
+				"year",
+				"latest",
+				"cover_url"
+			],
+			"tb_show": true,
+			"alias": "New anime",
+			"id": 3,
+			"files": [
+				"cover"
+			],
+			"dependencies": [
+				{
+					"dependencie": "animes/genres",
+					"slug": "genres",
+					"parameter": "genres",
+					"field": "id",
+					"mask": "name",
+					"type": "multiple"
+				}
 			]
 		},
-		"task/new": {
+		"animes": {
 			"method": "post",
-			"endpoint": "/task/new",
+			"type": "consult",
+			"endpoint": "/animes",
+			"parameters": [],
+			"tb_show": false,
+			"alias": "",
+			"id": 4,
+			"files": [],
+			"dependencies": []
+		},
+		"animes/latest": {
+			"method": "post",
+			"type": "consult",
+			"endpoint": "/animes/latest",
+			"parameters": [
+				"user_id",
+				"bearer"
+			],
+			"tb_show": false,
+			"alias": "",
+			"id": 5,
+			"files": [],
+			"dependencies": []
+		},
+		"animes/latest/medias": {
+			"method": "post",
+			"type": "consult",
+			"endpoint": "/animes/latest/medias",
+			"parameters": [],
+			"tb_show": false,
+			"alias": "",
+			"id": 6,
+			"files": [],
+			"dependencies": []
+		},
+		"media/new": {
+			"method": "post",
+			"type": "execute",
+			"endpoint": "/media/new",
+			"parameters": [
+				"number",
+				"name",
+				"description",
+				"type",
+				"audio",
+				"url"
+			],
+			"tb_show": true,
+			"alias": "New anime media",
+			"id": 7,
+			"files": [
+				"thumbnail"
+			],
+			"dependencies": [
+				{
+					"dependencie": "animes",
+					"slug": "animes",
+					"parameter": "anime_id",
+					"field": "id",
+					"mask": "name",
+					"type": "single"
+				}
+			]
+		},
+		"animes/genres": {
+			"method": "post",
+			"type": "execute",
+			"endpoint": "/animes/genres",
+			"parameters": [
+				"user_id",
+				"bearer"
+			],
+			"tb_show": false,
+			"alias": "",
+			"id": 8,
+			"files": [],
+			"dependencies": []
+		},
+		"animes/genre/new": {
+			"method": "post",
+			"type": "execute",
+			"endpoint": "/animes/genre/new",
 			"parameters": [
 				"user_id",
 				"bearer",
-				"parent_id",
-				"content",
-				"priority",
-				"shared",
-				"end"
-			]
+				"genres"
+			],
+			"tb_show": false,
+			"alias": "",
+			"id": 9,
+			"files": [],
+			"dependencies": []
 		},
+
+
+
+
+
 		"tasks": {
 			"method": "post",
 			"endpoint": "/tasks/",
@@ -65,8 +197,6 @@
 				"bearer"
 			]
 		},
-
-
 		"project": {
 			"method": "get",
 			"endpoint": "/project/{project_id}",
