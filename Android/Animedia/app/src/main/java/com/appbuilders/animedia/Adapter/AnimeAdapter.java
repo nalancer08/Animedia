@@ -17,6 +17,9 @@ import com.appbuilders.animedia.Core.Anime;
 import com.appbuilders.animedia.Core.AnimeView;
 import com.appbuilders.animedia.R;
 import com.appbuilders.surface.SfScreen;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
@@ -28,6 +31,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Random;
+
 /**
  * Created by Erick Sanchez - App Builders CTO
  * Revision 1 - 30/10/17
@@ -37,11 +42,55 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
 
     private Context context;
     private JSONArray animes;
+    private InterstitialAd ad;
+    private Intent lastIntent;
+    private boolean typeOfLucky;
+        private int luckyIntent = 0;
 
-    public AnimeAdapter(Context context, JSONArray animes) {
+    public AnimeAdapter(final Context context, JSONArray animes) {
 
         this.context = context;
         this.animes = animes;
+
+        // Initializing ad
+        this.ad = new InterstitialAd(this.context);
+        this.ad.setAdUnitId("ca-app-pub-8714411824921031/9634722849");
+        this.ad.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when when the user is about to return
+                // to the app after tapping on an ad.
+                context.startActivity(lastIntent);
+                loadAd();
+            }
+        });
+        this.loadAd();
+
+        // Randoms numbers for lucky ads :3
+        Random r = new Random();
+        int i1 = r.nextInt(5 - 1 + 1) + 1;
+        this.typeOfLucky = (i1 % 2 == 0) ? true : false;
     }
 
     @Override
@@ -98,9 +147,25 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context, SingleAnimeController.class);
+                    /**Intent intent = new Intent(context, SingleAnimeController.class);
                     intent.putExtra("anime", anime.toString());
-                    context.startActivity(intent);
+                    context.startActivity(intent);*/
+
+                    lastIntent = new Intent(context, SingleAnimeController.class);
+                    lastIntent.putExtra("anime", anime.toString());
+
+                    if (!typeOfLucky) {
+                        ad.show();
+                    } else {
+                        if (luckyIntent == 1) {
+                            luckyIntent = 0;
+                            context.startActivity(lastIntent);
+                        } else {
+                            luckyIntent = 1;
+                            ad.show();
+                        }
+                    }
+
                 }
             });
 
@@ -130,5 +195,12 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
             }
             this.notifyItemRangeRemoved(0, size);
         }
+    }
+
+    public void loadAd() {
+
+        //Log.d("DXGOP", "Loading ad ....");
+        AdRequest adRequest = new AdRequest.Builder().build();
+        this.ad.loadAd(adRequest);
     }
 }

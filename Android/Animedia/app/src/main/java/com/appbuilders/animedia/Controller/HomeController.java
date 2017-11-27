@@ -1,5 +1,6 @@
 package com.appbuilders.animedia.Controller;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.design.widget.Snackbar;
@@ -38,14 +39,15 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class HomeController extends AppCompatActivity {
 
     CallbackManager callbackManager;
-    FlowingDrawer mDrawer;
+    public FlowingDrawer mDrawer;
+
+    HomeViewFixed view;
 
     ImageView userPicture;
     LoginButton loginButton;
@@ -74,7 +76,7 @@ public class HomeController extends AppCompatActivity {
         // Setting native and Surface layouts
         setContentView(R.layout.activity_home_controller);
         AbsoluteLayout abs = (AbsoluteLayout) findViewById(R.id.content);
-        HomeViewFixed view = new HomeViewFixed(this, abs);
+        this.view = new HomeViewFixed(this, abs);
 
         // Initialize elastic menu
         this.initializeElasticMenu();
@@ -103,6 +105,21 @@ public class HomeController extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 9132) {
+            if(resultCode == Activity.RESULT_OK){
+
+                boolean result = data.getBooleanExtra("result", false);
+                if (result) {
+                    this.mDrawer.closeMenu(true);
+                    this.view.showTutorial();
+                }
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+                Log.d("DXGOP", "Me la pelas android");
+            }
+        }
     }
 
     protected void getUserDetails(LoginResult loginResult) {
@@ -336,7 +353,7 @@ public class HomeController extends AppCompatActivity {
                 if (credentials.existsPreviousLogin()) {
 
                     Intent intent = new Intent(HomeController.this, ConfigurationsController.class);
-                    startActivity(intent);
+                    startActivityForResult(intent, 9132);
 
                 } else {
                     Snackbar.make(view, "Debes iniciar sesión para poder ver el contenido", Snackbar.LENGTH_LONG).show();
@@ -365,6 +382,16 @@ public class HomeController extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public FlowingDrawer getMenu() {
+
+        return this.mDrawer;
+    }
+
+    public LoginButton getLoginButton() {
+
+        return this.loginButton;
     }
 
     @Override

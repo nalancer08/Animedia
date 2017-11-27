@@ -32,12 +32,11 @@ public class SplashController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.removeCache();
 
-        Credentials.getInstance(this).printExistedPreferences();
+        //Credentials.getInstance(this).printExistedPreferences();
 
         CredentialsOptions options = new CredentialsOptions("https://appbuilders/apis/animedia",
-                "http://192.168.1.69/appbuilders/apis/animedia", "8f6952dfc83073f80afbc048857d52d533a57970", true);
+                "http://192.168.1.69/appbuilders/apis/animedia", "8f6952dfc83073f80afbc048857d52d533a57970", false);
         com.appbuilders.credentials.Credentials credentials = com.appbuilders.credentials.Credentials.getInstance(this).Builder(options).build();
-        credentials.buildPigData();
 
         String token = FirebaseInstanceId.getInstance().getToken();
         credentials.needSynchronize((token != null) ? token : "");

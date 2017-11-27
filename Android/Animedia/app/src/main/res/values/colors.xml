@@ -12,6 +12,7 @@
     <color name="black">#000</color>
     <color name="blackTrans">#80000000</color>
     <color name="trans">#00FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
 
     <color name="gray">#3D3F40</color>
 
@@ -24,6 +25,7 @@
     <color name="fb">#3b5998</color>
     <color name="gmail">#ea4335</color>
 
+    <color name="conditions_dialog_cancel">#de413e</color>
     <!--
         100% — FF
         95% — F2

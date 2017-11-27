@@ -2,17 +2,16 @@ package com.appbuilders.animedia.Views;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AbsoluteLayout;
 import android.widget.AdapterView;
@@ -23,10 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appbuilders.animedia.Adapter.ChapterAdapter;
-import com.appbuilders.animedia.Controller.ChromeWebPlayer;
-import com.appbuilders.animedia.Controller.MainActivity;
 import com.appbuilders.animedia.Controls.AutoResizeTextView;
-import com.appbuilders.animedia.Controls.PlayGifView;
 import com.appbuilders.animedia.Core.Anime;
 import com.appbuilders.animedia.Core.Chapter;
 import com.appbuilders.animedia.Core.Credentials;
@@ -37,24 +33,15 @@ import com.appbuilders.animedia.Libraries.Rester.ReSTClient;
 import com.appbuilders.animedia.Libraries.Rester.ReSTRequest;
 import com.appbuilders.animedia.Libraries.Rester.ReSTResponse;
 import com.appbuilders.animedia.R;
+import com.appbuilders.credentials.Configurations;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
-import com.downloader.Error;
-import com.downloader.OnCancelListener;
-import com.downloader.OnDownloadListener;
-import com.downloader.OnPauseListener;
-import com.downloader.OnProgressListener;
-import com.downloader.OnStartOrResumeListener;
-import com.downloader.PRDownloader;
-import com.downloader.PRDownloaderConfig;
-import com.downloader.Progress;
 import com.flaviofaria.kenburnsview.KenBurnsView;
+import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.thin.downloadmanager.DefaultRetryPolicy;
-import com.thin.downloadmanager.DownloadRequest;
-import com.thin.downloadmanager.DownloadStatusListener;
-import com.thin.downloadmanager.DownloadStatusListenerV1;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONArray;
@@ -85,6 +72,11 @@ public class SingleAnimeView extends SurfaceActivityView {
             private SfPanel genresPanel;
             private SfPanel typesPanel;
             private SfPanel chaptersPanel;
+
+   private MaterialSpinner lenguageView;
+   private AutoResizeTextView serieView;
+   private AutoResizeTextView ovasView;
+   private AutoResizeTextView movieView;
 
     protected Anime anime;
     protected String animeString;
@@ -466,36 +458,52 @@ public class SingleAnimeView extends SurfaceActivityView {
 
         // Update
         this.screen.update(this.context);
+
+        // Showing tutorial if it's available
+        this.showTutorial();
     }
 
     protected void createTypes() {
-
 
         SfPanel seriePanel = new SfPanel().setSize(-31.5f, -60).setMargin(0, threeRuleX(20), 0, 0);
         SfPanel ovasPanel = new SfPanel().setSize(-31.5f, -60).setMargin(0, threeRuleX(20), 0, 0);
         SfPanel moviePanel = new SfPanel().setSize(-31.5f, -60);
         this.typesPanel.append(seriePanel).append(ovasPanel).append(moviePanel);
 
-        AutoResizeTextView serieView = new AutoResizeTextView(this.context);
+        this.serieView = new AutoResizeTextView(this.context);
         serieView.setText("Serie");
         serieView.setTextColor(Color.WHITE);
         serieView.setBackgroundResource(R.drawable.borders_solid_yellow);
         serieView.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
         serieView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
 
-        AutoResizeTextView ovasView = new AutoResizeTextView(this.context);
+        this.ovasView = new AutoResizeTextView(this.context);
         ovasView.setText("Ovas");
         ovasView.setTextColor(Color.WHITE);
         ovasView.setBackgroundResource(R.drawable.borders);
         ovasView.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
         ovasView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+        ovasView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showNotAvailable(view, "OVAS no disponibles por el momento.");
 
-        AutoResizeTextView movieView = new AutoResizeTextView(this.context);
+            }
+        });
+
+        this.movieView = new AutoResizeTextView(this.context);
         movieView.setText("Peliculas");
         movieView.setTextColor(Color.WHITE);
         movieView.setBackgroundResource(R.drawable.borders);
         movieView.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
         movieView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+        movieView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showNotAvailable(view, "Peliculas no disponibles por el momento.");
+
+            }
+        });
 
         seriePanel.setView(serieView);
         ovasPanel.setView(ovasView);
@@ -504,7 +512,6 @@ public class SingleAnimeView extends SurfaceActivityView {
         this.addView(serieView);
         this.addView(ovasView);
         this.addView(movieView);
-
     }
 
     protected void createLanguageSelect() {
@@ -514,14 +521,14 @@ public class SingleAnimeView extends SurfaceActivityView {
             this.audios.add("");
         }
 
-        MaterialSpinner lenguageView = new MaterialSpinner(this.context);
-        lenguageView.setItems(this.audios);
-        lenguageView.setBackgroundResource(R.drawable.borders_solid_yellow);
-        lenguageView.setTextColor(Color.BLACK);
-        lenguageView.setArrowColor((!this.audios.get(this.audios.size() - 1).equals("")) ? Color.BLACK : Color.argb(1,237, 178, 0));
+        this.lenguageView = new MaterialSpinner(this.context);
+        this.lenguageView.setItems(this.audios);
+        this.lenguageView.setBackgroundResource(R.drawable.borders_solid_yellow);
+        this.lenguageView.setTextColor(Color.BLACK);
+        this.lenguageView.setArrowColor((!this.audios.get(this.audios.size() - 1).equals("")) ? Color.BLACK : Color.argb(1,237, 178, 0));
 
-        lenguageView.setClickable((!this.audios.get(this.audios.size() - 1).equals("")) ? true : false);
-        lenguageView.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+        this.lenguageView.setClickable((!this.audios.get(this.audios.size() - 1).equals("")) ? true : false);
+        this.lenguageView.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
 
             @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
                 if (!item.equals("")) {
@@ -751,5 +758,174 @@ public class SingleAnimeView extends SurfaceActivityView {
         }
 
         return containedUrls;
+    }
+
+    private void showNotAvailable(View view, String message) {
+
+        Snackbar snack = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+        snack.getView().setBackgroundResource(R.color.yellowItemSelected);
+        TextView text = snack.getView().findViewById(android.support.design.R.id.snackbar_text);
+        text.setTextColor(Color.BLACK);
+        snack.show();
+    }
+
+    public void showTutorial() {
+
+        final Configurations configs = Configurations.getInstance(this.context);
+
+        if (!configs.exists("showed_single_anime_tutorial")) {
+            new ShowcaseView.Builder(this.activity)
+                    .setTarget(new ViewTarget(this.lenguageView))
+                    .setContentTitle("Idiomas")
+                    .setContentText("Si hay idiomas disponibles, aquí podrás cambiarlo. \n Normalmente encontraras japones subtitulado y latino.")
+                    .setStyle(R.style.SingleAnime)
+                    .setShowcaseEventListener(new OnShowcaseEventListener() {
+                        @Override
+                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+                            new ShowcaseView.Builder(activity)
+                                    .setTarget(new ViewTarget(serieView))
+                                    .setContentTitle("Capítulos  disponibles")
+                                    .setContentText("Siempre empezara en esta pestaña, aquí encontraras todos los capítulos disponibles en Animedia\n")
+                                    .setStyle(R.style.SingleAnime)
+                                    .setShowcaseEventListener(new OnShowcaseEventListener() {
+                                        @Override
+                                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+                                            new ShowcaseView.Builder(activity)
+                                                    .setTarget(new ViewTarget(ovasView))
+                                                    .setContentTitle("OVAS  disponibles")
+                                                    .setContentText("En esta pestaña, encontraras todos las OVAS disponibles en Animedia\n")
+                                                    .setStyle(R.style.SingleAnime)
+                                                    .setShowcaseEventListener(new OnShowcaseEventListener() {
+                                                        @Override
+                                                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+                                                            new ShowcaseView.Builder(activity)
+                                                                    .setTarget(new ViewTarget(movieView))
+                                                                    .setContentTitle("Películas  disponibles")
+                                                                    .setContentText("En esta pestaña, encontraras todos las películas disponibles en Animedia\n")
+                                                                    .setStyle(R.style.SingleAnime)
+                                                                    .setShowcaseEventListener(new OnShowcaseEventListener() {
+                                                                        @Override
+                                                                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+                                                                            View view = getViewByPosition(chaptersView.getChildCount() - 1, chaptersView);
+                                                                            View playButton = view.findViewById(R.id.playButton);
+
+
+                                                                            new ShowcaseView.Builder(activity)
+                                                                                    .setTarget(new ViewTarget(playButton))
+                                                                                    .setContentTitle("Reproducir un capitulo")
+                                                                                    .setContentText("Para poder reproducir un capitulo, deberás simplemente presionar en el icono de reproducir.\n")
+                                                                                    .setStyle(R.style.SingleAnime)
+                                                                                    .setShowcaseEventListener(new OnShowcaseEventListener() {
+                                                                                        @Override
+                                                                                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
+                                                                                            configs.add("showed_single_anime_tutorial", true);
+                                                                                        }
+
+                                                                                        @Override
+                                                                                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+                                                                                        }
+
+                                                                                        @Override
+                                                                                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                                                                                        }
+
+                                                                                        @Override
+                                                                                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
+
+                                                                                        }
+                                                                                    })
+                                                                                    .build();
+                                                                        }
+
+                                                                        @Override
+                                                                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+                                                                        }
+
+                                                                        @Override
+                                                                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                                                                        }
+
+                                                                        @Override
+                                                                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
+
+                                                                        }
+                                                                    })
+                                                                    .build();
+                                                        }
+
+                                                        @Override
+                                                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+                                                        }
+
+                                                        @Override
+                                                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                                                        }
+
+                                                        @Override
+                                                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
+
+                                                        }
+                                                    })
+                                                    .build();
+                                        }
+
+                                        @Override
+                                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+                                        }
+
+                                        @Override
+                                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                                        }
+
+                                        @Override
+                                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
+
+                                        }
+                                    })
+                                    .build();
+                        }
+
+                        @Override
+                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+                        }
+
+                        @Override
+                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                        }
+
+                        @Override
+                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
+
+                        }
+                    })
+                    .build();
+        }
+    }
+
+    public View getViewByPosition(int pos, ListView listView) {
+
+        final int firstListItemPosition = listView.getFirstVisiblePosition();
+        final int lastListItemPosition = firstListItemPosition + listView.getChildCount() - 1;
+
+        if (pos < firstListItemPosition || pos > lastListItemPosition ) {
+            return listView.getAdapter().getView(pos, null, listView);
+        } else {
+            final int childIndex = pos - firstListItemPosition;
+            return listView.getChildAt(childIndex);
+        }
     }
 }

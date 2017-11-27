@@ -1,10 +1,14 @@
 package com.appbuilders.animedia.Controller;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.appbuilders.animedia.BuildConfig;
@@ -20,6 +24,7 @@ public class ConfigurationsController extends AppCompatActivity {
 
     private IconSwitch native_video_switch;
     private IconSwitch volume_switch;
+    private Button show_tutorial_again_button;
     private TextView app_version;
     private Configurations configurations;
 
@@ -32,6 +37,7 @@ public class ConfigurationsController extends AppCompatActivity {
         // Getting views
         this.native_video_switch = (IconSwitch) findViewById(R.id.video_native_switch);
         this.volume_switch = (IconSwitch) findViewById(R.id.volume_switch);
+        this.show_tutorial_again_button = (Button) findViewById(R.id.show_tutorial_again_button);
         this.app_version = (TextView) findViewById(R.id.app_version);
 
         //TextView titlePage = (TextView) findViewById(R.id.textView2);
@@ -53,6 +59,7 @@ public class ConfigurationsController extends AppCompatActivity {
         // Setting callbacks
         this.setNativeVideoSwitchCallback();
         this.setVolumeSwitchCallback();
+        this.setShowTutorialAgain();
 
         // Setting app verison text
         this.app_version.setText("Version " + BuildConfig.VERSION_NAME);
@@ -86,5 +93,30 @@ public class ConfigurationsController extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void setShowTutorialAgain() {
+
+        this.show_tutorial_again_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Configurations configs = Configurations.getInstance(ConfigurationsController.this);
+                configs.remove("showed_tutorial_" + BuildConfig.VERSION_NAME);
+
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("result", true);
+                setResult(Activity.RESULT_OK,returnIntent);
+                finish();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent returnIntent = new Intent();
+        setResult(Activity.RESULT_CANCELED, returnIntent);
+        finish();
     }
 }

@@ -1,0 +1,183 @@
+<resources>
+    <string name="app_name">Chapter Extractor</string>
+
+    <string-array name="fairy_tail_chapters">
+
+        <item>1.Fairy Tail</item>
+        <item>2.El dragón de fuego, el mono y el toro</item>
+        <item>3.¡Infiltración! La mansión Ebaloo</item>
+        <item>4.Dear Kaby</item>
+        <item>5.La maga de la armadura</item>
+        <item>6.Hadas en el viento</item>
+        <item>7.Llamas y viento</item>
+        <item>8.¡El equipo más fuerte!</item>
+        <item>9.Natsu se come una aldea</item>
+        <item>10.Natsu vs. Ersa</item>
+        <item>11.La Isla Maldita</item>
+        <item>12.Moon Drip</item>
+        <item>13.Natsu vs. Yuka, el ondulante</item>
+        <item>14.¡¡Haz lo que te dé la gana!!</item>
+        <item>15.Magia Eterna</item>
+        <item>16.La Isla Galuna, La Batalla Decisiva</item>
+        <item>17.Burst</item>
+        <item>18.Alcanza el cielo</item>
+        <item>19.Changeling</item>
+        <item>20.Natsu y el huevo de dragón</item>
+        <item>21.Phantom Lord</item>
+        <item>22.Lucy Heartfilia</item>
+        <item>23.15 Minutos</item>
+        <item>24.Para no ver esas lágrimas</item>
+        <item>25.Una flor se abre en la lluvia</item>
+        <item>26.Alas de fuego</item>
+        <item>27.Los dos Dragon Slayer</item>
+        <item>28.Fairy Law</item>
+        <item>29.Mi decisión</item>
+        <item>30.Siguiente Generación</item>
+        <item>31.La estrella que no podía regresar al cielo</item>
+        <item>32.El rey de los espíritus estelares</item>
+        <item>33.La Torre del Paraiso</item>
+        <item>34.Jerard</item>
+        <item>35.La voz de la oscuridad</item>
+        <item>36.El juego del Paraiso</item>
+        <item>37.Armadura del Corazón</item>
+        <item>38.Destino</item>
+        <item>39.Un orador a la luz sagrada</item>
+        <item>40.Titania muere</item>
+        <item>41.Hogar</item>
+        <item>42.La Batalla de Fairy Tail</item>
+        <item>43.Vence a un amigo por un amigo</item>
+        <item>44.El palacio del rayo</item>
+        <item>45.El advenimiento de Satanás</item>
+        <item>46.¡Estrellándose en la Catedral Kardia!</item>
+        <item>47.Triple dragón</item>
+        <item>48.Fantasía</item>
+        <item>49.El Día del Encuentro del Destino</item>
+        <item>50.Misión Especial: Vigila a los Chicos Que Muestran un Interés Agudo</item>
+        <item>51.LOVE &amp; LUCKY</item>
+        <item>52.Fuerzas Aliadas, ¡Unidas!</item>
+        <item>53.¡Oración Seis Aparece!</item>
+        <item>54.La sacerdotisa del cielo</item>
+        <item>55.La chica y el fantasma</item>
+        <item>56.El Gran Premio de la muerte</item>
+        <item>57.Oscuridad</item>
+        <item>58.La pelea de los espíritus estelares</item>
+        <item>59.Las memorias de Jellal</item>
+        <item>60.La marcha de la destrucción</item>
+        <item>61.¡¡Súper batalla aérea!! Natsu vs. Cobra</item>
+        <item>62.Jura, de los 10 sagrados</item>
+        <item>63.Mi estrella brillante en el cielo</item>
+        <item>64.Cero</item>
+        <item>65.De Pegaso a las hadas</item>
+        <item>66.El poder de los sentimientos</item>
+        <item>67.Aplastamiento Oscuro</item>
+        <item>68.Un Gremio para el Bien de una Sola Persona</item>
+        <item>69.Llamado del Dragón</item>
+        <item>70.¡Natsu vs. Gray!</item>
+        <item>71.La amistad vencerá la Muerte</item>
+        <item>72.Magos de Fairy Tail</item>
+        <item>73.Cerezo de Arcoiris</item>
+        <item>74.¡¿La Primera Misión de Wendy?!</item>
+        <item>75.La Carrera de 24 horas de Resistencia</item>
+        <item>76.Gildarts</item>
+        <item>77.Tierra</item>
+        <item>78.Edoras</item>
+        <item>79.Cacería de Hadas</item>
+        <item>80.Llave de la Esperanza</item>
+        <item>81.Bola de Fuego</item>
+        <item>82.Bienvenido a Casa</item>
+        <item>83.Extalia</item>
+        <item>84.¡Vuela! ¡A tus amigos</item>
+        <item>85.Código ETD</item>
+        <item>86.Erza vs. Erza</item>
+        <item>87.¡¡¡¡Estas son vidas!!!!</item>
+        <item>88.El Río de las Estrellas en Nombre del Orgullo</item>
+        <item>89.Dragon Cañón Cadena del Destino</item>
+        <item>90.El Muchacho de Aquella vez</item>
+        <item>91.Dragon Sense</item>
+        <item>92.Aquellos que Viven</item>
+        <item>93.Yo Sigo Aquí</item>
+        <item>94.Bye Bye, Fairy Tail</item>
+        <item>95.Lisanna</item>
+        <item>96.Aquello que extingue la vida</item>
+        <item>97.Best Partner</item>
+        <item>98.¿Quién tendrá suerte?</item>
+        <item>99.Natsu vs. Gildarts</item>
+        <item>100.Mest</item>
+        <item>101.Mago Negro</item>
+        <item>102.Alma de Hierro</item>
+        <item>103.Makarov Ataca</item>
+        <item>104.Lost Magic</item>
+        <item>105.Dragón de Fuego vs. Dios de Fuego</item>
+        <item>106.El Mundo Mágico Definitivo</item>
+        <item>107.Arco de la Reencarnación</item>
+        <item>108.La Puerta de los Humanos</item>
+        <item>109.Lucy de Fuego</item>
+        <item>110.El Callejón de la desesperación.</item>
+        <item>111.Lágrimas de Amor y Vida</item>
+        <item>112.Aquello que no Podía Decir</item>
+        <item>113.El Árbol Tenrou</item>
+        <item>114.Erza vs. Azuma</item>
+        <item>115.Espíritu congelado</item>
+        <item>116.El poder de la vida</item>
+        <item>117.El Estruendo del Trueno</item>
+        <item>118.El hombre sin marca</item>
+        <item>119.La Tierra del abismo</item>
+        <item>120.Amanecer en la Isla Tenrou</item>
+        <item>121.El derecho de amar</item>
+        <item>122.Démonos la mano</item>
+        <item>123.Año x791 - Fairy Tail</item>
+        <item>124.Siete Años de Nada</item>
+        <item>125.Magic Dance Ball</item>
+        <item>126.La Banda Maligna de los Traseros Gordos</item>
+        <item>127.La Terrorifica Lucy Invisible</item>
+        <item>128.Recuerdo del Padre</item>
+        <item>129.¡Batalla Salvaje! ¡Natsu vs. Laxus!</item>
+        <item>130.¡Lucy es el Blanco!</item>
+        <item>131.La Furia de la Legión</item>
+        <item>132.¡La Llave del Cielo Estrellado!</item>
+        <item>133.¡Compañeros de Viaje!</item>
+        <item>134.¡Rhapsodia en el Laberinto!</item>
+        <item>135.¡Huellas del Mito!</item>
+        <item>136.El Verdadero Mal Revisitado</item>
+        <item>137.Algo Imposible de Calcular</item>
+        <item>138.El Paradero de la Cruzada</item>
+        <item>139.¡El momento ha comenzado!</item>
+        <item>140.El nuevo oración seis aparece!</item>
+        <item>141.¡Persigue el reloj Infinito!</item>
+        <item>142.La disonancia de la Batalla</item>
+        <item>143.Anti-Link</item>
+        <item>144.Poder de la Desesperación</item>
+        <item>145.Pesadilla Real</item>
+        <item>146.Espiral del Tiempo</item>
+        <item>147.Hacia el Castillo Infinito</item>
+        <item>148.Lágrimas de Ángel</item>
+        <item>149.Puedo Escuchar las Voces de mis Amigos</item>
+        <item>150.Lucy y Michelle</item>
+        <item>151.Sabertooth</item>
+        <item>152.Y Asi,nuestro Objetivo es la Cima</item>
+        <item>153.Canto de las estrellas</item>
+        <item>154.Sólo el tiempo suficiente para pasar por los otros</item>
+        <item>155.¡Crocus, la capital floreciente! - Ver Capitulo</item>
+        <item>156.Laberinto del cielo</item>
+        <item>157.Nuevo Gremio</item>
+        <item>158.¡En una noche de estrellas fugaces!</item>
+        <item>159.¡Lucy VS Flare!</item>
+        <item>160.¡Mal presagio!</item>
+        <item>161.¡Chariot!</item>
+        <item>162.¡Elfman VS Bacchus!</item>
+        <item>163.¡Mirajane VS Jenny!</item>
+        <item>164.¡Kagura VS Yukino!</item>
+        <item>165.¡El rencor está envuelto en el silencio de la noche!</item>
+        <item>166.¡Pandemonium!</item>
+        <item>167.100 Versus 1</item>
+        <item>168.¡Laxus VS Alexei!</item>
+        <item>169.Wendy vs. Chelia"- Ver Capitulo</item>
+        <item>170.Un Pequeño Puño</item>
+        <item>171.Batalla Naval</item>
+        <item>172.¡El Perfume Dedicado a Ti!</item>
+        <item>173.¡Batalla de Dragon Slayers!</item>
+        <item>174.¡4 Dragones!</item>
+        <item>175.¡Natsu vs. Los 2 Dragones! </item>
+    </string-array>
+
+</resources>

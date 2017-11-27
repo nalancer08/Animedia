@@ -7,9 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Point;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.Display;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AbsoluteLayout;
 import android.widget.AdapterView;
@@ -19,21 +18,22 @@ import android.widget.ListView;
 import com.appbuilders.animedia.Adapter.LastAnimeAdapter;
 import com.appbuilders.animedia.BuildConfig;
 import com.appbuilders.animedia.Controller.ChromeWebPlayer;
-import com.appbuilders.animedia.Controller.DailyMotionPlayer;
+import com.appbuilders.animedia.Controller.HomeController;
 import com.appbuilders.animedia.Controls.CutListView;
 import com.appbuilders.animedia.Core.Anime;
 import com.appbuilders.animedia.Implement.LastAnimesListImp;
 import com.appbuilders.animedia.Libraries.JsonBuilder;
 import com.appbuilders.animedia.Listener.OnScrollListViewMiddle;
 import com.appbuilders.animedia.R;
+import com.appbuilders.credentials.Configurations;
 import com.appbuilders.surface.SfPanel;
-import com.appbuilders.surface.SfScreen;
 import com.appbuilders.surface.SurfaceActivityView;
+import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,6 +51,11 @@ import java.util.ArrayList;
 public class HomeViewFixed extends SurfaceActivityView {
 
     protected JSONArray animes;
+
+    private SfPanel correction;
+
+    private SfPanel menuPanel;
+    private ImageView menuView;
 
     protected ImageView screenView;
     protected ListView list;
@@ -85,10 +90,9 @@ public class HomeViewFixed extends SurfaceActivityView {
         this.list.setAdapter(new LastAnimeAdapter(this.context, animesArray));
         this.setInitialBackground();
 
-        SfPanel correction = new SfPanel().setSize(-100, -60);
+        this.correction = new SfPanel().setSize(-100, -60);
         SfPanel listPanel = new SfPanel().setSize(-70, -40);
         this.subScreen.append(correction).append(listPanel);
-
 
         //list.setBackgroundResource(R.color.blackTrans);
         //this.list.setBackgroundResource(R.drawable.last_animes_background);
@@ -118,6 +122,104 @@ public class HomeViewFixed extends SurfaceActivityView {
         this.addView(this.list);
 
         this.screen.update(this.context);
+
+        this.showTutorial();
+    }
+
+    public void showTutorial() {
+
+        final Configurations configs = Configurations.getInstance(this.context);
+
+        if (!configs.exists("showed_tutorial_" + BuildConfig.VERSION_NAME)) {
+            new ShowcaseView.Builder(this.activity)
+                    .setTarget(new ViewTarget(this.list))
+                    .setContentTitle("Últimos animes")
+                    .setContentText("En esta lista encontraras los últimos capítulos de los animes que se encuentran en transmisión actualemnte.")
+                    .setStyle(R.style.CustomShowcaseTheme3)
+                    //.hideOnTouchOutside()
+                    .setShowcaseEventListener(new OnShowcaseEventListener() {
+                        @Override
+                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+                            final HomeController instance = (HomeController) context;
+                            instance.getMenu().openMenu();
+
+                            new ShowcaseView.Builder(activity)
+                                    .setTarget(new ViewTarget(instance.getMenu()))
+                                    .setContentTitle("Menú")
+                                    .setContentText("Para activar este menú, debes deslizar la pantalla de izquierda a derecha.")
+                                    .setStyle(R.style.CustomShowcaseTheme4)
+                                    .withMaterialShowcase()
+                                    .setShowcaseEventListener(new OnShowcaseEventListener() {
+                                        @Override
+                                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+                                            new ShowcaseView.Builder(activity)
+                                                    .setTarget(new ViewTarget(instance.getLoginButton()))
+                                                    .setContentTitle("Inicio de sesión")
+                                                    .setContentText("Para poder disfrutar de todo el contenido disponible en Animedia, debes iniciar sesión presionando este botón.")
+                                                    .setStyle(R.style.CustomShowcaseTheme2)
+                                                    .withMaterialShowcase()
+                                                    .setShowcaseEventListener(new OnShowcaseEventListener() {
+                                                        @Override
+                                                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
+                                                            configs.add("showed_tutorial_" + BuildConfig.VERSION_NAME, true);
+                                                        }
+
+                                                        @Override
+                                                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+                                                        }
+
+                                                        @Override
+                                                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                                                        }
+
+                                                        @Override
+                                                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
+
+                                                        }
+                                                    })
+                                                    .build();
+                                        }
+
+                                        @Override
+                                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+                                        }
+
+                                        @Override
+                                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                                        }
+
+                                        @Override
+                                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
+
+                                        }
+                                    })
+                                    .build();
+
+                        }
+
+                        @Override
+                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+                        }
+
+                        @Override
+                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                        }
+
+                        @Override
+                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
+
+                        }
+                    })
+                    .build();
+        }
     }
 
     private void setInitialBackground() {
@@ -296,4 +398,15 @@ public class HomeViewFixed extends SurfaceActivityView {
 
         return (width * value) / 1000;
     }
+
+    protected int threeRuleY(int value) {
+
+        Display display = ((Activity)this.context).getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int heigth = size.y;
+
+        return (heigth * value) / 1794;
+    }
+
 }

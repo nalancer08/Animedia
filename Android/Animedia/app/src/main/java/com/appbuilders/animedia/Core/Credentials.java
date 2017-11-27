@@ -21,7 +21,7 @@ public class Credentials {
     private Context context;
     private static String packagee = "animedia";
 
-    private boolean debug = true;
+    private boolean debug = false;
     private String token = "e4803d711ba56d1bc9bf97a45e49d9f67b2e3bd8004893728a866f7e6cec1eeb.8f6952dfc83073f80afbc048857d52d533a57970";
     private String key = "8f6952dfc83073f80afbc048857d52d533a57970";
     private String url = "";

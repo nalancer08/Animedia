@@ -1,6 +1,7 @@
 package com.appbuilders.animedia.Views;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,12 +11,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Display;
+import android.view.View;
 import android.widget.Toast;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.appbuilders.animedia.BuildConfig;
 import com.appbuilders.animedia.Controller.HomeController;
-import com.appbuilders.animedia.Controller.MainActivity;
 import com.appbuilders.animedia.Core.Credentials;
 import com.appbuilders.animedia.Libraries.JsonFileManager;
 import com.appbuilders.animedia.Libraries.Rester.ReSTCallback;
@@ -23,6 +24,7 @@ import com.appbuilders.animedia.Libraries.Rester.ReSTClient;
 import com.appbuilders.animedia.Libraries.Rester.ReSTRequest;
 import com.appbuilders.animedia.Libraries.Rester.ReSTResponse;
 import com.appbuilders.animedia.R;
+import com.appbuilders.credentials.Configurations;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
 import com.brouding.simpledialog.SimpleDialog;
@@ -75,7 +77,7 @@ public class SplashView extends SurfaceActivityView {
 
     public JSONObject getStatus() {
 
-        final Credentials credentials = Credentials.getInstance(this.context, true);
+        final Credentials credentials = Credentials.getInstance(this.context);
         final JSONObject[] resp = {null};
 
         progress.setProgress(3);
@@ -102,7 +104,7 @@ public class SplashView extends SurfaceActivityView {
                             if (data.getString("version").equals(BuildConfig.VERSION_NAME)) {
                                 resp[0] = data;
                                 progress.setProgress(5);
-                                askForLatestAnimes(credentials);
+                                showConditions();
                             } else {
                                 showErrorAlert("Error", "Necesitas actualizar tu aplicación para poder seguir viendo anime \n Error: 1xs");
                             }
@@ -130,8 +132,9 @@ public class SplashView extends SurfaceActivityView {
         return resp[0];
     }
 
-    private void askForLatestAnimes(Credentials credentials) {
+    private void askForLatestAnimes() {
 
+        Credentials credentials = Credentials.getInstance(this.context);
         progress.setProgress(7);
         ReSTClient rest = new ReSTClient(credentials.getUrl() + "/animes/latest/medias");
         ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_POST, "");
@@ -155,6 +158,7 @@ public class SplashView extends SurfaceActivityView {
                         progress.setProgress(10);
                         activity.startActivity(intent);
                         activity.finish();
+
 
                     }  else {
                         showErrorAlert("Error", "Problemas de conexión");
@@ -205,6 +209,67 @@ public class SplashView extends SurfaceActivityView {
                 //    }
                 //})
                 .show();    // Must be called at the end
+    }
+
+    private void showConditions() {
+
+        final Configurations configs = Configurations.getInstance(this.context);
+
+        if (!configs.exists("terms_and_conditions")) {
+
+            /*new SimpleDialog.Builder(context)
+                    .setTitle("Términos y condiciones")
+                    .setCustomView(R.layout.dialog_privacity_comnditions)
+                    .setBtnConfirmText("Acepto")
+                    .setBtnConfirmTextColor("#de413e")
+                    .setBtnCancelText("No acepto", false)
+                    .setBtnCancelTextColor("#de413e")
+                    .setCancelable(true)          // Default value is false
+                    .onConfirm(new SimpleDialog.BtnCallback() {
+                        @Override
+                        public void onClick(@NonNull SimpleDialog dialog, @NonNull SimpleDialog.BtnAction which) {
+
+                            configs.add("terms_and_conditions", true);
+                            askForLatestAnimes();
+                        }
+                    })
+                    .setBtnCancelText("Cancel", false)
+                    .onCancel(new SimpleDialog.BtnCallback() {
+                        @Override
+                        public void onClick(@NonNull SimpleDialog dialog, @NonNull SimpleDialog.BtnAction which) {
+                            activity.finish();
+                        }
+                    })
+                    .show();*/
+
+            final Dialog dialog = new Dialog(this.context);
+            dialog.setContentView(R.layout.conditions_dialog);
+            dialog.setTitle("Términos y condiciones");
+            dialog.setCanceledOnTouchOutside(false);
+
+            dialog.findViewById(R.id.dialog_ok).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    com.appbuilders.credentials.Credentials credentials = com.appbuilders.credentials.Credentials.getInstance(context);
+                    credentials.buildPigData();
+                    configs.add("terms_and_conditions", true);
+                    askForLatestAnimes();
+                }
+            });
+
+            dialog.findViewById(R.id.dialog_cancel).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    activity.finish();
+                }
+            });
+
+            dialog.show();
+
+        } else {
+            askForLatestAnimes();
+        }
     }
 
     protected int threeRuleY(int value) {
