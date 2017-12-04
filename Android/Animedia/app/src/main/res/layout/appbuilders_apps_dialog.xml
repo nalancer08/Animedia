@@ -15,8 +15,7 @@
         android:layout_height="130dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/fotomultas"></ImageView>
+        android:layout_marginTop="15dp"></ImageView>
 
     <com.appbuilders.animedia.Controls.AutoResizeTextView
         android:id="@+id/autoResizeTextView"
@@ -26,7 +25,7 @@
         android:layout_alignTop="@+id/imageView"
         android:layout_marginTop="16dp"
         android:gravity="center_vertical|center_horizontal"
-        android:text="Fotomultas CDMX"
+        android:text=""
         android:textAlignment="gravity"
         android:textColor="@color/white"
         android:textSize="15dp" />
@@ -48,8 +47,7 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/poke"></ImageView>
+        android:layout_alignParentStart="true"></ImageView>
 
     <com.appbuilders.animedia.Controls.AutoResizeTextView
         android:id="@+id/autoResizeTextView2"
@@ -59,7 +57,7 @@
         android:layout_alignTop="@+id/poke"
         android:layout_marginTop="15dp"
         android:gravity="center_vertical|center_horizontal"
-        android:text="¿Quien es este pokmon?"
+        android:text=""
         android:textAlignment="gravity"
         android:textColor="@color/white"
         android:textSize="15dp" />

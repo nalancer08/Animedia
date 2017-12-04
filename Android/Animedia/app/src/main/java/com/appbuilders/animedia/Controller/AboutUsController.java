@@ -61,7 +61,7 @@ public class AboutUsController extends AppCompatActivity {
         this.appbuilders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openOwnApps();
+                /*openOwnApps();*/
             }
         });
 

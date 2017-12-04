@@ -1,6 +1,827 @@
 <resources>
     <string name="app_name">Chapter Extractor</string>
 
+
+    <string-array name="one_piece_chapters">
+
+        <item>1.Yo soy Luffy, El futuro rey de los piratas</item>
+        <item>2.El cazador de piratas, Zorro Ronoa</item>
+        <item>3.Morgan contra Luffy y la hermosa joven misteriosa</item>
+        <item>4.El pasado de Luffy. Su amigo Shanks</item>
+        <item>5.La misteriosa fuerza del capitán Buggy</item>
+        <item>6.Situación desesperada. Moji el domador de bestias contra Luffy</item>
+        <item>7.lucha a muerte entre el espadachin y el acrobata</item>
+        <item>8.¿Quién obtendrá la victoria? Enfrentamiento entre las nueces de belcebú</item>
+        <item>9.El capitán Usuff y sus mentiras</item>
+        <item>10.El tío mas raro del mundo. Jango el hipnotizador</item>
+        <item>11.El descubrimiento del complot. El mayordomo es el capitan Kuro</item>
+        <item>12.La gran batalla contra la hueste del capitan Kurokeno</item>
+        <item>13.La pareja asesina. Los hermanos Nyaban contra Zorro</item>
+        <item>14.Luffy despierta. La impotencia de la señorita Kaya</item>
+        <item>15.La decision de Ussuf. Derrotar a Kuro</item>
+        <item>16.La taifa de Ussuf entra en accion. Proteger a Kaya</item>
+        <item>17.El Enfrentamiento Entre Kuro Y Luffy</item>
+        <item>18.Gaimon El Raro Y Sus Extraños Amigos</item>
+        <item>19.Zorro En La Escuela De Espadachines - La Promesa De Kuina</item>
+        <item>20.El Famoso Cocinero Del Restaurante Marítimo, Sanji</item>
+        <item>21.El invitado especial. Gin agradece la bondad de Sanji</item>
+        <item>22.La flota pirata del terrible capitan Krieg</item>
+        <item>23.Defender El Baratie, El Gran Pirata Zeff Piesrojos</item>
+        <item>24.El Cetrero Fantasmal, La Caída De Zorro</item>
+        <item>25.Sanji Contra Perla El Intocable</item>
+        <item>26.El Sueño De Zeff Y De Sanji El Gran Indigo</item>
+        <item>27.El Maratife Sin Piedad Gin El Teniente Pirata</item>
+        <item>28.Un Duelo A Muerte El Enfrentamiento</item>
+        <item>29.El Final De La Batalla La Fuerza De Un Simple Puñetazo</item>
+        <item>30.La despedida de sanji</item>
+        <item>31.Arlong esculao, el famoso pirata triton</item>
+        <item>32.La bruja complice de Arlong Escualo</item>
+        <item>33.Que pasara con Ussuf?</item>
+        <item>34.El reencuentro. La verdad de Nami contada por Ussuf</item>
+        <item>35.El pasado oculto, la historia de Bellemere</item>
+        <item>36.El lazo de sangre entre Nami y Bellemere</item>
+        <item>37.La promesa incumplida. La respuesta de Luffy</item>
+        <item>38.Luffy en apuros. La banda de Luffy contra los tritones</item>
+        <item>39.zorro contra el pulpo octy</item>
+        <item>40.El orgullo de un guerrero. La batalla de Sanji y Ussuf</item>
+        <item>41.Luffy esta a salvo. La ultima esperanza de Nami</item>
+        <item>42.La batalla en el mar contra Escualo</item>
+        <item>43.Fin del imperio de escualo. Nami ¿te vienes?</item>
+        <item>44.Fiesta en coconut. Nami decide marcharse</item>
+        <item>45.Se busca a Monkey di Luffy</item>
+        <item>46.Buggy busca a Luffy</item>
+        <item>47.El regreso del capitan Buggy</item>
+        <item>48.Logue, la ciudad del alfa y omega</item>
+        <item>49.Las espadas nuevas de Zorro</item>
+        <item>50.El duelo entre Usuff y Papy</item>
+        <item>51.El mejor cocinero del mar del este</item>
+        <item>52.La venganza de Buggy</item>
+        <item>53.Rumbo a Grand Line</item>
+        <item>54.Apis, la chica misteriosa</item>
+        <item>55.El secreto de Apis y de la Isla Perdida</item>
+        <item>56.La ingeniosa fuga de la Isla de la Fragata</item>
+        <item>57.La leyenda de la Isla Perdida</item>
+        <item>58.Duelo en las ruinas. El enfrentamiento entre Zorro y Eric</item>
+        <item>59.Batalla naval. La estrategia del almirante Nelson</item>
+        <item>60.La leyenda resucita. Se cierra el círculo</item>
+        <item>61.La entrada a la Gran Línea Roja</item>
+        <item>62.Rabún, el increíble cachalote gigante</item>
+        <item>63.La promesa de un hombre. El pacto entre Luffy y Rabún</item>
+        <item>64.La fiesta de bienvenida del pueblo de Whisky Peak</item>
+        <item>65.El poder de la espada. Zorro contra la banda Baroque</item>
+        <item>66.Combate a muerte. El duelo entre Zorro y Luffy</item>
+        <item>67.Hay que salvar a la reina Viví. La huida de Luffy y de su banda</item>
+        <item>68.La feroz lucha de Kobi</item>
+        <item>69.La fuerza de voluntad de Kobi. El vínculo del vicealmirante Garp</item>
+        <item>70.Little Garden, la isla de antaño</item>
+        <item>71.El gran duelo. Los gigantes Dorry y Brogy</item>
+        <item>72.Luffy se enfada. La trampa del duelo</item>
+        <item>73.Brogy busca la gloria. La confrontación por Erab</item>
+        <item>74.El hombre vela. Lágrimas de rabia</item>
+        <item>75.Poderes mágicos contra Luffy. La paleta de los símbolos</item>
+        <item>76.El contraataque. Las canicas de Usuff</item>
+        <item>77.Adiós Isla de los Gigantes. Rumbo a Alabasta</item>
+        <item>78.¿Nami esta enferma? Más allá de donde cae la nieve en el océano</item>
+        <item>79.¡Emboscada! El Bliking y Wapol el Blik</item>
+        <item>80.¿Una isla sin médicos? ¡Aventura en el país sin nombre!</item>
+        <item>81.¿Eres felíz? ¡La doctora que es llamada bruja!</item>
+        <item>82.¡La solución de Dalton! El desembarco de las fuerzas de Wapol</item>
+        <item>83.¡La isla que vive en la nieve! ¡Ascenso de Drum Rockies!</item>
+        <item>84.¡El reno de nariz azul! El secreto de Chopper</item>
+        <item>85.¡El sueño de un forajido! El curandero Hiruluk</item>
+        <item>86.Los cerezos de Hiruluk y la voluntad heredada</item>
+        <item>87.¡VS el ejército de Wapol! ¡Las habilidades de la Baku Baku no Mi!</item>
+        <item>88.¡Akuma no Mi de la familia Zoan! Las siete trasformaciones de Chopper</item>
+        <item>89.¡Cuando la tiranía del reino acaba! La bandera de la convicción durara por siempre</item>
+        <item>90.¡Los cerezos de Hiruluk! El milagro de Drum Rockies</item>
+        <item>91.¡Adiós, Isla de Drum! ¡Me voy al mar!</item>
+        <item>92.El héroe de Arabasta y la bailarina en cubierta</item>
+        <item>93.¡Rumbo al reino de arena! Un polvo que trae la lluvia y el Ejército Rebelde</item>
+        <item>94.¡Reunión de poderosos! Su nombre es Ace Puño de Fuego</item>
+        <item>95.¡Ace y Luffy! Recuerdos ardientes y lazos de hermanos</item>
+        <item>96.¡La ciudad verde Erumalu y los Kung-Fu Dugongs!</item>
+        <item>97.¡Aventura en el país de arena! Los demonios que viven en la abrasadora tierra</item>
+        <item>98.Aquí llegan los Piratas de las Arenas! Hombres que viven libremente</item>
+        <item>99.¡El orgullo de un impostor! Kamyu, corazón del ejército rebelde</item>
+        <item>100.¡Kohza, guerrero rebelde! ¡El sueño jurado a Vivi!</item>
+        <item>101.¡Duelo en las ondas del calor! Ace vs. un tal Scorpion</item>
+        <item>102.¡Ruinas antiguas y almas perdidas! Amigos de Vivi, y la forma de la nación</item>
+        <item>103.Los oficiales enemigos se reúnen en el Spiders Cafe a las 8:00PM</item>
+        <item>104.¡Luffy vs Vivi! Juramento de lagrimas que crean nakmas</item>
+        <item>105.¡Guerra de Arabasta! Rainbase, la Ciudad de los Sueños</item>
+        <item>106.¡La trampa del final absoluto! Asaltando Rain Dinners</item>
+        <item>107.¡La Operación Utopía ha comenzado! Los Rebeldes se ponen en movimiento</item>
+        <item>108.El terrible Bananawani y Mr. Prince</item>
+        <item>109.¡La llave a una revelación y escape! ¡Doru Doru Ball!</item>
+        <item>110.¡Combate a muerte sin piedad! Luffy vs Crocodile</item>
+        <item>111.¡Correr hacia un milagro! Arabasta, reino animal</item>
+        <item>112.¡Ejército rebelde vs. Ejército Real! ¡El combate final será en Alubarna!</item>
+        <item>113.¡Alubarna Llora! ¡La fiera lucha del Capitán Carue!</item>
+        <item>114.¡Insulto al sueño de tu nakama! Batalla en la 4ª avenida de la topera</item>
+        <item>115.¡La gran interpretación de hoy! ¡Mane Mane Montage!</item>
+        <item>116.¡Tranformándose en Nami! El poderoso Ballet Kenpo de Bon Kure</item>
+        <item>117.¡La advertencia del tornado de Nami! Explosión del Clima Tact</item>
+        <item>118.¡El secreto de la familia Real! Pluton, el Arma Ancestral</item>
+        <item>119.¡Esencia de una espada poderosa! El poder para cortar el acero y la respiración de todas las cosas</item>
+        <item>120.¡La batalla ha terminado! ¡Kohza ondea la bandera blanca!</item>
+        <item>121.¡La voz de Vivi pasa desapercibida! ¡Un héroe desciende!</item>
+        <item>122.¡Cocodrilo de arena y Luffy de Agua! Duelo a muerte: Round 2</item>
+        <item>123.¡Huele a Cocodrilo! ¡Corre a la tumba de la Familia Real, Luffy!</item>
+        <item>124.¡La hora de la pesadilla se acerca! La base secreta del Clan Suna Suna</item>
+        <item>125.¡Alas magníficas! Mi nombre es Pell, espíritu guardián del reino</item>
+        <item>126.¡Te superaré! ¡Llueve en Arabasta!</item>
+        <item>127.¡Adiós a las armas! Piratas y un poco de justicia</item>
+        <item>128.¡El banquete de los piratas y la operación escape de Arabasta!</item>
+        <item>129.¡Todo comenzó ese día! ¡Vivi cuenta sus aventuras!</item>
+        <item>130.¡Cuidado con su fragancia! ¡La séptima persona es Nico Robin!</item>
+        <item>131.¡Primer paciente! Anécdota de la Rumble Ball</item>
+        <item>132.¡El motín del navegante! ¡Por un sueño sin cumplir!</item>
+        <item>133.¡Receta heredada! ¡Sanji, el experto del curry!</item>
+        <item>134.¡La haré florecer! La bola 8-shaku del varonil Usopp</item>
+        <item>135.¡El infame cazador de piratas! El errante espadachín, Zoro</item>
+        <item>136.Zenny vive en la isla de la cabra y ¡hay un barco pirata en su montaña!</item>
+        <item>137.¿No os parece una ganancia increíble? ¡La ambición del prestamista Zenny!</item>
+        <item>138.¡Paradero del tesoro de la isla! ¡A la carga, piratas de Zenny!</item>
+        <item>139.¡La leyenda de la Niebla Arcoiris! El viejo Henzo de Isla Ruluka</item>
+        <item>140.¡Habitantes de Nunca Jamás! ¡La banda pirata Pumpkin!</item>
+        <item>141.¡Anhelo por volver a casa! ¡El ineludible cementerio pirata!</item>
+        <item>142.¡Lucha desesperada! El plan de Whetton y la torre Arcoiris</item>
+        <item>143.¡Y entonces comenzó la leyenda! Rumbo al final del Arcoiris</item>
+        <item>144.¡Destino fijado! ¡El rey de salvamento Masira!</item>
+        <item>145.¡Aparecen los monstruos! No toques a los piratas de Barbablanca</item>
+        <item>146.¡No creas en sueños! ¡Mocktown, la Ciudad del Ridiculo!</item>
+        <item>147.¡La cumbre de los piratas! El hombre que habla de sueños y el Rey de la Exploración Submarina</item>
+        <item>148.¡La familia legendaria! "Mentiroso Norland"</item>
+        <item>149.¡Rumbo a las nubes! ¡Encontrar un Southbird!</item>
+        <item>150.¿¡Los sueños no se cumplen!? Bellamy vs. la Alianza Saruyama</item>
+        <item>151.¡El hombre de los 100 millones! La mayor autoridad del mundo y el pirata Barbanegra</item>
+        <item>152.¡Navegando hacia el cielo! Surcar el Knock-Up Stream</item>
+        <item>153.¡Este es el mar del cielo! El Caballero del Cielo y la Puerta del Paraíso</item>
+        <item>154.¡La Tierra de Dios, Skypiea! ¡Los ángeles de la playa de las nubes!</item>
+        <item>155.¡La prohibida tierra sagrada! ¡La isla donde reside Dios y el Juicio de los Cielos!</item>
+        <item>156.¿¡Ya somos criminales!? Los encargados de la ley en Skypiea</item>
+        <item>157.¿Podemos escapar!? ¡Las pruebas de Dios están en marcha!</item>
+        <item>158.¡La trampa de Lovely Street! El todopoderoso God Enel</item>
+        <item>159.¡Adelante, Pequeño Cuervo! Al altar del sacrificio</item>
+        <item>160.¡Probabilidad de supervivencia: 10%! ¡El Sacerdote Satori, con el poder del Mantra!</item>
+        <item>161.¡El peligro de la Prueba de las Esferas! Lucha a muerte en el Bosque Maya</item>
+        <item>162.¡Chopper esta en peligro! Dios original vs. el Sacerdote Shura</item>
+        <item>163.¡Siempre misteriosa! Prueba de los Hilos y ¿¡Prueba de Amor!?</item>
+        <item>164.¡Encendamos el fuego de Shandora! El guerrero Wiper</item>
+        <item>165.¡La tierra flotante del Oro, Jaya! ¡Al santuario de Dios!</item>
+        <item>166.¡Víspera del Festival de Oro! ¡Afecto por el Verse!</item>
+        <item>167.¡¡Aparece God Enel!! Aubade para los supervivientes</item>
+        <item>168.¡La anaconda de puros colmillos! Comienza el Survival Game</item>
+        <item>169.¡El Reject suicida! La determinación de Wiper el Demonio de la Guerra</item>
+        <item>170.¡Feroz batalla aérea! El pirata Zoro vs. el guerrero Braham</item>
+        <item>171.¡¡Aulla el Burn Bazooka!! Luffy vs. Wiper el Demonio de la Guerra</item>
+        <item>172.¡La Prueba del Pantano! ¡¡Chopper vs. el Sacerdote Gedatsu!!</item>
+        <item>173.¡La habilidad invencible! Se revela la autentica naturaleza de Enel</item>
+        <item>174.¡La ciudad desaparecida! ¡¡Las magníficas ruinas de Shandora!!</item>
+        <item>175.¡¡Probabilidad de supervivencia: 0%!! Chopper vs. el Sacerdote Aum</item>
+        <item>176.¡¡Escalar el Giant Jack!! Lucha desesperada en las ruinas superiores</item>
+        <item>177.¡La última prueba de la Prueba del Hierro! ¡¡Deathmatch en las espinas blancas!!</item>
+        <item>178.¡Fluir cortante! ¡¡Zoro vs. el Sacerdote Aum!!</item>
+        <item>179.¡Las ruinas superiores se derrumban! ¡¡Quintet para el final!!</item>
+        <item>180.¡Confrontación en las ruinas antiguas! ¡¡El objetivo de God Enel!!</item>
+        <item>181.Ambición por el Fairy Verse ¡¡El arca Maxim!!</item>
+        <item>182.¡Por fin chocan! ¡¡El pirata Luffy vs. God Enel!!</item>
+        <item>183.¡Maxim emerge! ¡¡Que de comienzo la Despiea!!</item>
+        <item>184.¡Caída de Luffy! ¡El juicio de Dios y el deseo de Nami!</item>
+        <item>185.¡Los dos han despertado! ¡¡Frente del rescate del amor!!</item>
+        <item>186.Capriccio de la desesperación ¡Se aproxima la desaparición de la isla desierta!</item>
+        <item>187.¡Guiados por el sonido de una campana! Un cuento sobre un gran guerrero y un explorador</item>
+        <item>188.¡Lanzamiento de un hechizo! ¡¡Lagrimas con la vertiente del combatiente!!</item>
+        <item>189.¡Amistad eterna! ¡¡El sonido del juramento que resuena a lo largo del océano!!</item>
+        <item>190.¡Desaparición de la isla del ángel! ¡El miedo a Raigoh descende!</item>
+        <item>191.¡Derribar el Giant Jack! Última esperanza de huida</item>
+        <item>192.¡El milagro del reino de Dios! Love Song para los angeles</item>
+        <item>193.¡El final de la lucha! Fantasia que se repite con orgullo a lo lejos</item>
+        <item>194.¡Estube aquí! ¡Lo que relata el Ponegylph!</item>
+        <item>195.¡Ahora rumbo al mar azul! Memorias de un final entretejido</item>
+        <item>196.¡Aviso oficial de emergencia! ¡Infiltración notoria de un barco pirata!</item>
+        <item>197.¡Sanji el cocinero! ¡El valor verdadero del comedor de la marina!</item>
+        <item>198.¡Operación urgente de Zoro y Chopper!</item>
+        <item>199.¡Busqueda de los Marines que se aproximan! ¡La segunda persona capturada!</item>
+        <item>200.¡Decisión desesperada de Luffy y de Sanji! ¡Gran maniobras de rescate!</item>
+        <item>201.Participación especial de la unidad de sangre caliente en la guerra! ¡Batalla ofensiva y defensiva!</item>
+        <item>202.¡Rotura violenta de la barricada! ¡Se recupera el Going Merry!</item>
+        <item>203.¡El baroc pirata perdido! 2º round asalto en la fortaleza</item>
+        <item>204.¡El plan de recuperación del oro y duda del plan de recuperación!</item>
+        <item>205.¡Cójalos todos en una red! ¡Esquema secreto de Jonathon!</item>
+        <item>206.¡Tan larga, base de la marina! La batalla final para la libertad</item>
+        <item>207.Gran aventura en la tierra de Long Ring Long</item>
+        <item>208.¡Los piratas de Foxy y el Davy Back!</item>
+        <item>209.¡La primera prueba! una vuelta al Donut Race</item>
+        <item>210.¡Foxy el Zorro Plateado! Una violenta interferencia</item>
+        <item>211.¡Segunda ronda! ¡Lanzamiento en el Groggy Ring!</item>
+        <item>212.¡Veloces tarjetas rojas! Groggy Ring</item>
+        <item>213.¡Round 3! ¡El round de Roller Race!</item>
+        <item>214.¡El climax de la carrera explosiva! ¡Adentrandose en la ultima ronda!</item>
+        <item>215.¡El griterío de servicio veloz! ¡Dodgeball pirata!</item>
+        <item>216.¡Ultima ronda al borde! ¡Luz-roja! ¡Luz-verde!</item>
+        <item>217.¡Confrontacion entre capitanes! ultima pelea: ¡Combate!</item>
+        <item>218.Valvula de rayo Noro Noro Vs. El Invulnerable Luffy</item>
+        <item>219.¡Heroica feroz pelea del Combate! El profetizado final</item>
+        <item>220.¿Has perdido la memoria? ¿Te la quitaron? ¿Quiénes sois?</item>
+        <item>221.¡El misterioso muchacho de la concha y el descubrimiento de Robin!</item>
+        <item>222.¡Recuperar la memoria! Desembarco en la isla de los piratas</item>
+        <item>223.¡Zoro afila sus colmillos! ¡Una lucha con un animal salvaje!</item>
+        <item>224.¡El contraataque final del ladrón de memorias demuestra su verdadera naturaleza!</item>
+        <item>225.¡El hombre de increíble orgullo! ¡Foxy el Silver Fox!</item>
+        <item>226.¿Un poder invencible descansa cerca? ¡Un hombre muy peligroso!</item>
+        <item>227.¡AoKiji, el almirante de la marina! La amenaza del poder de la más dura batalla</item>
+        <item>228.¡Goma y hielo una pelea uno contra uno! ¡Luffy vs. AoKiji!</item>
+        <item>229.El veloz Sea Train y la Capital de Agua, Water 7</item>
+        <item>230.¡Aventura en la Ciudad de Agua! Buscando el muelle del enorme astillero</item>
+        <item>231.¡La Franky Family e Iceburg-san!</item>
+        <item>232.Galley-La company! El gran muelle 1</item>
+        <item>233.El incidente del secuestro del pirata e impedir la muerte del barco</item>
+        <item>234.¡Rescatemos a nuestro nakama! ¡Atacar la Franky House!</item>
+        <item>235.¡Una pela bajo la luz de la luna! ¡La bandera pirata que ondea tristemente!</item>
+        <item>236.¡Luffy vs Usopp! La naturaleza de un hombre sorprendente</item>
+        <item>237.¡La Capital de Agua tiembla! ¡Iceburg-san ha sido marcado!</item>
+        <item>238.Gomu Gomu humano vs humano remodelado escupe fuego (Cyborg)</item>
+        <item>239.¿Los Sombrero de Paja son los criminales? Los guardianes de la Capital de Agua</item>
+        <item>240.¿Te vas para siempre? Nico Robin, la mujer que conlleva oscuridad</item>
+        <item>241.¡Encontrar a Robin! La decisión de los Sombrero de Paja</item>
+        <item>242.¡La señal es la explosión! El CP9 se pone en movimiento</item>
+        <item>243.¡El CP9 se quita la máscara! Las caras de la sorpresa</item>
+        <item>244.¡El enlace encubierto! Iceburg y Franky</item>
+        <item>245.¡Devolvednos a Robin! ¡La confrontación con el CP9!</item>
+        <item>246.¿Aniquilación de los piratas de Sombrero de Paja? ¡Amenaza del Modelo Leopardo!</item>
+        <item>247.¡El hombre que ama su barco! ¡Las lágrimas de Usopp!</item>
+        <item>248.¡El pasado de Franky! El día en que el Umi Ressha partió</item>
+        <item>249.¡La conspiración de Spandam! El día en que el Umi Ressha tembló</item>
+        <item>250.¡El ultimo momento de un hombre legendario! El día en que el Umi Ressha gritó</item>
+        <item>251.¡La verdad tras la traición! ¡La dolorosa decisión de Robin!</item>
+        <item>252.¡El silbido del vapor separa a los nakamas! El Umi Ressha comienza a moverse</item>
+        <item>253.¡Sanji irrumpe! ¡Batalla en el Umi Ressha bajo la tormenta!</item>
+        <item>254.¡El grito del alma de Nami! ¡El renacer de Luffy Sombrero de Paja!</item>
+        <item>255.¡Otro Umi Ressha! Partida del Rocket Man</item>
+        <item>256.¡Rescatar a nuestros amigos! ¡Enemigos mutuos unidos por el juramento de una alianza!</item>
+        <item>257.¡Romper la ola! El combo más fuerte de Luffy y Zoro</item>
+        <item>258.¿¡Aparece un hombre misterioso!? ¡Su nombre es Sogeking!</item>
+        <item>259.¡Confrontación de cocineros! Sanji vs. Ramen Kenpo</item>
+        <item>260.¡Duelo en el techo! Franky vs. Nero</item>
+        <item>261.¡Choque! Zoro el corta demonios vs. T-Bone el corta barcos</item>
+        <item>262.¡La lucha de Robin! ¡¡El ingenioso plan de Sogeking!!</item>
+        <item>263.¡La Isla Judicial! ¡Panorámica de Enies Lobby!</item>
+        <item>264.¡Comienza la operación de desembarco! ¡Los Sombrero de Paja irrumpen!</item>
+        <item>265.¡Luffy a la carga! ¡Gran batalla decisiva en la Isla Judicial!</item>
+        <item>266.¡Ataque y defensa del clan de los gigantes! ¡Abramos la segunda puerta!</item>
+        <item>267.¡Abrir una vía libre! ¡El Rocket Man vuela por el cielo!</item>
+        <item>268.¡Alcanzar a Luffy! La guerra general de los Sombrero de Paja</item>
+        <item>269.¡Robin ha sido traicionada! ¡Las expectativas del Gobierno Mundial!</item>
+        <item>270.¡Devolvednos a Robin! ¡Luffy vs. Blueno!</item>
+        <item>271.¡No os detengáis! ¡Lancemos un contraataque!</item>
+        <item>272.¡Luffy avistado! Concentración en la plaza del Palacio de Justicia</item>
+        <item>273.¡Todo con tal de proteger a mis nakamas! Gia Sekando en marcha</item>
+        <item>274.¡Responde Robin! ¡¡Los gritos de los Sombrero de Paja!!</item>
+        <item>275.¡El pasado de Robin! ¡La niña que fue llamada demonio!</item>
+        <item>276.¡Destino de madre e hija! El nombre de la madre es Olvia</item>
+        <item>277.¡La tragedia de Ohara! El terror de la Buster Call</item>
+        <item>278.¡Di que quieres vivir! ¡¡Somos nakamas!!</item>
+        <item>279.¡Saltar a las cataratas! ¡¡Los sentimientos de Luffy!!</item>
+        <item>280.¡La forma de vida de cada hombre! El esfuerzo de Zoro, el sueño de Usopp</item>
+        <item>281.¡El vínculo con el nakama que derrama lágrimas! El mapamundi de Nami</item>
+        <item>282.¡La separación pule a un hombre! Sanji y Chopper</item>
+        <item>283.¡Lo que sea nuestra nakama! La oscuridad que conlleva Robin</item>
+        <item>284.¡Los planos no se confían! La decisión de Franky</item>
+        <item>285.¡Recuperar las 5 llaves! Los Sombrero de Paja contra el CP9</item>
+        <item>286.¡El poder de las Akuma no Mi! Kaku y Jabra se transforman</item>
+        <item>287.¡Aunque por ello muera, no pienso pegarte! La caballerosidad de Sanji</item>
+        <item>288.¡El error de cálculo de Fukuro! La Soda de cola es mi agua de la vida!</item>
+        <item>289.¡Explota la nueva técnica de Zoro! ¿El nombre de la espada es Sogeking?</item>
+        <item>290.¡Incontrolable! La Rumble prohibida de Chopper</item>
+        <item>291.¡El regreso del jefe Luffy! Un sueño, una realidad o cuestión de la fortuna</item>
+        <item>292.¡La gran Mochimaki Race en el castillo! La conspiración de la nariz roja</item>
+        <item>293.¡Califa usuaria de la espuma! Nami se adentra en una trampa de jabón</item>
+        <item>294.¡Las resonantes malas noticias! ¡La Buster Call es invocada!</item>
+        <item>295.¿5 Namis? ¡Contraatacan juntas con un espejismo!</item>
+        <item>296.¡La decisión de Nami! ¡Atacar al incontrolable Chopper!</item>
+        <item>297.¿Aparece el cazador Sanji? Una elegía del lobo mentiroso</item>
+        <item>298.¡La abrasadora patada! El juego de pies Full Course de Sanji</item>
+        <item>299.¡El fiero ataque de las espadas desenvainadas! Zoro vs. Kaku: El poderoso enfrentamiento de cortes</item>
+        <item>300.¡Zoro el dios feroz! La encarnación de Ashura revelada por su alma</item>
+        <item>301.¡Spandam queda asombrado! Un héroe en lo alto de la Torre Judicial</item>
+        <item>302.¡Robin liberada! Luffy vs. Rucchi: La cumbre de la batalla decisiva</item>
+        <item>303.¿El criminal es el jefe Luffy? Tras la gran Sakura perdida</item>
+        <item>304.¡Si no puedo ganar, no puedo proteger a nadie! Gear Third activado</item>
+        <item>305.¡El aterrador pasado! La justicia desde la sombra y Rob Rucchi</item>
+        <item>306.¿Soñando con una sirena? Perdiendo el conocimiento</item>
+        <item>307.¡La isla cubierta por los disparos! El grito del lamento de Franky</item>
+        <item>308.¡Esperar a Luffy! ¡Lucha a muerte en el Puente de la Vacilación!</item>
+        <item>309.¡Los sentimientos mostrados a través de los puños! Luffy ejecuta el Gattling a la máxima potencia</item>
+        <item>310.¡Un amigo viene desde el mar! El lazo más fuerte de los Sombrero de Paja</item>
+        <item>311.¡La gran huida de toda la banda! El camino a la victoria es para los piratas</item>
+        <item>312.¡Gracias, Merry! La nevada en el mar de las despedidas</item>
+        <item>313.Llegada a una nueva base de la armada, el destructor de la armada</item>
+        <item>314.¿El linaje familiar más fuerte? ¡Se revela la identidad del padre de Luffy!</item>
+        <item>315.Su nombre es "Nuevo Mundo". La zona más lejana de la Grand Line</item>
+        <item>316.Shanks en marcha. Ceremonia para la era salvaje</item>
+        <item>317.¡La chica que busca su Yagara! La gran investigación en la Capital del Agua</item>
+        <item>318.¡Algo más que una madre! ¡Las payasadas de Zoro ayudando en las labores del hogar!</item>
+        <item>319.¡Sanji se desploma!, el misterioso anciano y su brillante cocina</item>
+        <item>320.¡Al final ofrecen una recompensa por todos! ¡La banda supera los seiscientos millones!</item>
+        <item>321.¡El Rey de las Bestias que cruzará el mar! ¡El magnifico acabado del Barco de Ensueño!</item>
+        <item>322.¡Adiós mis queridos secuaces! Franky se marcha</item>
+        <item>323.¡Partiendo de la Capital de Agua! La distinción del duelo del varonil Usopp</item>
+        <item>324.¡Las recompensas se difunden! ¡Mientras en sus hogares están de fiesta el barco prosigue su viaje!</item>
+        <item>325.¡La habilidad más poderosa! La oscuridad de Barbanegra ataca a Ace</item>
+        <item>326.¡La misteriosa partida pirata! El Sunny y una peligrosa trampa</item>
+        <item>327.¡Sunny en apuros! El mecanismo superveloz secreto</item>
+        <item>328.¡El sueño hundido en el Nuevo Mundo! Puzzle, el pirata de la desesperación</item>
+        <item>329.¡Ataque de los asesinos! Comienza la gran batalla sobre hielo</item>
+        <item>330.¡La gran lucha desesperada de los Sombrero de Paja! Toda su alma pirata puesta en la bandera</item>
+        <item>331.¡Completamente bochornoso! Se acerca el poder magnético de los gemelos</item>
+        <item>332.¡El gran caos de la mansión! El Don se enfada y la banda es encarcelada</item>
+        <item>333.¡El regreso del ave fénix! El sueño de la bandera pirata jurada a un amigo</item>
+        <item>334.¡La hirviente superbatalla decisiva! Luffy vs. el abrasador Don</item>
+        <item>335.¡Os esperamos en el Nuevo Mundo! Adiós a los valerosos piratas</item>
+        <item>336.¡Chopper Man en marcha! Proteger la costa de la emisora de TV</item>
+        <item>337.¡Irrumpiendo en el mar del espíritu maligno! Un misterioso esqueleto surge entre la niebla</item>
+        <item>338.¡El placer de encontrar gente! El auténtico carácter del esqueleto caballeroso</item>
+        <item>339.¡Sucesión de misteriosos fenómenos! Desembarco en Thriller Bark</item>
+        <item>340.¡El hombre llamado genio! ¡Aparece Hogback!</item>
+        <item>341.¡Nami en grandes apuros! La mansión de los zombis y el hombre invisible</item>
+        <item>342.¡El misterio de los zombis! La pesadilla del laboratorio de Hogback</item>
+        <item>343.¡Su nombre es Moria! La trampa del gran pirata secuestrador de sombras</item>
+        <item>344.¡La fiesta de la Zombie Song! La campanada de las tinieblas para el ataque nocturno</item>
+        <item>345.¿¡Repleto de animales!? El Wonder Garden de Perona</item>
+        <item>346.¡La banda de Sombrero de Paja va desapareciendo! ¡Aparece el misterioso espadachín!</item>
+        <item>347.¡Resquicios de caballería! El zombi traidor que protege a Nami</item>
+        <item>348.¡Visita desde el cielo! El Espadachín Susurrante es ese hombre</item>
+        <item>349.¡Luffy en Peligro! El destino de la sombra más fuerte</item>
+        <item>350.¡El guerrero que es llamado un Demonio! El tiempo de la resurrección de Oz</item>
+        <item>351.¡¡Despertar después de 500 años!! ¡¡Oz revive!!</item>
+        <item>352.¡¡Una convicción tan fuerte como para rogar por su propia vida!! Brook protege su afro</item>
+        <item>353.¡La promesa que un hombre debe cumplir!¡Un amigo esperando desde muy lejos!</item>
+        <item>354.¡¡Definitivamente lo volveré a ver!! Brook y la promesa a la ballena</item>
+        <item>355.¡¡Comida, Nami y Sombras!! El Contraataque del furioso Luffy</item>
+        <item>356.¿Usopp el más fuerte? Déjenme a mi lo Negativo</item>
+        <item>357.¡¡La derrota instantánea de los Generales Zombis!! Oz con ganas de aventura.</item>
+        <item>358.¡¡Sanji, el caballero en llamas!! Rompe a patadas la ceremonia falsa</item>
+        <item>359.¿Conexión de Invisibilidad? ¿¡El Sueño Robado de Sanji?</item>
+        <item>360.¡Ayúdame héroe! ¿¡El enemigo es la princesa invencible?</item>
+        <item>361.¡¿El Terror de Perona!? La U en Uso (mentira en japonés) es la U en Usopp</item>
+        <item>362.¡¡Baile de cortes en el tejado!! La conclusión del Zoro vs. Ryuma</item>
+        <item>363.¡La Rabia de chopper!, Hogback la demoníaca práctica médica</item>
+        <item>364.¡Oz Ruge! Salida de la tripulación del Sombrero de Paja</item>
+        <item>365.¡¡El enemigo es Luffy!! El zombi más fuerte contra los Sombrero de Paja</item>
+        <item>366.¡¡Derrota a Absalom!! ¡¡El amistoso ataque relámpago de Nami!!</item>
+        <item>367.¡¡Lograr un Down!! ¿El mortal Docking de los Sombrero de Paja?</item>
+        <item>368.¡¡Invasión silenciosa!! El visitante misterioso: Kuma el Tirano</item>
+        <item>369.Oz + Moria. La mayor combinación de inteligencia y fuerza física</item>
+        <item>370.Un plan secreto para dar la vuelta a las tornas. La creación de Nightmare Luffy</item>
+        <item>371.La tripulación del Sombrero de Paja aniquilada. La habilidad KageKage al completo</item>
+        <item>372.¡Comienza la batalla por la superioridad! Luffy vs. Luffy</item>
+        <item>373.¡Se acerca la conclusión! Llega el asalto, se asesta el golpe final.</item>
+        <item>374.¡Los cuerpos desaparecen! ¡El sol de la mañana penetra a través de la isla pesadilla!</item>
+        <item>375.¡La crisis final! Órdenes para eliminar a la tripulación del Sombrero de Paja.</item>
+        <item>376.¡Kuma posee las habilidades de la Nikyu Nikyu no Mi! El poder de repeler todo.</item>
+        <item>377.El dolor de mis compañeros es mi dolor. Zoro preparado para morir</item>
+        <item>378.Promesa en un día de hace tiempo. La canción del pirata y una ballena diminuta</item>
+        <item>379.El pasado de Brook. Triste adiós a la tripulación alegre</item>
+        <item>380.El sake de Binks. La canción que une el pasado y el presente</item>
+        <item>381.¡Un nuevo compañero! Músico- El tarareante Brook</item>
+        <item>382.La amenaza Noro Noro. El regreso de Foxy el Zorro Plateado</item>
+        <item>383.¡La gran competición del tesoro! ¡Derrumbamiento! El Spyland</item>
+        <item>384.La dura lucha de Brook. ¿El difícil camino para hacerse un verdadero Sombrero de Paja?</item>
+        <item>385.¡Llegando a la mitad de la Grand Line! La Red Line</item>
+        <item>386.El que odia a la tripulación de los Sombrero de Paja. Entra Duval máscara de hierro.</item>
+        <item>387.¡La reunión predestinada! Salva al tritón encarcelado</item>
+        <item>388.¡Tragedia! La verdad de Duval desenmascarada</item>
+        <item>389.¡ Explota ! La nueva arma del Sunny-Go el Cañón Gaon</item>
+        <item>390.Llegada a la entrada a la isla Gyojin, el archipiélago Shabondy</item>
+        <item>391.¡Tiranía! Tenryubito, los gobernantes de Shabondy</item>
+        <item>392.¡Los nuevos rivales se agrupan! Los once supernovas</item>
+        <item>393.¡El objetivo es Camie! Se aproxima la mano del diablo de los secuestradores</item>
+        <item>394.Al rescate de Camie, la oscura historia del archipiélago</item>
+        <item>395.Limite de tiempo, comienza la subasta de personas</item>
+        <item>396.¡El puño explosivo! Destruye la subasta</item>
+        <item>397.¡Gran pánico! Pelea a muerte en el salón de la subasta</item>
+        <item>398.¡El Almirante Kizaru avanza! El alborotado archipiélago Shaobody</item>
+        <item>399.¡Atraviesa el sitio! Los marinos contra tres capitanes</item>
+        <item>400.Roger y Rayleigh - El Rey de los piratas y su mano derecha</item>
+        <item>401.¿Imposible de evitar? La patada a la velocidad de la luz del Almirante Kizaru</item>
+        <item>402.¡Aterrador! El arma de combate de la Marina, Pacifista</item>
+        <item>403.¡Aparece otro enemigo fuerte! Sentomaru, el empuñador del gran hacha</item>
+        <item>404.El feroz ataque del Almirante Kizaru - ¡La desesperacion de los sombrero de paja!</item>
+        <item>405.La Tripulación desaparece, el último día de la tripulación de los sombrero de paja</item>
+        <item>406.Capítulo especial historico, el jefe Luffy aparece de nuevo</item>
+        <item>407.Capítulo especial historico ¡Destruye! la trampa del grupo Thriller</item>
+        <item>408.¡Aterrizaje! Amazon Lily, la isla prohibida para los hombres</item>
+        <item>409.¡Rápido! De vuelta a los compañeros, aventura en la isla de las mujeres</item>
+        <item>410.¡Todos ebrios de amor! La emperatriz pirata Hancock</item>
+        <item>411.El secreto oculto en sus espaldas, Luffy se encuentra con la princesa serpiente</item>
+        <item>412.¡Juicio sin piedad! ¡Margaret es convertida en piedra!</item>
+        <item>413.¡La dura prueba de Luffy! ¡El poder del haki de las hermanas serpiente!</item>
+        <item>414.¡Batalla con todo el poder de la habilidades! Gomu Gomy vs. Hebi Hebi</item>
+        <item>415.La confesión de Hancock, el pasado detestable de las hemanas</item>
+        <item>416.¡Rescata a Ace! El nuevo destino es la gran prisión</item>
+        <item>417.¡El amor es un huracan! Hancock enamorada</item>
+        <item>418.El paradero de los compañeros - Ciencia del clima y la isla de los mecanismos</item>
+        <item>419.El paradero de los compañeros - ¡La isla de los pájaros gigantes y el paraíso rosa!</item>
+        <item>420.El paradero de los compañeros - El puente que conecta islas y las plantas come hombres</item>
+        <item>421.El paradero de los nakamas. Negative Princess y Satán</item>
+        <item>422.¡Una infiltración bordeando la muerte! La prisión submarina de Impel Down</item>
+        <item>423.¿¡Reencuentro en el infierno!? ¡El usuario de la Bara Bara no Mi!</item>
+        <item>424.¡Infiltración! El infierno carmesí. El gran plan con estilo de Buggy</item>
+        <item>425.¡El hombre más poderoso de la prisión! El hombre venenoso, aparece Magellan</item>
+        <item>426.Un episodio especial relacionado con la película. La ambición del León Dorado se pone en marcha</item>
+        <item>427.Un episodio especial relacionado con la película. Little East Blue en peligro</item>
+        <item>428.Un episodio especial relacionado con la película. El fiero ataque de los Piratas Amigo</item>
+        <item>429.Un episodio especial relacionado con la película. ¡Batalla decisiva! Luffy vs. Largo</item>
+        <item>430.¡Un Ouka Shichibukai cautivo! Jinbe el caballero del mar</item>
+        <item>431.La trampa del carcelero jefe Saldeath. LEVEL 3, el infierno del hambre</item>
+        <item>432.¡Liberando al cisne! ¡Otra vez juntos! Bon Kure</item>
+        <item>433.¡La estrategia del alcaide Magellan llevada acabo! A la captura de Sombrero de Paja</item>
+        <item>434.¡Todas las fuerzas se reúnen! Batalla decisiva en el LEVEL 4, el infierno ígneo</item>
+        <item>435.¡El imponente Magellan! Bon Kure sale por patas</item>
+        <item>436.¡Determinación humana! El desesperado ataque final de Luffy</item>
+        <item>437.Por su amigo. Bon Kure se adentra en un rescate mortal</item>
+        <item>438.¡Paraíso en el infierno! Impel Down, LEVEL 5.5</item>
+        <item>439.¡Comienza el tratamiento de Luffy! La milagrosa habilidad de Iva-san</item>
+        <item>440.¡Cree en los milagros! Bon Kure animando desde su alma</item>
+        <item>441.¡Luffy revive! Comienza el plan de fuga de Iva-san</item>
+        <item>442.Comienza la escolta de Ace. ¡Ofensiva y defensiva en la planta más profunda, el LEVEL 6!</item>
+        <item>443.Se forma el equipo más fuerte. ¡Sacudida! Impel Down</item>
+        <item>444.¡Se incrementa el caos! ¡La invasión de Kurohige Teach!</item>
+        <item>445.¡Una peligrosa reunión! Kurohige y Shiryu de la Lluvia</item>
+        <item>446.¡Su espíritu no decae! Hannyabal se pone serio</item>
+        <item>447.Jet Pisutoru cargador de rabia. Luffy vs. Kurohige</item>
+        <item>448.¡Detener a Magellan! Estalla la técnica secreta de Iva-san</item>
+        <item>449.¡El inteligente plan de Magellan! Frustrado el plan de fuga</item>
+        <item>450.La desesperada situación del equipo en fuga. El kinjite "Venom Demon"</item>
+        <item>451.Creando un último milagro. Atravesar la Puerta de la Justicia</item>
+        <item>452.Hacia el Cuartel General de la Marina. ¡Zarpando para rescatar a Ace!</item>
+        <item>453.El paradero de los nakamas. El pronostico de Weatheria y los animales cyborg</item>
+        <item>454.El paradero de los nakamas. El polluelo de pájaro gigante y un enfrentamiento rosa</item>
+        <item>455.El paradero de los nakamas. El Ejercito Revolucionario y la trampa del bosque de la gula</item>
+        <item>456.El paradero de los nakamas. La lápida gigante y la deuda de bragas</item>
+        <item>457.Especial retrospectivo previo a Marineford ¡El juramento de hermanos!</item>
+        <item>458.Especial retrospectivo previo a Marineford ¡Reúnanse! Los tres almirantes</item>
+        <item>459.¡La batalla definitiva comienza! ¡La formación más poderosa del Cuartel General!</item>
+        <item>460.¡La invasión submarina de una gran flota! ¡Los Piratas de Shirohige!</item>
+        <item>461.¡La batalla decisiva comienza! ¡El pasado de Ace y Shirohige!</item>
+        <item>462.¡El poder para destruir el mundo! La habilidad de la fruta Gura Gura.</item>
+        <item>463.¡Todo quemado a cenizas! La habilidad del almirante Akainu.</item>
+        <item>464.¡La descendencia del mal! ¡El apresurado pequeño Oars Jr.!</item>
+        <item>465.El ganador será la justicia. ¡Se pone en acción la estrategia de Sengoku!</item>
+        <item>466.Llega el equipo de Sombrero de Paja. La zona de batalla se intensifica</item>
+        <item>467.Te salvaré aunque por eso tenga que morir. Comienza la batlla entre Luffy vs la Marina</item>
+        <item>468.¡Batallas consecutivas! Ejército de usarios de frutas malvadas .</item>
+        <item>469.Un desastre causado por Kuma. El furioso ataque de Iva.</item>
+        <item>470.¡El maestro espadachín Mihawk! ¡La espada negra que se acerca a Luffy!</item>
+        <item>471.Comienza la operación exterminio. El poder del ejército pacifista</item>
+        <item>472.¡El truco de Akainu! Barbablanca atrapado</item>
+        <item>473.¡Inicia la operación de rodeo! ¡Los piratas de Barbablanca impulsados en una esquina!</item>
+        <item>474.La orden de realizar la ejecucción se acerca. ¡Romper a través del muro redondeante!</item>
+        <item>475.¡Movimiento en la fase final! ¡La recuperación de la carta del triunfo de Barbablanca!</item>
+        <item>476.¡El exausto de fuerza de Luffy! ¡¡Guerra suprema en la plaza Oris!!</item>
+        <item>477.¡Reduciendo la Vida por Poder! ¡Usando una vez más las Hormonas de Tensión!</item>
+        <item>478.¡Por una promesa! Luffy y Coby chocan</item>
+        <item>479.¡A pasos de la Plataforma! Camino abierto hacia Ace</item>
+        <item>480.¡Caminos diferentes! ¡Luffy Vs. Garp!</item>
+        <item>481.¡Ace libre! ¡La última orden del Capitán Shirohige!</item>
+        <item>482.El poder de quemar incluso el fuego. La caza sin piedad de Akainu</item>
+        <item>483.Buscando una respuesta. Puño de fuego Ace muere en el campo de batalla</item>
+        <item>484.¡Marineford arrasada! ¡La furia en silencio de Shirohige!</item>
+        <item>485.Ajustando cuentas. Shirohige vs Los piratas de Kurohige</item>
+        <item>486.Comienza el espectáculo. El plan maetro de kurohige es revelado</item>
+        <item>487.¡La osbsesión de Akainu! ¡Luffy amenazado por un puño de magma!</item>
+        <item>488.¡Un grito de desesperación! ¡Segundos de valor que pueden cambiar el destino!</item>
+        <item>489.¡Shanks aparece! La guerra por fin termina</item>
+        <item>490.¡Poderosos rivales! ¡Una nueva era inicia!</item>
+        <item>491.Llegando a la isla de las mujeres. Luffy se enfrenta a su cruel realidad</item>
+        <item>492.Capítulo Especial</item>
+        <item>493.Luffy y Ace. ¡La historia de dos hermanos!</item>
+        <item>494.¡Sabo aparece! El chico de la terminal Gray</item>
+        <item>495.No huire. El plan desesperado de Ace</item>
+        <item>496.¡Algún día saldremos al mar! ¡El brindis de tres niños!</item>
+        <item>497.¿La familia Dadan se separa? ¡El escondite secreto descubierto!</item>
+        <item>498.¿Luffy aprendiz? ¡El hombre que peleó con el Rey de los Piratas!</item>
+        <item>499.¡La batalla contra el tigre gigante! ¿Quién será el capitán?</item>
+        <item>500.¡Libertad robada! ¡Los tres hermanos caen en la trampa del noble!</item>
+        <item>501.Escapando del fuego. Crisis en Grey Terminal</item>
+        <item>502.¿Dónde está la libertad? El niño triste zarpa</item>
+        <item>503.¡Cuento contigo! ¡La carta de un amigo!</item>
+        <item>504.¡Cumpliendo la promesa! ¡Saliendo por separado!</item>
+        <item>505.¡Yo quiero verlos! El grito de llanto de Luffy</item>
+        <item>506.¡Los piratas Sombrero de Paja sorprendidos! La noticia se expande</item>
+        <item>507.¡La reunión con Rayleigh, el Rey Oscuro! La decisión de Luffy</item>
+        <item>508.¡Reunámonos con nuestro capitán! Escapando de la Isla del Cielo y el incidente en la isla invernal</item>
+        <item>509.¡Contacto! El gran espadachín Mihawk! La lucha desesperada de Zoro</item>
+        <item>510.El sufrimiento de Sanji. La reina vuelve a su reino</item>
+        <item>511.¡Una aparición increíble! ¡Luffy regresa al Cuartel General!</item>
+        <item>512.Dirigido a mis nakamas. ¡La Gran Noticia Viaja!</item>
+        <item>513.¡Salen los piratas! El sensacional Nuevo Mundo</item>
+        <item>514.¡Sobreviviendo al infierno! ¡El duelo de hombre de Sanji!</item>
+        <item>515.¡Seré mucho más fuerte! El juramento de Zoro a su capitán</item>
+        <item>516.El entrenamiento de Luffy inicia. La promesa de reencuentro dentro de 2 años</item>
+        <item>517.Un nuevo capítulo en la historia. ¡Reencuentro! La banda de Sombrero de Paja</item>
+        <item>518.¡Situación explosiva! Luffy vs Falso Luffy</item>
+        <item>519.¡La Marina se moviliza! ¡El objetivo son los Piratas del Sombrero de Paja!</item>
+        <item>520.La gran reunión. Los falsos Piratas de Sombrero de Paja bajo amenaza</item>
+        <item>521.¡Inicia la batalla! ¡Mostrando los resultados del entrenamiento!</item>
+        <item>522.Todos a bordo. Luffy zarpa hacia el Nuevo Mundo</item>
+        <item>523.¡La verdad impactante! ¡El hombre que protegió el Sunny!</item>
+        <item>524.Lucha en el mar. ¡El demonio de las profundidades aparece!</item>
+        <item>525.Atrapados en las profundidades. ¡La tripulación del Sombrero de Paja se pierde!</item>
+        <item>526.¡Erupción submarina! Llegando a la Isla Gyojin.</item>
+        <item>527.Aterrizando en la Isla Gyojin. Aparecen las hermosas sirenas.</item>
+        <item>528.¡Explosión de emoción! ¡La vida de Sanji en peligro!</item>
+        <item>529.¿¡La Isla Gyojin destruida!? ¡La profecía de Shirley!</item>
+        <item>530.El rey de la isla Gyojin. ¡El rey Neptuno!</item>
+        <item>531.¡El palacio Ryuguu! El tiburón que salvamos.</item>
+        <item>532.Miedosa y llorona. La princesa sirena de la torre del palacio.</item>
+        <item>533.¡Estado de emergencia! El palacio Ryugu invadido.</item>
+        <item>534.El palacio Ryugu se estremece. El secuestro de Shirahoshi.</item>
+        <item>535.La invasión de Hody. Inicia el plan de venganza.</item>
+        <item>536.¡Batalla decisiva en el Palacio Ryugu! Zoro vs. Hody.</item>
+        <item>537.¡Mantener a Shirahoshi segura! ¡A poca distancia de Decken!</item>
+        <item>538.¿¡El sombrero de paja derrotado!? ¡Hordy gana el control del palacio Ryugu!</item>
+        <item>539.¡Los lazos obsesionados!¡Nami y los piratas hombre-pez!</item>
+        <item>540.El héroe de la emancipación de los esclavos - Tiger el aventurero</item>
+        <item>541.¡Kizaru aparece! Una trampa hacia Tiger</item>
+        <item>542.¡Formación de equipo! Salvemos a Chopper</item>
+        <item>543.El final del héroe. La impactante verdad sobre Tiger</item>
+        <item>544.La banda pirata se disgrega. Jinbe Vs Arlong</item>
+        <item>545.¡La isla gyojin se estremece! El tenryuubito náufrago</item>
+        <item>546.¡Una tragedia inesperada! La bala que robó el futuro</item>
+        <item>547.¡Otra vez en el presente! Hody mueve ficha</item>
+        <item>548.Gran sorpresa en el reino Orden de ejecutar a Neptune</item>
+        <item>549.¡Se abre una grieta! Luffy Vs Jinbe</item>
+        <item>550.la tranformación de Hody ¡El verdadero poder de las drogas!</item>
+        <item>551.Comienza la batalla decisiva ¡Plaza Gyoncord!</item>
+        <item>552.Una impactante confesión La verdad tras el asesinato de Otohime</item>
+        <item>553.¡Las lágrimas de Shirahoshi! Luffy hace su entrada</item>
+        <item>554.¡Un gran choque! Los piratas de sombrero de paja Vs 100000 enemigos</item>
+        <item>555.¡Explosión de habilidades! ¡Zoro y Sanji comienzan con su exhibición!</item>
+        <item>556.¡Estreno! ¡Las armas secretas del Sunny!</item>
+        <item>557.¡Iron pirate! Llega Franky shogun</item>
+        <item>558.¡Noah se acerca! ¿La isala Gyojin al borde de la destrucción!</item>
+        <item>559.¡Date prisa, Luffy! Situación desesperada para Shirahoshi</item>
+        <item>560.¡Comienza la encarnizada batalla! ¡Luffy vs Hody!</item>
+        <item>561.¡Batalla campal! ¡La banda vs nuevos piratas Gyojin!</item>
+        <item>562.¿¡Luffy derrotado!?. La venganza de Hody</item>
+        <item>563.¡Una impactante verdad! ¡La verdadera naturaleza de Hody!</item>
+        <item>564.¡Desde cero! ¡Una desesperada petición para Luffy!</item>
+        <item>565.¡El gran puñetazo de Luffy! El Halcón rojo explota</item>
+        <item>566.¡Concluye la batalla! La pelea deciciva contra Hody</item>
+        <item>567.¡Detente Noah! ¡Un Elephant Gatling mortal!</item>
+        <item>568.¡Hacia el futuro! ¡El camino hacia el sol!</item>
+        <item>569.¡Se revela el secreto! ¡La verdad sobre el Arma Ancestral!</item>
+        <item>570.¡La banda sorprendida! ¡El nuevo Almirante de Flota!</item>
+        <item>571.¡La amante de los dulces! La Yonkou Big Mom</item>
+        <item>572.Territorio despiadado. Una trampa en el Nuevo Mundo</item>
+        <item>573.¡Por fin zarpamos! Hasta luego isla Gyojin</item>
+        <item>574.¡El Nuevo Mundo! Llegando al mar definitivo</item>
+        <item>575.La ambición de Z ¡Lily, la pequeña gigante!</item>
+        <item>576.La ambición de Z ¡Aparece un misterioso escuadron!</item>
+        <item>577.La ambición de Z ¡Un desesperado plan de escape!</item>
+        <item>578.La ambición de Z. ¡Luffy VS Shuzo!</item>
+        <item>579.¡Anclando!. La isla en llamas, Punk Hazard</item>
+        <item>580.¡Una candente batalla! ¡Luffy VS el dragón gigante!</item>
+        <item>581.¡La banda confundida! ¡Aparece un samurai decapitado!</item>
+        <item>582.¡Impactante! La verdad de la isla es revelada</item>
+        <item>583.¡Salvaremos a los niños! La banda entra en batalla</item>
+        <item>584.Duelo de espadas. Brook VS El misterioso torso samurai</item>
+        <item>585.Shichibukai Trafalgar Law</item>
+        <item>586.Problemas. Luffy se hunde en el lago helado</item>
+        <item>587.¡Enfrentamiento! Law VS Vice Almirante Smoker</item>
+        <item>588.¡Reencuentro después de 2 años! Luffy y Law</item>
+        <item>589.Lo peor del mundo. El aterrador científico Caesar</item>
+        <item>590.One Piece X Toriko - Dragon Ball Special</item>
+        <item>591.La ira de Chopper. Los crueles experimentos del Maestro</item>
+        <item>592.¡Asesinar a la banda! ¡Los legendarios asesinos atacan!</item>
+        <item>593.¡Rescatar a Nami! ¡Luffy pelea en la montaña nevada!</item>
+        <item>594.¡Formación!¡La alianza pirata de Luffy y Law!</item>
+        <item>595.Secuestrar al Maestro ¡La alianza pirata se moviliza!</item>
+        <item>596.Crisis de muerte. El monstruo asesino vuela</item>
+        <item>597.Gran batalla.¡Caesar muestra su verdadera habilidad!</item>
+        <item>598.¡El samurai capaz de cortar el fuego! Kitsunebi Kinemon</item>
+        <item>599.¡Impactante!¡La identidad de Vergo, el hombre misterioso!</item>
+        <item>600.¡Salvar a los niños! Las malvadas manos del maestro se acercan</item>
+        <item>601.El Nuevo Mundo se estremece. El diabólico experimento de Caesar</item>
+        <item>602.¡La peor arma de destrucción masiva! Shinokuni</item>
+        <item>603.¡Inicia el contraataque! El gran escape de Luffy y Law</item>
+        <item>604.¡Llegar al edificio R! ¡El gran ataque de la alianza pirata!</item>
+        <item>605.Las lágrimas de Tashigi. La estrategia suicida del G-5- Ver Capitulo</item>
+        <item>606.¡El Vice Almirante traidor! Kichiku Vergo</item>
+        <item>607.Una pelea incandescente.Luffy VS Caesar</item>
+        <item>608.¡La mente maestra en las sombras!¡Doflamingo se moviliza!</item>
+        <item>609.¿¡Luffy muerto de frío!? ¡La aterradora mujer de las nieves, Monet!</item>
+        <item>610.¡Enfrentamiento a puños!¡Batalla de dos Vice Almirantes!</item>
+        <item>611.¡Un pequeño dragón! ¡Aparece Momonosuke!</item>
+        <item>612.¡Batalla invernal!¡Los mugiwaras vs la mujer de las nieves!</item>
+        <item>613.¡Explota la técnica secreta!¡El Ittoryuu más poderoso de Zoro!</item>
+        <item>614.¡Protegeré a mis amigos! El desesperado escape de Mocha</item>
+        <item>615.¡La frustración de Chahige! El ataque de ira de Luffy</item>
+        <item>616.¡Impactante conclusión!¡Smoker VS Vergo!</item>
+        <item>617.¡Caesar derrotado!El poderoso Grizzly Magnum</item>
+        <item>618.¡Invasion! El asesino de Dressrosa</item>
+        <item>619.¡Enfrentamiento!El invencible Franky Shogun</item>
+        <item>620.¡Situación desesperada! La gran explosión en Punk Hazard</item>
+        <item>621.Capturar a Caesar. El General Cannon explota</item>
+        <item>622.¡Un emotivo reencuentro! Momonosuke y Kinemon</item>
+        <item>623.Triste despedida.Zarpando de Punk Hazard</item>
+        <item>624.¡La aniquilación del G5! ¡La emboscada de Doflamingo!</item>
+        <item>625.¡Tensión! Aokiji VS Doflamingo Aokiji</item>
+        <item>626.¡Caesar desaparece!¡La alianza pirata sale!</item>
+        <item>627.¡¿Luffy muere en el fondo del mar?! La alianza pirata se derrumba</item>
+        <item>628.¡Gran contraataque! El puño de ira de Luffy explota</item>
+
+        <item>629.¡Impactante! Una gran noticia que estremece al Nuevo Mundo</item>
+        <item>630.¡Aventura! El país del amor y la pasión, Dressrosa</item>
+        <item>631.Locura desatada, La Corrida Coliseo</item>
+        <item>632.Peligroso amor. Violet, la bailarina</item>
+        <item>633.¡El poderoso guerrero desconocido! Lucy aparece</item>
+        <item>634.El Pirata Príncipe Cavendish</item>
+        <item>635.Encuentro del destino. Bellamy, La Hiena</item>
+        <item>636.¡Un supernovato! Bartolomeo el caníbal</item>
+        <item>637.¡Gran rivalidad! El bloque B se enciende</item>
+        <item>638.¡Un golpe mortal! El impresionante King Punch</item>
+        <item>639.¡El ataque de los peces peleadores! Cruzando el mortal puente de acero</item>
+        <item>640.¡Aventura! La isla de las hadas, Green Bit</item>
+        <item>641.¡El mundo desconocido! El reino Tontatta</item>
+        <item>642.¡La estrategia del siglo! Doflamingo hace su jugada</item>
+        <item>643.¡Estremeciendo el cielo y la tierra! El poder del almirante Fujitora</item>
+        <item>644.¡Un golpe de ira! Un gigante vs Lucy</item>
+        <item>645.¡La explosión del cañon destructor! Lucy en graves problemas</item>
+        <item>646.¡El pirata legendario! Don Chinjao</item>
+        <item>647.Luz y Sombra ¡La oscuridad de Dressrosa!</item>
+        <item>648.¡A la batalla! El legendario héroe Usoland</item>
+        <item>649.¡La violenta batalla llega a su fin! Lucy contra Chinjao</item>
+        <item>650.¡Luffy y la gladiadora del destino, Rebecca!</item>
+        <item>651.¡Protegerte hasta el final!Rebecca y el soldado de juguete</item>
+        <item>652.¡El último y más sangriento bloque! Empieza la batalla del bloque D</item>
+        <item>653.¡Batalla Decisiva! Jora vs Los Sombrero de Paja</item>
+        <item>654.¡Hermosa espada! Cavendish el Caballo Blanco</item>
+        <item>655.¡El gran enfrentamiento! Sanji vs Doflamingo</item>
+        <item>656.¡La Espada Mortal de Rebecca! Danza de la espada hacia el agua</item>
+        <item>657.¡El Gladiador mas violento! Logan vs Rebecca</item>
+        <item>658.¡Una gran sorpresa! La verdadera identidad del Soldado de Juguete</item>
+        <item>659.¡El frío pasado! El secreto tras Dressrosa</item>
+        <item>660.¡Pesadilla! La noche trágica de Dressrosa</item>
+        <item>661.¡Confrontación de los Shichibukai! Law vs Doflamingo</item>
+        <item>662.¡Dos grandes fuerzas se enfrentan! ¡Sombrero de Paja y el Diablo Celestial!</item>
+        <item>663.¡Luffy sobresaltado! ¡El hombre que heredará la voluntad de Ace!</item>
+        <item>664.¡Empieza la Operación SOP! ¡El asalto de Usoland!</item>
+        <item>665.¡Calientes Emociones! ¡Rebecca vs Suleima!</item>
+        <item>666.¡¿El fin del duelo!? ¡Un sorprendente resultado del bloque D!</item>
+        <item>667.¡La decisión del almirante! ¡Fujitora vs Doflamingo!</item>
+        <item>668.¡La última ronda comienza! ¡Aparece Diamante el Héroe!</item>
+        <item>669.¡Un castillo que se mueve! ¡El alto cargo Pica aparece!</item>
+        <item>670.¡Explota la garra del Dragón! ¡El poderoso ataque de Lucy!</item>
+        <item>671.¡Derrota a Sugar! ¡El ejercito de la gente pequeña a la carga!</item>
+        <item>672.¡La última luz de esperanza! ¡El secreto de nuestro comandante!</item>
+        <item>673.¡El humano explosivo! ¡Gladius explota!</item>
+        <item>674.¡El mentiroso Usoland decide escapar!</item>
+        <item>675.¡Un fatídico encuentro!¡Kyros y el rey Riku!</item>
+        <item>676.¡La operación falla! ¡¿Usoland el héroe muere?!</item>
+        <item>677.¡La leyenda regresa! El ataque de Kyros</item>
+        <item>678.¡El puño de fuego golpea! ¡El poder de la Mera Mera no mi!</item>
+        <item>679.¡Corriendo a la escena! ¡El jefe del personal de la armada revolucionaria, Sabo!</item>
+        <item>680.La trampa del demonio. El plan de exterminio de Dressrosa</item>
+        <item>681.El hombre de 500 millones. ¡El objetivo es Usoland!</item>
+        <item>682.Rompiendo las líneas enemigas ¡El contraataque de Luffy y Zoro comienza!</item>
+        <item>683.La tierra se mueve. La llegada del gigante Dios de la destrucción, ¡Pica!</item>
+        <item>684.¡Tomando el frente con fuerza! Luffy y el grupo de brutales Guerreros</item>
+        <item>685.¡Gran avance! ¡El ejército de Luffy vs Pica!</item>
+        <item>686.¡Una confesión impactante! ¡La promesa del alma ardiente de Law!</item>
+        <item>687.¡El gran choque! El jefe de la armada Sabo vs el Almirante Fujitora</item>
+        <item>688.¡Una situación desesperada! ¡Luffy cae en la trampa!</item>
+        <item>689.¡Un gran escape!¡La Elephant Gun salvadora de Luffy!</item>
+        <item>690.Fuerzas unidas, Luffy avanza hacia la victoria</item>
+        <item>691.¡El segundo samurai!¡Kanjuro, la ducha nocturna, aparece!</item>
+        <item>692.Una dura batalla contra Pica ¡El ataque mortal de Zoro!</item>
+        <item>693.¡La princesa de la gente pequeña!¡Mansherry cautiva!</item>
+        <item>694.¡Invencibles!, El terrible ejército de los muñecos aplasta cabezas</item>
+        <item>695.¡Arriesgando sus vidas!, Luffy es la carta del triunfo</item>
+        <item>696.Nostálgica reunión ¡Rebecca y Kyros!</item>
+        <item>697.¡Un único disparo! El hombre que salvará Dressrosa</item>
+        <item>698.¡La ira estalla! Luffy y Law, la combinación definitiva</item>
+        <item>699.¡Una familia noble! La verdadera identidad de Doflamingo</item>
+        <item>700.El poder definitivo ¡el secreto de la Ope-Ope no Mi!</item>
+        <item>701.Recuerdos tristes ¡Law, el niño del Pueblo Blanco!</item>
+        <item>702.Tenryuubito, el traumante pasado de Doffy</item>
+        <item>703.Un camino de sufrimiento ¡El viaje de la vida de Law y Corazón!</item>
+        <item>704.¡Tiempo límite! ¡Robando la Ope-Ope no Mi!</item>
+        <item>705.Un momento de resolución ¡La sonrisa de despedida de Corazón!</item>
+        <item>706.¡Ve Law! ¡La batalla final de un hombre respetable!</item>
+        <item>707.¡Libertad! El Injection Shot de Law</item>
+        <item>708.¡Una intensa batalla! Law vs Doflamingo</item>
+        <item>709.¡Batalla decisiva! El orgullo de Hairudin</item>
+        <item>710.La batalla del amor, El nuevo lider ¡Sai vs, Baby 5!</item>
+        <item>711.El orgullo de un hombre ¡El último ataque de Bellamy</item>
+        <item>712.El Vendaval Tempestuoso y el Sanguinario. ¡Hakuba vs, Dellinger!</item>
+        <item>713.Barrier-Barrier, ¡Golpe en homenaje al verdadero dios!</item>
+        <item>714.La princesa sanadora, ¡Salven a Mansherry!</item>
+        <item>715.Ajuste de cuenta entre hombres, ¡El réquiem del amor del Señor!</item>
+        <item>716.Death enjambre. ¡Diamante con su tormenta de feroces ataques!</item>
+        <item>717.¡Trueno bastardo! ¡El furioso ataque de Kyros!</item>
+        <item>718.Moviéndose a través de la tierra ¡La sorpresiva maniobra de Pica!</item>
+        <item>719.Una batalla decisiva en el aire ¡La nueva técnica secreta de Zoro estalla!</item>
+        <item>720.Nos vemos luego ¡La despedida de Bellamy!</item>
+        <item>721.¿Law muerto? ¡La feroz ira de Luffy!</item>
+        <item>722.Una hoja de tenacidad ¡El Contraataque del Gamma Knife!</item>
+        <item>723.Una colisión de Haki ¡Luffy vs Doflamingo!</item>
+        <item>724.Insaciable ¡El paralizante secreto de Trébol!</item>
+        <item>725.La furia estalla ¡Tomaré todo por mi cuenta!</item>
+        <item>726.¡Gear Fourth! ¡El increíble Boundman!</item>
+        <item>727.¡Un gran contraataque! ¡El despertar de Doflamingo!</item>
+        <item>728.¡Luffy! La poderosa Leo Bazooka</item>
+        <item>729.Kaen Ryuou. ¡Protejan la vida de Luffy</item>
+        <item>730.Lágrimas Milagrosas, ¡La pelea de Mansherry!</item>
+        <item>731.Mientras respiremos, ¡Detengan la mortal Jaula de Pájaros!</item>
+        <item>732.Viva o muerta. ¡La fatídica cuenta regresiva!</item>
+        <item>733.¡Golpea los cielos! La iracunda King Kong Gun de Luffy</item>
+        <item>734.Hacia la libertad, ¡Dressrosa se levanta!</item>
+        <item>735.Sin precedentes, ¡La impactante decisión de Fujitora!</item>
+        <item>736.Enviando una onda de choque, ¡La peor generación actúa!</item>
+        <item>737.El nacimiento de la leyenda, ¡Las aventuras del Guerrero Revolucionario Sabo!</item>
+        <item>738.El lazo fraternal, ¡La historia oculta de la reunión de Luffy y Sabo!</item>
+        <item>739.La criatura más fuerte. Uno de los cuatro emperadores, ¡Kaido el Rey de las bestias!</item>
+        <item>740.Fujitora actúa, ¡El asedio total de los Sombrero de Paja!</item>
+        <item>741.Estado de emergencia, ¡Secuestran a Rebecca!</item>
+        <item>742.El lazo entre padre e hija. ¡Kyros y Rebecca!</item>
+        <item>743.El orgullo del hombre, ¡Luffy contra Fujitora, de frente!</item>
+        <item>744.Sin escapatoria ¡La persecución implacable del almirante Fujitora!</item>
+        <item>745.Las copas de los hijos, ¡Se forma la Flota del Sombrero de Paja!</item>
+        <item>746.Los numerosos rivales pelean entre sí ¡Los furiosos monstruos del Nuevo Mundo!</item>
+        <item>747.La fortaleza de plata, ¡La gran aventura de Luffy y Barto!</item>
+        <item>748.Un laberinto subterráneo, ¡Luffy contra el hombre vagoneta!</item>
+        <item>749.Las técnicas de espada se encienden ¡Law y Zoro por fin aparecen!</item>
+        <item>750.Una situación desesperada, ¡Luffy libra una batalla bajo calor extremo!</item>
+        <item>751.Se eleva el telón de una nueva aventura, ¡Llegada a la isla fantasma Zou!</item>
+        <item>752.El nuevo Shichibukai, ¡Aparece el hijo del legendario Barbablanca!</item>
+        <item>753.Escalada mortal, ¡Gran aventura en el lomo del elefante gigante!</item>
+        <item>754.Empieza una batalla, ¡Luffy contra la tribu Mink!</item>
+        <item>755.¡Garchu! Los Sombrero de Paja se reúnen</item>
+        <item>756.Empiecen el contraataque, ¡Grandes maniobras del Sombrero Enroscado!</item>
+        <item>757.Desciende una amenaza, ¡Jack, de los Piratas Bestia!</item>
+        <item>758.El Rey del Día, ¡Aparece el duque Inuarashi!</item>
+        <item>759.El Rey de la Noche, Aparece Nekomamushi</item>
+        <item>760.La capital exterminada. ¡La llegada del Sombrero Enroscado!</item>
+        <item>761.La hora límite, ¡El lazo de la tribu Mink y la tripulación!</item>
+        <item>762.El delincuente vuelve a casa, ¡Los asesinos de la Emperatriz Big Mom!</item>
+        <item>763.La verdad tras la desaparición, ¡Sanji recibe una sorpresiva invitación!</item>
+        <item>764.Para mis amigos, La nota de despedida de Sanji</item>
+        <item>765.Vamos a ver al amo Nekomamushi</item>
+        <item>766.La decisión de Luffy ¡Sanji a punto de renunciar!</item>
+        <item>767.Una situación explosiva, ¡El perro, el gato y el samurái!</item>
+        <item>768.¡El tercero! El ninja Raizo de la Niebla aparece</item>
+        <item>769.¡Una piedra roja! La guía al One Piece</item>
+        <item>770.El secreto de la tierra de Wano, ¡La familia Kozuki y los Poneglyphs!</item>
+        <item>771.Un voto entre hombres, ¡Luffy y Kozuki Momonosuke!</item>
+        <item>772.El viaje legendario, ¡El perro, el gato y el Rey de los Piratas!</item>
+        <item>773.La pesadilla regresa, El ataque del invencible Jack</item>
+        <item>774.Una batalla para defender a Zou ¡Luffy y Zunesha!</item>
+        <item>775.Salven a Zunesha ,¡La operación de rescate de los Sombrero de Paja!</item>
+        <item>776.La despedida, ¡Partiendo a salvar a Sanji!</item>
+        <item>777.Al Reverie, ¡La princesa Vivi y la princesa Shirahoshi!</item>
+        <item>778.Hacia el Reverie, Rebecca y el Reino Sakura</item>
+        <item>779.Kaido regresa, La Peor Generación en peligro</item>
+        <item>780.El frente hambriento, Luffy y los Marines Novatos</item>
+        <item>781.El trío persistente, La gran persecución de los Sombrero de Paja</item>
+        <item>782.Puño del diablo, Enfrentamiento entre Luffy y Grant</item>
+        <item>783.Sanji regresa a casa, Hacia el territorio de Big Mom</item>
+        <item>784.0 y 4, Confrontación contra el Germa 66</item>
+        <item>785.La crisis del veneno mortal, Luffy y Reiju</item>
+        <item>786.¡Totto Land! Aparece la Emperatriz Big Mom</item>
+        <item>787.La hija de la Emperatriz, La prometida de Sanji: Pudding</item>
+        <item>788.¡Un gran ataque! Las Punzadas de hambre de Mamá</item>
+        <item>789.¿La capital destruida? Big Mom y Jinbe</item>
+        <item>790.El castillo de la Emperatriz, Llegando a la Isla Whole Cake</item>
+        <item>791.El bosque de caramelo, ¡¿Luffy VS. Luffy?!</item>
+        <item>792.El asesino de mamá, Luffy y el Bosque Seductor</item>
+        <item>793.Un reino en el mar, El rey del Germa, Judge</item>
+        <item>794.Un enfrentamiento entre padre e hijo, ¡Judge vs Sanji!</item>
+        <item>795.Una gran ambición, Big Mom y Caesar</item>
+        <item>796.La nación de las almas, El temible poder de Big Mom</item>
+        <item>797.¡El gran comandante! Aparece uno de los tres Sweet Commanders</item>
+        <item>798.Un enemigo de 800 millones, Luffy Vs Mil brazos Cracker</item>
+        <item>799.El Gear 4 Vs, la Bisu Bisu no mi</item>
+        <item>800.¡1 y 2 reúnanse! La familia Vinsmoke</item>
+        <item>801.Una vida de amabilidad, Sanji y el restaurante de Zeff</item>
+        <item>802.La ira de Sanji, El secreto del Germa 66</item>
+        <item>803.El pasado que dejó atrás, Vinsmoke Sanji</item>
+        <item>804.Al East Blue, La determinada partida de Sanji</item>
+        <item>805.Una batalla de límites, Luffy y las galletas infinitas</item>
+        <item>806.El poder de la llenura, El nuevo Gear 4, Tankman</item>
+        <item>807.Un doloroso enfrentamiento, Luffy vs Sanji (Primera Parte)</item>
+        <item>808.Un doloroso enfrentamiento, Luffy vs Sanji (Segunda Parte)</item>
+        <item>809.¡Una tormenta de venganza! ¡Un ejército enfurecido viene a atacar!</item>
+        <item>810.El fin de la aventura, ¡La decidida proposición de Sanji!</item>
+        <item>811.Esperaré aquí, ¡Luffy contra el Ejército Furioso!</item>
+        <item>812.Invadiendo el castillo, ¡Encuentren el Road Poneglyph!</item>
+        <item>813.Un enfrentamiento fatídico, ¡Luffy y Big Mom!</item>
+        <item>814.Grito del alma, ¡La operación relámpago de Brook y Pedro!</item>
+        <item>815.Adiós, Las lágrimas de determinación de Pudding</item>
+    </string-array>
+
     <string-array name="fairy_tail_chapters">
 
         <item>1.Fairy Tail</item>
