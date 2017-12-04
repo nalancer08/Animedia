@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Animedia_iOS
+//  Animnedia
 //
 //  Created by Erick Sanchez on 04/12/17.
 //  Copyright © 2017 App Builders. All rights reserved.

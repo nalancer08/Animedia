@@ -7,64 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A27B53141FD611B900E08CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B53131FD611B900E08CA7 /* AppDelegate.swift */; };
-		A27B53161FD611B900E08CA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B53151FD611B900E08CA7 /* ViewController.swift */; };
-		A27B53191FD611B900E08CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27B53171FD611B900E08CA7 /* Main.storyboard */; };
-		A27B531B1FD611B900E08CA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27B531A1FD611B900E08CA7 /* Assets.xcassets */; };
-		A27B531E1FD611B900E08CA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27B531C1FD611B900E08CA7 /* LaunchScreen.storyboard */; };
-		A27B53291FD611B900E08CA7 /* Animedia_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B53281FD611B900E08CA7 /* Animedia_iOSTests.swift */; };
-		A27B53341FD611B900E08CA7 /* Animedia_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B53331FD611B900E08CA7 /* Animedia_iOSUITests.swift */; };
+		A27B534E1FD6120900E08CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B534D1FD6120900E08CA7 /* AppDelegate.swift */; };
+		A27B53501FD6120900E08CA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B534F1FD6120900E08CA7 /* ViewController.swift */; };
+		A27B53531FD6120900E08CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27B53511FD6120900E08CA7 /* Main.storyboard */; };
+		A27B53551FD6120900E08CA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27B53541FD6120900E08CA7 /* Assets.xcassets */; };
+		A27B53581FD6120900E08CA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27B53561FD6120900E08CA7 /* LaunchScreen.storyboard */; };
+		A27B53631FD6120900E08CA7 /* AnimnediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B53621FD6120900E08CA7 /* AnimnediaTests.swift */; };
+		A27B536E1FD6120900E08CA7 /* AnimnediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B536D1FD6120900E08CA7 /* AnimnediaUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A27B53251FD611B900E08CA7 /* PBXContainerItemProxy */ = {
+		A27B535F1FD6120900E08CA7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A27B53081FD611B900E08CA7 /* Project object */;
+			containerPortal = A27B53421FD6120900E08CA7 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A27B530F1FD611B900E08CA7;
-			remoteInfo = Animedia_iOS;
+			remoteGlobalIDString = A27B53491FD6120900E08CA7;
+			remoteInfo = Animnedia;
 		};
-		A27B53301FD611B900E08CA7 /* PBXContainerItemProxy */ = {
+		A27B536A1FD6120900E08CA7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A27B53081FD611B900E08CA7 /* Project object */;
+			containerPortal = A27B53421FD6120900E08CA7 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A27B530F1FD611B900E08CA7;
-			remoteInfo = Animedia_iOS;
+			remoteGlobalIDString = A27B53491FD6120900E08CA7;
+			remoteInfo = Animnedia;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A27B53101FD611B900E08CA7 /* Animedia_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animedia_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A27B53131FD611B900E08CA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A27B53151FD611B900E08CA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A27B53181FD611B900E08CA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A27B531A1FD611B900E08CA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A27B531D1FD611B900E08CA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A27B531F1FD611B900E08CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A27B53241FD611B900E08CA7 /* Animedia_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Animedia_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A27B53281FD611B900E08CA7 /* Animedia_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animedia_iOSTests.swift; sourceTree = "<group>"; };
-		A27B532A1FD611B900E08CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A27B532F1FD611B900E08CA7 /* Animedia_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Animedia_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A27B53331FD611B900E08CA7 /* Animedia_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animedia_iOSUITests.swift; sourceTree = "<group>"; };
-		A27B53351FD611B900E08CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A27B534A1FD6120900E08CA7 /* Animnedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animnedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A27B534D1FD6120900E08CA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A27B534F1FD6120900E08CA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A27B53521FD6120900E08CA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A27B53541FD6120900E08CA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A27B53571FD6120900E08CA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A27B53591FD6120900E08CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A27B535E1FD6120900E08CA7 /* AnimnediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimnediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A27B53621FD6120900E08CA7 /* AnimnediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimnediaTests.swift; sourceTree = "<group>"; };
+		A27B53641FD6120900E08CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A27B53691FD6120900E08CA7 /* AnimnediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimnediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A27B536D1FD6120900E08CA7 /* AnimnediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimnediaUITests.swift; sourceTree = "<group>"; };
+		A27B536F1FD6120900E08CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A27B530D1FD611B900E08CA7 /* Frameworks */ = {
+		A27B53471FD6120900E08CA7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A27B53211FD611B900E08CA7 /* Frameworks */ = {
+		A27B535B1FD6120900E08CA7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A27B532C1FD611B900E08CA7 /* Frameworks */ = {
+		A27B53661FD6120900E08CA7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,140 +74,140 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A27B53071FD611B900E08CA7 = {
+		A27B53411FD6120900E08CA7 = {
 			isa = PBXGroup;
 			children = (
-				A27B53121FD611B900E08CA7 /* Animedia_iOS */,
-				A27B53271FD611B900E08CA7 /* Animedia_iOSTests */,
-				A27B53321FD611B900E08CA7 /* Animedia_iOSUITests */,
-				A27B53111FD611B900E08CA7 /* Products */,
+				A27B534C1FD6120900E08CA7 /* Animnedia */,
+				A27B53611FD6120900E08CA7 /* AnimnediaTests */,
+				A27B536C1FD6120900E08CA7 /* AnimnediaUITests */,
+				A27B534B1FD6120900E08CA7 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A27B53111FD611B900E08CA7 /* Products */ = {
+		A27B534B1FD6120900E08CA7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A27B53101FD611B900E08CA7 /* Animedia_iOS.app */,
-				A27B53241FD611B900E08CA7 /* Animedia_iOSTests.xctest */,
-				A27B532F1FD611B900E08CA7 /* Animedia_iOSUITests.xctest */,
+				A27B534A1FD6120900E08CA7 /* Animnedia.app */,
+				A27B535E1FD6120900E08CA7 /* AnimnediaTests.xctest */,
+				A27B53691FD6120900E08CA7 /* AnimnediaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A27B53121FD611B900E08CA7 /* Animedia_iOS */ = {
+		A27B534C1FD6120900E08CA7 /* Animnedia */ = {
 			isa = PBXGroup;
 			children = (
-				A27B53131FD611B900E08CA7 /* AppDelegate.swift */,
-				A27B53151FD611B900E08CA7 /* ViewController.swift */,
-				A27B53171FD611B900E08CA7 /* Main.storyboard */,
-				A27B531A1FD611B900E08CA7 /* Assets.xcassets */,
-				A27B531C1FD611B900E08CA7 /* LaunchScreen.storyboard */,
-				A27B531F1FD611B900E08CA7 /* Info.plist */,
+				A27B534D1FD6120900E08CA7 /* AppDelegate.swift */,
+				A27B534F1FD6120900E08CA7 /* ViewController.swift */,
+				A27B53511FD6120900E08CA7 /* Main.storyboard */,
+				A27B53541FD6120900E08CA7 /* Assets.xcassets */,
+				A27B53561FD6120900E08CA7 /* LaunchScreen.storyboard */,
+				A27B53591FD6120900E08CA7 /* Info.plist */,
 			);
-			path = Animedia_iOS;
+			path = Animnedia;
 			sourceTree = "<group>";
 		};
-		A27B53271FD611B900E08CA7 /* Animedia_iOSTests */ = {
+		A27B53611FD6120900E08CA7 /* AnimnediaTests */ = {
 			isa = PBXGroup;
 			children = (
-				A27B53281FD611B900E08CA7 /* Animedia_iOSTests.swift */,
-				A27B532A1FD611B900E08CA7 /* Info.plist */,
+				A27B53621FD6120900E08CA7 /* AnimnediaTests.swift */,
+				A27B53641FD6120900E08CA7 /* Info.plist */,
 			);
-			path = Animedia_iOSTests;
+			path = AnimnediaTests;
 			sourceTree = "<group>";
 		};
-		A27B53321FD611B900E08CA7 /* Animedia_iOSUITests */ = {
+		A27B536C1FD6120900E08CA7 /* AnimnediaUITests */ = {
 			isa = PBXGroup;
 			children = (
-				A27B53331FD611B900E08CA7 /* Animedia_iOSUITests.swift */,
-				A27B53351FD611B900E08CA7 /* Info.plist */,
+				A27B536D1FD6120900E08CA7 /* AnimnediaUITests.swift */,
+				A27B536F1FD6120900E08CA7 /* Info.plist */,
 			);
-			path = Animedia_iOSUITests;
+			path = AnimnediaUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A27B530F1FD611B900E08CA7 /* Animedia_iOS */ = {
+		A27B53491FD6120900E08CA7 /* Animnedia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A27B53381FD611B900E08CA7 /* Build configuration list for PBXNativeTarget "Animedia_iOS" */;
+			buildConfigurationList = A27B53721FD6120900E08CA7 /* Build configuration list for PBXNativeTarget "Animnedia" */;
 			buildPhases = (
-				A27B530C1FD611B900E08CA7 /* Sources */,
-				A27B530D1FD611B900E08CA7 /* Frameworks */,
-				A27B530E1FD611B900E08CA7 /* Resources */,
+				A27B53461FD6120900E08CA7 /* Sources */,
+				A27B53471FD6120900E08CA7 /* Frameworks */,
+				A27B53481FD6120900E08CA7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Animedia_iOS;
-			productName = Animedia_iOS;
-			productReference = A27B53101FD611B900E08CA7 /* Animedia_iOS.app */;
+			name = Animnedia;
+			productName = Animnedia;
+			productReference = A27B534A1FD6120900E08CA7 /* Animnedia.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A27B53231FD611B900E08CA7 /* Animedia_iOSTests */ = {
+		A27B535D1FD6120900E08CA7 /* AnimnediaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A27B533B1FD611B900E08CA7 /* Build configuration list for PBXNativeTarget "Animedia_iOSTests" */;
+			buildConfigurationList = A27B53751FD6120900E08CA7 /* Build configuration list for PBXNativeTarget "AnimnediaTests" */;
 			buildPhases = (
-				A27B53201FD611B900E08CA7 /* Sources */,
-				A27B53211FD611B900E08CA7 /* Frameworks */,
-				A27B53221FD611B900E08CA7 /* Resources */,
+				A27B535A1FD6120900E08CA7 /* Sources */,
+				A27B535B1FD6120900E08CA7 /* Frameworks */,
+				A27B535C1FD6120900E08CA7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A27B53261FD611B900E08CA7 /* PBXTargetDependency */,
+				A27B53601FD6120900E08CA7 /* PBXTargetDependency */,
 			);
-			name = Animedia_iOSTests;
-			productName = Animedia_iOSTests;
-			productReference = A27B53241FD611B900E08CA7 /* Animedia_iOSTests.xctest */;
+			name = AnimnediaTests;
+			productName = AnimnediaTests;
+			productReference = A27B535E1FD6120900E08CA7 /* AnimnediaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A27B532E1FD611B900E08CA7 /* Animedia_iOSUITests */ = {
+		A27B53681FD6120900E08CA7 /* AnimnediaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A27B533E1FD611B900E08CA7 /* Build configuration list for PBXNativeTarget "Animedia_iOSUITests" */;
+			buildConfigurationList = A27B53781FD6120900E08CA7 /* Build configuration list for PBXNativeTarget "AnimnediaUITests" */;
 			buildPhases = (
-				A27B532B1FD611B900E08CA7 /* Sources */,
-				A27B532C1FD611B900E08CA7 /* Frameworks */,
-				A27B532D1FD611B900E08CA7 /* Resources */,
+				A27B53651FD6120900E08CA7 /* Sources */,
+				A27B53661FD6120900E08CA7 /* Frameworks */,
+				A27B53671FD6120900E08CA7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A27B53311FD611B900E08CA7 /* PBXTargetDependency */,
+				A27B536B1FD6120900E08CA7 /* PBXTargetDependency */,
 			);
-			name = Animedia_iOSUITests;
-			productName = Animedia_iOSUITests;
-			productReference = A27B532F1FD611B900E08CA7 /* Animedia_iOSUITests.xctest */;
+			name = AnimnediaUITests;
+			productName = AnimnediaUITests;
+			productReference = A27B53691FD6120900E08CA7 /* AnimnediaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A27B53081FD611B900E08CA7 /* Project object */ = {
+		A27B53421FD6120900E08CA7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "App Builders";
 				TargetAttributes = {
-					A27B530F1FD611B900E08CA7 = {
+					A27B53491FD6120900E08CA7 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
-					A27B53231FD611B900E08CA7 = {
+					A27B535D1FD6120900E08CA7 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
-						TestTargetID = A27B530F1FD611B900E08CA7;
+						TestTargetID = A27B53491FD6120900E08CA7;
 					};
-					A27B532E1FD611B900E08CA7 = {
+					A27B53681FD6120900E08CA7 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
-						TestTargetID = A27B530F1FD611B900E08CA7;
+						TestTargetID = A27B53491FD6120900E08CA7;
 					};
 				};
 			};
-			buildConfigurationList = A27B530B1FD611B900E08CA7 /* Build configuration list for PBXProject "Animedia_iOS" */;
+			buildConfigurationList = A27B53451FD6120900E08CA7 /* Build configuration list for PBXProject "Animnedia" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -215,37 +215,37 @@
 				en,
 				Base,
 			);
-			mainGroup = A27B53071FD611B900E08CA7;
-			productRefGroup = A27B53111FD611B900E08CA7 /* Products */;
+			mainGroup = A27B53411FD6120900E08CA7;
+			productRefGroup = A27B534B1FD6120900E08CA7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A27B530F1FD611B900E08CA7 /* Animedia_iOS */,
-				A27B53231FD611B900E08CA7 /* Animedia_iOSTests */,
-				A27B532E1FD611B900E08CA7 /* Animedia_iOSUITests */,
+				A27B53491FD6120900E08CA7 /* Animnedia */,
+				A27B535D1FD6120900E08CA7 /* AnimnediaTests */,
+				A27B53681FD6120900E08CA7 /* AnimnediaUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A27B530E1FD611B900E08CA7 /* Resources */ = {
+		A27B53481FD6120900E08CA7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A27B531E1FD611B900E08CA7 /* LaunchScreen.storyboard in Resources */,
-				A27B531B1FD611B900E08CA7 /* Assets.xcassets in Resources */,
-				A27B53191FD611B900E08CA7 /* Main.storyboard in Resources */,
+				A27B53581FD6120900E08CA7 /* LaunchScreen.storyboard in Resources */,
+				A27B53551FD6120900E08CA7 /* Assets.xcassets in Resources */,
+				A27B53531FD6120900E08CA7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A27B53221FD611B900E08CA7 /* Resources */ = {
+		A27B535C1FD6120900E08CA7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A27B532D1FD611B900E08CA7 /* Resources */ = {
+		A27B53671FD6120900E08CA7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,59 +255,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A27B530C1FD611B900E08CA7 /* Sources */ = {
+		A27B53461FD6120900E08CA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A27B53161FD611B900E08CA7 /* ViewController.swift in Sources */,
-				A27B53141FD611B900E08CA7 /* AppDelegate.swift in Sources */,
+				A27B53501FD6120900E08CA7 /* ViewController.swift in Sources */,
+				A27B534E1FD6120900E08CA7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A27B53201FD611B900E08CA7 /* Sources */ = {
+		A27B535A1FD6120900E08CA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A27B53291FD611B900E08CA7 /* Animedia_iOSTests.swift in Sources */,
+				A27B53631FD6120900E08CA7 /* AnimnediaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A27B532B1FD611B900E08CA7 /* Sources */ = {
+		A27B53651FD6120900E08CA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A27B53341FD611B900E08CA7 /* Animedia_iOSUITests.swift in Sources */,
+				A27B536E1FD6120900E08CA7 /* AnimnediaUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A27B53261FD611B900E08CA7 /* PBXTargetDependency */ = {
+		A27B53601FD6120900E08CA7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A27B530F1FD611B900E08CA7 /* Animedia_iOS */;
-			targetProxy = A27B53251FD611B900E08CA7 /* PBXContainerItemProxy */;
+			target = A27B53491FD6120900E08CA7 /* Animnedia */;
+			targetProxy = A27B535F1FD6120900E08CA7 /* PBXContainerItemProxy */;
 		};
-		A27B53311FD611B900E08CA7 /* PBXTargetDependency */ = {
+		A27B536B1FD6120900E08CA7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A27B530F1FD611B900E08CA7 /* Animedia_iOS */;
-			targetProxy = A27B53301FD611B900E08CA7 /* PBXContainerItemProxy */;
+			target = A27B53491FD6120900E08CA7 /* Animnedia */;
+			targetProxy = A27B536A1FD6120900E08CA7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A27B53171FD611B900E08CA7 /* Main.storyboard */ = {
+		A27B53511FD6120900E08CA7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A27B53181FD611B900E08CA7 /* Base */,
+				A27B53521FD6120900E08CA7 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		A27B531C1FD611B900E08CA7 /* LaunchScreen.storyboard */ = {
+		A27B53561FD6120900E08CA7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A27B531D1FD611B900E08CA7 /* Base */,
+				A27B53571FD6120900E08CA7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -315,7 +315,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A27B53361FD611B900E08CA7 /* Debug */ = {
+		A27B53701FD6120900E08CA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -372,7 +372,7 @@
 			};
 			name = Debug;
 		};
-		A27B53371FD611B900E08CA7 /* Release */ = {
+		A27B53711FD6120900E08CA7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -422,136 +422,136 @@
 			};
 			name = Release;
 		};
-		A27B53391FD611B900E08CA7 /* Debug */ = {
+		A27B53731FD6120900E08CA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Animedia_iOS/Info.plist;
+				INFOPLIST_FILE = Animnedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appbuilders.Animedia-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appbuilders.Animnedia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		A27B533A1FD611B900E08CA7 /* Release */ = {
+		A27B53741FD6120900E08CA7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Animedia_iOS/Info.plist;
+				INFOPLIST_FILE = Animnedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appbuilders.Animedia-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appbuilders.Animnedia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		A27B533C1FD611B900E08CA7 /* Debug */ = {
+		A27B53761FD6120900E08CA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Animedia_iOSTests/Info.plist;
+				INFOPLIST_FILE = AnimnediaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appbuilders.Animedia-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appbuilders.AnimnediaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Animedia_iOS.app/Animedia_iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Animnedia.app/Animnedia";
 			};
 			name = Debug;
 		};
-		A27B533D1FD611B900E08CA7 /* Release */ = {
+		A27B53771FD6120900E08CA7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Animedia_iOSTests/Info.plist;
+				INFOPLIST_FILE = AnimnediaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appbuilders.Animedia-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appbuilders.AnimnediaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Animedia_iOS.app/Animedia_iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Animnedia.app/Animnedia";
 			};
 			name = Release;
 		};
-		A27B533F1FD611B900E08CA7 /* Debug */ = {
+		A27B53791FD6120900E08CA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Animedia_iOSUITests/Info.plist;
+				INFOPLIST_FILE = AnimnediaUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appbuilders.Animedia-iOSUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appbuilders.AnimnediaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Animedia_iOS;
+				TEST_TARGET_NAME = Animnedia;
 			};
 			name = Debug;
 		};
-		A27B53401FD611B900E08CA7 /* Release */ = {
+		A27B537A1FD6120900E08CA7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Animedia_iOSUITests/Info.plist;
+				INFOPLIST_FILE = AnimnediaUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appbuilders.Animedia-iOSUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appbuilders.AnimnediaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Animedia_iOS;
+				TEST_TARGET_NAME = Animnedia;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A27B530B1FD611B900E08CA7 /* Build configuration list for PBXProject "Animedia_iOS" */ = {
+		A27B53451FD6120900E08CA7 /* Build configuration list for PBXProject "Animnedia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A27B53361FD611B900E08CA7 /* Debug */,
-				A27B53371FD611B900E08CA7 /* Release */,
+				A27B53701FD6120900E08CA7 /* Debug */,
+				A27B53711FD6120900E08CA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A27B53381FD611B900E08CA7 /* Build configuration list for PBXNativeTarget "Animedia_iOS" */ = {
+		A27B53721FD6120900E08CA7 /* Build configuration list for PBXNativeTarget "Animnedia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A27B53391FD611B900E08CA7 /* Debug */,
-				A27B533A1FD611B900E08CA7 /* Release */,
+				A27B53731FD6120900E08CA7 /* Debug */,
+				A27B53741FD6120900E08CA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A27B533B1FD611B900E08CA7 /* Build configuration list for PBXNativeTarget "Animedia_iOSTests" */ = {
+		A27B53751FD6120900E08CA7 /* Build configuration list for PBXNativeTarget "AnimnediaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A27B533C1FD611B900E08CA7 /* Debug */,
-				A27B533D1FD611B900E08CA7 /* Release */,
+				A27B53761FD6120900E08CA7 /* Debug */,
+				A27B53771FD6120900E08CA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A27B533E1FD611B900E08CA7 /* Build configuration list for PBXNativeTarget "Animedia_iOSUITests" */ = {
+		A27B53781FD6120900E08CA7 /* Build configuration list for PBXNativeTarget "AnimnediaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A27B533F1FD611B900E08CA7 /* Debug */,
-				A27B53401FD611B900E08CA7 /* Release */,
+				A27B53791FD6120900E08CA7 /* Debug */,
+				A27B537A1FD6120900E08CA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A27B53081FD611B900E08CA7 /* Project object */;
+	rootObject = A27B53421FD6120900E08CA7 /* Project object */;
 }
