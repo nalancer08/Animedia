@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Animedia.xcodeproj">
+      location = "self:Animedia_iOS.xcodeproj">
    </FileRef>
 </Workspace>

@@ -1,15 +1,15 @@
 //
-//  AnimediaTests.swift
-//  AnimediaTests
+//  Animedia_iOSTests.swift
+//  Animedia_iOSTests
 //
 //  Created by Erick Sanchez on 04/12/17.
 //  Copyright © 2017 App Builders. All rights reserved.
 //
 
 import XCTest
-@testable import Animedia
+@testable import Animedia_iOS
 
-class AnimediaTests: XCTestCase {
+class Animedia_iOSTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
