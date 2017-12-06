@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbuilders.animedia.Controller.ChromeWebPlayer;
+import com.appbuilders.animedia.Controller.PlayerController;
 import com.appbuilders.animedia.Controls.AutoResizeTextView;
 import com.appbuilders.animedia.Core.Anime;
 import com.appbuilders.animedia.Core.Chapter;
@@ -86,9 +87,18 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
                     @Override
                     public void onClick(View view) {
 
+                        Intent intent;
                         try {
 
-                            Intent intent = new Intent(context, ChromeWebPlayer.class);
+                            JSONObject tempChapterString = chapters.getJSONObject(position);
+                            Chapter tempChapter = new Chapter(tempChapterString);
+
+                            if (tempChapter.getUrl().contains("animeflv")) {
+                                intent = new Intent(context, PlayerController.class);
+                            } else {
+                                intent = new Intent(context, ChromeWebPlayer.class);
+                            }
+
                             intent.putExtra("media", chapters.getJSONObject(position).toString());
                             intent.putExtra("anime", anime.toString());
                             context.startActivity(intent);

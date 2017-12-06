@@ -86,7 +86,7 @@ public class AnimtYTMeLaPela extends AppCompatActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
 
-                Log.d("DXGOP", "REQUEST ::: " + request.getUrl());
+                //Log.d("DXGOP", "REQUEST ::: " + request.getUrl());
                 return super.shouldOverrideUrlLoading(view, request);
             }
 

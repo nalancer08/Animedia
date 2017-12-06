@@ -14,6 +14,7 @@
 		A27B53581FD6120900E08CA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27B53561FD6120900E08CA7 /* LaunchScreen.storyboard */; };
 		A27B53631FD6120900E08CA7 /* AnimnediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B53621FD6120900E08CA7 /* AnimnediaTests.swift */; };
 		A27B536E1FD6120900E08CA7 /* AnimnediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B536D1FD6120900E08CA7 /* AnimnediaUITests.swift */; };
+		A27B537C1FD633BE00E08CA7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A27B537B1FD633BE00E08CA7 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A27B53691FD6120900E08CA7 /* AnimnediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimnediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27B536D1FD6120900E08CA7 /* AnimnediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimnediaUITests.swift; sourceTree = "<group>"; };
 		A27B536F1FD6120900E08CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A27B537B1FD633BE00E08CA7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		A27B53411FD6120900E08CA7 = {
 			isa = PBXGroup;
 			children = (
+				A27B537B1FD633BE00E08CA7 /* Default-568h@2x.png */,
 				A27B534C1FD6120900E08CA7 /* Animnedia */,
 				A27B53611FD6120900E08CA7 /* AnimnediaTests */,
 				A27B536C1FD6120900E08CA7 /* AnimnediaUITests */,
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A27B53581FD6120900E08CA7 /* LaunchScreen.storyboard in Resources */,
+				A27B537C1FD633BE00E08CA7 /* Default-568h@2x.png in Resources */,
 				A27B53551FD6120900E08CA7 /* Assets.xcassets in Resources */,
 				A27B53531FD6120900E08CA7 /* Main.storyboard in Resources */,
 			);
@@ -426,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Animnedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Animnedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -32,7 +32,8 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <receiver android:name=".Core.UninstallIntentReceiver"
+        <receiver
+            android:name=".Core.UninstallIntentReceiver"
             tools:ignore="InnerclassSeparator">
             <intent-filter android:priority="0">
                 <action android:name="android.intent.action.QUERY_PACKAGE_RESTART" />
@@ -41,13 +42,15 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".Core.MyFirebaseMessagingService"
+        <service
+            android:name=".Core.MyFirebaseMessagingService"
             tools:ignore="ExportedService,InnerclassSeparator">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".Core.FirebaseIDService"
+        <service
+            android:name=".Core.FirebaseIDService"
             tools:ignore="ExportedService,InnerclassSeparator">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -78,7 +81,8 @@
             android:configChanges="orientation|keyboardHidden|screenLayout|screenSize"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".Controller.MenuController"
+        <activity
+            android:name=".Controller.MenuController"
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -96,10 +100,14 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controller.AnimesController"
-            tools:ignore="InnerclassSeparator" />
-        <activity android:name=".Controller.SingleAnimeController"
-            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Controller.AnimesController"
+            tools:ignore="InnerclassSeparator"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Controller.SingleAnimeController"
+            tools:ignore="InnerclassSeparator"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Controller.ChromeWebPlayer"
             android:screenOrientation="landscape"
@@ -108,15 +116,23 @@
         <activity
             android:name=".Controller.ConfigurationsController"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.AboutUsController"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".Controller.PrivacityController"
+        <activity
+            android:name=".Controller.PrivacityController"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            tools:ignore="InnerclassSeparator">
-        </activity>
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator"/>
+        <activity android:name=".Controller.PlayerController"
+            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="landscape"
+            tools:ignore="InnerclassSeparator"/>
     </application>
 
 </manifest>
