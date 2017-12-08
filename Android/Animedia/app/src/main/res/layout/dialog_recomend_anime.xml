@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:background="@color/gray">
+
+    <com.appbuilders.animedia.Controls.AutoResizeTextView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:text="@string/recomend_anime"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:id="@+id/autoResizeTextView3" />
+
+    <EditText
+        android:id="@+id/recomend_name"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/autoResizeTextView3"
+        android:background="@drawable/border_bottom"
+        android:hint="Nombre del anime"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/whiteTrans" />
+
+    <Button
+        android:id="@+id/recomend_close"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/borders_solid_yellow"
+        android:text="Cerrar"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/recomend_send"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/borders_solid_yellow"
+        android:text="Enviar"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>

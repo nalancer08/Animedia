@@ -60,7 +60,6 @@ public class LastAnimeAdapter extends ArrayAdapter<Anime> {
             holder.getText().setText(anime.getName());
 
         } else {
-
             holder = (ViewHolder) convertView.getTag();
         }
 

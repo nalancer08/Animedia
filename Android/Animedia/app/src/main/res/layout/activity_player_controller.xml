@@ -48,6 +48,17 @@
             android:textColor="@color/white"
             android:textSize="15dp" />
 
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="35dp"
+            android:layout_alignBaseline="@+id/mediaTitle"
+            android:layout_alignBottom="@+id/mediaTitle"
+            android:layout_toEndOf="@+id/mediaTitle"
+            android:background="@drawable/borders_solid_yellow"
+            android:text="Reportar"
+            android:id="@+id/btn_report"
+            android:textColor="@color/white" />
+
     </RelativeLayout>
 
 </RelativeLayout>

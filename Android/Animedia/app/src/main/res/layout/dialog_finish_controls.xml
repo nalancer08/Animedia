@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="350dp"
+    android:layout_height="150dp"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:background="@color/gray">
+
+    <ImageView
+        android:id="@+id/prev_chapter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/replay_chapter"
+        android:layout_marginStart="41dp"
+        android:src="@drawable/prev_chapter" />
+
+    <ImageView
+        android:id="@+id/replay_chapter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/replay_chapter" />
+
+    <ImageView
+        android:id="@+id/next_chapter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/replay_chapter"
+        android:layout_marginEnd="37dp"
+        android:src="@drawable/next_chapter" />
+
+    <Button
+        android:id="@+id/close_details"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/borders_solid_yellow"
+        android:text="Cerrar"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>

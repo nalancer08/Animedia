@@ -1,36 +1,52 @@
 package com.appbuilders.animedia.Views;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AbsoluteLayout;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.appbuilders.animedia.Adapter.LastAnimeAdapter;
 import com.appbuilders.animedia.BuildConfig;
 import com.appbuilders.animedia.Controller.ChromeWebPlayer;
 import com.appbuilders.animedia.Controller.HomeController;
+import com.appbuilders.animedia.Controller.PlayerController;
 import com.appbuilders.animedia.Controls.CutListView;
 import com.appbuilders.animedia.Core.Anime;
+import com.appbuilders.animedia.Core.Chapter;
+import com.appbuilders.animedia.Core.Credentials;
 import com.appbuilders.animedia.Implement.LastAnimesListImp;
 import com.appbuilders.animedia.Libraries.JsonBuilder;
+import com.appbuilders.animedia.Libraries.JsonFileManager;
+import com.appbuilders.animedia.Libraries.Rester.ReSTCallback;
+import com.appbuilders.animedia.Libraries.Rester.ReSTClient;
+import com.appbuilders.animedia.Libraries.Rester.ReSTRequest;
+import com.appbuilders.animedia.Libraries.Rester.ReSTResponse;
 import com.appbuilders.animedia.Listener.OnScrollListViewMiddle;
 import com.appbuilders.animedia.R;
 import com.appbuilders.credentials.Configurations;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
+import com.brouding.simpledialog.SimpleDialog;
 import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
+import com.github.clans.fab.FloatingActionButton;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
@@ -53,9 +69,10 @@ public class HomeViewFixed extends SurfaceActivityView {
     protected JSONArray animes;
 
     private SfPanel correction;
+    private SfPanel listPanel;
 
-    private SfPanel menuPanel;
-    private ImageView menuView;
+    private SfPanel recomendationPanel;
+    private FloatingActionButton recomendationView;
 
     protected ImageView screenView;
     protected ListView list;
@@ -91,7 +108,7 @@ public class HomeViewFixed extends SurfaceActivityView {
         this.setInitialBackground();
 
         this.correction = new SfPanel().setSize(-100, -60);
-        SfPanel listPanel = new SfPanel().setSize(-70, -40);
+        this.listPanel = new SfPanel().setSize(-70, -40);
         this.subScreen.append(correction).append(listPanel);
 
         //list.setBackgroundResource(R.color.blackTrans);
@@ -121,9 +138,89 @@ public class HomeViewFixed extends SurfaceActivityView {
         listPanel.setView(this.list);
         this.addView(this.list);
 
-        this.screen.update(this.context);
+        /** Version 3.0 **/
+        this.setRecomendationButton();
+        /*****************/
 
+        this.screen.update(this.context);
         this.showTutorial();
+    }
+
+    public void setRecomendationButton() {
+
+        this.recomendationView = new FloatingActionButton(this.context);
+        this.recomendationView.setImageResource(R.drawable.fab_add);
+        this.recomendationView.setColorNormalResId(R.color.yellowItemSelected);
+
+        this.recomendationPanel = new SfPanel().setSize(-10, -18).
+                setPosition(SfPanel.SF_POSITION_ABSOLUTE).
+                setOrigin(SfPanel.SF_UNSET, SfPanel.SF_UNSET, threeRuleY(-100), threeRuleX(30)).
+                setView(this.recomendationView);
+        this.subScreen.append(this.recomendationPanel);
+        this.addView(this.recomendationView);
+
+        // Settign callback
+        this.recomendationView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final Credentials credentials = Credentials.getInstance(context);
+
+                if (credentials.existsPreviousLogin()) {
+
+                    final Dialog dialog = new Dialog(context);
+                    dialog.setContentView(R.layout.dialog_recomend_anime);
+                    dialog.setCanceledOnTouchOutside(false);
+                    dialog.show();
+
+                    // Settign callbacks
+                    final EditText animeName = dialog.findViewById(R.id.recomend_name);
+
+                    final Button recomendClose = dialog.findViewById(R.id.recomend_close);
+                    recomendClose.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.hide();
+                        }
+                    });
+
+                    final Button recomendSend = dialog.findViewById(R.id.recomend_send);
+                    recomendSend.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            String animeString = String.valueOf(animeName.getText());
+
+                            if (!animeString.equals("")) {
+
+                                recomendSend.setEnabled(false);
+                                recomendClose.setEnabled(false);
+                                sendRecomend(dialog, animeString);
+
+                            } else {
+                                Toast.makeText(context, "Debes ingresar un nombre anime, para recomendarlo", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+
+                } else {
+                    new SimpleDialog.Builder(context)
+                        .setTitle("Debes iniciar sesiòn")
+                        .setContent("Para poder recomendar un anime, debes iniciar sesiòn", 3)
+                        .setBtnConfirmText("Iniciar Sesiòn")
+                        .setBtnCancelText("Cancelar")
+                        .onConfirm(new SimpleDialog.BtnCallback() {
+                            @Override
+                            public void onClick(@NonNull SimpleDialog dialog, @NonNull SimpleDialog.BtnAction which) {
+
+                                HomeController instance = (HomeController) context;
+                                instance.getMenu().openMenu();
+                            }
+                        })
+                        .show();
+                }
+            }
+        });
     }
 
     public void showTutorial() {
@@ -370,10 +467,16 @@ public class HomeViewFixed extends SurfaceActivityView {
 
             JSONObject anime = this.animes.getJSONObject(position);
             JSONObject media = anime.getJSONObject("media");
+            Chapter chapter = new Chapter(media);
 
-            intent = new Intent(context, ChromeWebPlayer.class);
-            intent.putExtra("anime", anime.toString());
+            if (chapter.getUrl().contains("animeflv")) {
+                intent = new Intent(context, PlayerController.class);
+            } else {
+                intent = new Intent(context, ChromeWebPlayer.class);
+            }
+
             intent.putExtra("media", media.toString());
+            intent.putExtra("anime", anime.toString());
             activity.startActivity(intent);
 
         } catch (JSONException e) {
@@ -409,4 +512,56 @@ public class HomeViewFixed extends SurfaceActivityView {
         return (heigth * value) / 1794;
     }
 
+    /************************************************************************************************
+     *                                         Version 3.0                                          *
+     ************************************************************************************************/
+
+    protected void sendRecomend(final Dialog dialog, String name) {
+
+        final Credentials credentials = Credentials.getInstance(this.context);
+
+        ReSTClient rest = new ReSTClient(credentials.getUrl() + "/anime/recomend/new");
+        ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_POST, "");
+        request.addParameter("token", credentials.getToken());
+        request.addField("user_id", credentials.getUserId());
+        request.addField("bearer", credentials.getBearer());
+        request.addField("uuid", credentials.getUserUuid());
+        request.addField("bit", credentials.getBit());
+
+        request.addField("name", name);
+
+        rest.execute(request, new ReSTCallback() {
+
+            @Override
+            public void onSuccess(ReSTResponse response) {
+
+                JSONObject res = JsonFileManager.stringToJSON(response.body);
+                Log.d("DXGOP", "RECOMEND ::: " + res.toString());
+
+                try {
+
+                    if (res.getString("result").equals("success") && res.getInt("code") == 200) {
+                        dialog.hide();
+                    } else {
+                        //showErrorAlert("Error", "Problemas de conexión");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(ReSTResponse response) {
+
+                String errorMessage;
+                if (response.statusCode == 404) {
+                    errorMessage = "HUMAN used SEARCH\nBut, it failed!";
+                } else {
+                    errorMessage = "Error " + Integer.toString(response.statusCode);
+                }
+                Toast.makeText(context, "Try again!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

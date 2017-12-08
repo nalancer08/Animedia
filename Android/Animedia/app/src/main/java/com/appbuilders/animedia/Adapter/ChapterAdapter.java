@@ -11,16 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.appbuilders.animedia.Controller.ChromeWebPlayer;
 import com.appbuilders.animedia.Controller.PlayerController;
 import com.appbuilders.animedia.Controls.AutoResizeTextView;
-import com.appbuilders.animedia.Core.Anime;
 import com.appbuilders.animedia.Core.Chapter;
+import com.appbuilders.animedia.Core.ChapterAdvance;
+import com.appbuilders.animedia.Core.WatchedChapters;
 import com.appbuilders.animedia.Libraries.JsonBuilder;
 import com.appbuilders.animedia.R;
-import com.appbuilders.surface.SfScreen;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +42,9 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
     public ArrayList<View> addedViews;
     public JSONObject anime;
 
+    /** Version 3.0 **/
+    public WatchedChapters watchedChapters;
+
     public ChapterAdapter(Context context, ArrayList<Chapter> chapters) {
 
         super(context, R.layout.chapter_adapter, chapters);
@@ -58,13 +61,14 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
         this.chaptersArray = Chapter.getChaptersFromJson(chapters);
         this.addedViews = new ArrayList<>();
         this.anime = JsonBuilder.stringToJson(animeString);
+        this.watchedChapters = new WatchedChapters(this.context, this.anime);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        Chapter chapter = getItem(position);
+        final Chapter chapter = getItem(position);
 
         ViewHolder holder = null;
         LayoutInflater inflater = LayoutInflater.from(this.context);
@@ -81,6 +85,13 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
             holder.getText().setText(chapter.getName());
             holder.getChapternumber().setText("" + chapter.getNumber());
 
+            if (this.watchedChapters.hasRecords()) {
+                ChapterAdvance advance = this.watchedChapters.getRecord(chapter.getId());
+                if (advance != null) {
+                    holder.setProgress(advance.getAdvance());
+                }
+            }
+
             if (this.anime != null) {
 
                 holder.getPlayButton().setOnClickListener(new View.OnClickListener() {
@@ -94,7 +105,16 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
                             Chapter tempChapter = new Chapter(tempChapterString);
 
                             if (tempChapter.getUrl().contains("animeflv")) {
+
                                 intent = new Intent(context, PlayerController.class);
+                                intent.putExtra("chapters", chapters.toString());
+
+                                if (watchedChapters.hasRecords()) {
+                                    ChapterAdvance advance = watchedChapters.getRecord(chapter.getId());
+                                    if (advance != null)
+                                        intent.putExtra("advance", advance.toString());
+                                }
+
                             } else {
                                 intent = new Intent(context, ChromeWebPlayer.class);
                             }
@@ -125,6 +145,7 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
         private AutoResizeTextView text = null;
         private AutoResizeTextView chapterNumber = null;
         private ImageView playButton = null;
+        private RoundCornerProgressBar progressChapter = null;
 
         public ViewHolder(View row) {
             this.row = row;
@@ -154,6 +175,15 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
                 this.playButton = row.findViewById(R.id.playButton);
             }
             return this.playButton;
+        }
+
+        public void setProgress(float progress) {
+
+            if (this.progressChapter == null) {
+                this.progressChapter = row.findViewById(R.id.chapter_progress);
+                this.progressChapter.setVisibility(View.VISIBLE);
+            }
+            this.progressChapter.setProgress(progress);
         }
 
         protected int threeRuleY(int value) {
