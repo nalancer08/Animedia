@@ -692,7 +692,6 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
             public void onSuccess(ReSTResponse response) {
 
                 JSONObject res = JsonFileManager.stringToJSON(response.body);
-                Log.d("DXGOP", "RECOMEND ::: " + res.toString());
 
                 try {
 

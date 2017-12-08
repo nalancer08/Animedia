@@ -536,7 +536,6 @@ public class HomeViewFixed extends SurfaceActivityView {
             public void onSuccess(ReSTResponse response) {
 
                 JSONObject res = JsonFileManager.stringToJSON(response.body);
-                Log.d("DXGOP", "RECOMEND ::: " + res.toString());
 
                 try {
 

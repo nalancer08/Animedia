@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="0dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/imageView3"
+            android:text="@string/privacity_message"
+            android:textAlignment="gravity"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+        <!--<com.appbuilders.animedia.Controls.JustifyTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/privacity_message"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            android:textSize="18dp"/>-->
+    </ScrollView>
+
+</RelativeLayout>

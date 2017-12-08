@@ -102,12 +102,12 @@
         </activity>
         <activity
             android:name=".Controller.AnimesController"
-            tools:ignore="InnerclassSeparator"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.SingleAnimeController"
-            tools:ignore="InnerclassSeparator"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.ChromeWebPlayer"
             android:screenOrientation="landscape"
@@ -115,24 +115,29 @@
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.ConfigurationsController"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.AboutUsController"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Controller.PrivacityController"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait"
-            tools:ignore="InnerclassSeparator"/>
-        <activity android:name=".Controller.PlayerController"
-            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Controller.PlayerController"
+            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize"
             android:screenOrientation="landscape"
-            tools:ignore="InnerclassSeparator"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Controller.PremiumVersionController"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
     </application>
 
 </manifest>

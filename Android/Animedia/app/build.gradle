@@ -79,5 +79,4 @@ dependencies {
     compile project(':Credentials')
 }
 
-
 apply plugin: 'com.google.gms.google-services'

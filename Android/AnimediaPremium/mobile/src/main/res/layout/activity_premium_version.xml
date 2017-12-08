@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.appbuilders.animediapremium.Controller.PremiumVersionController">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/premiumHeader"
+        android:id="@+id/relativeLayout">
+
+        <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+            android:id="@+id/autoResizeTextView4"
+            android:layout_width="300dp"
+            android:layout_height="140dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="30%"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="150sp"
+            android:textStyle="bold" />
+
+        <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+            android:layout_width="90dp"
+            android:layout_height="35dp"
+            android:layout_alignBottom="@+id/autoResizeTextView4"
+            android:layout_alignEnd="@+id/autoResizeTextView4"
+            android:layout_marginEnd="106dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/borders_solid_yellow"
+            android:text="OFF"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="70sp"
+            android:rotation="-12"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/borders_solid_blue"
+        android:id="@+id/relativeLayout2">
+
+        <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="15dp"
+            android:text="Por siempre"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:id="@+id/autoCompleteTextView" />
+
+        <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+            android:id="@+id/autoResizeTextView5"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/autoCompleteTextView"
+            android:layout_marginEnd="13dp"
+            android:text="MX$49.99"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_alignStart="@+id/autoResizeTextView5"
+            android:layout_below="@+id/autoCompleteTextView"
+            android:text="MX$64.99"
+            android:textColor="@color/whiteTrans"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:id="@+id/autoResizeTextView6" />
+
+        <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/autoCompleteTextView"
+            android:layout_centerVertical="true"
+            android:text="Oferta por lanzamiento"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Que incluye:"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/autoResizeTextView7" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/relativeLayout2"
+        android:layout_below="@+id/autoResizeTextView7"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/no_more_ads" />
+
+    <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/imageView2"
+        android:text="Sin publicidad"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/autoResizeTextView8" />
+
+    <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+        android:layout_width="210dp"
+        android:layout_height="35dp"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_alignStart="@+id/autoResizeTextView8"
+        android:text="No vuelvas a ver un anuncio dentro de la aplicaciòn"
+        android:textColor="@color/gray"
+        android:id="@+id/autoResizeTextView9" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/hd"
+        android:id="@+id/imageView4" />
+
+    <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+        android:id="@+id/premium_hd_title"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/autoResizeTextView9"
+        android:layout_alignTop="@+id/imageView4"
+        android:text="Videos HD"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+        android:id="@+id/premium_hd_content"
+        android:layout_width="210dp"
+        android:layout_height="35dp"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_alignStart="@+id/premium_hd_title"
+        android:text="Todos los videos en alta definiciòn"
+        android:textColor="@color/gray" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/imageView4"
+        android:layout_below="@+id/imageView4"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/petitions"
+        android:id="@+id/imageView5" />
+
+    <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+        android:id="@+id/premium_petitions_title"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/premium_hd_content"
+        android:layout_alignTop="@+id/imageView5"
+        android:text="Peticiones instantaneas"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <com.appbuilders.animediapremium.Controls.AutoResizeTextView
+        android:id="@+id/premium_petitions_content"
+        android:layout_width="210dp"
+        android:layout_height="35dp"
+        android:layout_alignBottom="@+id/imageView5"
+        android:layout_alignStart="@+id/premium_petitions_title"
+        android:text="Peticiones de anime resueltas en 12 horas"
+        android:textColor="@color/gray" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/relativeLayout2"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/borders_solid_blue"
+        android:text="Obtener"
+        android:id="@+id/make_me_premium"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

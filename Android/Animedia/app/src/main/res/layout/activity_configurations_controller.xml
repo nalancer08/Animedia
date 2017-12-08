@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     tools:context="com.appbuilders.animedia.Controller.ConfigurationsController">
 
     <TextView
@@ -98,15 +100,26 @@
         android:id="@+id/show_tutorial_again_button"
         android:textColor="@color/white" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/borders_solid_cyan"
+        android:text="Obtener Premium"
+        android:textColor="@color/white"
+        android:id="@+id/get_premium" />
+
     <TextView
+        android:id="@+id/app_version"
         android:layout_width="108dp"
         android:layout_height="35dp"
-        android:layout_alignEnd="@+id/volume_switch"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="11dp"
-        android:textAlignment="gravity"
+        android:layout_above="@+id/get_premium"
+        android:layout_alignEnd="@+id/show_tutorial_again_button"
+        android:layout_marginBottom="23dp"
         android:gravity="right|center_vertical"
-        android:id="@+id/app_version"
+        android:textAlignment="gravity"
         android:textColor="@color/white"
         android:textSize="18dp" />
 

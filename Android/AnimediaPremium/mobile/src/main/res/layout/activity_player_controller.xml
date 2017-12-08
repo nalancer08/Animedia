@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.appbuilders.animediapremium.Controller.PlayerController">
+
+    <com.appbuilders.animediapremium.Controls.EasyClickableVideoPlayer
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/player"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="0.28dp"
+        android:id="@+id/media_details"
+        android:visibility="invisible"
+        android:background="@color/blackTrans">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/animeCover" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="35dp"
+            android:layout_alignTop="@+id/animeCover"
+            android:layout_marginStart="26dp"
+            android:layout_toEndOf="@+id/animeCover"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:id="@+id/animeTitle" />
+
+        <TextView
+            android:layout_width="430dp"
+            android:layout_height="50dp"
+            android:layout_alignStart="@+id/animeTitle"
+            android:layout_below="@+id/animeTitle"
+            android:layout_marginTop="14dp"
+            android:id="@+id/mediaTitle"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="35dp"
+            android:layout_alignBaseline="@+id/mediaTitle"
+            android:layout_alignBottom="@+id/mediaTitle"
+            android:layout_toEndOf="@+id/mediaTitle"
+            android:background="@drawable/borders_solid_yellow"
+            android:text="Reportar"
+            android:id="@+id/btn_report"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

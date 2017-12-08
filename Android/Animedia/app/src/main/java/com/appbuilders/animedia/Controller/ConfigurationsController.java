@@ -28,6 +28,9 @@ public class ConfigurationsController extends AppCompatActivity {
     private TextView app_version;
     private Configurations configurations;
 
+    /** Version 3.0 **/
+    private Button get_premium;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -39,6 +42,7 @@ public class ConfigurationsController extends AppCompatActivity {
         this.volume_switch = (IconSwitch) findViewById(R.id.volume_switch);
         this.show_tutorial_again_button = (Button) findViewById(R.id.show_tutorial_again_button);
         this.app_version = (TextView) findViewById(R.id.app_version);
+        this.get_premium = (Button) findViewById(R.id.get_premium);
 
         //TextView titlePage = (TextView) findViewById(R.id.textView2);
         //titlePage.setTypeface(Typeface.createFromAsset( this.getAssets(), "Specify.ttf"));
@@ -60,6 +64,7 @@ public class ConfigurationsController extends AppCompatActivity {
         this.setNativeVideoSwitchCallback();
         this.setVolumeSwitchCallback();
         this.setShowTutorialAgain();
+        this.getPremium();
 
         // Setting app verison text
         this.app_version.setText("Version " + BuildConfig.VERSION_NAME);
@@ -118,5 +123,19 @@ public class ConfigurationsController extends AppCompatActivity {
         Intent returnIntent = new Intent();
         setResult(Activity.RESULT_CANCELED, returnIntent);
         finish();
+    }
+
+    /***********************************************************************************************
+     *                                             V.3.0                                           *
+     ***********************************************************************************************/
+
+    private void getPremium() {
+
+        this.get_premium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ConfigurationsController.this, PremiumVersionController.class));
+            }
+        });
     }
 }

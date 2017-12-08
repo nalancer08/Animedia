@@ -1,0 +1,155 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Animedia Premium</string>
+
+    <string name="facebook_app_id">904190799756580</string>
+    <string name="fb_login_protocol_scheme">fb904190799756580</string>
+
+    <string-array name="alphabet">
+
+        <item></item>
+        <item></item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>Ñ</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- About Us -->
+    <string name="aboutUs">
+
+        Somos una empresa 100% Mexicana, en crecimiento que busca crear productos propios,
+        y desarrollos a la medida.\n\n
+
+        Para dar a conocer nuestro talento creamos aplicaciones como esta, donde, nos gusta
+        mostrar que el buen estilo, diseño y eficiencia no están peleados.\n\n
+
+        Únete a la inclusión tecnologica, somos la empresa que te lleva al futuro. \n\n\n\n
+
+    </string>
+
+    <string name="ceo">
+
+        Equipo App Builders
+
+    </string>
+
+    <string name="privacity_message" tools:ignore="TypographyEllipsis">
+
+        Aquella persona que desee utilizar Animedia, deberá ser mayor de edad ó en otro caso contar con la aprobación
+        de sus progenitores, tutores o aquella persona que mantenga la patria potestad sobre su persona y estar
+        en la plena posesion de sus facultades y estara aceptando los seguientes términos y condiciones. \n\n
+
+        Nosotros no reproducimos, plagiamos, distribuimos ni comunicamos publicamente peliculas, series, docuemntales
+        o videos de musica que puedan tener derechos de autor.\n\n
+
+        Los enlances que figuran en esta aplicación han sido encontrados en diferentes webs de videos y almacenamiento online
+        (veoh.com, megavideo.com, mediafire.com, entre otros) y desconocemos si los mismos tienen contratos de cesión
+        de derechos sobre estos videos para reproducirlos, alojarlos o permitir su descarga. \n\n
+
+        Todas las marcas aqui mencionadas y logos estan registrados por sus legitimos propietarios y solamente se emplean
+        en referencia a las mismas y con un fin de cita o comentario. \n\n
+
+        No nos hacemos responsables del uso indebido que puedes hacer del contenido de nuestra aplicacion. \n\n
+
+        En ningun caso o circunstancia se podra responsabilizar directamente o indirectamente al propietario
+        ni a los colaboradores del ilicito uso de la información contenida en Animedia.\n
+        Asi mismo tampoco se nos podra responsabilizar directamente o indirectamente del incorrecto uso o mala
+        interpretación que se haga de la información y servicios incluidos. \n\n
+
+        Igualemnte quedara fuera de nuestra responsabilidad el material al que usted puede acceder desde
+        nuestros enlaces. \n\n
+
+        Si en tu país, este tipo de aplicaciones esta prohibido, tu y solo tu eres el responsable del uso de Animedia. \n\n
+
+        Si deseas utilizar Animedia, quiere decir que has leido, comprendido y aceptas las condiciones de esta aplicación. \n\n
+
+        Todo el contenido ha sido exclusivamente sacado de sitios publicos de internet, por lo que este material
+        es considerado de libre distribución. En ningun articulo legal se menciona la prohibición de material libre
+        por lo que esta pagina no infringe  en ningun caso la ley. Si alguien tiene alguna duda o problema
+        al respecto, no dude en ponerse en contacto con nosotros. \n\n
+
+        Nos reservamos el derecho, a su sola discreción, de cambiar, modificar o alterar de otro modo el presente
+        acuerdo en cualquier momento. \n\n
+
+        Nos reservamos el derecho de vetar la entrada a cualquier sujeto a nuestra aplicación. \n\n
+
+        En esta aplicación se podra acceder a contenidos publicados por webs de videos online (veoh.com, megavideo.com, ...).
+        El unico material que existe en la web son enlaces a dicho contenido , facilitando unicamente, la copia privada.
+        Los propetarios de las webs de videos online (veoh.com, megavideo.com, ...) son plenamente responsables de los contenidos
+        que publiquen. Por consiguiente Animedia ni aprueba, ni hace suyos los productos, servicios, contenidos,
+        información, datos, opiniones, archivos y cualquier clase de material existente en las webs de videos online
+        (veoh.com, megavideo.com, ...) y no controla ni se hace responsable de la calidad, licitud, fiablidad y utilidad
+        de la información, contenido y servicios existentes en las webs de videos online (veoh.com, megavideo.com, ...). \n\n
+
+        Al aceptar estos terminos, cedes los derechos para que Animedia, pueda recopilar datos personales, tales como
+        el modelo de tu equipo, y caracteristicas del mismo, esto con el fin de mejorar el servicio de Animedia, y
+        poder tener un repositorio central de datos. \n\n
+
+        Los derechos de autor, marcas, patentes y derechos de propiedad intelectual sobre el contenido, usted
+        reconoce que el contenido de los medios de transmición a traves de la red puede estar protegida por derechos
+        de autor, marcas comerciales, marcas de servicio, patentes u otros derechos de propiedad y leyes. \n
+        Animedia respeta la ley de derechos de autor y espera que usted haga mismo. Contenido de los miembros
+        identificados como pertenecientes a un tercero se puede transmitir en la aplicación o de servicios,
+        siempre y cuando usted obtiene permiso primero y los derechos de propiedad y se indica claramente. \n
+        Usted no debe cargar o presentar cualquier medio de comunicación o contenido en el que no tiene los adecuados
+        derechos para hacerlo. Usted puede estar en violación de leyes de derechos de autor si no tiene los derechos
+        apropiados a los medios de información o contenido que cargue o presente en Animedia. \n\n
+
+        Animedia se reserva el derecho de modificar o enmendar este acuerdo en cualquier momento, por cualquier razón. \n\n
+
+
+
+
+
+
+
+
+
+    </string>
+
+    <string name="recomend_anime">
+
+        Recomiendanos un anime, esto con la finalidad de agregarlo a la aplicaciòn. Todas las solicitudes son atendidas
+        en un plazo de 3 a 5 dias. Gracias por tu preferencia.
+
+    </string>
+</resources>

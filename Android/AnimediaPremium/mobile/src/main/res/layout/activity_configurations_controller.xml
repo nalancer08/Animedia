@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    tools:context="com.appbuilders.animediapremium.Controller.ConfigurationsController">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/white"
+        android:text="Configuraciones"
+        android:textAlignment="gravity"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="29dp"
+        android:text="Reproductor de video nativo"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="15dp"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:text="Solo si esta disponible"
+        android:textColor="@color/white"
+        android:textSize="12dp" />
+
+    <com.polyak.iconswitch.IconSwitch
+        android:id="@+id/video_native_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textView"
+        android:layout_marginEnd="14dp"
+        app:isw_icon_left="@drawable/cross"
+        app:isw_icon_right="@drawable/confirm"
+        app:isw_thumb_color_right="@color/yellowItemSelected"
+        app:isw_inactive_tint_icon_left="#fff"
+        app:isw_inactive_tint_icon_right="#fff"/>
+
+    <TextView
+        android:id="@+id/volumeText"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="37dp"
+        android:text="Fijar volumen a la mitad al iniciar cada video"
+        android:textColor="@color/white"
+        android:textSize="16.5dp" />
+
+    <com.polyak.iconswitch.IconSwitch
+        android:id="@+id/volume_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/video_native_switch"
+        android:layout_alignTop="@+id/volumeText"
+        app:isw_icon_left="@drawable/cross"
+        app:isw_icon_right="@drawable/confirm"
+        app:isw_inactive_tint_icon_left="#fff"
+        app:isw_inactive_tint_icon_right="#fff"
+        app:isw_thumb_color_right="@color/yellowItemSelected" />
+
+    <TextView
+        android:id="@+id/show_tutorial_again"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/volumeText"
+        android:layout_below="@+id/volumeText"
+        android:layout_marginTop="34dp"
+        android:text="Volver a mostrar el tutorial"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="16.5dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/show_tutorial_again"
+        android:layout_alignBottom="@+id/show_tutorial_again"
+        android:layout_alignEnd="@+id/volume_switch"
+        android:background="@drawable/borders_solid_yellow"
+        android:text="Mostar"
+        android:id="@+id/show_tutorial_again_button"
+        android:textColor="@color/white" />
+
+
+    <TextView
+        android:id="@+id/app_version"
+        android:layout_width="108dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="18dp"
+        android:gravity="right|center_vertical"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+</RelativeLayout>
