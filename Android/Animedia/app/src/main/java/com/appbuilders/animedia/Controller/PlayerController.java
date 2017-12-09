@@ -2,6 +2,7 @@ package com.appbuilders.animedia.Controller;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -50,6 +51,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -242,8 +244,9 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
                         break;
 
                     case PlayerController.PlayerMiddle:
+
                         loadAd();
-                        mPlayer.start();
+                        startActivity(new Intent(PlayerController.this, PremiumVersionController.class));
                         break;
 
                     case PlayerController.PlayerFinish:
@@ -421,7 +424,7 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
     }
 
     /***********************************************************************************************
-     *                               EasyVideoPlayer implemnt methods                              *
+     *                                      Activity overrides                                     *
      ***********************************************************************************************/
 
     @Override
@@ -433,6 +436,24 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
         this.mPlayer.pause();
         this.setRecordAdvance();
     }
+
+    @Override
+    protected void onStop() {
+
+        super.onStop();
+        this.setRecordAdvance();
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        super.onDestroy();
+        this.setRecordAdvance();
+    }
+
+    /***********************************************************************************************
+     *                               EasyVideoPlayer implemnt methods                              *
+     ***********************************************************************************************/
 
     @Override
     public void onPreparing(EasyClickableVideoPlayer player) {
@@ -592,6 +613,7 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
 
                 this.setPlayerDetails();
                 this.initPlayer();
+                this.middleAdShowed = false;
 
                 if (this.showingFinishDetails) {
 
@@ -612,6 +634,7 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
 
         mPlayer.seekTo(0);
         mPlayer.start();
+        this.middleAdShowed = false;
 
         if (this.showingFinishDetails) {
 
@@ -631,6 +654,7 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
 
                 this.setPlayerDetails();
                 this.initPlayer();
+                this.middleAdShowed = false;
 
                 if (this.showingFinishDetails) {
 

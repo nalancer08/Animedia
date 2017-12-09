@@ -39,7 +39,7 @@ public class PremiumVersionController extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String appPackageName = "com.appbuilders.animedia";
+                String appPackageName = "com.appbuilders.animediapremium";
 
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));

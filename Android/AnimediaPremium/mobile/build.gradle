@@ -6,8 +6,8 @@ android {
         applicationId "com.appbuilders.animediapremium"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 6
-        versionName "2.7.2"
+        versionCode 7
+        versionName "3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -19,7 +19,7 @@ android {
         }
 
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
