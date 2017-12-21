@@ -14,9 +14,6 @@ import com.appbuilders.animediapremium.Controller.SingleAnimeController;
 import com.appbuilders.animediapremium.Core.AnimeView;
 import com.appbuilders.animediapremium.R;
 import com.appbuilders.surface.SfScreen;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
@@ -24,8 +21,6 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Random;
 
 /**
  * Created by Erick Sanchez - App Builders CTO

@@ -2,17 +2,16 @@ package com.appbuilders.animedia.Views;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.View;
 import android.widget.AbsoluteLayout;
 import android.widget.Button;
 
 import com.appbuilders.animedia.Core.Credentials;
+import com.appbuilders.animedia.Fragment.AllAnimes;
 import com.appbuilders.animedia.Fragment.AscAnimes;
 import com.appbuilders.animedia.Fragment.GenresAnimes;
 import com.appbuilders.animedia.Fragment.LatestAnimes;
 import com.appbuilders.animedia.Fragment.SearchAnimes;
-import com.appbuilders.animedia.Libraries.TouchSwipe;
 import com.appbuilders.animedia.R;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
@@ -33,7 +32,7 @@ public class AnimesFixView extends SurfaceActivityView {
 
     SfPanel tabsMenuPanel;
         SfPanel latestPanel;
-        SfPanel AZPanel;
+        SfPanel allPanel;
         SfPanel genresPanel;
         SfPanel searchPanel;
     SfPanel contentPanel;
@@ -95,7 +94,7 @@ public class AnimesFixView extends SurfaceActivityView {
         latestView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         latestView.setBackgroundResource(R.color.yellowItemSelected);
         latestView.setTextColor(Color.WHITE);
-        latestPanel.setView(latestView).setSize(-33.33333f, -100);
+        latestPanel.setView(latestView).setSize(-25, -100);
         this.addView(latestView);
         this.tabsPanelArray.add(this.latestPanel);
         latestView.setOnClickListener(new View.OnClickListener() {
@@ -110,26 +109,26 @@ public class AnimesFixView extends SurfaceActivityView {
             }
         });
 
-        /*this.AZPanel = new SfPanel();
-        Button AZView = new Button(this.context);
-        AZView.setText("A - Z");
-        AZView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        AZView.setBackgroundResource(R.color.blackTrans);
-        AZView.setTextColor(Color.WHITE);
-        AZPanel.setView(AZView).setSize(-25, -100);
-        this.addView(AZView);
-        this.tabsPanelArray.add(this.AZPanel);
-        AZView.setOnClickListener(new View.OnClickListener() {
+        this.allPanel = new SfPanel();
+        Button allView = new Button(this.context);
+        allView.setText("Todos");
+        allView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        allView.setBackgroundResource(R.color.blackTrans);
+        allView.setTextColor(Color.WHITE);
+        allPanel.setView(allView).setSize(-25, -100);
+        this.addView(allView);
+        this.tabsPanelArray.add(this.allPanel);
+        allView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if (currentTab != 1) {
 
                     setCurrentTab(1);
-                    askForAscAnimes();
+                    askForAllAnimes();
                 }
             }
-        });*/
+        });
 
         this.genresPanel = new SfPanel();
         Button genresView = new Button(this.context);
@@ -137,16 +136,16 @@ public class AnimesFixView extends SurfaceActivityView {
         genresView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         genresView.setBackgroundResource(R.color.blackTrans);
         genresView.setTextColor(Color.WHITE);
-        genresPanel.setView(genresView).setSize(-33.33333f, -100);
+        genresPanel.setView(genresView).setSize(-25, -100);
         this.tabsPanelArray.add(this.genresPanel);
         this.addView(genresView);
         genresView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (currentTab != 1) {
+                if (currentTab != 2) {
 
-                    setCurrentTab(1);
+                    setCurrentTab(2);
                     askForGenresAnimes();
                 }
             }
@@ -159,23 +158,23 @@ public class AnimesFixView extends SurfaceActivityView {
         searchView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         searchView.setBackgroundResource(R.color.blackTrans);
         searchView.setTextColor(Color.WHITE);
-        this.searchPanel.setView(searchView).setSize(-33.33333f, -100);
+        this.searchPanel.setView(searchView).setSize(-25, -100);
         this.addView(searchView);
         this.tabsPanelArray.add(this.searchPanel);
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (currentTab != 2) {
+                if (currentTab != 3) {
 
-                    setCurrentTab(2);
+                    setCurrentTab(3);
                     askForSearchAnimes();
                 }
             }
         });
 
         //this.tabsMenuPanel.append(latestPanel).append(AZPanel).append(genresPanel).append(searchPanel);
-        this.tabsMenuPanel.append(latestPanel).append(genresPanel).append(searchPanel);
+        this.tabsMenuPanel.append(latestPanel).append(allPanel).append(genresPanel).append(searchPanel);
         this.tabsMenuPanel.setSize(-100, -8);
     }
 
@@ -217,6 +216,14 @@ public class AnimesFixView extends SurfaceActivityView {
 
         this.removeView(this.contentPanel);
         this.contentPanel.setFragment(new AscAnimes(this));
+        this.addFragment(this.contentPanel);
+        this.screen.update(this.context);
+    }
+
+    protected void askForAllAnimes() {
+
+        this.removeView(this.contentPanel);
+        this.contentPanel.setFragment(new AllAnimes(this));
         this.addFragment(this.contentPanel);
         this.screen.update(this.context);
     }

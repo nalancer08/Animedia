@@ -77,13 +77,40 @@
         app:isw_inactive_tint_icon_right="#fff"
         app:isw_thumb_color_right="@color/yellowItemSelected" />
 
+    <!-- Animes layout -->
+
+    <TextView
+        android:id="@+id/animesLayoutText"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/show_tutorial_again_button"
+        android:layout_alignStart="@+id/show_tutorial_again"
+        android:layout_marginBottom="15dp"
+        android:text="Mostar 3 animes por columna"
+        android:textColor="@color/white"
+        android:textSize="16.5dp" />
+
+    <com.polyak.iconswitch.IconSwitch
+        android:id="@+id/layout_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/show_tutorial_again_button"
+        android:layout_alignTop="@+id/animesLayoutText"
+        app:isw_icon_left="@drawable/cross"
+        app:isw_icon_right="@drawable/confirm"
+        app:isw_inactive_tint_icon_left="#fff"
+        app:isw_inactive_tint_icon_right="#fff"
+        app:isw_thumb_color_right="@color/yellowItemSelected" />
+
+    <!-- Tutorial -->
+
     <TextView
         android:id="@+id/show_tutorial_again"
         android:layout_width="250dp"
         android:layout_height="40dp"
         android:layout_alignStart="@+id/volumeText"
         android:layout_below="@+id/volumeText"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="93dp"
         android:text="Volver a mostrar el tutorial"
         android:textAlignment="gravity"
         android:textColor="@color/white"

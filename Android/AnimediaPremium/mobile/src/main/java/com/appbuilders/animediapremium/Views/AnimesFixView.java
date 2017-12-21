@@ -14,9 +14,6 @@ import com.appbuilders.animediapremium.Fragment.SearchAnimes;
 import com.appbuilders.animediapremium.R;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
@@ -31,15 +28,13 @@ public class AnimesFixView extends SurfaceActivityView {
 
     SfPanel tabsMenuPanel;
         SfPanel latestPanel;
-        SfPanel AZPanel;
+        SfPanel allPanel;
         SfPanel genresPanel;
         SfPanel searchPanel;
     SfPanel contentPanel;
 
     ArrayList<SfPanel> tabsPanelArray;
     int currentTab = 0;
-
-    AdView mAdView;
 
     public AnimesFixView(Context context) {
         super(context);
@@ -106,16 +101,16 @@ public class AnimesFixView extends SurfaceActivityView {
             }
         });
 
-        /*this.AZPanel = new SfPanel();
-        Button AZView = new Button(this.context);
-        AZView.setText("A - Z");
-        AZView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        AZView.setBackgroundResource(R.color.blackTrans);
-        AZView.setTextColor(Color.WHITE);
-        AZPanel.setView(AZView).setSize(-25, -100);
-        this.addView(AZView);
-        this.tabsPanelArray.add(this.AZPanel);
-        AZView.setOnClickListener(new View.OnClickListener() {
+        this.allPanel = new SfPanel();
+        Button allView = new Button(this.context);
+        allView.setText("Todos");
+        allView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        allView.setBackgroundResource(R.color.blackTrans);
+        allView.setTextColor(Color.WHITE);
+        allPanel.setView(allView).setSize(-25, -100);
+        this.addView(allView);
+        this.tabsPanelArray.add(this.allPanel);
+        allView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -125,7 +120,7 @@ public class AnimesFixView extends SurfaceActivityView {
                     askForAscAnimes();
                 }
             }
-        });*/
+        });
 
         this.genresPanel = new SfPanel();
         Button genresView = new Button(this.context);
@@ -140,9 +135,9 @@ public class AnimesFixView extends SurfaceActivityView {
             @Override
             public void onClick(View view) {
 
-                if (currentTab != 1) {
+                if (currentTab != 2) {
 
-                    setCurrentTab(1);
+                    setCurrentTab(2);
                     askForGenresAnimes();
                 }
             }
@@ -162,9 +157,9 @@ public class AnimesFixView extends SurfaceActivityView {
             @Override
             public void onClick(View view) {
 
-                if (currentTab != 2) {
+                if (currentTab != 3) {
 
-                    setCurrentTab(2);
+                    setCurrentTab(3);
                     askForSearchAnimes();
                 }
             }

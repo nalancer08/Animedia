@@ -21,14 +21,20 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int beggingChapter = 174;
-    private int lastChapter = 175;
+    private String animeId = "";
+    private int beggingChapter = 1;
+    private int lastChapter = 1;
     private int currentChapter = 0;
-    private String url = "https://animeflv.net/ver/2744/fairy-tail-";
+    //private String url = "https://animeflv.net/ver/2744/fairy-tail-";
+    //private String url = "https://animeflv.net/ver/1149/darker-than-black-";
+    private String url = "";
     private String[] chapters;
-
     private WebView webview;
 
+    /** Support for efire && embed **/
+    private String source = "efire";
+
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -36,7 +42,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.currentChapter = this.beggingChapter;
 
-        this.chapters = this.getResources().getStringArray(R.array.fairy_tail_chapters);
+        this.animeId = this.getResources().getString(R.string.toradora_id);
+        this.url = this.getResources().getString(R.string.toradora_url);
+        this.chapters = this.getResources().getStringArray(R.array.toradora_chapters);
+        this.lastChapter = this.chapters.length;
+        //this.lastChapter = 12;
 
         this.webview = findViewById(R.id.lol);
         webview.getSettings().setJavaScriptEnabled(true);
@@ -57,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (this.currentChapter <= this.lastChapter) {
 
-            Log.d("DXGOP", "______ BEGINING EXTRACT FOR CHAPTER :: " + currentChapter + "  ::: " + this.chapters[this.currentChapter-1] +  " _________");
+            Log.d("DXGOP", "______ BEGINNING EXTRACT FOR CHAPTER :: " + currentChapter + "  ::: " + this.chapters[this.currentChapter-1] +  " _________");
             url = url + this.currentChapter;
 
 
@@ -65,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             //webview.loadUrl("about:blank");
 
         } else {
-            Log.d("DXGOP", "______ ENDED EXTRACTION _________");
+            Log.d("DXGOP", "______ END EXTRACTION _________");
         }
     }
 
@@ -120,29 +130,54 @@ public class MainActivity extends AppCompatActivity {
 
             for (String url : extractedUrls) {
 
-                //Log.d("DXGO", "url ::: " + url);
+                Log.d("DXGO", "url ::: " + url);
 
-                if (url.contains("http://s3.animeflv.com/efire.php?v")) {
+                if (url.contains("s3.animeflv.com")) {
                     url = url.replace("&quot;,", "");
-                    if (!successfullyUrls.contains(url)) {
-                        successfullyUrls.add(url);
-                        bestOne = url;
-                        Log.d("DXGOP", "Url chida :: " + url);
+                    switch (source) {
+
+                        case "efire":
+
+                            if (!successfullyUrls.contains(url)) {
+
+                                if (bestOne.equals("")) {
+                                    bestOne = url;
+                                } else {
+                                    successfullyUrls.add(url);
+                                }
+                                Log.d("DXGOP", "Url best option :: " + url);
+                            }
+
+                            break;
+
+                        case "embed":
+                            if (url.contains("yourupload")) {
+                                if (!successfullyUrls.contains(url)) {
+
+                                    if (bestOne.equals("")) {
+                                        bestOne = url;
+                                    } else {
+                                        successfullyUrls.add(url);
+                                    }
+                                    Log.d("DXGOP", "Url best option :: " + url);
+                                }
+                            } else if (url.contains("izanagi")) {
+
+                                if (!successfullyUrls.contains(url)) {
+                                    successfullyUrls.add(url);
+                                    Log.d("DXGOP", "Url options :: " + url);
+                                }
+                            }
+                            break;
                     }
                 } else if (url.contains("https://www.rapidvideo.com")) {
 
                     url = url.replace("720p", "420p");
-
                     if (!successfullyUrls.contains(url)) {
-
-                        if (bestOne.equals("")) {
-                            bestOne = url;
-                        } else {
-                            successfullyUrls.add(url);
-                        }
-
+                        successfullyUrls.add(url);
                         Log.d("DXGOP", "Url options :: " + url);
                     }
+
                 } else if (url.contains("https://streamango.com/embed")) {
                     if (!successfullyUrls.contains(url)) {
                         successfullyUrls.add(url);
@@ -178,14 +213,19 @@ public class MainActivity extends AppCompatActivity {
                         // Getting chapter name and number
                         String media = chapters[currentChapter-1];
                         String[] mediaExplode = media.split(Pattern.quote("."));
+                        String mediaNumber = mediaExplode[0];
+                        String mediaName = mediaExplode[1];
+
+                        Log.d("DXGOP", "URL BUENA :: " + finalBestOne);
+                        Log.d("DXGOP", "URLS EXTRAS :: " + String.valueOf(successfullyUrls));
 
                         // Saving media
                         ReSTClient rest = new ReSTClient("https://appbuilders.com.mx/apis/animedia/media/new");
                         ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_POST, "");
                         request.addParameter("token", "658da3c73c026446017d2fd583ecf1f107fe66b9415eaf9a986a5436807add6b.80f8cc918a88a6b7a5894e8c9e7859dece7a7c25");
-                        request.addField("anime_id", "15");
-                        request.addField("number", mediaExplode[0]);
-                        request.addField("name", mediaExplode[1]);
+                        request.addField("anime_id", animeId);
+                        request.addField("number", mediaNumber);
+                        request.addField("name", mediaName);
                         request.addField("type", "chapter");
                         request.addField("audio", "jp/spa");
                         request.addField("url", finalBestOne);
@@ -197,7 +237,6 @@ public class MainActivity extends AppCompatActivity {
 
                                 currentChapter++;
                                 beganExtract(url);
-
                             }
 
                             @Override

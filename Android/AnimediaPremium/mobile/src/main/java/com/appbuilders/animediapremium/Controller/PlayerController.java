@@ -37,9 +37,6 @@ import com.appbuilders.credentials.Rester.ReSTResponse;
 import com.brouding.simpledialog.SimpleDialog;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -69,7 +66,6 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
     protected ArrayList<Chapter> chapters = null;
     protected ChapterAdvance advance = null;
 
-    private InterstitialAd ad;
     private RelativeLayout mediaDetails;
         private ImageView animeCover;
         private TextView animeTitle;

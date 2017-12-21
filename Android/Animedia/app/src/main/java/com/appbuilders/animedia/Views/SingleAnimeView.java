@@ -60,6 +60,10 @@ import java.util.regex.Pattern;
 
 public class SingleAnimeView extends SurfaceActivityView {
 
+    final private static int ANIME_CHPATERS = 0;
+    final private static int ANIME_OVAS = 1;
+    final private static int ANIME_MOVIES = 2;
+
     private Credentials credentials;
     private SfPanel contentPanel;
         private SfPanel imageHeaderPanel;
@@ -85,6 +89,9 @@ public class SingleAnimeView extends SurfaceActivityView {
     protected ListView chaptersView;
     protected List<String> audios;
 
+    /** Version 3.5 **/
+    protected int animeMediaState = 0;
+
     public SingleAnimeView(Context context) {
         super(context);
     }
@@ -103,7 +110,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         // Creating anime object
         this.animeString = getIntent().getStringExtra("anime");
         this.anime = new Anime(JsonBuilder.stringToJson(animeString));
-        //Log.d("DXGO", "SINGLE VIEW ::: " + animeString);
+        //Log.d("DXGOP", "SINGLE VIEW ::: " + animeString);
 
         // Creating typeface
         this.borgenBold =  Typeface.createFromAsset( this.context.getAssets(), "BorgenBold.ttf");
@@ -141,7 +148,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         this.screen.update(this.context);
     }
 
-    protected void createImageHeader() {
+    private void createImageHeader() {
 
         if (anime != null) {
 
@@ -185,7 +192,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         }
     }
 
-    protected void createAnimeName() {
+    private void createAnimeName() {
 
         TextView animeName = new TextView(this.context);
         animeName.setTextColor(Color.WHITE);
@@ -200,7 +207,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         this.addView(animeName);
     }
 
-    protected void createAnimeDescription() {
+    private void createAnimeDescription() {
 
         AutoResizeTextView animeDescription = new AutoResizeTextView(this.context);
         animeDescription.setTextColor(Color.WHITE);
@@ -213,7 +220,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         this.addView(animeDescription);
     }
 
-    protected void getAnimeDetails() {
+    private void getAnimeDetails() {
 
         /*PlayGifView gifView = new PlayGifView(this.context);
         gifView.setImageResource(R.drawable.circular_loader);
@@ -229,7 +236,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         this.askForAnimeDetails();
     }
 
-    protected void askForAnimeDetails() {
+    private void askForAnimeDetails() {
 
         this.credentials = Credentials.getInstance(this.context);
 
@@ -279,7 +286,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         });
     }
 
-    protected void showAnimeDetails(JSONObject data) {
+    private void showAnimeDetails(JSONObject data) {
 
         // Remove loader
         this.loaderPanel.setSize(0,0);
@@ -293,6 +300,9 @@ public class SingleAnimeView extends SurfaceActivityView {
             JSONArray genres = data.getJSONArray("genres");
             final JSONArray chapters = data.getJSONArray("chapters");
             JSONArray audios = data.getJSONArray("audios");
+
+            /** Version 3.5 **/
+            JSONArray types = data.getJSONArray("medias");
 
             // Parsing audios
             for (int k = 0; k < audios.length(); k++) {
@@ -324,7 +334,7 @@ public class SingleAnimeView extends SurfaceActivityView {
             // Creating type panel
             this.typesPanel = new SfPanel().setSize(-100, -20);
             this.detailsPanel.append(this.typesPanel);
-            this.createTypes();
+            this.createTypes(types);
 
             // Creating chapters panel
             if (chapters.length() > 0) {
@@ -463,7 +473,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         this.showTutorial();
     }
 
-    protected void createTypes() {
+    private void createTypes(JSONArray types) {
 
         SfPanel seriePanel = new SfPanel().setSize(-31.5f, -60).setMargin(0, threeRuleX(20), 0, 0);
         SfPanel ovasPanel = new SfPanel().setSize(-31.5f, -60).setMargin(0, threeRuleX(20), 0, 0);
@@ -476,6 +486,22 @@ public class SingleAnimeView extends SurfaceActivityView {
         serieView.setBackgroundResource(R.drawable.borders_solid_yellow);
         serieView.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
         serieView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+        serieView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (animeMediaState != SingleAnimeView.ANIME_CHPATERS) {
+                    showNotAvailable(view, "Cambiando a capitulos");
+                    askForNewMedias("chapter", "");
+                    animeMediaState = SingleAnimeView.ANIME_CHPATERS;
+
+                    // Setting select color
+                    serieView.setBackgroundResource(R.drawable.borders_solid_yellow);
+                    ovasView.setBackgroundResource(R.drawable.borders);
+                    movieView.setBackgroundResource(R.drawable.borders);
+                }
+            }
+        });
 
         this.ovasView = new AutoResizeTextView(this.context);
         ovasView.setText("Ovas");
@@ -483,13 +509,6 @@ public class SingleAnimeView extends SurfaceActivityView {
         ovasView.setBackgroundResource(R.drawable.borders);
         ovasView.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
         ovasView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
-        ovasView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showNotAvailable(view, "OVAS no disponibles por el momento.");
-
-            }
-        });
 
         this.movieView = new AutoResizeTextView(this.context);
         movieView.setText("Peliculas");
@@ -497,24 +516,72 @@ public class SingleAnimeView extends SurfaceActivityView {
         movieView.setBackgroundResource(R.drawable.borders);
         movieView.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
         movieView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
-        movieView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showNotAvailable(view, "Peliculas no disponibles por el momento.");
-
-            }
-        });
 
         seriePanel.setView(serieView);
         ovasPanel.setView(ovasView);
         moviePanel.setView(movieView);
 
         this.addView(serieView);
-        this.addView(ovasView);
-        this.addView(movieView);
+
+        /** Version 3.5 **/
+        for (int j = 0; j < types.length(); j++) {
+
+            try {
+
+                JSONObject obj = types.getJSONObject(j);
+                String type = obj.getString("type");
+                switch(type) {
+
+                    case "ova":
+
+                        ovasView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (animeMediaState != SingleAnimeView.ANIME_OVAS) {
+                                    showNotAvailable(view, "Cambiando a ovas");
+                                    askForNewMedias("ova", "");
+                                    animeMediaState = SingleAnimeView.ANIME_OVAS;
+
+                                    // Setting select color
+                                    ovasView.setBackgroundResource(R.drawable.borders_solid_yellow);
+                                    serieView.setBackgroundResource(R.drawable.borders);
+                                    movieView.setBackgroundResource(R.drawable.borders);
+                                }
+
+                            }
+                        });
+                        this.addView(ovasView);
+
+                    break;
+
+                    case "movie":
+                        movieView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (animeMediaState != SingleAnimeView.ANIME_MOVIES) {
+                                    showNotAvailable(view, "Cambiando a peliculas");
+                                    askForNewMedias("movie", "");
+                                    animeMediaState = SingleAnimeView.ANIME_MOVIES;
+
+                                    // Setting select color
+                                    movieView.setBackgroundResource(R.drawable.borders_solid_yellow);
+                                    ovasView.setBackgroundResource(R.drawable.borders);
+                                    serieView.setBackgroundResource(R.drawable.borders);
+                                }
+                            }
+                        });
+                        this.addView(movieView);
+
+                    break;
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    protected void createLanguageSelect() {
+    private void createLanguageSelect() {
 
         // Fixing audios
         if (this.audios.size() < 2) {
@@ -548,12 +615,27 @@ public class SingleAnimeView extends SurfaceActivityView {
         this.addView(lenguageView);
     }
 
-    protected void askForNewMedias(String type, String audio) {
+    private void askForNewMedias(final String type, String audio) {
 
         this.credentials = Credentials.getInstance(this.context);
         this.chaptersView.setAdapter(null);
 
-        ReSTClient rest = new ReSTClient(credentials.getUrl() + "/anime/medias");
+        ReSTClient rest = null;
+        switch(type) {
+
+            case "chapter":
+                rest = new ReSTClient(credentials.getUrl() + "/anime/medias");
+                break;
+
+            case "ova":
+                rest = new ReSTClient(credentials.getUrl() + "/anime/medias/ovas");
+                break;
+
+            case "movie":
+                rest = new ReSTClient(credentials.getUrl() + "/anime/medias/movies");
+                break;
+        }
+
         ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_POST, "");
         request.addParameter("token", credentials.getToken());
         request.addField("user_id", credentials.getUserId());
@@ -569,7 +651,7 @@ public class SingleAnimeView extends SurfaceActivityView {
             public void onSuccess(ReSTResponse response) {
 
                 JSONObject res = JsonFileManager.stringToJSON(response.body);
-                Log.d("DXGO", "ANIME NEW MEDIAS ::: " + res.toString());
+                Log.d("DXGO", "ANIME NEW MEDIAS ::: " + type + " " + res.toString());
 
                 try {
 
@@ -601,7 +683,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         });
     }
 
-    protected void updateAnimeDetails(final JSONArray chapters) {
+    private void updateAnimeDetails(final JSONArray chapters) {
 
         // data is equals to chapters or ovas or movies
         final ArrayList<Chapter> chaptersArray = Chapter.getChaptersFromJson(chapters);
@@ -725,7 +807,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         });
     }
 
-    protected int threeRuleY(int value) {
+    private int threeRuleY(int value) {
 
         Display display = ((Activity)this.context).getWindowManager().getDefaultDisplay();
         Point size = new Point();
@@ -735,7 +817,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         return (heigth * value) / 1794;
     }
 
-    protected int threeRuleX(int value) {
+    private int threeRuleX(int value) {
 
         Display display = ((Activity)this.context).getWindowManager().getDefaultDisplay();
         Point size = new Point();

@@ -134,10 +134,12 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".Controller.PremiumVersionController"
+        <activity
+            android:name=".Controller.PremiumVersionController"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Controller.TestVideoController"></activity>
     </application>
 
 </manifest>

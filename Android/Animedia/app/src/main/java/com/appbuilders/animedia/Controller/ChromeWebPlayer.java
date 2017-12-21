@@ -219,7 +219,7 @@ public class ChromeWebPlayer extends AppCompatActivity {
     }
 
     protected void removeLoader() {
-        if (this.loader != null) {
+        if (this.loader != null && this.loader.getParent() != null) {
             ((ViewManager) this.loader.getParent()).removeView(this.loader);
             new CountDownTimer(1000, 1000) {
 

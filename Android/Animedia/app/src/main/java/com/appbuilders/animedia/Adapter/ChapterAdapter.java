@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.appbuilders.animedia.Controller.ChromeWebPlayer;
 import com.appbuilders.animedia.Controller.PlayerController;
+import com.appbuilders.animedia.Controller.TestVideoController;
 import com.appbuilders.animedia.Controls.AutoResizeTextView;
 import com.appbuilders.animedia.Core.Chapter;
 import com.appbuilders.animedia.Core.ChapterAdvance;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 /**
  * Created by Erick Sanchez - App Builders CTO
  * Revision 1 - 26/10/17
+ * Revision 2 - 19/12/17
  */
 
 public class ChapterAdapter extends ArrayAdapter<Chapter> {
@@ -104,24 +106,37 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
                             JSONObject tempChapterString = chapters.getJSONObject(position);
                             Chapter tempChapter = new Chapter(tempChapterString);
 
-                            if (tempChapter.getUrl().contains("animeflv")) {
+                            // Cheking if url comes to S3
+                            if (tempChapter.getUrl().contains("s3")) {
 
+                                // Creating base intent and setting chapters
                                 intent = new Intent(context, PlayerController.class);
                                 intent.putExtra("chapters", chapters.toString());
 
+                                // Getting records from the chapters
                                 if (watchedChapters.hasRecords()) {
                                     ChapterAdvance advance = watchedChapters.getRecord(chapter.getId());
                                     if (advance != null)
                                         intent.putExtra("advance", advance.toString());
                                 }
 
+                                // Setting source for reverse engenering
+                                if (tempChapter.getUrl().contains("animeflv") && tempChapter.getUrl().contains("efire")) {
+                                    intent.putExtra("source", "efire");
+                                } else if (tempChapter.getUrl().contains("animeflv") && tempChapter.getUrl().contains("embed")) {
+                                    intent.putExtra("source", "embed");
+                                }
+
                             } else {
+
+                                // Sended to ChromeWebPlayer if doesn` come from video source
                                 intent = new Intent(context, ChromeWebPlayer.class);
                             }
 
+                            // Setting extra base data
                             intent.putExtra("media", chapters.getJSONObject(position).toString());
                             intent.putExtra("anime", anime.toString());
-                            context.startActivity(intent);
+                            context.startActivity(intent); // Begginign activity
 
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -26,9 +26,6 @@ import com.appbuilders.animediapremium.Listener.OnScrollListViewMiddle;
 import com.appbuilders.animediapremium.R;
 import com.appbuilders.surface.SfPanel;
 import com.appbuilders.surface.SurfaceActivityView;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,7 +55,6 @@ public class AnimesView extends SurfaceActivityView {
 
     RecyclerView masonry;
     ListView alphabetList;
-    AdView mAdView;
 
     String[] alphabet = this.context.getResources().getStringArray(R.array.alphabet);
     View prevView;
@@ -99,7 +95,6 @@ public class AnimesView extends SurfaceActivityView {
         // Setting views
         this.createTabs();
         this.createMasonryLayout();
-        this.createAd();
 
         // Ask for latest animes
         this.askForLatestAnimes();
@@ -213,20 +208,6 @@ public class AnimesView extends SurfaceActivityView {
         this.contentPanel.setView(this.masonry).setSize(-100, -82);
         this.slideLettersPanel.setSize(0, 0);
         this.addView(this.masonry);
-    }
-
-    private void createAd() {
-
-        this.mAdView = new AdView(this.context);
-        this.mAdView.setAdUnitId("ca-app-pub-8714411824921031/8988263733");
-        // Add logic for banner sizes
-        this.mAdView.setAdSize(AdSize.BANNER);
-        this.adPanel.setView(this.mAdView).setSize(-100, -10);
-        this.addView(this.mAdView);
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
     }
 
     protected void askForLatestAnimes() {

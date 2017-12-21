@@ -88,6 +88,9 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
     private boolean showingFinishDetails = false;
     private Dialog finishDetails;
 
+    /** Version 3.5 **/
+    private String sourceVideo = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -134,6 +137,11 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
             String advanceString = getIntent().getStringExtra("advance");
             JSONObject advanceObj = JsonBuilder.stringToJson(advanceString);
             this.advance = new ChapterAdvance(advanceObj);
+        }
+
+        if (getIntent().hasExtra("source")) {
+            String source = getIntent().getStringExtra("source");
+            this.sourceVideo = source;
         }
     }
 
@@ -270,56 +278,134 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
     private void initPlayer() {
 
         if (!this.chapter.getUrl().equals("")) {
+            if (!this.sourceVideo.equals("")) {
 
-            // Parsing data
-            ReSTClient rest = new ReSTClient(this.chapter.getUrl());
-            ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_GET, "");
-            rest.execute(request, new ReSTCallback() {
-                @Override
-                public void onSuccess(ReSTResponse response) {
+                ReSTClient rest = new ReSTClient(this.chapter.getUrl());
+                ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_GET, "");
 
-                    String resp = response.body;
-                    List<String> extractedUrls = extractUrls(resp);
+                switch (this.sourceVideo) {
 
-                    for (String url : extractedUrls) {
-                        if (url.contains("mediafire")) {
+                    case "efire":
 
-                            ReSTClient rest = new ReSTClient(url);
-                            ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_GET, "");
-                            rest.execute(request, new ReSTCallback() {
-                                @Override
-                                public void onSuccess(ReSTResponse response) {
+                        // Parsing data
+                        rest.execute(request, new ReSTCallback() {
+                            @Override
+                            public void onSuccess(ReSTResponse response) {
 
-                                    String resp = response.body;
-                                    String pag = resp.split("http://download")[1];
-                                    pag = pag.split("\"")[0];
-                                    String url = pag.split("'")[0];
-                                    if (url.equals("")) {
-                                        goBack();
-                                    } else {
-                                        url = "http://download" + url;
-                                        setPlayer(url);
+                                String resp = response.body;
+                                List<String> extractedUrls = extractUrls(resp);
+
+                                for (String url : extractedUrls) {
+                                    if (url.contains("mediafire")) {
+
+                                        ReSTClient rest = new ReSTClient(url);
+                                        ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_GET, "");
+                                        rest.execute(request, new ReSTCallback() {
+                                            @Override
+                                            public void onSuccess(ReSTResponse response) {
+
+                                                String resp = response.body;
+                                                Log.d("DXGOP", "RESPONDIO ESTA $%&% ::: " + response.body);
+                                                String pag = resp.split("http://download")[1];
+                                                pag = pag.split("\"")[0];
+                                                String url = pag.split("'")[0];
+                                                if (url.equals("")) {
+                                                    goBack();
+                                                } else {
+                                                    url = "http://download" + url;
+                                                    setPlayer(url);
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onError(ReSTResponse reSTResponse) {
+                                                goBack();
+                                            }
+                                        });
+
                                     }
                                 }
+                            }
 
-                                @Override
-                                public void onError(ReSTResponse reSTResponse) {
-                                    goBack();
+                            @Override
+                            public void onError(ReSTResponse reSTResponse) {
+                                goBack();
+                            }
+                        });
+
+                    break;
+
+                    case "embed":
+
+                        // Parsing data
+                        rest.execute(request, new ReSTCallback() {
+                            @Override
+                            public void onSuccess(ReSTResponse response) {
+
+                                String resp = response.body;
+                                List<String> extractedUrls = extractUrlCheck(resp);
+
+                                for (String url : extractedUrls) {
+                                    if (url.contains("check.php?server=yourupload")) {
+
+                                        ReSTClient rest = new ReSTClient("https://s3.animeflv.com/" + url);
+                                        ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_GET, "");
+                                        rest.execute(request, new ReSTCallback() {
+                                            @Override
+                                            public void onSuccess(ReSTResponse response) {
+
+                                                JSONObject ret = JsonBuilder.stringToJson(response.body);
+                                                if (ret.has("file")) {
+
+                                                    try {
+
+                                                        String fileUrl = ret.getString("file");
+                                                        if (!fileUrl.equals("")) {
+                                                            setPlayer(fileUrl);
+                                                        } else {
+
+                                                            Toast.makeText(PlayerController.this, "Ha ocurrido un error, intentalo ma starde porfavor.", Toast.LENGTH_LONG).show();
+                                                            goBack();
+                                                        }
+
+                                                    } catch (JSONException e) {
+
+                                                        e.printStackTrace();
+                                                        Toast.makeText(PlayerController.this, "Ha ocurrido un error, intentalo ma starde porfavor.", Toast.LENGTH_LONG).show();
+                                                        goBack();
+                                                    }
+
+                                                } else {
+
+                                                    Toast.makeText(PlayerController.this, "Ha ocurrido un error, intentalo ma starde porfavor.", Toast.LENGTH_LONG).show();
+                                                    goBack();
+                                                }
+
+                                            }
+
+                                            @Override
+                                            public void onError(ReSTResponse reSTResponse) {
+
+                                                Toast.makeText(PlayerController.this, "Ha ocurrido un error, intentalo ma starde porfavor.", Toast.LENGTH_LONG).show();
+                                                goBack();
+                                            }
+                                        });
+
+                                    }
                                 }
-                            });
+                            }
 
-                        }
-                    }
+                            @Override
+                            public void onError(ReSTResponse reSTResponse) {
+
+                                Toast.makeText(PlayerController.this, "Ha ocurrido un error, intentalo ma starde porfavor.", Toast.LENGTH_LONG).show();
+                                goBack();
+                            }
+                        });
+
+                    break;
                 }
-
-                @Override
-                public void onError(ReSTResponse reSTResponse) {
-                    goBack();
-                }
-            });
-
-        } else {
-            this.goBack();
+            }
         }
     }
 
@@ -414,6 +500,19 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
 
         List<String> containedUrls = new ArrayList<String>();
         String urlRegex = "((http?|ftp|gopher|telnet|file):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
+        Pattern pattern = Pattern.compile(urlRegex, Pattern.CASE_INSENSITIVE);
+        Matcher urlMatcher = pattern.matcher(text);
+
+        while (urlMatcher.find()) {
+            containedUrls.add(text.substring(urlMatcher.start(0), urlMatcher.end(0)));
+        }
+        return containedUrls;
+    }
+
+    private static List<String> extractUrlCheck(String text) {
+
+        List<String> containedUrls = new ArrayList<String>();
+        String urlRegex = "((check.php?)+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
         Pattern pattern = Pattern.compile(urlRegex, Pattern.CASE_INSENSITIVE);
         Matcher urlMatcher = pattern.matcher(text);
 

@@ -4,28 +4,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.appbuilders.animedia.Controller.SingleAnimeController;
-import com.appbuilders.animedia.Core.Anime;
 import com.appbuilders.animedia.Core.AnimeView;
+import com.appbuilders.animedia.Core.Liked;
 import com.appbuilders.animedia.R;
 import com.appbuilders.surface.SfScreen;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,6 +43,8 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
     private Intent lastIntent;
     private boolean typeOfLucky;
         private int luckyIntent = 0;
+
+    /** V.3.5 **/
 
     public AnimeAdapter(final Context context, JSONArray animes) {
 
@@ -107,10 +106,12 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
         try {
 
             final JSONObject anime = this.animes.getJSONObject(position);
+            final int id =  anime.getInt("id");
             String cover = anime.getString("cover");
             String name = anime.getString("name");
             final ImageView animeImage = holder.getCover();
 
+            // Setting image
             DisplayImageOptions options = new DisplayImageOptions.Builder()
                     .showImageOnLoading(R.drawable.placeholder)
                     .resetViewBeforeLoading(false)
@@ -140,6 +141,7 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
                 }
             });
 
+            // Setting name
             holder.getName().setText(name);
 
             // Setting the click

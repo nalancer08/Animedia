@@ -150,6 +150,9 @@ public class EasyClickableVideoPlayer extends FrameLayout implements IUserMethod
     private boolean mAutoFullscreen = false;
     private boolean mLoop = false;
 
+    // Saving contet
+    protected Context context;
+
     // Runnable used to run code on an interval to update counters and seeker
     private final Runnable mUpdateCounters = new Runnable() {
         @Override
@@ -175,6 +178,9 @@ public class EasyClickableVideoPlayer extends FrameLayout implements IUserMethod
     private void init(Context context, AttributeSet attrs) {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         setBackgroundColor(Color.BLACK);
+
+        // Saving context
+        this.context = context;
 
         if (attrs != null) {
             TypedArray a = context.getTheme().obtainStyledAttributes(
@@ -411,8 +417,12 @@ public class EasyClickableVideoPlayer extends FrameLayout implements IUserMethod
     private void setSourceInternal() throws IOException {
         if (mSource.getScheme() != null &&
                 (mSource.getScheme().equals("http") || mSource.getScheme().equals("https"))) {
+
             LOG("Loading web URI: " + mSource.toString());
-            mPlayer.setDataSource(mSource.toString());
+            //mPlayer.setDataSource(mSource.toString());
+            mPlayer.setDataSource(this.context, this.mSource);
+
+
         } else if (mSource.getScheme() != null && (mSource.getScheme().equals("file") && mSource.getPath().contains("/android_assets/"))) {
             LOG("Loading assets URI: " + mSource.toString());
             AssetFileDescriptor afd;

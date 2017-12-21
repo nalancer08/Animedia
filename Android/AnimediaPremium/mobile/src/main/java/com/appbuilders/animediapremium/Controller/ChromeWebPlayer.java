@@ -24,9 +24,6 @@ import com.appbuilders.animediapremium.Libraries.JsonBuilder;
 import com.appbuilders.animediapremium.R;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
 
 public class ChromeWebPlayer extends AppCompatActivity {
@@ -35,7 +32,6 @@ public class ChromeWebPlayer extends AppCompatActivity {
     protected Chapter chapter;
 
     private WebView player;
-    private InterstitialAd ad;
     private PlayGifView loader;
     private RelativeLayout mediaDetails;
         private ImageView animeCover;
@@ -82,40 +78,6 @@ public class ChromeWebPlayer extends AppCompatActivity {
         // Setting loader
         this.loader = (PlayGifView) findViewById(R.id.loader);
         this.loader.setImageResource(R.drawable.circular_loader);
-
-        // Initializing ad
-        this.ad = new InterstitialAd(this);
-        this.ad.setAdUnitId("ca-app-pub-8714411824921031/3504275839");
-        this.ad.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                // Code to be executed when an ad request fails.
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when an ad opens an overlay that
-                // covers the screen.
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-
-            @Override
-            public void onAdClosed() {
-                // Code to be executed when when the user is about to return
-                // to the app after tapping on an ad.
-                goBack();
-            }
-        });
-        this.loadAd();
 
         if (!chapter.getUrl().equals("")) {
 
@@ -187,26 +149,10 @@ public class ChromeWebPlayer extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if (ad.isLoaded()) {
-
-            this.player.stopLoading();
-            this.player.setVisibility(View.GONE);
-            this.player.destroy();
-            ad.show();
-        }
-
-
-        /*new Runnable() {
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        if (ad.isLoaded()) {
-                            ad.show();
-                        }
-                    }
-                });
-            }
-        };*/
+        this.player.stopLoading();
+        this.player.setVisibility(View.GONE);
+        this.player.destroy();
+        this.goBack();
     }
 
     protected void removeLoader() {
@@ -223,16 +169,6 @@ public class ChromeWebPlayer extends AppCompatActivity {
                 }
             }.start();
         }
-    }
-
-    protected void loadAd() {
-
-        AdRequest adRequest = new AdRequest.Builder()
-                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-
-        // Load the adView object witht he request
-        this.ad.loadAd(adRequest);
     }
 
     protected void goBack() {

@@ -1001,4 +1001,893 @@
         <item>175.¡Natsu vs. Los 2 Dragones! </item>
     </string-array>
 
+    <string-array name="darker_than_black">
+
+        <item>1.La estrella fugaz del Contrato... [Primera Parte]</item>
+        <item>2.La estrella fugaz del Contrato... [Segunda Parte]</item>
+        <item>3.La nova ilumina el alba... [Primera Parte]</item>
+        <item>4.La nova ilumina el alba... [Segunda Parte]</item>
+        <item>5.Los sueños rojos de una calamidad se desvanecen en Europa del Este... [Primera Parte]</item>
+        <item>6.Los sueños rojos de una calamidad se desvanecen en Europa del Este... [Segunda Parte]</item>
+        <item>7.La gardenia emite su aroma bajo la lluvia de Mayo... [Primera Parte]</item>
+        <item>8.La gardenia emite su aroma bajo la lluvia de Mayo... [Segunda Parte]</item>
+        <item>9.Su vestido de blanca pureza teñido de sangre y sueños... [Primera Parte]</item>
+        <item>10.Su vestido de blanca pureza teñido de sangre y sueños... [Segunda Parte]</item>
+        <item>11.Más allá de la puerta recuperando lo perdido... [Primera Parte]</item>
+        <item>12.Más allá de la puerta recuperando lo perdido... [Segunda Parte]</item>
+        <item>13.El corazón que no late sobre el agua bajo la noche plateada... [Primera Parte]</item>
+        <item>14.El corazón que no late sobre el agua bajo la noche plateada... [Segunda Parte]</item>
+        <item>15.Los recuerdos de traición son una sonrisa de color ámbar... [Primera Parte]</item>
+        <item>16.Los recuerdos de traición son una sonrisa de color ámbar... [Segunda Parte]</item>
+        <item>17.Cantaré una canción de amor desde el vertedero... [Primera Parte]</item>
+        <item>18.Cantaré una canción de amor desde el vertedero... [Segunda Parte]</item>
+        <item>19.Tener un sueño liviano sin ni siquiera estar borracho... [Primera Parte]</item>
+        <item>20.Tener un sueño liviano sin ni siquiera estar borracho... [Segunda Parte]</item>
+        <item>21.El orden público humedecido por las lágrimas... [Primera Parte]</item>
+        <item>22.El orden público humedecido por las lágrimas... [Segunda Parte]</item>
+        <item>23.Dios en el cielos...</item>
+        <item>24.Lluvia de estrellas</item>
+        <item>25.El sueño que ve el enviado de la muerte. ¿Es esta oscuridad más oscura que el negro?</item>
+
+    </string-array>
+    <string name="darker_than_black_id">47</string>
+    <string name="darker_than_black_url">https://animeflv.net/ver/1149/darker-than-black-</string>
+
+    <string-array name="bleach_chapters">
+        <item>1.El día que me convertí en Shinigami</item>
+        <item>2.Trabajo de Shinigami</item>
+        <item>3.Deseo del hermano mayor, deseo de la hermana pequeña</item>
+        <item>4.Periquito maldito</item>
+        <item>5.¡Vence al enemigo invisible!</item>
+        <item>6.¡Lucha hasta la muerte! Ichigo vs. Ichigo</item>
+        <item>7.¡Saludos de parte del oso de peluche!</item>
+        <item>8.17 de junio, memorias en la lluvia</item>
+        <item>9.Enemigo invencible</item>
+        <item>10.Asalto durante la visita a la tierra sagrada</item>
+        <item>11.El legendario Quincy</item>
+        <item>12.Un gentil brazo derecho</item>
+        <item>13.La Flor y el Hollow</item>
+        <item>14.Espalda contra espalda, una lucha a muerte</item>
+        <item>15.El gran plan de Kon</item>
+        <item>16.Renji Abarai ¡El encuentro!</item>
+        <item>17.¡Ichigo muere!</item>
+        <item>18.¡Recupéralo! El poder de Shinigami</item>
+        <item>19.¡Ichigo se convierte en Hollow!</item>
+        <item>20.La sombra de Gin Ichimaru</item>
+        <item>21.¡Entra! El mundo de los shinigami</item>
+        <item>22.El Hombre que odia a los Shinigamis</item>
+        <item>23.La sentencia de Rukia, antes del día 14</item>
+        <item>24.¡Reunión! Los 13 escuadrones</item>
+        <item>25.¿Penetrar al centro con una bala enorme?</item>
+        <item>26.¡Formación! La peor reputación</item>
+        <item>27.¡Lanza el golpe de gracia!</item>
+        <item>28.Orihime es el objetivo</item>
+        <item>29.¡Abre! La red cubriente de Shinigamis</item>
+        <item>30.Enfrentamiento con Renji</item>
+        <item>31.La resolución de matar</item>
+        <item>32.La estrella y el vagabundo</item>
+        <item>33.¡Milagro! El nuevo héroe misterioso</item>
+        <item>34.Tragedia al amanecer</item>
+        <item>35.¡El asesinato de Aizen! La oscuridad se aproxima</item>
+        <item>36.¡Se acerca Kenpachi Zaraki!</item>
+        <item>37.Razón del puño</item>
+        <item>38.¡Desesperación! Zangetsu rota</item>
+        <item>39.El hombre inmortal</item>
+        <item>40.El Shinigami con el que se encuentra Ganju</item>
+        <item>41.Reencuentro, Ichigo y Rukia</item>
+        <item>42.Yoruichi, la diosa de la velocidad, ¡En acción!</item>
+        <item>43.El Shinigami despreciable</item>
+        <item>44.Ishida, ¡Poder al límite!</item>
+        <item>45.¡Sobrepasando los límites!</item>
+        <item>46.¡Recuerdos auténticos! La academia de Shinigamis</item>
+        <item>47.Los vengadores</item>
+        <item>48.¡Hitsugaya, ruge!</item>
+        <item>49.La pesadilla de Rukia</item>
+        <item>50.El Despertar del león</item>
+        <item>51.La mañana de la ejecución</item>
+        <item>52.Renji, ¡Juramento al alma! Combate a muerte con Byakuya</item>
+        <item>53.La tentación de Gin Ichimaru, Resolución de destrucción</item>
+        <item>54.¡Una promesa cumplida! ¡Recupera a Rukia!</item>
+        <item>55.¡El Shinigami más fuerte! Combate final entre maestro y alumno</item>
+        <item>56.¡Batalla supersónica! Determinando quién es la diosa efímera</item>
+        <item>57.Senbonzakura, ¡Aniquilado! Zangetsu se abre paso en el cielo</item>
+        <item>58.¡Libera! La espada negra, el poder milagroso</item>
+        <item>59.¡Resultado del combate a muerte! Orgullo blanco e ímpetu negra</item>
+        <item>60.Realidad de la desesperación, la daga que ha sido blandida</item>
+        <item>61.¡Aizen de pie! Ambiciones horribles</item>
+        <item>62.¡Reunídos! ¡El grupo de los Shinigamis más fuertes!</item>
+        <item>63.La decisión de Rukia, Los sentimientos de Ichigo</item>
+        <item>64.Nuevo periodo escolar, ¡¿Renji ha venido al mundo material?!</item>
+        <item>65.Terror escalofriante, la segunda víctima</item>
+        <item>66.¡Atraviesa! La trampa escondida en el laberinto</item>
+        <item>67.¡Juego mortal! El compañero de clases desaparecido</item>
+        <item>68.La verdadera identidad del demonio, el secreto revelado</item>
+        <item>69.¡Bount! Los cazadores de almas</item>
+        <item>70.¡El retorno de Rukia! Resurrección del equipo substituto</item>
+        <item>71.¡El momento de colisión! Una mano maligna se acerca al Quincy</item>
+        <item>72.¡Asalto acuático! Escape del hospital cerrado</item>
+        <item>73.¡Reunión de los Bount! El hombre que hace su movimiento</item>
+        <item>74.Recuerdos de un clan que vive eternamente</item>
+        <item>75.¡Acontecimiento trascendental en el undécimo escuadrón! El Shinigami que se alza de nuevo</item>
+        <item>76.¡Fuerza chocante! Friido Vs. Zangetsu</item>
+        <item>77.¡Rencor incalmable! El Shinigami al que cortó Kenpachi</item>
+        <item>78.¡¡Revelaciones impactantes de los 13 escuadrones!! La verdad enterrada en la historia</item>
+        <item>79.Yoshino, y la decisión de muerte</item>
+        <item>80.¡Asalto de un enemigo formidable! ¡¿Una línea de defensa final minúscula?!</item>
+        <item>81.¡Hitsugaya se mueve! El ataque en la calle</item>
+        <item>82.¡Ichigo Vs. Daruku! La llegada de la oscuridad desvanecida</item>
+        <item>83.Sombra gris, el secreto de la mascota</item>
+        <item>84.¿Separación del equipo substituto? La traición de Rukia</item>
+        <item>85.¡Combate de lágrimas! Rukia Vs. Orihime</item>
+        <item>86.¡Rangiku, baila! ¡Rebana al enemigo invisible!</item>
+        <item>87.¡Byakuya es convocado! Los 13 escuadrones hacen su movimiento</item>
+        <item>88.¿¡Aniquilación de los tenientes!? Trampa en la cueva subterránea.</item>
+        <item>89.¿¡Revancha!? Ishida Vs. Nemu</item>
+        <item>90.Abarai Renji, ¡Alma de Bankai!</item>
+        <item>91.Shinigami y Quincy, el poder que revive</item>
+        <item>92.Entra al mundo de los Shinigami, de nuevo</item>
+        <item>93.¡Asalto de los bount! ¡Caos en los 13 escuadrones!</item>
+        <item>94.¡La resolución de Hitsugaya! El momento del conflicto se acerca</item>
+        <item>95.¡Byakuya toma el campo! La danza de las flores de cerezo que cortan el viento</item>
+        <item>96.Ichigo•Byakuya•Kariya, ¡Combate de los tres extremos!</item>
+        <item>97.¡El movimiento de Hitsugaya! Rebana al enemigo en el bosque</item>
+        <item>98.¡Choque! Zaraki Kenpachi Vs. Ichinose Maki</item>
+        <item>99.¡Shinigami Vs. Shinigami! El poder incontrolable</item>
+        <item>100.¿Soi Fong muere? El final del escuadrón especial secreto</item>
+        <item>101.¡¡El Bankai de Mayuri!! Sawatari•Choque de los demonios</item>
+        <item>102.¡El último Quincy! El poder que explota</item>
+        <item>103.Ishida, ¡Excediendo los límites para atacar!</item>
+        <item>104.¡Forcejeo mortal de la décima división! La liberación de Hyorinmaru</item>
+        <item>105.¡Kariya! Cuenta regresiva a la detonación</item>
+        <item>106.¡Vida y venganza! Ishida, la última elección</item>
+        <item>107.¡La espada derribada! El momento de ruina</item>
+        <item>108.¡El Bount que se Lamenta! El último choque</item>
+        <item>109.Ichigo y Rukia, pensamientos que giran alrededor del cielo</item>
+        <item>110.¡De nuevo al trabajo de sustituto! El terrorífico estudiante de intercambio</item>
+        <item>111.Sorpresa! Los padres, La verdadera identidad</item>
+        <item>112.El comienzo de la guerra, Vizard y Arrancar</item>
+        <item>113.Preludio al Apocalipsis, ¡La ofensiva de los Arrancar!</item>
+        <item>114.La reunión de Ichigo, Rukia y los Shinigamis</item>
+        <item>115.¡Misión! Los Shinigamis que vinieron</item>
+        <item>116.El ojo maléfico, Aizen de nuevo</item>
+        <item>117.¡La batalla de Rukia comienza! La espada blanca congelante</item>
+        <item>118.¡El Bankai de Ikkaku! ¡Un poder capaz de destruirlo todo!</item>
+        <item>119.¡La Historia secreta del equipo de Zaraki! los afortunados</item>
+        <item>120.¡La dispersión de Hitsugaya! Hyorinmaru quebrado</item>
+        <item>121.¡Colisión! La persona que protege vs. la persona oculta</item>
+        <item>122.¡Vizard! El poder de los que han despertado</item>
+        <item>123.Ichigo, ¿¡Completa la transformación en hollow!?</item>
+        <item>124.¡Colisión! Bankai negro contra Bankai blanco</item>
+        <item>125.¡Información urgente! El terrorífico complot de Aizen</item>
+        <item>126.¡Uryu vs. Ryuken! el choque entre quincys padre e hijo</item>
+        <item>127.La decisión de Urahara, los pensamientos de Orihime</item>
+        <item>128.¡La pesadilla Arrancar! El equipo de Hitsugaya se mueve</item>
+        <item>129.¡La Llegada del mensajero de la oscuridad! La propagación del mal</item>
+        <item>130.¡El enemigo invisible! Sin piedad, la decisión de Hitsugaya</item>
+        <item>131.Las lágrimas de Rangiku, la dolorosa partida de la hermana y el hermano</item>
+        <item>132.Hitsugaya, Karin y el balón de fútbol</item>
+        <item>133.Ikkaku, la historia del kendo a sangre caliente</item>
+        <item>134.¡El hermoso Patissier, Yumichika!</item>
+        <item>135.¡Kon, engañado! Rangiku a la búsqueda</item>
+        <item>136.¡Guerra civil en el Hueco Mundo! La muerte de Ulquiorra</item>
+        <item>137.La batalla maliciosa, la trampa de Aizen</item>
+        <item>138.¡El segundo ataque de Hueco Mundo! Hitsugaya vs. Yammy</item>
+        <item>139.Ichigo vs. Grimmjow ¡La batalla de los 11 segundos!</item>
+        <item>140.El plan de Ulquiorra, el momento en el que el Sol se pone</item>
+        <item>141.Adiós..., Kurosaki</item>
+        <item>142.¡Es una orden! Prohibido el rescate de Orihime Inoue</item>
+        <item>143.Grimmjow se restablece</item>
+        <item>144.Ishida-Chad, el repentino aumento del nuevo poder</item>
+        <item>145.¡Los Espadas se reúnen! La asamblea real de Aizen</item>
+        <item>146.¡Su nombre es Nell! La aparición de una extraña Arrancar</item>
+        <item>147.¡El bosque de los Menos! En búsqueda de Rukia</item>
+        <item>148.Ashido, el Shinigami que vino del pasado</item>
+        <item>149.Atravesando el bosque en derrumbe, un millón de Menos</item>
+        <item>150.Es una promesa! Regresaremos con vida</item>
+        <item>151.La tormenta furiosa! Encuentro con el Arrancar danzante</item>
+        <item>152.¡Ichigo contraataca! Este es mi bankai</item>
+        <item>153.¡La investigación diabólica! El plan de Szayel Aporro</item>
+        <item>154.Rukia y Kaien, un doloroso encuentro</item>
+        <item>155.¡Rukia contraataca! Lanza el Kido desesperado.</item>
+        <item>156.Ishida y Pesche, El amistoso ataque en conjunto</item>
+        <item>157.El arma secreta de Ishida, El cortador de almas</item>
+        <item>158.Brazo derecho del gigante, brazo izquierdo del diablo</item>
+        <item>159.¡Sado Yasutora muere! Las lágrimas de Orihime</item>
+        <item>160.Testamento - Tu corazón está aquí</item>
+        <item>161.El cruel Arrancar, la provocación de Ulquiorra</item>
+        <item>162.Szayel Aporro se ríe, la trampa para Renji está completa</item>
+        <item>163.Shinigami y Quincy, la batalla de la locura</item>
+        <item>164.La estrategia de Ishida, los 20 segundos de ataque y defensa</item>
+        <item>165.¡La intención asesina hierve! La alegría de Grimmjow</item>
+        <item>166.¡Esfuerzo desesperado vs. esfuerzo desesperado! Ichigo se transforma en un Hollow</item>
+        <item>167.El momento de la conclusión, el fin de Grimmjow</item>
+        <item>168.¡El nuevo capitán aparece! Su nombre es Amagai Shusuke</item>
+        <item>169.Nuevo desarrollo, ¡la peligrosa transferencia de estudiantes!</item>
+        <item>170.Lucha desesperada bajo la noche de luna, el asesino misterioso y zanpakuto</item>
+        <item>171.Kenryu, la profusión de flores carmesí</item>
+        <item>172.¡Kifune va a pelear! El violento viento que ruge</item>
+        <item>173.¡La aparición del mal! La oscuridad en la casa de Kasumioji</item>
+        <item>174.El espejo roto! Ichigo cautivo</item>
+        <item>175.El asesino vengativo, Ichigo en el blanco</item>
+        <item>176.Misterio! La espada asesina</item>
+        <item>177.La decisión de Rukia, la espada enloquecida</item>
+        <item>178.¡¿La pesadilla se revela?! Ichigo está dentro de ella</item>
+        <item>179.¡¿Confrontación?! Amagai vs. las 13 divisiones</item>
+        <item>180.La decisión de la princesa, la novia afligida</item>
+        <item>181.¡La 2ª división se despliega! Ichigo está rodeado</item>
+        <item>182.¡La verdadera fuerza de Amagai, la zanpakuto es liberada!</item>
+        <item>183.¡La oscuridad que se mueve! Las verdaderas intenciones de Kifune</item>
+        <item>184.Kira y Kifune, ofensa y defensa de la tercera división</item>
+        <item>185.¡Hielo y llama! Lucha feroz de Amagai vs. Hitsugaya</item>
+        <item>186.¡Órdenes de salida! Suprimir la casa de Kasumioji</item>
+        <item>187.¡Ichigo se enfurece! El secreto del asesino</item>
+        <item>188.¡Duelo! Amagai vs. Ichigo</item>
+        <item>189.El orgullo del Shinigami caído</item>
+        <item>190.¡Capítulo de Hueco Mundo, un nuevo principio!</item>
+        <item>191.El Banquete tenebroso, el teatro de Szayel Aporro</item>
+        <item>192.¡¿El Secreto de Nell, una Belleza de grandes pechos se une a la Batalla?!</item>
+        <item>193.Irresistible, el show de marionetas del terror</item>
+        <item>194.El pasado de Neliel</item>
+        <item>195.¡La máxima unión! La seriedad de Pesche</item>
+        <item>196.El ejército más poderoso de Shinigami aparece</item>
+        <item>197.Byakuya y su bankai, silencio de ira</item>
+        <item>198.Los dos científicos, Mayuri y su trampa</item>
+        <item>199.La resurrección de Szayel Aporro</item>
+        <item>200.¿El mejor cuerpo? Nnoitra es cortado</item>
+        <item>201.¡La liberación de Noitra! Brazos múltiples</item>
+        <item>202.¡El Final de la feroz lucha! Quién es el más fuerte</item>
+        <item>203.Encuentro en la ciudad de Karakura! Aizen Vs los Shinigami</item>
+        <item>204.La estrategia de persuasión de Ichigo</item>
+        <item>205.¡Latido! El campeonato de kemari de los Hollow</item>
+        <item>206.¡La saga del pasado comienza! La verdad de hace 110 Años</item>
+        <item>207.Urahara Kisuke, el nuevo capitán del duodécimo escuadrón</item>
+        <item>208.Aizen y el chico genio</item>
+        <item>209.La 9 división de Muguruma avanza</item>
+        <item>210.¿Hiyori muere? El inicio de una tragedia</item>
+        <item>211.¡Traidor! Las maniobras secretas de Aizen</item>
+        <item>212.¡Rescata a Hirako! Aizen vs Urahara</item>
+        <item>213.Nace Karakuraizer, el detective del entierro del alma</item>
+        <item>214.El último día de Karakuraizer</item>
+        <item>215.¡Defender la Ciudad Karakura! Llegada de todos los Shinigami</item>
+        <item>216.¡Élite! Los cuatro Shinigami</item>
+        <item>217.El diablito hermoso Charlotte</item>
+        <item>218.Kira, la batalla dentro de la desesperación</item>
+        <item>219.¡El Shikai de Hisagi! El nombre es...</item>
+        <item>220.¡Ikkaku cae! La crisis de los Shinigami</item>
+        <item>221.¡Batalla completa! Shinigami vs. Espada</item>
+        <item>222.¿¡El trabajo de equipo más maléfico!? Soi Fong &amp; Omaeda</item>
+        <item>223.¡El cuerpo milagroso! Ggio libera</item>
+        <item>224.¡Batalla de 3 contra 1 ! La crisis de Rangiku</item>
+        <item>225.¡Todos los tenientes aniquilados! La aterradora bestia demoniaca</item>
+        <item>226.¿Lucha feroz concluye? ¡Hacia una nueva batalla!</item>
+        <item>227.Maravilloso error</item>
+        <item>228.¡Verano! ¡Mar! ¡Festival de traje de baño!</item>
+        <item>229.¿Grito del alma? ¡El shinigami con peluca ha nacido!</item>
+        <item>230.¡Un nuevo enemigo! La materialización de la zanpakuto</item>
+        <item>231.Byakuya, desapareciendo con las flores de cerezo</item>
+        <item>232.¡Sode no Shirayuki vs Rukia! La confusión del corazón</item>
+        <item>233.Zangetsu se convierte en enemigo</item>
+        <item>234.¡¿Renji sorprendido?! Las dos Zabimarus</item>
+        <item>235.¡Choque! Hisagi contra Kazeshini</item>
+        <item>236.¡Liberación! El nuevo Getsuga Tensho</item>
+        <item>237.Soi Fong, rodeando a la zanpakuto</item>
+        <item>238.¿Amistad? ¿Odio? Haineko y Tobiume</item>
+        <item>239.¡El Despertar de Hyorinmaru! La Feroz Batalla de Hitsugaya</item>
+        <item>240.La traición de Byakuya</item>
+        <item>241.¡Por el orgullo! Byakuya vs Renji</item>
+        <item>242.Shinigami &amp; zanpakuto, salida total</item>
+        <item>243.¡Pelea golpe a golpe! Ichigo vs. Senbonzakura</item>
+        <item>244.El largamente esperado, Kenpachi aparece</item>
+        <item>245.¡Persigue a Byakuya! Las confusas divisiones del Gotei</item>
+        <item>246.¡Misión especial! Rescatar al Capitán-Comandante Yamamoto</item>
+        <item>247.¡Shinigami engañados! Crisis, el mundo colapsado</item>
+        <item>248.¡Dragón de hielo y dragón de fuego!¡La confrontación de los más fuertes!</item>
+        <item>249.¡El Bankai de Senbonzakura! Ofensiva y defensiva en el mundo de los vivos</item>
+        <item>250.Aquel hombre, por la familia Kuchiki</item>
+        <item>251.¡Historia oscura! El malvado shinigami ha nacido</item>
+        <item>252.Byakuya, la verdad detrás de la traición</item>
+        <item>253.La verdadera identidad de Muramasa es revelada</item>
+        <item>254.Byakuya y Renji, regresa la sexta división</item>
+        <item>255.Final: La historia alterna de las zanpakuto</item>
+        <item>256.¡El enfado de Byakuya! La familia Kuchiki colapsa.</item>
+        <item>257.¡Un nuevo enemigo! La verdadera naturaleza de las bestias espada</item>
+        <item>258.Serpiente extraviada, mono torturado</item>
+        <item>259.¡Terror! El monstruo que se esconde en el subterráneo</item>
+        <item>260.¿¡Conclusión!? Hisagi vs. Kazeshini</item>
+        <item>261.¡La persona con habilidades desconocidas! Orihime es el objetivo</item>
+        <item>262.¡Haineko llora! La trágica bestia espada</item>
+        <item>263.¿¡Aprisionamiento!? Senbonzakura &amp; Zabimaru</item>
+        <item>264.¿Batalla de mujeres? Nanao vs. Katen Kyokotsu</item>
+        <item>265.¡¿Evolución?! La amenaza de la bestia espada final</item>
+        <item>266.Un nuevo comienzo, Ichigo vs Ulquiorra</item>
+        <item>267.¡Corazones conectados! ¡El puño izquierdo preparado para la muerte!</item>
+        <item>268.El odio y los celos, el dilema de Orihime</item>
+        <item>269.Ichigo y Uryu, el vínculo espalda con espalda</item>
+        <item>270.El comienzo de la desesperación...Ichigo, la espada inalcanzable</item>
+        <item>271.¡Ichigo muere! ¡Orihime, el llanto de dolor!</item>
+        <item>272.Ichigo VS Ulquiorra, ¡Final!</item>
+        <item>273.¡La furia del tiburón! La liberación de Harribel</item>
+        <item>274.¡Hitsugaya, el Funeral Celeste de las Cien Flores Heladas del suicidio!</item>
+        <item>275.El aliento de muerte se aproxima, ¡El rey qué manda sobre la muerte!</item>
+        <item>276.Un golpe a matar, Soi Fong, ¡Bankai!</item>
+        <item>277.¡Clímax! ¡Kyoraku vs. Starrk!</item>
+        <item>278.La pesadilla regresa...el resurgimiento de los Espada</item>
+        <item>279.Hirako y Aizen... ¡el reencuentro del destino!</item>
+        <item>280.Hisagi y Tosen, el momento de la despedida</item>
+        <item>281.Corona de engaños, el rencor de Barragan</item>
+        <item>282.¡Poder del alma!, Los Lobos, ¡Al ataque!</item>
+        <item>283.Starrk, la batalla del solitario</item>
+        <item>284.Cadena de sacrificio... El pasado de Harribel</item>
+        <item>285.Cien años de rencor... La venganza de Hiyori</item>
+        <item>286.¡Protege a Karakura! Ichigo, ¡Hacia el mundo real!</item>
+        <item>287.¡Gaiden! Ichigo y la lámpara mágica</item>
+        <item>288.¡La carta final del triunfo, Ichigo, hacia la decisiva batalla</item>
+        <item>289.¡¿Byakuya Vs. Kenpachi?! La batalla cuerpo a cuerpo comienza</item>
+        <item>290.¡¿Por el bien de la justicia?! El hombre quien abandonó a los Shinigami</item>
+        <item>291.¡Lucha desesperada con Aizen! ¡Hirako, shikai!</item>
+        <item>292.¡Guerra Total! Aizen Vs. Shinigami</item>
+        <item>293.¡Hitsugaya, enfurecido! ¡La espada de odio!</item>
+        <item>294.¿Imposible de atacar? ¡Genryusai sellado!</item>
+        <item>295.Todo esto es una trampa... ¡Enlaces manipulados!</item>
+        <item>296.La impactante verdad... ¡El misterioso poder dentro de Ichigo!</item>
+        <item>297.¡¿La hoja de la espada extendida?! ¡Ichigo vs Gin!</item>
+        <item>298.¡Cine! ¡Festival! ¡Festival de cine Shinigami!</item>
+        <item>299.¡Conmemoración de apertura del cine! Capítulo Infierno • Prólogo</item>
+        <item>300.¡Urahara aparece! ¡Detente Aizen!</item>
+        <item>301.¿¡Ichigo pierde su espíritu de lucha¡? La expectativa de Gin</item>
+        <item>302.¿¡El Getsuga Tensho final!? ¡El entrenamiento de Ichigo!</item>
+        <item>303.¡Mundo real y Shinigami! ¡El especial de Año nuevo!</item>
+        <item>304.¡Gaiden otra vez! ¿¡Este enemigo de ahora es un monstruo!?</item>
+        <item>305.¡Rugir desilucionado! Hisagi, hacia las aguas termales</item>
+        <item>306.¡Por el bien de proteger! Ichigo Vs. Tensa Zangetsu</item>
+        <item>307.¡Situación de emergencia! Aizen, la nueva evolución</item>
+        <item>308.Adiós... Rangiku</item>
+        <item>309.¡Fin de la feroz batalla! ¡Libera, Getsuga Tensho final!</item>
+        <item>310.¡La resolución de Ichigo! El precio de la feroz batalla</item>
+        <item>311.El detective del alma • Karakuriser ¡Despega de nuevo!</item>
+        <item>312.!Inauguaración! ¡La nueva marca del capitán de la Segunda división!</item>
+        <item>313.¡El hombre quien arriesga su vida en la Décimo-primera División!</item>
+        <item>314.¡Kon es visto! El secreto de una chica hermosa</item>
+        <item>315.¡El amigo de Yachiru! ¡El shinigami de la justicia aparece!</item>
+        <item>316.¡Las vacaciones Toshiro Hitsugaya!</item>
+        <item>317.¡¿Un inusual caso en el Seireitei?! ¡Saga de la Invasión armada al Gotei 13!</item>
+        <item>318.¿¡Renji Vs. Rukia?! ¡Batalla con compañeros!</item>
+        <item>319.¡Red de captura de Ichigo! ¡Escapa de la Sociedad de Almas!</item>
+        <item>320.¡Gotei 13, Encuentro en el mundo real!</item>
+        <item>321.¡Confrontación de mutuo acuerdo, Ikkaku Vs. Ikkaku!</item>
+        <item>322.¡Choque! ¡Rukia Vs. Rukia!</item>
+        <item>323.¡Protege a Ichigo! La determinación de Nozomi</item>
+        <item>324.¡Recaptura Seireitei!¡Los capitanes en movimiento!</item>
+        <item>325.¡Por el bien de los que creen! ¡Byakuya Vs. Hitsugaya!</item>
+        <item>326.Las dos Hinamori, la resolución de Hitsugaya</item>
+        <item>327.!El orgullo de la familia Kuchiki! Byakuya Vs, Byakuya</item>
+        <item>328.¡Vence a Kageroza! ¡Shinigami, guerra total!</item>
+        <item>329.La investigación prohibida... ¡El oculto secreto de Nozomi!</item>
+        <item>330.¡Yo quiero vivir...! La zanpakuto de Nozomi</item>
+        <item>331.¡Por el bien de la pelea! ¡El despertar de Nozomi!</item>
+        <item>332.¡El Reigai más diabólico, aparece en el Mundo Real!</item>
+        <item>333.¿¡Destruir a Nozomi?! La decisión de Genryusai</item>
+        <item>334.¡El reiatsu agotado! Ichigo, la lucha mortal del alma</item>
+        <item>335.¿Oculto en el Dangai? ¿¡Ichigo está solo!?</item>
+        <item>336.¡Persigue a Kageroza! ¡Infiltración, Departamento de Desarrollo Tecnológico!</item>
+        <item>337.El desarrollador de las Almas Modificadas</item>
+        <item>338.Los pensamientos de Kon, los pensamientos de Nozomi</item>
+        <item>339.¡Protege a Ichigo! ¡Los lazos de amigos!</item>
+        <item>340.¡Reigai vs Original! ¡La feroz batalla jugando el orgullo!</item>
+        <item>341.¡Saga de la Invasión armada, final!</item>
+        <item>342.Gracias</item>
+        <item>343.¡Estudiante del 3º año de preparatoria! ¡Vestido, y un nuevo capítulo empieza!</item>
+        <item>344.¿¡Una disputa en la escuela!? ¡Ichigo y Uryu, peleando juntos!</item>
+        <item>345.Uryu es atacado, ¡Una amenaza está cerca de los amigos!</item>
+        <item>346.El usuario del Fullbring • Kugo Ginjo</item>
+        <item>347.¿¡El deslizante peligro en la familia Kurosaki¡? ¡La confusión de Ichigo!</item>
+        <item>348.El poder de la insignia sustituta, ¡El "orgullo" de Ichigo!</item>
+        <item>349.¡El siguiente objetivo, las manos malignas apuntan hacía Orihime!</item>
+        <item>350.¡¿El hombre qué mató a un shinigami sustituto?! Tsukishima hace su movimento</item>
+        <item>351.¡Fullbring, el desagradable poder!</item>
+        <item>352.¡Tsukishima, ataca! El entrenamiento ha sido frustrado</item>
+        <item>353.¡Ichigo, dominando el Fullbring!</item>
+        <item>354.Ichigo vs Ginjo, hacia el juego del espacio</item>
+        <item>355.¡Los shinigami entran en batalla! El Seireitei también tiene un Año Nuevo especial</item>
+        <item>356.¿¡Amigo o enemigo!? ¡El oculto corazón de Ginjo!</item>
+        <item>357.¡La deslizante amenaza... ¡La habilidad de Tsukishima!</item>
+        <item>358.¿¡Enfrentamiento!? Xcution ataca a Ginjo</item>
+        <item>359.¡La dolorosa pelea! ¡Ichigo Vs. Sado y Orihime!</item>
+        <item>360.¿¡Ichigo Vs. Uryu!? ¡Quién es el traidor!</item>
+        <item>361.¡Una nueva apariencia! ¡Reunión, el Gotei 13!</item>
+        <item>362.¡Renace!¡El Shinigami sustituto･Ichigo Kurosaki!</item>
+        <item>363.¡La feroz batalla! ¡Shinigami vs. Xcution!</item>
+        <item>364.!¿Lucha desesperada?! La memoria de Byakuya en problemas</item>
+        <item>365.¡Ichigo vs Ginjo! El secreto de la insignia sustituta</item>
+        <item>366.Historia que cambia, corazón que no cambia</item>
+    </string-array>
+    <string name="bleach_id">57</string>
+    <string name="bleach_url">https://animeflv.net/ver/2948/bleach-tv-</string>
+
+    <string-array name="dragon_ball_chapters">
+        <item>1.Bulma y Son Gokū.</item>
+        <item>2.¡Aaaaargh! ¡No están las bolas!</item>
+        <item>3.La Nube Kinto de Kame Sen'nin.</item>
+        <item>4.Oolong, el demonio secuestrador.</item>
+        <item>5.El malvado y poderoso Yamcha del desierto.</item>
+        <item>6.Los visitantes de medianoche.</item>
+        <item>7.Ox-Satán de la montaña Frypan.</item>
+        <item>8.El Kame Hame Ha del Kame Sen'nin.</item>
+        <item>9.La habilidad especial del Jefe Conejo.</item>
+        <item>10.¡Las Dragon Balls han sido robadas!</item>
+        <item>11.¡Finalmente aparece el dragón!</item>
+        <item>12.¡Un deseo a Shenlong!</item>
+        <item>13.La gran transformación de Goku.</item>
+        <item>14.¿El rival de Gokū? ¡Aparece!</item>
+        <item>15.Lunch, una niña misteriosa</item>
+        <item>16.Entrenamiento: Búsqueda de piedras</item>
+        <item>17.¡Arriesgando la vida! Los repartidores de leche</item>
+        <item>18.Entrenamiento inten~so al estilo de Kame Sen'nin</item>
+        <item>19.¡Comienza el Tenkaichi Budōkai!</item>
+        <item>20.¿Podrá? El poder del entrenamiento</item>
+        <item>21.¡Cuidado! Krilin.</item>
+        <item>22.Yamcha contra Jackie Chun</item>
+        <item>23.¡Aparece! Giran, el formidable enemigo</item>
+        <item>24.La gran lucha ofensiva y defensiva desesperada de Krilin</item>
+        <item>25.¡Levántate Gokū! El temible Tenkū Pekeji Ken</item>
+        <item>26.¡Es la final! Kame Hame Ha</item>
+        <item>27.Gokū - Grandísimo peligro</item>
+        <item>28.¡Choque! Poder contra poder</item>
+        <item>29.Retorna la aventura, el lago deambulante</item>
+        <item>30.Pilaf y el ejército misterioso</item>
+        <item>31.¡Je je! ¡Aparece un falso Gokū!</item>
+        <item>32.¡¿Ha desaparecido?! La fortaleza voladora</item>
+        <item>33.La leyenda del dragón</item>
+        <item>34.La despiadada Red Ribbon</item>
+        <item>35.Suno, la chica del Norte</item>
+        <item>36.El terror de la Muscle Tower</item>
+        <item>37.Aparece el Ninja Murasaki</item>
+        <item>38.¡Temible! El arte de la multiplicación</item>
+        <item>39.El misterioso Androide #8</item>
+        <item>40.¡¿Qué vas a hacer Gokū?! El temible Buyon</item>
+        <item>41.El final del Muscle Tower</item>
+        <item>42.¡Peligro inminente! Aguanta Hatchan</item>
+        <item>43.La casa de Bulma en la Capital del Oeste</item>
+        <item>44.Gokū, los amigos y mucho peligro</item>
+        <item>45.¡Tengamos cuidado! La trampa aérea</item>
+        <item>46.El gran fracaso de Bulma</item>
+        <item>47.¡Kame House es descubierta!</item>
+        <item>48.¡El General Blue comienza el ataque!</item>
+        <item>49.Cuidado Lunch</item>
+        <item>50.La trampa de los piratas</item>
+        <item>51.El guardián del fondo del mar</item>
+        <item>52.¡Conseguido! El tesoro es descubierto</item>
+        <item>53.Los terribles ojos brillantes</item>
+        <item>54.¡Huyamos huyamos! El gran escape</item>
+        <item>55.¡N'cha! La lejana villa Pingüino</item>
+        <item>56.¡Jojojoi! Arale sube en la nube</item>
+        <item>57.¡Desafío! Arale contra Blue</item>
+        <item>58.La sagrada tierra encantada de Karin</item>
+        <item>59.¡Ha llegado! "Tao Pai Pai", el mejor asesino del mundo</item>
+        <item>60.¡Reto! Kame Hame Ha VS Dodonpa</item>
+        <item>61.El señor Karin de la Torre Karin</item>
+        <item>62.¡¿Es de verdad?! Los efectos del Chōseisui</item>
+        <item>63.El contraataque de Son Gokū</item>
+        <item>64.El final Tao Pai Pai</item>
+        <item>65.¡Vamos Gokū! Comienza el ataque</item>
+        <item>66.La defensa y ofensa desesperada del Ejército Red Ribbon</item>
+        <item>67.¡El Comandante Red muere!</item>
+        <item>68.La última Dragon Ball</item>
+        <item>69.Guapa ¡¿eh?! Baba, la adivina</item>
+        <item>70.¡Ataque! Nuestros 5 guerreros</item>
+        <item>71.Gran batalla sangrienta a muerte</item>
+        <item>72.¡Encuentro con Son Gokū! El Váter del diablo</item>
+        <item>73.Rayo Akumigth, ¡¿Técnica mortal?!</item>
+        <item>74.El misterioso quinto hombre</item>
+        <item>75.¡Colisión! Poderoso contrincante</item>
+        <item>76.¡¿La verdadera identidad del hombre enmascarado...?!</item>
+        <item>77.La gran estrategia de Pilaf</item>
+        <item>78.Regresa Shenlong</item>
+        <item>79.La calabaza come hombres de Kinkaku y Ginkaku</item>
+        <item>80.¡Antes de que empiece mi juego! Gokū contra Tenlong</item>
+        <item>81.Gokū va al mundo de los Demonios</item>
+        <item>82.El violento monstruo Inoshikachō</item>
+        <item>83.¡Deprisa, Gokū! El Tenkaichi Budōkai</item>
+        <item>84.¡Apunta a ser el mejor artista marcial!</item>
+        <item>85.¡Concentrados en ganar! Sobrevivir en las preliminatorias</item>
+        <item>86.¡Decidido! Los 8 valientes</item>
+        <item>87.¡Desafío! Yamcha contra Ten Shin Han</item>
+        <item>88.¡Cuidado, Yamcha! El temible Ten Shin Han</item>
+        <item>89.¡Terror! El rencor de la Luna llena</item>
+        <item>90.¿Qué? ¿Qué has dicho? ¿Dodonpa?</item>
+        <item>91.¡Inversión! El plan matemático de Krilin.</item>
+        <item>92.¡Espera! ¡Llamando a Gokū!</item>
+        <item>93.¡Habilidades iguales! Ten Shin Han contra Jackie</item>
+        <item>94.¡Gegege! Taiyōken, la nueva técnica sagrada</item>
+        <item>95.¡Lucha! Gokū contra Krilin</item>
+        <item>96.No puede ser, ¡¿Gokū?! La gran estrategia de Krilin</item>
+        <item>97.¡Ronda final! ¡¿Quién será el artista marcial más fuerte bajo el cielo?!</item>
+        <item>98.Higi・Haikyūke y el poder de la batalla</item>
+        <item>99.¡La agonía de Ten Shin Han!</item>
+        <item>100.¡¿La vida o la muerte?! La última alternativa</item>
+        <item>101.¡El gran encuentro de artistas marciales termina! ¡Sin embargo...!</item>
+        <item>102.¡La muerte de Krilin, un complot horrible!</item>
+        <item>103.¡El terror de Piccolo Daimaō!</item>
+        <item>104.¡Regresa Son Gokū!</item>
+        <item>105.¡El chico misterioso: Aparece Yajirobe!</item>
+        <item>106.¡La bestia: Tanbourin ha llegado!</item>
+        <item>107.¡Son Gokū: Explosión de ira!</item>
+        <item>108.¡El aterrizaje de Piccolo Daimaō!</item>
+        <item>109.Son Gokū contra Piccolo Daimaō</item>
+        <item>110.¡Aguanta! ¡Son Gokū!</item>
+        <item>111.¡El último Mafūba de Kame Sen'nin!</item>
+        <item>112.¡¿Ha vuelto a la juventud?! Piccolo Daimaō</item>
+        <item>113.¡La defensa y ofensa del castillo del Rey!</item>
+        <item>114.¡El deseo de Gokū! El señor Karin también se preocupa</item>
+        <item>115.¡Ponla en mis manos! La misteriosa Chōshinsui</item>
+        <item>116.¡¿Kame Sen'nin está vivo?!</item>
+        <item>117.¡Son Gokū se lanza al fin!</item>
+        <item>118.¡La decisión de Ten Shin Han!</item>
+        <item>119.¡¿Funcionará?! El legendario Mafūba</item>
+        <item>120.¡Gokū: El máximo poder de la ira!</item>
+        <item>121.¡La más grande crisis de Son Gokū!</item>
+        <item>122.¡La última apuesta!</item>
+        <item>123.El secreto del Nyoibō</item>
+        <item>124.El templo sobre las nubes</item>
+        <item>125.¡Aparece Dios!</item>
+        <item>126.¡Shenlong revive!</item>
+        <item>127.¡Más rápido que un relámpago!</item>
+        <item>128.Sereno como el cielo</item>
+        <item>129.Gokū cruza el tiempo</item>
+        <item>130.¡¿El enemigo de Gokū es... Gokū?!</item>
+        <item>131.Comienza el camino de cada uno</item>
+        <item>132.Más caliente que el magma</item>
+        <item>133.Una reunión antes de la tormenta</item>
+        <item>134.El turbulento Tenkaichi Budōkai</item>
+        <item>135.Los 8 escogidos</item>
+        <item>136.El contraataque del asesino TaoPaiPai</item>
+        <item>137.La boda de Son Gokū</item>
+        <item>138.El misterioso hombre: Shen</item>
+        <item>139.¡Vuelve la intensa lucha! Gokū contra Ten Shin Han</item>
+        <item>140.El verdadero poder</item>
+        <item>141.Cuatro Ten Shin Han</item>
+        <item>142.¿Cuál es más fuerte!? Dios contra Piccolo Daimaō</item>
+        <item>143.¡Apostando por el destino de este mundo!</item>
+        <item>144.¡Ahí está! El último Super Kamehameha</item>
+        <item>145.La técnica de Supergigante de Piccolo Daimaō</item>
+        <item>146.La trampa de Son Gokū</item>
+        <item>147.¡Todo termina!</item>
+        <item>148.¡Ya está! El hombre más fuerte del mundo.</item>
+        <item>149.El vestido de novia dentro de las llamas</item>
+        <item>150.El fantasmal ave traga fuego</item>
+        <item>151.Gracias al entrenamiento de Chichi para ser buena esposa</item>
+        <item>152.¡Deprisa Gokū! El misterio del monte de los cinco elementos</item>
+        <item>153.¡Arde montaña Frypan! Una decisión de vida o muerte</item>
+    </string-array>
+    <string name="dragon_ball_id">60</string>
+    <string name="dragon_ball_url">https://animeflv.net/ver/11771/dragon-ball-</string>
+
+    <string-array name="dragon_ball_z_chapters">
+        <item>1.Aparece un mini Gokū! Soy Gohan!</item>
+        <item>2.¡El guerrero más fuerte de la historia, es el hermano de Gokū!</item>
+        <item>3.¡Hurra! ¡Esta es la combinación más fuerte de la Tierra!</item>
+        <item>4.¡La carta del triunfo de Piccolo! Gohan es un llorón</item>
+        <item>5.¡Gokū muere! Solo hay una oportunidad.</item>
+        <item>6.Enma-Sama también se sorprende. La lucha en el más allá.</item>
+        <item>7.¡Dinosaurios y supervivencia! El duro entrenamiento de Gohan</item>
+        <item>8.¡La gran transformación de la noche de luna llena! El poder secreto de Gohan.</item>
+        <item>9.Lo siento, Sr. Robot. Caen lágrimas en el desierto.</item>
+        <item>10.¡No llores Gohan! Comienza la batalla!</item>
+        <item>11.Despiertan los saiyajin, los guerreros más fuertes del universo.</item>
+        <item>12.Siesta en el camino de la serpiente. Gokū falla.</item>
+        <item>13.¡Las manos fuera! La fruta prohibida de Enma-sama</item>
+        <item>14.¡Dulce tentación! La hospitalidad de la Princesa Serpiente.</item>
+        <item>15.¡Hay que escapar de Piccolo! Gohan convoca una tormenta.</item>
+        <item>16.¡Corre Gohan! Chichi te espera en el monte Paozu.</item>
+        <item>17.¡La ciudad sin futuro! El largo camino hacia la victoria.</item>
+        <item>18.¡El final del Camino de la Serpiente! ¿Tú eres Kaio-sama?</item>
+        <item>19.¡Lucha contra la gravedad! Atrapa a Bubbles-kun.</item>
+        <item>20.¡Revive la leyenda de los saiyajin! Las raíces de Gokū.</item>
+        <item>21.¡Aparece, Shen Long! Los saiyajin llegan a la Tierra.</item>
+        <item>22.¡Imposible! Los Saibaiman surgen de la tierra.</item>
+        <item>23.¡Yamcha muere! Los temibles Saibaiman.</item>
+        <item>24.¡Adiós, Ten! La estrategia suicida de Chaos.</item>
+        <item>25.Ten Shin Han grita! Éste es mi último Kikoho.</item>
+        <item>26.¡La intensa espera de tres horas! El tren bala Kinton.</item>
+        <item>27.¡Déjenmelo a mí! La gran explosión de rabia de Gohan</item>
+        <item>28.¡La crueldad de los saiyajin! Kami-sama y Piccolo mueren</item>
+        <item>29.¡Papá es increíble! La técnica mortal definitiva, el Kaio-Ken.</item>
+        <item>30.¡Batalla ardiente sin límites! Gokū contra Vegeta</item>
+        <item>31.¡Ahora Gokū! La técnica final de la que depende todo.</item>
+        <item>32.¡Fuerza de combate x 10! La gran transformación de Vegeta.</item>
+        <item>33.¡No mueras, papá! Éste es el poder latente de Gohan.</item>
+        <item>34.¡Ataca, Krilin! La Genkidama repleta de esperanza.</item>
+        <item>35.¡Haz un milagro! Son Gohan, el Super Saiyajin.</item>
+        <item>36.¡Volamos hacia el espacio! El planeta de la esperanza es el hogar de Piccolo</item>
+        <item>37.¡El misterio de Yunzabit! La búsqueda de la nave espacial de Dios</item>
+        <item>38.¡Despegue hacia Namekusei! El terror que espera a Gohan y a sus amigos</item>
+        <item>39.¿Amigos o enemigos? El misterio de los niños de la nave espacial gigante</item>
+        <item>40.¿En serio, de verdad? Este es el planeta de la esperanza, Namekusei</item>
+        <item>41.Los alienígenas amables. La esfera de cinco estrellas aparece de repente</item>
+        <item>42.Planeta Freeza número 79. ¡La recuperación de Vegeta!</item>
+        <item>43.¡Aquí están todas las esferas del dragón! Piccolo volverá a la vida</item>
+        <item>44.¡Un nuevo enemigo terrorífico! El tirano espacial Freeza</item>
+        <item>45.¡La ambición de Vegeta! Yo soy el guerrero más poderoso del Universo</item>
+        <item>46.¡Gokū al máximo de poder! 6 días hasta el otro extremo de la Galaxia</item>
+        <item>47.¡Ataque por sorpresa! El objetivo del anciano son los scouters</item>
+        <item>48.¡Gohan en peligro! La persecución del mortífero Dodoria</item>
+        <item>49.¡Dodoria explota! La temible onda de choque de Vegeta</item>
+        <item>50.¡Huida del planeta en llamas! Un desesperado Kamehameha.</item>
+        <item>51.¡Coraje x 100! Los guerreros se reúnen con Kaio!</item>
+        <item>52.¡Escúchame, Gokū! Mantente alejado de Freeza</item>
+        <item>53.¡Escalofrío! La diabólica transformación del apuesto guerrero Zaabon</item>
+        <item>54.¡Defiendan la estrella de la esperanza! El aumento de poder de Krilin</item>
+        <item>55.Resurrección a las puertas de la muerte. El hombre milagroso, Vegeta</item>
+        <item>56.¡Una fuerza de combate inmensa! Los planes de Freeza se desmoronan</item>
+        <item>57.¡He recuperado las fuerzas! Gokū se enfrenta a una gravedad de 100</item>
+        <item>58.¡El arma secreta de Freeza! Las diabólicas Fuerzas Especiales Ginyu</item>
+        <item>59.¡Bulma está en peligro! La esfera de cuatro estrellas cae en las manos de Freeza.</item>
+        <item>60.¡Colisión frontal! El Kame Hame Ha y el Kaioh Ken</item>
+        <item>61.¡La batalla definitiva se aproxima! ¡Llegan las Fuerzas Especiales Ginyu!</item>
+        <item>62.¡Gokū se aproxima a toda velocidad! Hay que escapar de las redes de Freeza</item>
+        <item>63.¿Truco o súper-magia? El Sr. Gourd se enfada</item>
+        <item>64.Una solitaria batalla final ～El padre del guerrero Z Gokū, quien se enfrentó a Freezer～</item>
+        <item>65.El salvaje Recoom. Es malo, brutal y extravagante</item>
+        <item>66.¡No mueras, Gohan! Gokū llega finalmente al campo de batalla</item>
+        <item>67.¡Una fuerza fuera de lo normal! Gokū, el Super Saiyajin de la leyenda</item>
+        <item>68.¡Una bola relámpago azul y roja! Jeese y Burtta atacan a Gokū</item>
+        <item>69.¡Al fin una confrontación directa! El capitán Ginyu entra en combate</item>
+        <item>70.¡Qué fuerza más increíble! ?Has visto todo el poder de Gokū</item>
+        <item>71.¿Cuál será el resultado de la batalla? La diabólica mano de Freeza se cierra sobre el Saichoro</item>
+        <item>72.¡Sorpresa! Gokū es Ginyu y Ginyu es Gokū</item>
+        <item>73.¡Aparece, Super Shenron! Concédeme mi deseo</item>
+        <item>74.¡Ése no soy yo! ¡Gohan tienes que golpear a tu padre!</item>
+        <item>75.¡Conmoción! Ginyu se convierte en rana</item>
+        <item>76.Tú que has reunido las siete bolas... Di la contrasena</item>
+        <item>77.¡Dios también vuelve a la vida! Piccolo es resucitado por Súper Shenron</item>
+        <item>78.¿El nacimiento del guerrero definitivo? Piccolo y Nail se fusionan</item>
+        <item>79.¡La supertransformación de pesadilla! La fuerza de combate de un millón de Freeza</item>
+        <item>80.¿Éste es el fin? Gohan es atacado por un poder descomunal</item>
+        <item>81.¡La marea cambia de golpe! Piccolo, el guerrero rezagado</item>
+        <item>82.¡La confianza de Piccolo! Yo seré el que derrote a Freeza</item>
+        <item>83.¡Ataca, Gokū! La segunda transformación de un Freeza enfurecido</item>
+        <item>84.¡Temedme! El desafío de la tercera transformación de Freeza</item>
+        <item>85.La muerte de Dende... ¡Surge, formidable Poder Zenkai!</item>
+        <item>86.¡Cómo he esperado este momento! Son Gokū se recupera</item>
+        <item>87.¡No...! Vegeta, el orgullo de los saiyajins, muere</item>
+        <item>88.¡Se levanta el telón de la batalla definitiva! Yo voy a derrotarte</item>
+        <item>89.¡Los dos superpoderes chocan! Llega el momento de luchar en serio</item>
+        <item>90.¡La terrible declaración de Freeza! Te derrotaré sin utilizar las manos</item>
+        <item>91.¡No es un alarde! Son Gokū, un tipo audaz y asombroso</item>
+        <item>92.¡La hora de la verdad! Un Kame Hame Ha con potencia de Kaioh Ken x 20</item>
+        <item>93.La Súper-Genkidama. ¡Ésta es mi última carta!</item>
+        <item>94.¡Hay que mantener viva la esperanza! El ataque suicida de Piccolo</item>
+        <item>95.¡La increíble energía de la Genkidama! ?Quién puede sobrevivir a ella</item>
+        <item>96.¡Al fin se transforma! Son Gokū, el Super Saiyajin legendario</item>
+        <item>97.¡Explosión de rabia! Gokū venga las muertes de todos</item>
+        <item>98.¿La destrucción del planeta Namek? El rayo de luz que perfora el suelo</item>
+        <item>99.Yo seré el que gane... Un ataque final que pone en peligro la supervivencia</item>
+        <item>100.¡Aparece Shen Long! El momento de la destrucción de Namek se aproxima</item>
+        <item>101.¡Soy el hijo de Gokū! Gohan regresa al campo de batalla</item>
+        <item>102.¡Me quedo en este planeta! Un deseo final para la victoria!</item>
+        <item>103.¡Acabemos de una vez! Dos luchadores permanecen en el planeta condenado</item>
+        <item>104.¡El patetismo de Freeza! ¡Una vez comienza a temblar, es imparable!</item>
+        <item>105.¡La declaración de victoria de Gokū! Freeza se destruye a sí mismo...</item>
+        <item>106.¡Freeza derrotado! Un último ataque que concentra toda la rabia</item>
+        <item>107.¡La gran explosión del Planeta Namek! Gokū desaparece en el espacio</item>
+        <item>108.Gokū ha sobrevivido ¡Todos los Guerreros Z resucitan!</item>
+        <item>109.¡El extraño templo! ¡¿Garlick Junior se convierte en dios?!</item>
+        <item>110.¡La niebla oscura del terror...! Todos se alían a la tribu del Demonio</item>
+        <item>111.¡El templo es el campo de batalla! Piccolo cae en la tribu del Demonio</item>
+        <item>112.¡Piccolo y la Super confrontación! El Masenko de la ira en el templo</item>
+        <item>113.¡Vuelve al corazón de todos! La Super agua sagrada duerme en el templo</item>
+        <item>114.¡No pares hasta el mañana! Decisión mortal para la preparación de dios</item>
+        <item>115.¡Reto Super radical! Las normas del dios derrotado</item>
+        <item>116.¡El agua Super sagrada es efectiva! El mundo despierta de la pesadilla</item>
+        <item>117.¡Oportunidad de combatir para Gohan! Ataca al planeta diabólico de la desgracia</item>
+        <item>118.Eres un hombre ¿no?... La proposición 101ª de Krilin</item>
+        <item>119.Esa es la Tierra papá... El contraataque del padre de Freezer</item>
+        <item>120.Yo derrotaré a Freezer... El misterioso chico espera a Gokū</item>
+        <item>121.¡Una brizna espera a Freezer! Otro Super Saiyajin</item>
+        <item>122.¡Ossu! Cuanto tiempo... Son Gokū ha vuelto</item>
+        <item>123.Mi padre es Vegeta... La confesión del misterioso chico</item>
+        <item>124.¡¿La nueva técnica devastadora de Gokū?! Míralo, Mi Movimiento Instantáneo</item>
+        <item>125.¡Superando... a Gokū! El príncipe de la raza agresiva Saiyana</item>
+        <item>126.¿Inicio autorizado? La nueva prueba de Gokū</item>
+        <item>127.Las señales de un asesinato ¡¿Quiénes son los androides?!</item>
+        <item>128.¡La traición a sangre fría del inhumano Nº20! Gokū: la Super transformación de la ira</item>
+        <item>129.¡El doble shock de Gokū! La enfermedad y el ataque de los enemigos</item>
+        <item>130.¡El poderoso Vegeta! Despierta la sangre del Super Saiyajin</item>
+        <item>131.La risa atrevida del Nº20... El secreto del Dr. Gero</item>
+        <item>132.¡¿La realidad es más espantosa que el futuro?! La duda de Trunks</item>
+        <item>133.¡Persecución! Buscad el misterioso laboratorio del Dr. Gero</item>
+        <item>134.Y continua el terror en la actualidad... ¡Despiertan el Nº17 y el Nº18!</item>
+        <item>135.¡¿Todo se retrasa?! El arma definitiva para matar a Gokū</item>
+        <item>136.¡¿El Super poder de un rostro precioso?! Las habilidades de Nº18</item>
+        <item>137.Nadie puede detenerles... ¡¿Los guerreros Z serán fulminados?!</item>
+        <item>138.¡La decisión de Piccolo! No dejes escapar la última oportunidad</item>
+        <item>139.¡El arma Super destructiva! Los androides se acercan a Gokū</item>
+        <item>140.¡Presentimiento desfavorable! Bulma informa del misterio</item>
+        <item>141.¡Descubierto el huevo del mal! Trunks está aterrorizado</item>
+        <item>142.Contra un enemigo nunca visto... ¡Nace el Super Namekkuseijin!</item>
+        <item>143.¡¿Kamehameha?! El monstruo que tiene el poder de Gokū</item>
+        <item>144.¡El cuerpo viviente de la destrucción y el odio! Se llama Androide Cell</item>
+        <item>145.¡El gran fallo de Piccolo! Cell huye a la ciudad</item>
+        <item>146.¡El secreto del nacimiento de Cell! ¡¿Qué hay bajo el laboratorio?!</item>
+        <item>147.¡Gokū despierta para luchar! ¡¡Sobrepasa al Super Saiyan!!</item>
+        <item>148.¡Acelera tu entrenamiento, Saiajin! En la Sala del Espíritu y el Tiempo...</item>
+        <item>149.¡¡El Gekiretsu Kodan que parte en 2 el cielo!! Piccolo contra el Androide No. 17</item>
+        <item>150.¡Esperaba este día! Cell: Preludio a la perfección del cuerpo</item>
+        <item>151.¡No te arriesgues en atacarle! ¡Piccolo arde!</item>
+        <item>152.La única esperanza...El silencioso guerrero Nº16 persiste</item>
+        <item>153.Absorbe a Nº17... Cell, el Super Gourmet se transforma</item>
+        <item>154.¡El mañana está en tus manos! El desafío de Gokū</item>
+        <item>155.¡Yo pondré todo en su sitio! Aparece el renacido papá Vegeta</item>
+        <item>156.¡Regeneración repentino! Luz brillante, El Super poder de Vegeta</item>
+        <item>157.¡Arrodíllate Cell! Yo soy Super Vegeta</item>
+        <item>158.¡Orgullo peligroso! Un reto hacia el Cell perfecto</item>
+        <item>159.¡No sufras por mi! Krilin sabotea a Nº18</item>
+        <item>160.¡Choque en el espacio! La asombrosa evolución al cuerpo perfecto de Cell</item>
+        <item>161.¡Poder de combate infinito! Nace el Dios destructivo llamado Cell</item>
+        <item>162.¡Super Vegeta en peligro! ¡El terror de la perfección se aproxima!</item>
+        <item>163.¡Los límites de un Super Saiyajin! Trunks llama a la tormenta</item>
+        <item>164.¡Salva a papá! La ira de Trunks también arde en el cielo</item>
+        <item>165.¡El futuro desesperante! Trunks, el hombre que sobrevive al infierno</item>
+        <item>166.¡El punto débil de Super Trunks! Cell, La bomba de Choque</item>
+        <item>167.¡El gran combate definitivo se acerca a Gokū! El misterio del Nuevo Torneo de Artes Marciales</item>
+        <item>168.¡100% de audiencia! El juego de Cell llama a la muerte</item>
+        <item>169.Gokū y Gohan... El máximo nivel definitivo de los héroes fraternales</item>
+        <item>170.¡¿La habitación de Gokū?! Esperemos el juego de Cell</item>
+        <item>171.El descanso de los guerreros... La chica, las mentiras y la decisión de Gohan</item>
+        <item>172.¡El poder ha sido ocultado! La época en la que Gohan fue un bebé</item>
+        <item>173.¡Buscando a un dios! Gokū, el gran movimiento instantáneo</item>
+        <item>174.¡El primer trabajo de Dende! Las Dragon Ball reviven</item>
+        <item>175.¡¿El difícil problema de Gokū?! A por las Dragon Ball</item>
+        <item>176.¡Aquellos que desafían a Cell! Preludio de la batalla decisiva</item>
+        <item>177.¡Resistencia a la desesperación!! Los últimos super guerreros : Gohan y Trunks</item>
+        <item>178.¡Espera un momento! La violenta tropa de Satán</item>
+        <item>179.¡El Desafió de Gokū! El juego extremadamente tenso de Cell</item>
+        <item>180.¡La bomba terrestre! El enorme Kame Hame Ha de Cell</item>
+        <item>181.¡¿Derrota o muerte?! Gokū , el secreto de la reversión</item>
+        <item>182.¡Decisión en el combate mortal! ¡¿La rendición de Gokū?!</item>
+        <item>183.La persona que sucede al más poderoso... Se llama Gohan</item>
+        <item>184.¡Enfurécete, Gohan! Llama al poder dormido</item>
+        <item>185.¡La pequeña amenaza! El ataque de los Cell Juniors</item>
+        <item>186.¡La bondad de Nº16! La ira de Gohan comienza a surgir</item>
+        <item>187.¡El nuevo poder sacude! La pulverización de los Cell Juniors</item>
+        <item>188.¡K.O. a Cell! El súper puño de hierro golpea una vez</item>
+        <item>189.¡El accidente de Cell! El cuerpo perfecto es destrozado</item>
+        <item>190.Adiós a todos, el último movimiento instantáneo de Gokū</item>
+        <item>191.¡Pesadilla a la luz del día! El terror de la perfección</item>
+        <item>192.De Gokū para Gohan... El alma de papá es transferida</item>
+        <item>193.La lucha termina... Gracias, Son Gokū</item>
+        <item>194.¡Entrenamiento en el otro mundo! Sonriente separación</item>
+        <item>195.¡Un nuevo día... Padre! Soy perseverante</item>
+        <item>196.¡Otra decisión! Yo protegeré el futuro</item>
+        <item>197.¡Gran emoción! ¡Eso es! El luchador del Otro Mundo</item>
+        <item>198.El Otro Mundo, Yo soy el gran héroe de la generación venidera</item>
+        <item>199.¡Entusiasmo en el Gran planeta Kaiō! El torbellino de Gokū</item>
+        <item>200.¡La decisión de las llamas! ¡¿Gokū o Paikuhan?!</item>
+        <item>201.¡La victoria no se me escapará! Decidámoslo, El Kamehameha Super veloz</item>
+        <item>202.¡Han pasado 7 años! Desde hoy soy estudiante</item>
+        <item>203.Aparece el Gran Saiyaman del amor y la justicia</item>
+        <item>204.¡¿La primera cita caótica de Gohan?!</item>
+        <item>205.¡Es urgente Gohan! ¡Salva a Videl!</item>
+        <item>206.¡Los acontecimientos de un robo! ¡¿El ladrón es Saiyaman?!</item>
+        <item>207.¡¿Gokū también resucita?! ¡El campeonato Mundial de Artes Marciales!</item>
+        <item>208.¡Gohan también se sorprende! El poder explosivo de Goten</item>
+        <item>209.¡A volar! La técnica de la danza celestial de Videl</item>
+        <item>210.¡Gokū vuelve! La pandilla de guerreros Z</item>
+        <item>211.¡Saiyaman en peligro! ¡¿Cuidado con la copia?!</item>
+        <item>212.¡No soy pequeño! Chibi Trunks</item>
+        <item>213.¡Es mi turno! Goten, Gran batalla intensa</item>
+        <item>214.¡Un millón de veces! ¡Decidido el chico ganador!</item>
+        <item>215.¡¿Qué vas a hacer Satán?! El mayor problema de la historia</item>
+        <item>216.¡La decisión de los oponentes! Deprisa, que empiece el juego</item>
+        <item>217.¡¿Qué ocurre Piccolo?! La increíble renuncia</item>
+        <item>218.¡¿El extraño invencible?! El misterio de Spopobitch</item>
+        <item>219.¡La crueldad de Videl! ¿Podrá Super Gohan encolerizarse?</item>
+        <item>220.¡Ahí está! Saiyaman es Son Gohan</item>
+        <item>221.¡Sacude la conspiración! El poder de Gohan es robado</item>
+        <item>222.¡Aparece el mago oscuro! Babidi, el demonio del mal</item>
+        <item>223.¡La trampa te espera! Super batalla desde el infierno</item>
+        <item>224.¡No lo hagas! La primera batalla de la cólera de Vegeta</item>
+        <item>225.¡El poder regenerativo de Gokū! Yakon vuela</item>
+        <item>226.¡Gran error! ¡¿Satán contra los tres Super guerreros?!</item>
+        <item>227.¡Los poderosos pequeños! ¡¿La gran batalla de Nº18?!</item>
+        <item>228.¡Demonio desvinculado! ¡El turno de Gohan!</item>
+        <item>229.¡Se mostró el corazón perverso! La idea de Dabra</item>
+        <item>230.¡Renace Vegeta el príncipe de la destrucción! Intrusión de guerra</item>
+        <item>231.¡El Super duelo del destino! Choque entre Gokū y Vegeta</item>
+        <item>232.¡Espera Babidi! No permitiré tu ambición</item>
+        <item>233.¡El sello se ha roto! Llega el brutal y malvado Bu</item>
+        <item>234.¡No dejes que resucite! El resistente KameHameHa</item>
+        <item>235.¡¿En línea recta hacia la desesperación?! Kaioshin suspira</item>
+        <item>236.¡El temible Malvado! El terror de la muerte se acerca a Gohan</item>
+        <item>237.¡A comer! El estómago Super poderoso del Malvado</item>
+        <item>238.¡La decisión del guerrero! Yo mataré al Malvado</item>
+        <item>239.Por aquellos que amas...¡Vegeta fallece!</item>
+        <item>240.¡Retorna la pesadilla! El Malvado Bu sigue vivo</item>
+        <item>241.¡La lucha de Videl y compañía! Buscad las Dragon Ball</item>
+        <item>242.¡Enorme esperanza! La nueva técnica devastadora de los pequeños</item>
+        <item>243.Goten y Trunks, la esperanza para salvar el mundo</item>
+        <item>244.¡La resurrección de Gohan! ¡¿El arma secreta de Kaioshin?!</item>
+        <item>245.¡Ahí está! La legendaria espada Z</item>
+        <item>246.¡La ciudad del Oeste es el objetivo! ¡Detente Malvado Bu!</item>
+        <item>247.¡Qué sorpresa, gran transformación! Super Saiyajin 3</item>
+        <item>248.¡Bye bye Babidi! La rebelión del malvado Bu</item>
+        <item>249.¡¿Una mala confusión?! Entrenamiento especial de la pose de transformación</item>
+        <item>250.¡No están todos! Gokū vuelve al Otro Mundo</item>
+        <item>251.¡¿Dónde está Gohan?! Entrenamiento intenso en el Planeta Kaioshin</item>
+        <item>252.¡¿Es mentira?! La espada Z se ha roto</item>
+        <item>253.¡Nace la unión del Super hombre! Se llama Gotenks</item>
+        <item>254.¡¿El último arma?! Satán salva a la Tierra</item>
+        <item>255.¡Ha dejado de matar! El malvado Bu se convierte en un niño bueno</item>
+        <item>256.¡Huye Satán! Aparece el malvado Bu encolerizado</item>
+        <item>257.¡¿Quién vencerá?! Duelo entre BuBu bueno y malo</item>
+        <item>258.¡La catástrofe no volverá! La exterminación de los humanos de la Tierra</item>
+        <item>259.¡Exitoso entrenamiento intensivo! Este es el fin del malvado Bu</item>
+        <item>260.¡La hora de la verdad! Super Gotenks Zenkai</item>
+        <item>261.¡Lo conseguimos! ¡¿Aplacaremos exitosamente a Bu con los fantasmas?!</item>
+        <item>262.¡Huida desde la otra dimensión! Super Gotenks 3</item>
+        <item>263.¡¿Extralimitación?! El voleibol de Bu Bu</item>
+        <item>264.¡Grandioso! El renacido Gohan va a la Tierra</item>
+        <item>265.¡Aplasta a Bu! El poder milagroso de Gohan</item>
+        <item>266.¡¿Ya está?! La gran explosión del malvado Bu</item>
+        <item>267.¡La peor fechoría de Bu! Gotenks es absorbido</item>
+        <item>268.Por todo el universo... Son Gokū regresa</item>
+        <item>269.Los milagros solo ocurren una vez... La Super unión con Gohan</item>
+        <item>270.¡Unión! El orgullo de Vegeta y la ira de Gokū</item>
+        <item>271.¡Poder heroico! Vegeto supera los límites</item>
+        <item>272.¡Grieta en otra dimensión! ¡¿Bu es cortado?!</item>
+        <item>273.¡Las manos del interior de Bu! Conviértete en caramelo</item>
+        <item>274.¡¿El héroe ha perdido?! Vegeto es absorbido</item>
+        <item>275.¡El laberinto del mal! ¡¿Qué hay en el estómago de Bu?!</item>
+        <item>276.¡¿Pesadilla o ilusión?! Duelo fraternal entre Gokū y Gohan</item>
+        <item>277.¡El secreto del malvado! Dos Bu dentro de Bu</item>
+        <item>278.¡¿Dónde está la salida?! Huida del malogrado Bu</item>
+        <item>279.¡La desaparición de la Tierra! La transformación reversible hacia un Bu malévolo</item>
+        <item>280.¡El ataque de Bu! Conclusión en el planeta Kaioshin</item>
+        <item>281.¡Atrapa el futuro! La gran batalla arriesgando el universo</item>
+        <item>282.¡Vegeta desprotegido! Gokū. tú eres el número 1</item>
+        <item>283.¡Resiste Vegeta! 1 minuto arriesgando la vida</item>
+        <item>284.¡No molestes a Satán! El creador de Bu resucita</item>
+        <item>285.¡El secreto de Vegeta! Polunga y los dos deseos</item>
+        <item>286.¡La última esperanza! Sobrevivir con la enorme Bola Genki</item>
+        <item>287.¡Super emoción! Todos pueden hacer la Genkidama</item>
+        <item>288.¡Lo sabía, Son Gokū es el más fuerte! El malvado Bu desaparece</item>
+        <item>289.¡Vuelve la tranquilidad! ¡¿El malvado Bu es un aliado de la justicia?!</item>
+        <item>290.¡Gokū es lento! ¡Todos en la fiesta!</item>
+        <item>291.¡Abuelo Gokū! ¡Yo soy Pan!</item>
+        <item>292.¡Soy Uub! ¡¿El origen del malvado 10 años después?!</item>
+        <item>293.¡El más fuerte! El sueño de Gokū se cumple</item>
+    </string-array>
+    <string name="dragon_ball_z_id">61</string>
+    <string name="dragon_ball_z_url">https://animeflv.net/ver/1394/dragon-ball-z-</string>
+
+    <string-array name="toradora_chapters">
+        <item>1.Tigre y dragón</item>
+        <item>2.Ryuji y Taiga</item>
+        <item>3.Su canción</item>
+        <item>4.Ese momento es expresión</item>
+        <item>5.Ami Kawashima</item>
+        <item>6.Uno mismo verdadero</item>
+        <item>7.Abertura de la piscina</item>
+        <item>8.De para quien motivo</item>
+        <item>9.Usted irá al mar</item>
+        <item>10.Trabajos de fuego</item>
+        <item>11.Festival escolar del alto ohashi (Parte 1)</item>
+        <item>12.Festival escolar del alto ohashi (Parte 2)</item>
+        <item>13.Festival escolar del alto ohashi (Parte 3)</item>
+        <item>14.Felicidad de la tigresa en miniatura (del tigre de bolsillo)</item>
+        <item>15.Las lejanas estrellas</item>
+        <item>16.Un paso hacia adelante</item>
+        <item>17.En navidad, mercurio se aleja</item>
+        <item>18.Debajo del arbol de Navidad</item>
+        <item>19.La fiesta de noche buena</item>
+        <item>20.Siepre sere igual</item>
+        <item>21.No importa como</item>
+        <item>22.Nuestra situación</item>
+        <item>23.El camino que debo tomar</item>
+        <item>24.La confesión</item>
+        <item>25.Toradora</item>
+    </string-array>
+    <string name="toradora_id">64</string>
+    <string name="toradora_url">https://animeflv.net/ver/786/toradora-</string>
+
 </resources>
