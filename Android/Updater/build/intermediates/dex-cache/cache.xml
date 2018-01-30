@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/ercsanchez/.android/build-cache/270d61eb5a0ef4ae8d5c0d45a315d9109def4e5c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="50c6f74a3bdf92ad1aae8624ff779a42d024c099">
+        <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a8bb81f1f98572bbf3b0475aa0d24311ebdd9acc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ercsanchez/.android/build-cache/14735cea60a786069d1e3f8be16d9564f153c3c7/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="436a98300f5448596203f32b8c2e0d95d4395bc1">
+        <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_14dd0eaa2c4af2f0b9ec32dd6ed3b893ff55202f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c76eb0d106eb46dd6ab032571e48de9d6e16cc9f">
+        <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b66a90e0a4423360ea9c07f308d927d9e6b5d433/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/ercsanchez/.android/build-cache/270d61eb5a0ef4ae8d5c0d45a315d9109def4e5c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="50c6f74a3bdf92ad1aae8624ff779a42d024c099">
+        <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/pre-dexed/debug/classes_a8bb81f1f98572bbf3b0475aa0d24311ebdd9acc.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_bb8565d5402cad29bc54df25d395042314f441d7/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/ercsanchez/.android/build-cache/14735cea60a786069d1e3f8be16d9564f153c3c7/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="436a98300f5448596203f32b8c2e0d95d4395bc1">
+        <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/pre-dexed/debug/classes_14dd0eaa2c4af2f0b9ec32dd6ed3b893ff55202f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/ercsanchez/.android/build-cache/0a2ba975df48a2f96e96f3caf2e4fab33a83c266/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="582663e49e5150fa4641341d655e5b68cc3cffc3">
+        <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/pre-dexed/debug/classes_eacd621b6bc478dad8d74cda0f2505acbcf7f11c.jar" />
+    </item>
+
+</items>

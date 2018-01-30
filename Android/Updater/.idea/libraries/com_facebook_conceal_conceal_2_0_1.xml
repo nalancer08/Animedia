@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.facebook.conceal:conceal-2.0.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/e62ca21f65006ae771d5bea80c01a658d941911a/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/e62ca21f65006ae771d5bea80c01a658d941911a/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "com.appbuilders.animedia"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 8
+        versionName "4.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+
+        buildTypes.each {
+
+            it.buildConfigField("String", "app_version", AppVersion)
+            it.buildConfigField("boolean", "debugMode", DebugMode)
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion '25.3.0'
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:support-v4:26.1.0'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    // Libraries
+    compile 'com.google.android.gms:play-services-ads:11.8.0'
+    // Extra
+    compile 'com.mxn.soul:flowingdrawer-core:2.0.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.daimajia.easing:library:2.0@aar'
+    compile 'com.daimajia.androidanimations:library:2.3@aar'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.android.support:design:26.1.0'
+    androidTestCompile 'junit:junit:4.12'
+    compile project(':SurfaceEngine')
+    compile 'com.facebook.conceal:conceal:2.0.1@aar'
+    compile 'com.mindorks.android:prdownloader:0.2.0'
+    compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+    compile 'com.brouding:android-simple-dialog:0.3.1'
+    compile 'com.github.tibolte:elasticdownload:1.0.+'
+    compile project(':Credentials')
+}
+
+apply plugin: 'com.google.gms.google-services'

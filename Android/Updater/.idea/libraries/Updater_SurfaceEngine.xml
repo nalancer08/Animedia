@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Updater:SurfaceEngine">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/14735cea60a786069d1e3f8be16d9564f153c3c7/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/14735cea60a786069d1e3f8be16d9564f153c3c7/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

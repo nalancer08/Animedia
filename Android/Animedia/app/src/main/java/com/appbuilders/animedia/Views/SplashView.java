@@ -172,7 +172,7 @@ public class SplashView extends SurfaceActivityView {
                     if (res.getString("result").equals("success") && res.getInt("code") == 200) {
 
                         JSONArray data = res.getJSONArray("data");
-                        final Intent intent = new Intent(context, HelpController.class);
+                        final Intent intent = new Intent(context, HomeController.class);
                         intent.putExtra("latestAnimes", data.toString());
 
                         new CountDownTimer(2000, 1000) {

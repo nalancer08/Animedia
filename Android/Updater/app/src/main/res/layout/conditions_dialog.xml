@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp">
+
+    <com.appbuilders.animedia.Controls.AutoResizeTextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textAlignment="gravity"
+        android:gravity="center_horizontal|center_vertical"
+        android:textColor="@color/black"
+        android:text="Términos y condiciones"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/textView3" />
+
+    <ScrollView
+
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="45dp">
+
+        <com.appbuilders.animedia.Controls.AutoResizeTextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView3"
+            android:gravity="center"
+            android:text="@string/privacity_message"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="32dp"
+        android:layout_toStartOf="@+id/dialog_ok"
+        android:text="No acepto"
+        android:textStyle="italic"
+        android:textColor="@color/conditions_dialog_cancel"
+        android:background="@color/trans"
+        android:id="@+id/dialog_cancel" />
+
+    <Button
+        android:id="@+id/dialog_ok"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:textStyle="bold"
+        android:background="@color/yellowItemSelected"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="Acepto" />
+
+</RelativeLayout>
