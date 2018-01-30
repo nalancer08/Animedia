@@ -74,7 +74,7 @@ public class Credentials {
 
     private void init() {
 
-        this.url = this.debug ? "http://192.168.1.69/appbuilders/apis/animedia" : "https://appbuilders.com.mx/apis/animedia";
+        this.url = this.debug ? "http://192.168.1.68/appbuilders/apis/animedia" : "https://appbuilders.com.mx/apis/animedia";
         //this.url = this.debug ? "http://192.168.1.80/appbuilders/apis/animedia" : "http://appbuilders.com.mx/apis/animedia";
     }
 

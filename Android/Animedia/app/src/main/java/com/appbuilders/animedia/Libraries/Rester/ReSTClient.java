@@ -51,7 +51,7 @@ public class ReSTClient {
                 String fields = mRequest.buildQuery(ReSTRequest.REST_REQUEST_QUERY_FIELDS);
                 //Log.d("DXGO", "CAMPOS = " + fields);
                 String endpoint = mServiceUrl + mRequest.mEndpoint + (parameters.length() >= 0 ? "?" + parameters : "");
-                //Log.d("DXGO", "ENDPOINT = " + endpoint);
+                Log.d("DXGO", "ENDPOINT = " + endpoint);
                 URL url = new URL(endpoint);
                 if ( url.getProtocol().compareTo("https") == 0 ) {
                     // Use HTTPS

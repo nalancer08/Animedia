@@ -1,21 +1,29 @@
 package com.appbuilders.animedia.Views;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.appbuilders.animedia.BuildConfig;
+import com.appbuilders.animedia.Controller.HelpController;
 import com.appbuilders.animedia.Controller.HomeController;
 import com.appbuilders.animedia.Core.Credentials;
 import com.appbuilders.animedia.Libraries.JsonFileManager;
@@ -36,12 +44,14 @@ import org.json.JSONObject;
 /**
  * Created by Erick Sanchez - App Builders CTO
  * Revision 1 - 26/10/17
+ * Revision 2 - 30/01/18
  */
 
 public class SplashView extends SurfaceActivityView {
 
     private SfPanel progressPanel;
     private RoundCornerProgressBar progress;
+    private boolean transitit_version = true;
 
     public SplashView(Context context, boolean fullScreen) {
         super(context, fullScreen);
@@ -50,21 +60,30 @@ public class SplashView extends SurfaceActivityView {
     @Override
     public void onCreateView() {
 
+        // Setting status bar color
+        this.setStatusBarColor();
+
         // Adding background
-        int id = this.context.getResources().getIdentifier("splash_without_logo", "drawable", this.context.getPackageName());
+        int id = this.context.getResources().getIdentifier("splash_new", "drawable", this.context.getPackageName());
         Bitmap image = BitmapFactory.decodeStream(this.context.getResources().openRawResource(id));
-        this.screenCanvas.setBackground(new BitmapDrawable(image));
+        //this.screenCanvas.setBackground(new BitmapDrawable(image));
+        ImageView bk = new ImageView(this.context);
+        bk.setImageBitmap(image);
+        bk.setAdjustViewBounds(true);
+        bk.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.screen.setView(bk);
+        this.addView(bk);
 
         this.progress = new RoundCornerProgressBar(this.context, null);
         this.progress.setMax(10);
         this.progress.setProgress(0);
-        this.progress.setProgressColor(R.color.yellowItemSelected);
+        this.progress.setProgressColor(Color.rgb(255, 255, 255));
         this.progress.setSecondaryProgressColor(R.color.gray);
         this.progress.setProgressBackgroundColor(R.color.yellowItemSelected);
 
         this.progressPanel = new SfPanel();
-        this.progressPanel.setSize(-70, -3).setView(this.progress);
-        this.progressPanel.setPosition(SfPanel.SF_POSITION_ABSOLUTE).setOrigin(SfPanel.SF_UNSET, SfPanel.SF_UNSET, threeRuleY(0), threeRuleX(15));
+        this.progressPanel.setSize(-70, -2).setView(this.progress);
+        this.progressPanel.setPosition(SfPanel.SF_POSITION_ABSOLUTE).setOrigin(SfPanel.SF_UNSET, SfPanel.SF_UNSET, threeRuleY(50), threeRuleX(150));
         this.screen.append(this.progressPanel);
         this.addView(this.progress);
 
@@ -125,7 +144,7 @@ public class SplashView extends SurfaceActivityView {
 
             @Override
             public void onError(ReSTResponse response) {
-                showErrorAlert("Error", "Servidores ocupados, intentelo ms tarde \n Error: 1xs");
+                showErrorAlert("Error", "Servidores ocupados, intentelo ms tarde \n Error: 0xs");
             }
         });
 
@@ -153,11 +172,24 @@ public class SplashView extends SurfaceActivityView {
                     if (res.getString("result").equals("success") && res.getInt("code") == 200) {
 
                         JSONArray data = res.getJSONArray("data");
-                        Intent intent = new Intent(context, HomeController.class);
+                        final Intent intent = new Intent(context, HelpController.class);
                         intent.putExtra("latestAnimes", data.toString());
-                        progress.setProgress(10);
-                        activity.startActivity(intent);
-                        activity.finish();
+
+                        new CountDownTimer(2000, 1000) {
+
+                            @Override
+                            public void onTick(long l) {
+
+                            }
+
+                            @Override
+                            public void onFinish() {
+
+                                progress.setProgress(10);
+                                activity.startActivity(intent);
+                                activity.finish();
+                            }
+                        }.start();
 
 
                     }  else {
@@ -290,5 +322,16 @@ public class SplashView extends SurfaceActivityView {
         int width = size.x;
 
         return (width * value) / 1000;
+    }
+
+    @SuppressLint("NewApi")
+    protected void setStatusBarColor() {
+
+        Window window = this.activity.getWindow();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(Color.rgb(0, 0, 0));
+        }
     }
 }

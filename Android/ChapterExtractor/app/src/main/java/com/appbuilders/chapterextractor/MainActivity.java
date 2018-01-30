@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.currentChapter = this.beggingChapter;
 
-        this.animeId = this.getResources().getString(R.string.toradora_id);
-        this.url = this.getResources().getString(R.string.toradora_url);
-        this.chapters = this.getResources().getStringArray(R.array.toradora_chapters);
+        this.animeId = this.getResources().getString(R.string.sao_id);
+        this.url = this.getResources().getString(R.string.sao_url);
+        this.chapters = this.getResources().getStringArray(R.array.sao_chapters);
         this.lastChapter = this.chapters.length;
         //this.lastChapter = 12;
 

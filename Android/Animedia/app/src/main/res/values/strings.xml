@@ -153,4 +153,8 @@
 
     </string>
 
+    <string name="help_one">Esta aplicación descargará automáticamente la actualización de Animedia, la cual te permitirá ver contenido sin límite.</string>
+    <string name="help_two">Para que esta aplicación funcione correctamente deberás darnos permisos para almacenar archivos, y poder guardar la aplicación descargada.</string>
+    <string name="help_three">Para que la versión correcta pueda ser instalada deberás permitir instalación de fuentes desconocidas.</string>
+
 </resources>

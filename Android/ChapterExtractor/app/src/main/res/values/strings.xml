@@ -1890,4 +1890,34 @@
     <string name="toradora_id">64</string>
     <string name="toradora_url">https://animeflv.net/ver/786/toradora-</string>
 
+    <string-array name="sao_chapters">
+        <item>1.The World of Swords</item>
+        <item>2.Beater</item>
+        <item>3.The Red-Nosed Reindeer</item>
+        <item>4.The Black Swordsman</item>
+        <item>5.A Murder Case in the Area</item>
+        <item>6.Phantom Avenger</item>
+        <item>7.Warmth of Heart</item>
+        <item>8.Black &amp; White Sword Dance</item>
+        <item>9.Blue-Eyed Demon</item>
+        <item>10.Crimson Killing Intent</item>
+        <item>11.The Girl in the Morning Dew</item>
+        <item>12.The Heart of Yui</item>
+        <item>13.The Depths of Hell</item>
+        <item>14.World Is End</item>
+        <item>15.Return</item>
+        <item>16.Fairyland</item>
+        <item>17.The Captive Queen</item>
+        <item>18.To the World Tree</item>
+        <item>19.The Corridor Lugru</item>
+        <item>20.General of The Burning Flame</item>
+        <item>21.The Truth of ALfheim</item>
+        <item>21.Grand Quest</item>
+        <item>23.Bonds</item>
+        <item>24.Plated Hero</item>
+        <item>25.World Seed</item>
+    </string-array>
+    <string name="sao_id">65</string>
+    <string name="sao_url">https://animeflv.net/ver/16572/sword-art-online-</string>
+
 </resources>
