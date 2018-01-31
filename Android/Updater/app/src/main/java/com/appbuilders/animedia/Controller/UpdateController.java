@@ -25,6 +25,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
 import java.io.File;
 
@@ -39,6 +40,7 @@ public class UpdateController extends AppCompatActivity {
     private float currentProgress = 10;
     private int currentCount = 0;
     private String url = "";
+    private SweetAlertDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,9 @@ public class UpdateController extends AppCompatActivity {
 
         // Init adds
         MobileAds.initialize(this, "ca-app-pub-8714411824921031~4907242753");
+
+        // Init loader
+        this.showDialog();
 
         // Getting url
         this.url = getIntent().getStringExtra("url");
@@ -78,6 +83,7 @@ public class UpdateController extends AppCompatActivity {
             @Override
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
+                pDialog.cancel();
                 download();
             }
 
@@ -191,5 +197,14 @@ public class UpdateController extends AppCompatActivity {
             //window.setStatusBarColor(Color.rgb(210, 208, 207));
             //window.setStatusBarTextColor(getResources().getColor(R.color.orange));
         }
+    }
+
+    private void showDialog() {
+
+        this.pDialog = new SweetAlertDialog(UpdateController.this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("Conectando con servidores");
+        pDialog.setCancelable(false);
+        pDialog.show();
     }
 }

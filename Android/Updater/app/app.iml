@@ -105,6 +105,7 @@
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" scope="TEST" name="com.android.support.test:exposed-instrumentation-api-publish-0.5" level="project" />
+    <orderEntry type="library" exported="" name="com.github.thomper:sweet-alert-dialog-v1.4.0" level="project" />
     <orderEntry type="library" exported="" name="com.github.tibolte:elasticdownload-1.0.4" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:support-compat-25.3.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.squareup:javawriter:2.1.1@jar" level="project" />
@@ -140,6 +141,7 @@
     <orderEntry type="library" exported="" name="com.android.support:support-vector-drawable-25.3.0" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:recyclerview-v7-25.3.0" level="project" />
     <orderEntry type="library" exported="" name="com.github.bumptech.glide:annotations:4.3.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.pnikosis:materialish-progress-1.7" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="junit:junit:4.12@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="javax.inject:javax.inject:1@jar" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms:play-services-gass-license-11.8.0" level="project" />
