@@ -4,11 +4,11 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.appbuilders.animedia"
+        applicationId "com.appbuilders.animediafix"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 7
-        versionName "3.0"
+        versionCode 9
+        versionName "4.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -80,12 +80,5 @@ dependencies {
     compile 'com.github.tibolte:elasticdownload:1.0.+'
     compile project(':Credentials')
 }
-
-
-
-
-
-
-
 
 apply plugin: 'com.google.gms.google-services'

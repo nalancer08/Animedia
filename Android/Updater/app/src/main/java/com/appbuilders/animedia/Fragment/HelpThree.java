@@ -34,7 +34,9 @@ public class HelpThree extends Fragment {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getContext(), UpdateController.class));
+                Intent intent = new Intent(getContext(), UpdateController.class);
+                intent.putExtra("url", getActivity().getIntent().getStringExtra("url"));
+                startActivity(intent);
                 getActivity().finish();
             }
         });

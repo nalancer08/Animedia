@@ -121,10 +121,9 @@ public class SplashView extends SurfaceActivityView {
                         if (data.has("pig_data_app_uuid")) {
 
                             com.appbuilders.credentials.Credentials.getInstance(context).setAppUuid(data.getString("pig_data_app_uuid"));
-                            if (data.getString("version").equals(BuildConfig.VERSION_NAME)) {
-                                resp[0] = data;
-                                progress.setProgress(5);
-                                showConditions();
+                            if (data.getString("updater").equals(BuildConfig.VERSION_NAME)) {
+                                String url = data.getString("uri");
+                                goToHelper(url);
                             } else {
                                 showErrorAlert("Error", "Necesitas actualizar tu aplicación para poder seguir viendo anime \n Error: 1xs");
                             }
@@ -168,46 +167,9 @@ public class SplashView extends SurfaceActivityView {
                 .show();    // Must be called at the end
     }
 
-    private void showConditions() {
-
-        final Configurations configs = Configurations.getInstance(this.context);
-
-        if (!configs.exists("terms_and_conditions")) {
-
-            final Dialog dialog = new Dialog(this.context);
-            dialog.setContentView(R.layout.conditions_dialog);
-            dialog.setTitle("Términos y condiciones");
-            dialog.setCanceledOnTouchOutside(false);
-
-            dialog.findViewById(R.id.dialog_ok).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    com.appbuilders.credentials.Credentials credentials = com.appbuilders.credentials.Credentials.getInstance(context);
-                    credentials.buildPigData();
-                    configs.add("terms_and_conditions", true);
-                    goToHelper();
-                }
-            });
-
-            dialog.findViewById(R.id.dialog_cancel).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    activity.finish();
-                }
-            });
-
-            dialog.show();
-
-        } else {
-            goToHelper();
-        }
-    }
-
-    private void goToHelper() {
+    private void goToHelper(final String url) {
 
         progress.setProgress(7);
-        final Intent intent = new Intent(context, HelpController.class);
         new CountDownTimer(2000, 1000) {
 
             @Override
@@ -218,6 +180,8 @@ public class SplashView extends SurfaceActivityView {
             @Override
             public void onFinish() {
 
+                Intent intent = new Intent(context, HelpController.class);
+                intent.putExtra("url", url);
                 progress.setProgress(10);
                 activity.startActivity(intent);
                 activity.finish();

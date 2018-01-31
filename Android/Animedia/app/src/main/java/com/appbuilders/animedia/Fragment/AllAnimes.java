@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 
+import com.appbuilders.animedia.FragmentViews.AllAnimesFixedView;
 import com.appbuilders.animedia.FragmentViews.AllAnimesView;
 import com.appbuilders.animedia.R;
 import com.appbuilders.animedia.Views.AnimesFixView;
@@ -39,7 +40,7 @@ public class AllAnimes extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_dynamic_animes, container, false);
         AbsoluteLayout baseLayout = (AbsoluteLayout) view.findViewById(R.id.contentPanel);
-        new AllAnimesView(this.context != null ? this.context : getContext(), baseLayout);
+        new AllAnimesFixedView(this.context != null ? this.context : getContext(), baseLayout);
         //this.surface.onSwipe(view);
         return view;
     }

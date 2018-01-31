@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.appbuilders.animedia"
+        applicationId "com.appbuilders.animediafix"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 8
@@ -62,5 +62,3 @@ dependencies {
     compile 'com.github.tibolte:elasticdownload:1.0.+'
     compile project(':Credentials')
 }
-
-apply plugin: 'com.google.gms.google-services'

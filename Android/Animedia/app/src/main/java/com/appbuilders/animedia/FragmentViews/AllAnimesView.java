@@ -80,7 +80,9 @@ public class AllAnimesView extends SurfaceActivityView {
     private void createMasonryLayout() {
 
         this.masonry = new RecyclerView(this.context);
-        this.masonry.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+         this.masonry.getRecycledViewPool().setMaxRecycledViews(0,50);
+        //this.masonry.getRecycledViewPool().setMaxRecycledViews(View.TYPE_CAROUSEL, 0);
+        this.masonry.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
         this.masonry.setAdapter(null);
         this.masonry.addItemDecoration(new SpacesItemDecoration(20));
 

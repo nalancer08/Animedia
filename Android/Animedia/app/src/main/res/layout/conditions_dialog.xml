@@ -30,7 +30,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginBottom="45dp">
 
-        <com.appbuilders.animedia.Controls.AutoResizeTextView
+        <com.appbuilders.animedia.Controls.JustifyTextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,25 +40,26 @@
             android:text="@string/privacity_message"
             android:textAlignment="gravity"
             android:textColor="@color/black"
+            android:layout_marginLeft="10dp"
             android:textSize="18dp" />
 
     </ScrollView>
 
     <Button
-        android:layout_width="150dp"
+        android:id="@+id/dialog_cancel"
+        android:layout_width="170dp"
         android:layout_height="35dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="12dp"
         android:layout_toStartOf="@+id/dialog_ok"
-        android:text="No acepto"
-        android:textStyle="italic"
-        android:textColor="@color/conditions_dialog_cancel"
         android:background="@color/trans"
-        android:id="@+id/dialog_cancel" />
+        android:text="No acepto"
+        android:textColor="@color/conditions_dialog_cancel"
+        android:textStyle="italic" />
 
     <Button
         android:id="@+id/dialog_ok"
-        android:layout_width="100dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:textStyle="bold"
         android:background="@color/yellowItemSelected"

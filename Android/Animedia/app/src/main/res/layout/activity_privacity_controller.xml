@@ -28,7 +28,7 @@
         android:layout_below="@+id/textView2"
         android:layout_marginTop="16dp">
 
-        <com.appbuilders.animedia.Controls.AutoResizeTextView
+        <com.appbuilders.animedia.Controls.JustifyTextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,6 +38,7 @@
             android:textAlignment="gravity"
             android:gravity="left"
             android:textColor="@color/white"
+            android:layout_marginLeft="15dp"
             android:textSize="18dp" />
 
     </ScrollView>

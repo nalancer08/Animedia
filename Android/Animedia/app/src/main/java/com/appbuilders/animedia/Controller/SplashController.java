@@ -55,6 +55,7 @@ public class SplashController extends AppCompatActivity {
 
         Credentials credentials = Credentials.getInstance(this);
         credentials.removePreference("latestAnimes");
+        credentials.removePreference("allAnimes");
         //credentials.removePreference("genresAnimes");
     }
 }

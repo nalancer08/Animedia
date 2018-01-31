@@ -9,7 +9,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Point;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
@@ -23,9 +22,10 @@ import android.widget.Toast;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.appbuilders.animedia.BuildConfig;
-import com.appbuilders.animedia.Controller.HelpController;
 import com.appbuilders.animedia.Controller.HomeController;
+import com.appbuilders.animedia.Controller.UpdateController;
 import com.appbuilders.animedia.Core.Credentials;
+import com.appbuilders.animedia.Core.Util;
 import com.appbuilders.animedia.Libraries.JsonFileManager;
 import com.appbuilders.animedia.Libraries.Rester.ReSTCallback;
 import com.appbuilders.animedia.Libraries.Rester.ReSTClient;
@@ -51,7 +51,7 @@ public class SplashView extends SurfaceActivityView {
 
     private SfPanel progressPanel;
     private RoundCornerProgressBar progress;
-    private boolean transitit_version = true;
+    private String url = "";
 
     public SplashView(Context context, boolean fullScreen) {
         super(context, fullScreen);
@@ -64,11 +64,8 @@ public class SplashView extends SurfaceActivityView {
         this.setStatusBarColor();
 
         // Adding background
-        int id = this.context.getResources().getIdentifier("splash_new", "drawable", this.context.getPackageName());
-        Bitmap image = BitmapFactory.decodeStream(this.context.getResources().openRawResource(id));
-        //this.screenCanvas.setBackground(new BitmapDrawable(image));
         ImageView bk = new ImageView(this.context);
-        bk.setImageBitmap(image);
+        bk.setImageBitmap(Util.getImage(this.context, "splash_new"));
         bk.setAdjustViewBounds(true);
         bk.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.screen.setView(bk);
@@ -94,10 +91,9 @@ public class SplashView extends SurfaceActivityView {
         this.getStatus();
     }
 
-    public JSONObject getStatus() {
+    public void getStatus() {
 
         final Credentials credentials = Credentials.getInstance(this.context);
-        final JSONObject[] resp = {null};
 
         progress.setProgress(3);
         ReSTClient rest = new ReSTClient(credentials.getUrl() + "/status");
@@ -119,13 +115,24 @@ public class SplashView extends SurfaceActivityView {
                         JSONObject data = res.getJSONObject("data");
                         if (data.has("pig_data_app_uuid")) {
 
-                            com.appbuilders.credentials.Credentials.getInstance(context).setAppUuid(data.getString("pig_data_app_uuid"));
-                            if (data.getString("version").equals(BuildConfig.VERSION_NAME)) {
-                                resp[0] = data;
+                            String version = data.getString("version");
+                            String supported = data.getString("supported_version");
+                            url = data.getString("uri");
+
+                            if (supported.equals(BuildConfig.VERSION_NAME)) {
+
+                                // YOU ARE USING THE LAST STABLE VERSION
+                                progress.setProgress(5);
+                                showSupportedAlert("Alerta", "Estas usando la ultima versión estable de la aplicación, te reocmendamos que actualices");
+
+                            } else if (version.equals(BuildConfig.VERSION_NAME)) {
+
+                                // YOU CAN UPDATE
                                 progress.setProgress(5);
                                 showConditions();
+
                             } else {
-                                showErrorAlert("Error", "Necesitas actualizar tu aplicación para poder seguir viendo anime \n Error: 1xs");
+                                showUpdatedAlert("Error", "Necesitas actualizar tu aplicación para poder seguir viendo anime \n Error: 1xs");
                             }
 
                         } else {
@@ -147,8 +154,6 @@ public class SplashView extends SurfaceActivityView {
                 showErrorAlert("Error", "Servidores ocupados, intentelo ms tarde \n Error: 0xs");
             }
         });
-
-        return resp[0];
     }
 
     private void askForLatestAnimes() {
@@ -175,7 +180,7 @@ public class SplashView extends SurfaceActivityView {
                         final Intent intent = new Intent(context, HomeController.class);
                         intent.putExtra("latestAnimes", data.toString());
 
-                        new CountDownTimer(2000, 1000) {
+                        new CountDownTimer(1500, 1000) {
 
                             @Override
                             public void onTick(long l) {
@@ -243,42 +248,62 @@ public class SplashView extends SurfaceActivityView {
                 .show();    // Must be called at the end
     }
 
+    private void showSupportedAlert(String title, String message) {
+
+        new SimpleDialog.Builder(context)
+                .setTitle(title)
+                .setContent(message, 3)
+                .setBtnConfirmText("Descargar")
+                .onConfirm(new SimpleDialog.BtnCallback() {
+                    @Override
+                    public void onClick(@NonNull SimpleDialog dialog, @NonNull SimpleDialog.BtnAction which) {
+                        Intent intent = new Intent(context, UpdateController.class);
+                        intent.putExtra("url", url);
+                        progress.setProgress(10);
+                        activity.startActivity(intent);
+                        activity.finish();
+                    }
+                })
+                .setBtnCancelText("Continuar")
+                .onCancel(new SimpleDialog.BtnCallback() {
+                    @Override
+                    public void onClick(@NonNull SimpleDialog simpleDialog, @NonNull SimpleDialog.BtnAction btnAction) {
+                        showConditions();
+                    }
+                })
+                .show();
+    }
+
+    private void showUpdatedAlert(String title, String message) {
+
+        new SimpleDialog.Builder(context)
+                .setTitle(title)
+                .setContent(message, 3)
+                .setBtnConfirmText("Descargar")
+                .onConfirm(new SimpleDialog.BtnCallback() {
+                    @Override
+                    public void onClick(@NonNull SimpleDialog dialog, @NonNull SimpleDialog.BtnAction which) {
+                        Intent intent = new Intent(context, UpdateController.class);
+                        intent.putExtra("url", url);
+                        progress.setProgress(10);
+                        activity.startActivity(intent);
+                        activity.finish();
+                    }
+                })
+                .show();
+    }
+
     private void showConditions() {
 
         final Configurations configs = Configurations.getInstance(this.context);
 
         if (!configs.exists("terms_and_conditions")) {
 
-            /*new SimpleDialog.Builder(context)
-                    .setTitle("Términos y condiciones")
-                    .setCustomView(R.layout.dialog_privacity_comnditions)
-                    .setBtnConfirmText("Acepto")
-                    .setBtnConfirmTextColor("#de413e")
-                    .setBtnCancelText("No acepto", false)
-                    .setBtnCancelTextColor("#de413e")
-                    .setCancelable(true)          // Default value is false
-                    .onConfirm(new SimpleDialog.BtnCallback() {
-                        @Override
-                        public void onClick(@NonNull SimpleDialog dialog, @NonNull SimpleDialog.BtnAction which) {
-
-                            configs.add("terms_and_conditions", true);
-                            askForLatestAnimes();
-                        }
-                    })
-                    .setBtnCancelText("Cancel", false)
-                    .onCancel(new SimpleDialog.BtnCallback() {
-                        @Override
-                        public void onClick(@NonNull SimpleDialog dialog, @NonNull SimpleDialog.BtnAction which) {
-                            activity.finish();
-                        }
-                    })
-                    .show();*/
-
             final Dialog dialog = new Dialog(this.context);
             dialog.setContentView(R.layout.conditions_dialog);
             dialog.setTitle("Términos y condiciones");
             dialog.setCanceledOnTouchOutside(false);
-
+            dialog.getWindow().setLayout(getX() - 20, getY() - threeRuleY(250));
             dialog.findViewById(R.id.dialog_ok).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -322,6 +347,22 @@ public class SplashView extends SurfaceActivityView {
         int width = size.x;
 
         return (width * value) / 1000;
+    }
+
+    protected int getY() {
+
+        Display display = ((Activity)this.context).getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return size.y;
+    }
+
+    protected int getX() {
+
+        Display display = ((Activity)this.context).getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return size.x;
     }
 
     @SuppressLint("NewApi")

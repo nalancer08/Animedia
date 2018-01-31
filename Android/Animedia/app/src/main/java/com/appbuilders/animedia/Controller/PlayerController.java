@@ -786,9 +786,12 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
 
         int position = this.mPlayer.getCurrentPosition();
         int duration = this.mPlayer.getDuration();
-        float percent = ( (position * 100) / duration );
-        WatchedChapters watchedChapters = new WatchedChapters(PlayerController.this, this.anime.getId());
-        watchedChapters.addRecord(this.chapter.getId(), percent, position, duration);
+
+        if (position != 0 && duration != 0) {
+            float percent = ( (position * 100) / duration );
+            WatchedChapters watchedChapters = new WatchedChapters(PlayerController.this, this.anime.getId());
+            watchedChapters.addRecord(this.chapter.getId(), percent, position, duration);
+        }
     }
 
     /************************************************************************************************

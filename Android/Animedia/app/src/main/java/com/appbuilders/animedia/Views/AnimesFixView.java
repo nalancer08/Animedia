@@ -195,6 +195,7 @@ public class AnimesFixView extends SurfaceActivityView {
 
         this.mAdView = new AdView(this.context);
         this.mAdView.setAdUnitId("ca-app-pub-8714411824921031/8988263733");
+        //this.mAdView.setAdUnitId(String.valueOf(R.string.anime_banner));
         // Add logic for banner sizes
         this.mAdView.setAdSize(AdSize.BANNER);
         this.adPanel.setView(this.mAdView).setSize(-100, -10);

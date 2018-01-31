@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_width="300dp"
-    android:layout_height="300dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:paddingBottom="10dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
@@ -13,31 +13,34 @@
         android:id="@+id/imageView"
         android:layout_width="130dp"
         android:layout_height="130dp"
+        android:src="@drawable/fotomultas_icon"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="15dp"></ImageView>
+        android:layout_marginTop="15dp"/>
 
     <com.appbuilders.animedia.Controls.AutoResizeTextView
         android:id="@+id/autoResizeTextView"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/imageView"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginTop="33dp"
         android:gravity="center_vertical|center_horizontal"
-        android:text=""
+        android:text="Fotomultas CDMX"
         android:textAlignment="gravity"
         android:textColor="@color/white"
-        android:textSize="15dp" />
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/download_fotomultas"
         android:layout_width="100dp"
         android:layout_height="35dp"
-        android:layout_below="@+id/autoResizeTextView"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="13dp"
-        android:layout_toEndOf="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="79dp"
         android:background="@color/yellowItemSelected"
         android:text="Descargar"
         android:textColor="@color/black" />
@@ -46,21 +49,25 @@
         android:id="@+id/poke"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"></ImageView>
+        android:src="@drawable/pok_icon"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="51dp"/>
 
     <com.appbuilders.animedia.Controls.AutoResizeTextView
         android:id="@+id/autoResizeTextView2"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:layout_alignParentEnd="true"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/autoResizeTextView"
         android:layout_alignTop="@+id/poke"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="15dp"
         android:gravity="center_vertical|center_horizontal"
-        android:text=""
+        android:text="¿Quien es este pokemon?"
         android:textAlignment="gravity"
         android:textColor="@color/white"
-        android:textSize="15dp" />
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/download_poke"
@@ -72,5 +79,30 @@
         android:background="@color/yellowItemSelected"
         android:text="Descargar"
         android:textColor="@color/black" />
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="56dp"
+        android:layout_marginStart="10dp"
+        android:src="@mipmap/new_logo_white"
+        android:id="@+id/imageView8" />
+
+    <com.appbuilders.animedia.Controls.AutoResizeTextView
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/autoResizeTextView"
+        android:layout_alignTop="@+id/imageView8"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Animedia"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
 
 </RelativeLayout>

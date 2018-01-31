@@ -32,12 +32,19 @@ public class UpdateController extends AppCompatActivity {
     private String app_name = "Animedia.apk";
     private float currentProgress = 10;
     private int currentCount = 0;
+    private String url = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_controller);
+
+        // Getting url
+        Intent intent = getIntent();
+        if (intent.hasExtra("url")) {
+            this.url = intent.getStringExtra("url");
+        }
 
         // Setting status bar color
         this.setStatusBarColor();
@@ -55,84 +62,64 @@ public class UpdateController extends AppCompatActivity {
         //Uri destinationUri = Uri.parse(context.getExternalCacheDir().toString() + "/erick1234.mp4");
 
         // Setting timeout globally for the download network requests:
-        String url = "https://drive.google.com/uc?export=download&id=1zq3NM0zojm3jZ_DI4k_QbugK3BE_j6E0";
+        //String url = "https://drive.google.com/uc?export=download&id=1zq3NM0zojm3jZ_DI4k_QbugK3BE_j6E0";
         PRDownloaderConfig config = PRDownloaderConfig.newBuilder().build();
         PRDownloader.initialize(UpdateController.this, config);
 
-        int downloadId = PRDownloader.download(url, this.getExternalCacheDir().toString(), this.app_name).build()
-                .setOnStartOrResumeListener(new OnStartOrResumeListener() {
-                    @Override
-                    public void onStartOrResume() {
+        if (!this.url.equals("")) {
+            int downloadId = PRDownloader.download(url, this.getExternalCacheDir().toString(), this.app_name).build()
+                    .setOnStartOrResumeListener(new OnStartOrResumeListener() {
+                        @Override
+                        public void onStartOrResume() {
 
-                        mElasticDownloadView.startIntro();
-                        mElasticDownloadView.setProgress(10);
-                        Log.d("DXGOP", "A descargar perras");
-                    }
-                })
-                .setOnPauseListener(new OnPauseListener() {
-                    @Override
-                    public void onPause() {
-                    }
-                })
-                .setOnCancelListener(new OnCancelListener() {
-                    @Override
-                    public void onCancel() {
-                    }
-                })
-                .setOnProgressListener(new OnProgressListener() {
-                    @Override
-                    public void onProgress(Progress progress) {
+                            mElasticDownloadView.startIntro();
+                            mElasticDownloadView.setProgress(10);
+                            Log.d("DXGOP", "A descargar perras");
+                        }
+                    })
+                    .setOnPauseListener(new OnPauseListener() {
+                        @Override
+                        public void onPause() {
+                        }
+                    })
+                    .setOnCancelListener(new OnCancelListener() {
+                        @Override
+                        public void onCancel() {
+                        }
+                    })
+                    .setOnProgressListener(new OnProgressListener() {
+                        @Override
+                        public void onProgress(Progress progress) {
 
-                        //Log.d("DXGOP", "progress ::: " + progress);
+                            //Log.d("DXGOP", "progress ::: " + progress);
 
-                        if (currentCount <= 120) {
-                            currentCount++;
-                        } else {
+                            if (currentCount <= 120) {
+                                currentCount++;
+                            } else {
 
-                            currentCount = 0;
-                            if (currentProgress < 99) {
-                                currentProgress = currentProgress + 5;
-                                mElasticDownloadView.setProgress(currentProgress);
+                                currentCount = 0;
+                                if (currentProgress < 99) {
+                                    currentProgress = currentProgress + 5;
+                                    mElasticDownloadView.setProgress(currentProgress);
+                                }
                             }
                         }
-                    }
-                })
-                .start(new OnDownloadListener() {
-                    @Override
-                    public void onDownloadComplete() {
+                    })
+                    .start(new OnDownloadListener() {
+                        @Override
+                        public void onDownloadComplete() {
 
-                        //Log.d("DXGOP", "ACABO DE BAJAR LA PERRA");
-                        mElasticDownloadView.success();
-                        installApp();
-                    }
-                    @Override
-                    public void onError(Error error) {
-                        Log.d("DXGOP", "FALLO ::: " + error);
-                    }
-                });
+                            //Log.d("DXGOP", "ACABO DE BAJAR LA PERRA");
+                            mElasticDownloadView.success();
+                            installApp();
+                        }
 
-
-
-
-                        /*DownloadRequest downloadRequest = new DownloadRequest(downloadUri)
-                                .setRetryPolicy(new DefaultRetryPolicy())
-                                .setDestinationURI(destinationUri).setPriority(DownloadRequest.Priority.HIGH)
-                                .setStatusListener(new DownloadStatusListenerV1() {
-                                    @Override
-                                    public void onDownloadComplete(DownloadRequest downloadRequest) {
-
-                                    }
-
-                                    @Override
-                                    public void onDownloadFailed(DownloadRequest downloadRequest, int i, String s) {
-                                        Log.d("DXGOP", "FALLO ::: " + s);
-                                    }
-
-                                    @Override
-                                    public void onProgress(DownloadRequest downloadRequest, long l, long l1, int i) {
-                                        Log.d("DXGOP", "UNO :: " + l + " DOS ::: " + l1 + " TRES ::: " + i);
-                                    }
-                                });*/
+                        @Override
+                        public void onError(Error error) {
+                            Log.d("DXGOP", "FALLO ::: " + error);
+                        }
+                    });
+        }
     }
 
     private void installApp() {

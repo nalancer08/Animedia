@@ -42,9 +42,11 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
     private InterstitialAd ad;
     private Intent lastIntent;
     private boolean typeOfLucky;
-        private int luckyIntent = 0;
+    private int luckyIntent = 0;
 
     /** V.3.5 **/
+    private ImageLoader imageLoader;
+    private DisplayImageOptions options;
 
     public AnimeAdapter(final Context context, JSONArray animes) {
 
@@ -90,6 +92,14 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
         Random r = new Random();
         int i1 = r.nextInt(5 - 1 + 1) + 1;
         this.typeOfLucky = (i1 % 2 == 0) ? true : false;
+
+        // Init ImageLoader
+        this.options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.placeholder)
+                .resetViewBeforeLoading(false)
+                .cacheInMemory(true)
+                .cacheOnDisk(true).build();
+        this.imageLoader = ImageLoader.getInstance();
     }
 
     @Override
@@ -103,43 +113,17 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
     @Override
     public void onBindViewHolder(final AnimeView holder, int position) {
 
+        holder.setIsRecyclable(false);
         try {
 
             final JSONObject anime = this.animes.getJSONObject(position);
-            final int id =  anime.getInt("id");
+            //final int id =  anime.getInt("id");
             String cover = anime.getString("cover");
             String name = anime.getString("name");
             final ImageView animeImage = holder.getCover();
 
             // Setting image
-            DisplayImageOptions options = new DisplayImageOptions.Builder()
-                    .showImageOnLoading(R.drawable.placeholder)
-                    .resetViewBeforeLoading(false)
-                    .cacheInMemory(true)
-                    .cacheOnDisk(true).build();
-            ImageLoader imageLoader = ImageLoader.getInstance();
-            //ImageSize targetSize = new ImageSize(1000, 1600); // result Bitmap will be fit to this size
-            imageLoader.loadImage(cover, options, new SimpleImageLoadingListener() {
-
-                @Override
-                public void onLoadingStarted(String imageUri, View view) {
-
-                    int id = context.getResources().getIdentifier("placeholder", "drawable", context.getPackageName());
-                    Bitmap image = BitmapFactory.decodeStream(context.getResources().openRawResource(id));
-                    holder.getCover().setImageBitmap(image);
-                }
-
-                @Override
-                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-
-                    //animeImage.setImageBitmap(loadedImage);
-                    if (SfScreen.getInstance(context).getScreenAxis(SfScreen.ScreenHeight) >= 2220) {
-                        animeImage.setImageBitmap(Bitmap.createScaledBitmap(loadedImage, 1000, 1500, false));
-                    } else {
-                        animeImage.setImageBitmap(Bitmap.createScaledBitmap(loadedImage, 512, 780, false));
-                    }
-                }
-            });
+            downloadImage(cover, animeImage);
 
             // Setting name
             holder.getName().setText(name);
@@ -167,13 +151,13 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
                             ad.show();
                         }
                     }
-
                 }
             });
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        holder.setIsRecyclable(false);
     }
 
     @Override
@@ -204,5 +188,30 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeView> {
         //Log.d("DXGOP", "Loading ad ....");
         AdRequest adRequest = new AdRequest.Builder().build();
         this.ad.loadAd(adRequest);
+    }
+
+    private void downloadImage(String url, final ImageView imageView) {
+
+        this.imageLoader.loadImage(url, this.options, new SimpleImageLoadingListener() {
+
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+                int id = context.getResources().getIdentifier("placeholder", "drawable", context.getPackageName());
+                Bitmap image = BitmapFactory.decodeStream(context.getResources().openRawResource(id));
+                imageView.setImageBitmap(image);
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+
+                //animeImage.setImageBitmap(loadedImage);
+                if (SfScreen.getInstance(context).getScreenAxis(SfScreen.ScreenHeight) >= 2220) {
+                    imageView.setImageBitmap(Bitmap.createScaledBitmap(loadedImage, 1000, 1500, false));
+                } else {
+                    imageView.setImageBitmap(Bitmap.createScaledBitmap(loadedImage, 512, 780, false));
+                }
+            }
+        });
     }
 }

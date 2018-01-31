@@ -38,6 +38,7 @@ public class UpdateController extends AppCompatActivity {
     private String app_name = "Animedia.apk";
     private float currentProgress = 10;
     private int currentCount = 0;
+    private String url = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +46,15 @@ public class UpdateController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_controller);
 
-        // Setting status bar color
-        this.setStatusBarColor();
-
         // Init adds
         MobileAds.initialize(this, "ca-app-pub-8714411824921031~4907242753");
+
+        // Getting url
+        this.url = getIntent().getStringExtra("url");
+        Log.d("DXGOP", "URL PASADA ::: " + this.url);
+
+        // Setting status bar color
+        this.setStatusBarColor();
 
         // Init elastic view
         this.mElasticDownloadView = (ElasticDownloadView)findViewById(R.id.elastic_download_view);
@@ -60,16 +65,16 @@ public class UpdateController extends AppCompatActivity {
 
     private void setBanner() {
 
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("7D08C32F2F27A073035017DD38477072").build();
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //AdRequest adRequestHeader = new AdRequest.Builder().build();
+        //AdRequest adRequest = new AdRequest.Builder().addTestDevice("7D08C32F2F27A073035017DD38477072").build();
+        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequestHeader = new AdRequest.Builder().build();
 
         this.mAdViewHeader = (AdView) findViewById(R.id.adViewHeader);
-        this.mAdViewHeader.loadAd(adRequest);
+        this.mAdViewHeader.loadAd(adRequestHeader);
 
         this.mAdView = (AdView) findViewById(R.id.adView);
-        mAdView.loadAd(adRequest);
-        mAdView.setAdListener(new AdListener() {
+        this.mAdView.loadAd(adRequest);
+        this.mAdView.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
@@ -107,11 +112,11 @@ public class UpdateController extends AppCompatActivity {
         //Uri destinationUri = Uri.parse(context.getExternalCacheDir().toString() + "/erick1234.mp4");
 
         // Setting timeout globally for the download network requests:
-        String url = "https://drive.google.com/uc?export=download&id=1zq3NM0zojm3jZ_DI4k_QbugK3BE_j6E0";
+        //String url = "https://drive.google.com/uc?export=download&id=1zq3NM0zojm3jZ_DI4k_QbugK3BE_j6E0";
         PRDownloaderConfig config = PRDownloaderConfig.newBuilder().build();
         PRDownloader.initialize(UpdateController.this, config);
 
-        int downloadId = PRDownloader.download(url, this.getExternalCacheDir().toString(), this.app_name).build()
+        int downloadId = PRDownloader.download(this.url, this.getExternalCacheDir().toString(), this.app_name).build()
                 .setOnStartOrResumeListener(new OnStartOrResumeListener() {
                     @Override
                     public void onStartOrResume() {
@@ -162,35 +167,13 @@ public class UpdateController extends AppCompatActivity {
                         Log.d("DXGOP", "FALLO ::: " + error);
                     }
                 });
-
-
-
-
-                        /*DownloadRequest downloadRequest = new DownloadRequest(downloadUri)
-                                .setRetryPolicy(new DefaultRetryPolicy())
-                                .setDestinationURI(destinationUri).setPriority(DownloadRequest.Priority.HIGH)
-                                .setStatusListener(new DownloadStatusListenerV1() {
-                                    @Override
-                                    public void onDownloadComplete(DownloadRequest downloadRequest) {
-
-                                    }
-
-                                    @Override
-                                    public void onDownloadFailed(DownloadRequest downloadRequest, int i, String s) {
-                                        Log.d("DXGOP", "FALLO ::: " + s);
-                                    }
-
-                                    @Override
-                                    public void onProgress(DownloadRequest downloadRequest, long l, long l1, int i) {
-                                        Log.d("DXGOP", "UNO :: " + l + " DOS ::: " + l1 + " TRES ::: " + i);
-                                    }
-                                });*/
     }
 
     private void installApp() {
 
         File file = new File(this.getExternalCacheDir(), this.app_name);
         Intent promptInstall = new Intent(Intent.ACTION_VIEW)
+                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 .setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
         startActivity(promptInstall);
         finish();

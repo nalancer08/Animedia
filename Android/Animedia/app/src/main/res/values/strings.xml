@@ -1,5 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Google Ads -->
+    <string name="app_uid">ca-app-pub-8714411824921031~4907242753</string>
+    <string name="anime_banner">ca-app-pub-8714411824921031/7303016395</string>
+    <!--            -->
+
     <string name="app_name">Animedia</string>
     <string name="facebook_app_id">904190799756580</string>
     <string name="fb_login_protocol_scheme">fb904190799756580</string>
