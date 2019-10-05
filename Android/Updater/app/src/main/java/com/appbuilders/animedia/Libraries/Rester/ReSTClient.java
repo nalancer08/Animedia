@@ -36,6 +36,7 @@ public class ReSTClient {
         protected final String TAG = "DXGO";
 
         public ReSTWorker(ReSTRequest request, ReSTCallback callback) {
+
             mRequest = request;
             mCallback = callback;
             mResponse = new ReSTResponse();
@@ -46,12 +47,13 @@ public class ReSTClient {
             HttpURLConnection conn = null;
             int ret = 0;
             try {
+
                 String parameters = mRequest.buildQuery(ReSTRequest.REST_REQUEST_QUERY_PARAMETERS);
                 //Log.d("DXGO", "PARAMETROS = " + parameters);
                 String fields = mRequest.buildQuery(ReSTRequest.REST_REQUEST_QUERY_FIELDS);
                 //Log.d("DXGO", "CAMPOS = " + fields);
                 String endpoint = mServiceUrl + mRequest.mEndpoint + (parameters.length() >= 0 ? "?" + parameters : "");
-                Log.d("DXGO", "ENDPOINT = " + endpoint);
+                Log.d("DXGOP", "ENDPOINT = " + endpoint);
                 URL url = new URL(endpoint);
                 if ( url.getProtocol().compareTo("https") == 0 ) {
                     // Use HTTPS
@@ -61,12 +63,13 @@ public class ReSTClient {
                     // Use HTTP
                     conn = (HttpURLConnection) url.openConnection();
                 }
-                conn.setReadTimeout(100000);
-                conn.setConnectTimeout(150000);
+                conn.setReadTimeout(30000);
+                conn.setConnectTimeout(30000);
                 conn.setRequestMethod(mRequest.mMethod);
                 conn.setDoInput(true);
 
                 if ( mRequest.mMethod.compareTo("POST") == 0 ) {
+
                     conn.setDoOutput(true);
                     OutputStream os = conn.getOutputStream();
                     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));

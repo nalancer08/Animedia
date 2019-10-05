@@ -120,7 +120,7 @@ public class SplashView extends SurfaceActivityView {
                         JSONObject data = res.getJSONObject("data");
                         if (data.has("pig_data_app_uuid")) {
 
-                            com.appbuilders.credentials.Credentials.getInstance(context).setAppUuid(data.getString("pig_data_app_uuid"));
+                            //com.appbuilders.credentials.Credentials.getInstance(context).setAppUuid(data.getString("pig_data_app_uuid"));
                             if (data.getString("updater").equals(BuildConfig.VERSION_NAME)) {
                                 String url = data.getString("uri");
                                 goToHelper(url);

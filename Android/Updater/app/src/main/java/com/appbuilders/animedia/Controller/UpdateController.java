@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
+import android.os.StrictMode;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.appbuilders.animedia.BuildConfig;
 import com.appbuilders.animedia.R;
 import com.downloader.Error;
 import com.downloader.OnCancelListener;
@@ -47,6 +50,10 @@ public class UpdateController extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_controller);
+
+        // Disable
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
 
         // Init adds
         MobileAds.initialize(this, "ca-app-pub-8714411824921031~4907242753");
@@ -178,8 +185,15 @@ public class UpdateController extends AppCompatActivity {
     private void installApp() {
 
         File file = new File(this.getExternalCacheDir(), this.app_name);
+
+        //Uri file_uri = FileProvider.getUriForFile(this,
+        //        getApplicationContext().getPackageName() + "com.appbuilders.animedia.provider", file);
+
+        //Uri uri = FileProvider.getUriForFile(UpdateController.this, BuildConfig.APPLICATION_ID + ".provider", file);
+
         Intent promptInstall = new Intent(Intent.ACTION_VIEW)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 .setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
         startActivity(promptInstall);
         finish();
@@ -207,4 +221,6 @@ public class UpdateController extends AppCompatActivity {
         pDialog.setCancelable(false);
         pDialog.show();
     }
+
+    public class GenericFileProvider extends FileProvider {}
 }

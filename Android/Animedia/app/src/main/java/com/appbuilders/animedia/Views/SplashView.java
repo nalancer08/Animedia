@@ -117,7 +117,7 @@ public class SplashView extends SurfaceActivityView {
 
                             String version = data.getString("version");
                             String supported = data.getString("supported_version");
-                            url = data.getString("uri");
+                            //url = data.getString("uri");
 
                             if (supported.equals(BuildConfig.VERSION_NAME)) {
 

@@ -111,7 +111,6 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
 
         // Setting the player
         this.initPlayer();
-
     }
 
     /**
@@ -280,6 +279,9 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
         if (!this.chapter.getUrl().equals("")) {
             if (!this.sourceVideo.equals("")) {
 
+                Log.d("DXGOP", "URL ::::: " + chapter.getUrl());
+                Log.d("DXGOP", "URL SOURCE ::::: " + sourceVideo);
+
                 ReSTClient rest = new ReSTClient(this.chapter.getUrl());
                 ReSTRequest request = new ReSTRequest(ReSTRequest.REST_REQUEST_METHOD_GET, "");
 
@@ -313,6 +315,7 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
                                                     goBack();
                                                 } else {
                                                     url = "http://download" + url;
+                                                    Log.d("DXGOP", "JO WEFDFSC WDXWDSD === " + url);
                                                     setPlayer(url);
                                                 }
                                             }
@@ -490,6 +493,8 @@ public class PlayerController extends AppCompatActivity implements EasyVideoCall
         if (this.ad.isLoaded()) {
             this.setAdFrom(PlayerBack);
             this.ad.show();
+        } else {
+            finish();
         }
     }
 

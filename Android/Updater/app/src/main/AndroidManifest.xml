@@ -25,6 +25,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
 
+        <!--<provider
+            android:name=".Controller.UpdateController$GenericFileProvider"
+            android:authorities="${applicationId}.my.package.name.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider> -->
+
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
 
@@ -42,11 +52,13 @@
         <activity
             android:name=".Controller.HelpController"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
 
         <activity android:name=".Controller.UpdateController"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
     </application>
 
 </manifest>

@@ -302,7 +302,7 @@ public class SingleAnimeView extends SurfaceActivityView {
             JSONArray audios = data.getJSONArray("audios");
 
             /** Version 3.5 **/
-            JSONArray types = data.getJSONArray("medias");
+            //JSONArray types = data.getJSONArray("medias");
 
             // Parsing audios
             for (int k = 0; k < audios.length(); k++) {
@@ -334,7 +334,7 @@ public class SingleAnimeView extends SurfaceActivityView {
             // Creating type panel
             this.typesPanel = new SfPanel().setSize(-100, -20);
             this.detailsPanel.append(this.typesPanel);
-            this.createTypes(types);
+            //this.createTypes(types);
 
             // Creating chapters panel
             if (chapters.length() > 0) {
@@ -470,7 +470,7 @@ public class SingleAnimeView extends SurfaceActivityView {
         this.screen.update(this.context);
 
         // Showing tutorial if it's available
-        this.showTutorial();
+        //this.showTutorial();
     }
 
     private void createTypes(JSONArray types) {

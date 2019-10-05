@@ -2,15 +2,6 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/Users/ercsanchez/.android/build-cache/1bfda46cdd87e2bb488e36383f5d1516dbdb8e9e/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.2"
-        sha1="41a4edf3c43fdbce6eba27da50b17ff9933987f1">
-        <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ce33198861e9ae7da4a0c7ce018700a87e794b99/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="/Users/ercsanchez/.android/build-cache/8b5d9b6adf3efae6802549de74bdc7cf8474b5b7/output/jars/classes.jar"
         jumboMode="false"
@@ -25,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="9e62e753fdb0c3767f23c8a88b67762f64a0e2d9">
+        sha1="c3f0ceb6832be535948bf8ff5bb07efab77352f3">
         <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b66a90e0a4423360ea9c07f308d927d9e6b5d433/classes.dex" />
     </item>
     <item
@@ -45,6 +36,15 @@
         revision="26.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_bb8565d5402cad29bc54df25d395042314f441d7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ercsanchez/.android/build-cache/1bfda46cdd87e2bb488e36383f5d1516dbdb8e9e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="41a4edf3c43fdbce6eba27da50b17ff9933987f1">
+        <dex dex="/Users/ercsanchez/Documents/Erick/Github/Animedia/Android/Updater/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ce33198861e9ae7da4a0c7ce018700a87e794b99/classes.dex" />
     </item>
     <item
         is-multidex="true"
